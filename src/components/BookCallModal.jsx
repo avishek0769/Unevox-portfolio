@@ -67,7 +67,7 @@ export default function BookCallModal({ isOpen, onClose }) {
       >
         {/* Neon accent top border */}
         <div className="h-1.5 w-full bg-gradient-to-r from-volt via-electric-cyan to-electric-purple" />
-        
+
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-slate-border">
           <div className="flex items-center gap-3">
@@ -75,11 +75,11 @@ export default function BookCallModal({ isOpen, onClose }) {
               <Sparkles className="w-5 h-5" />
             </div>
             <div>
-              <h3 className="font-display text-xl font-bold text-slate-100 tracking-tight">Book a Free Call</h3>
+              <h3 className="font-display text-xl font-bold text-black-100 tracking-tight">Book a Free Call</h3>
               <p className="text-xs text-text-secondary">Take your brand to the next league</p>
             </div>
           </div>
-          <button 
+          <button
             onClick={onClose}
             className="p-2 rounded-full text-text-secondary hover:text-white hover:bg-slate-border transition-colors duration-200"
             aria-label="Close modal"
@@ -124,8 +124,8 @@ export default function BookCallModal({ isOpen, onClose }) {
                     required
                     value={formData.fullName}
                     onChange={handleChange}
-                    placeholder="John Doe"
-                    className="w-full px-4 py-3 rounded-xl border border-slate-border bg-slate-dark text-slate-100 placeholder-text-muted focus:outline-none focus:border-volt transition-colors"
+                    placeholder="Rahul Das"
+                    className="w-full px-4 py-3 rounded-xl border border-slate-border bg-slate-dark text-black-100 placeholder-text-muted focus:outline-none focus:border-volt transition-colors"
                   />
                 </div>
 
@@ -139,8 +139,8 @@ export default function BookCallModal({ isOpen, onClose }) {
                     name="companyName"
                     value={formData.companyName}
                     onChange={handleChange}
-                    placeholder="e.g. Acme Corp"
-                    className="w-full px-4 py-3 rounded-xl border border-slate-border bg-slate-dark text-slate-100 placeholder-text-muted focus:outline-none focus:border-volt transition-colors"
+                    placeholder="e.g. Farmigo Corp"
+                    className="w-full px-4 py-3 rounded-xl border border-slate-border bg-slate-dark text-black-100 placeholder-text-muted focus:outline-none focus:border-volt transition-colors"
                   />
                 </div>
 
@@ -155,8 +155,8 @@ export default function BookCallModal({ isOpen, onClose }) {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    placeholder="john@example.com"
-                    className="w-full px-4 py-3 rounded-xl border border-slate-border bg-slate-dark text-slate-100 placeholder-text-muted focus:outline-none focus:border-volt transition-colors"
+                    placeholder="rahul@example.com"
+                    className="w-full px-4 py-3 rounded-xl border border-slate-border bg-slate-dark text-black-100 placeholder-text-muted focus:outline-none focus:border-volt transition-colors"
                   />
                 </div>
 
@@ -172,7 +172,7 @@ export default function BookCallModal({ isOpen, onClose }) {
                     value={formData.phone}
                     onChange={handleChange}
                     placeholder="+91 XXXXX XXXXX"
-                    className="w-full px-4 py-3 rounded-xl border border-slate-border bg-slate-dark text-slate-100 placeholder-text-muted focus:outline-none focus:border-volt transition-colors"
+                    className="w-full px-4 py-3 rounded-xl border border-slate-border bg-slate-dark text-black-100 placeholder-text-muted focus:outline-none focus:border-volt transition-colors"
                   />
                 </div>
 
@@ -186,11 +186,11 @@ export default function BookCallModal({ isOpen, onClose }) {
                     required
                     value={formData.service}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl border border-slate-border bg-slate-dark text-slate-100 focus:outline-none focus:border-volt transition-colors appearance-none cursor-pointer"
+                    className="w-full px-4 py-3 rounded-xl border border-slate-border bg-slate-dark text-black-100 focus:outline-none focus:border-volt transition-colors appearance-none cursor-pointer"
                   >
                     <option value="" disabled className="text-text-muted">Select a service</option>
                     {servicesList.map((service, index) => (
-                      <option key={index} value={service} className="bg-slate-dark text-slate-100">
+                      <option key={index} value={service} className="bg-slate-dark text-black-100">
                         {service}
                       </option>
                     ))}
@@ -208,7 +208,7 @@ export default function BookCallModal({ isOpen, onClose }) {
                     required
                     value={formData.preferredDate}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl border border-slate-border bg-slate-dark text-slate-100 focus:outline-none focus:border-volt transition-colors cursor-pointer"
+                    className="w-full px-4 py-3 rounded-xl border border-slate-border bg-slate-dark text-black-100 focus:outline-none focus:border-volt transition-colors cursor-pointer"
                   />
                 </div>
 
@@ -223,7 +223,7 @@ export default function BookCallModal({ isOpen, onClose }) {
                     required
                     value={formData.preferredTime}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl border border-slate-border bg-slate-dark text-slate-100 focus:outline-none focus:border-volt transition-colors cursor-pointer"
+                    className="w-full px-4 py-3 rounded-xl border border-slate-border bg-slate-dark text-black-100 focus:outline-none focus:border-volt transition-colors cursor-pointer"
                   />
                 </div>
 
@@ -238,7 +238,7 @@ export default function BookCallModal({ isOpen, onClose }) {
                     value={formData.message}
                     onChange={handleChange}
                     placeholder="Tell us briefly about your goals..."
-                    className="w-full px-4 py-3 rounded-xl border border-slate-border bg-slate-dark text-slate-100 placeholder-text-muted focus:outline-none focus:border-volt transition-colors resize-none"
+                    className="w-full px-4 py-3 rounded-xl border border-slate-border bg-slate-dark text-black-100 placeholder-text-muted focus:outline-none focus:border-volt transition-colors resize-none"
                   ></textarea>
                 </div>
               </div>
@@ -248,7 +248,7 @@ export default function BookCallModal({ isOpen, onClose }) {
                 <button
                   type="button"
                   onClick={onClose}
-                  className="px-6 py-3 rounded-xl font-display font-medium text-slate-300 hover:text-white hover:bg-slate-border transition-all duration-200"
+                  className="px-6 py-3 rounded-xl font-display font-medium text-black-300 hover:text-white hover:bg-slate-border transition-all duration-200"
                 >
                   Cancel
                 </button>
