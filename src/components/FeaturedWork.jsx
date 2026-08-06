@@ -20,6 +20,14 @@ const projects = [
     image: 'https://images.unsplash.com/photo-1531415080290-bc9b8a3423b0?auto=format&fit=crop&w=800&q=80',
   },
   {
+    id: 'behala-classical-festival',
+    clientName: 'Behala Classical Festival',
+    category: 'Cultural Promotion & Media',
+    description:
+      "Digital storytelling and live event coverage for the prestigious Behala Classical Festival.",
+    image: 'https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=800&q=80',
+  },
+  {
     id: 'cfl-2025',
     clientName: 'CFL 2025',
     category: 'Digital Promotion',
@@ -50,21 +58,20 @@ const projects = [
     description:
       'Strategic graphics, publishing schedules, and promotional content for the athletic club.',
     image: 'https://images.unsplash.com/photo-1431324155629-1a6edd1dec1d?auto=format&fit=crop&w=800&q=80',
+    wide: true, // spans 2 columns to balance the 7-item grid
   },
 ];
 
 function ProjectCard({ project, index }) {
   return (
     <div
-      className={`group rounded-3xl overflow-hidden bg-white border border-[#e2dbd3] hover:border-[#e95f0c] hover:shadow-xl transition-all duration-300 flex flex-col ${
-        project.wide ? 'md:col-span-2' : ''
-      }`}
+      className={`group rounded-3xl overflow-hidden bg-white border border-[#e2dbd3] hover:border-[#e95f0c] hover:shadow-xl transition-all duration-300 flex flex-col ${project.wide ? 'md:col-span-2' : ''
+        }`}
     >
       {/* Image */}
       <div
-        className={`relative overflow-hidden bg-[#f1ede8] ${
-          project.wide ? 'aspect-[21/9]' : 'aspect-[16/10]'
-        }`}
+        className={`relative overflow-hidden bg-[#f1ede8] ${project.wide ? 'aspect-[21/9]' : 'aspect-[16/10]'
+          }`}
       >
         <div className="absolute inset-0 bg-gradient-to-t from-[#072541]/60 via-transparent to-transparent z-10" />
         <img

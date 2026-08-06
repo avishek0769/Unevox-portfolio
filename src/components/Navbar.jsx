@@ -14,13 +14,13 @@ export default function Navbar({ onBookCall }) {
   }, []);
 
   const navLinks = [
-    { name: 'Home',         path: '/' },
-    { name: 'About',        path: '/about' },
-    { name: 'Services',     path: '/services' },
-    { name: 'Portfolio',    path: '/portfolio' },
+    { name: 'Home', path: '/' },
+    { name: 'About', path: '/about' },
+    { name: 'Services', path: '/services' },
+    { name: 'Portfolio', path: '/portfolio' },
     { name: 'Achievements', path: '/achievements' },
-    { name: 'Blogs',        path: '/blogs' },
-    { name: 'Contact',      path: '/contact' },
+    { name: 'Blogs', path: '/blogs' },
+    { name: 'Contact', path: '/contact' },
   ];
 
   const isActive = (path) =>
@@ -28,11 +28,7 @@ export default function Navbar({ onBookCall }) {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-40 transition-all duration-300 ${
-        scrolled
-          ? 'py-3 bg-white/90 backdrop-blur-md border-b border-[#e2dbd3] shadow-sm'
-          : 'py-5 bg-transparent'
-      }`}
+      className="fixed top-0 left-0 w-full z-40 bg-white border-b border-[#e2dbd3] shadow-sm py-3"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-8 flex items-center justify-between">
         {/* Logo */}
@@ -40,7 +36,7 @@ export default function Navbar({ onBookCall }) {
           <img
             src="/unevox_logo.png"
             alt="Unevox Logo"
-            className="h-10 w-auto object-contain"
+            className="h-12 w-auto object-contain"
           />
         </Link>
 
@@ -50,11 +46,10 @@ export default function Navbar({ onBookCall }) {
             <Link
               key={link.name}
               to={link.path}
-              className={`font-display text-sm font-semibold tracking-wide transition-colors duration-200 ${
-                isActive(link.path)
-                  ? 'text-primary border-b-2 border-primary pb-0.5'
-                  : 'text-[#072541] hover:text-primary'
-              }`}
+              className={`font-display text-sm font-semibold tracking-wide transition-colors duration-200 ${isActive(link.path)
+                ? 'text-primary border-b-2 border-primary pb-0.5'
+                : 'text-[#072541] hover:text-primary'
+                }`}
             >
               {link.name}
             </Link>
@@ -93,9 +88,8 @@ export default function Navbar({ onBookCall }) {
 
       {/* Mobile drawer */}
       <div
-        className={`fixed inset-y-0 right-0 w-[280px] z-50 bg-white border-l border-[#e2dbd3] shadow-2xl p-6 transition-transform duration-300 lg:hidden ${
-          isOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
+        className={`fixed inset-y-0 right-0 w-[280px] z-50 bg-white border-l border-[#e2dbd3] shadow-2xl p-6 transition-transform duration-300 lg:hidden ${isOpen ? 'translate-x-0' : 'translate-x-full'
+          }`}
       >
         <div className="flex items-center justify-between mb-8 pb-4 border-b border-[#e2dbd3]">
           <img src="/unevox_logo.png" alt="Unevox" className="h-9 w-auto" />
@@ -113,11 +107,10 @@ export default function Navbar({ onBookCall }) {
               key={link.name}
               to={link.path}
               onClick={() => setIsOpen(false)}
-              className={`font-display text-base font-semibold transition-all py-1 ${
-                isActive(link.path)
-                  ? 'text-primary border-l-2 border-primary pl-3'
-                  : 'text-secondary hover:text-primary hover:pl-2'
-              }`}
+              className={`font-display text-base font-semibold transition-all py-1 ${isActive(link.path)
+                ? 'text-primary border-l-2 border-primary pl-3'
+                : 'text-secondary hover:text-primary hover:pl-2'
+                }`}
             >
               {link.name}
             </Link>

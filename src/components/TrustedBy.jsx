@@ -33,12 +33,12 @@ export default function TrustedBy() {
         </div>
 
         {/* Logo grid */}
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-6">
+        <div className="flex flex-wrap justify-center gap-6">
           {logos.map((logo) => (
             <div
               key={logo.name}
               title={logo.name}
-              className="flex flex-col items-center justify-center gap-3 p-4 rounded-2xl border border-[#e2dbd3] bg-[#f8f5f2] hover:border-[#e95f0c] hover:shadow-md transition-all duration-250 group"
+              className="w-[calc(50%-12px)] sm:w-[calc(33.33%-16px)] md:w-[calc(25%-18px)] lg:w-[calc(16.66%-20px)] flex flex-col items-center justify-center gap-3 p-4 rounded-2xl border border-[#e2dbd3] bg-[#f8f5f2] hover:border-[#e95f0c] hover:shadow-md transition-all duration-250 group"
             >
               <img
                 src={logo.file}

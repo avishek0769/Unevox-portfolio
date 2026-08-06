@@ -3,19 +3,19 @@ import { Calendar, ArrowRight } from 'lucide-react';
 
 const slides = [
   {
-    url: 'https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=1600&q=80',
+    url: 'https://images.unsplash.com/photo-1626248801379-51a0748a5f96?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     alt: 'Football stadium aerial',
   },
   {
-    url: 'https://images.unsplash.com/photo-1531415080290-bc9b8a3423b0?auto=format&fit=crop&w=1600&q=80',
+    url: 'https://images.unsplash.com/photo-1766525133589-e3b4b090c04b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     alt: 'Cricket stadium lights',
   },
   {
-    url: 'https://images.unsplash.com/photo-1540747737956-378724044602?auto=format&fit=crop&w=1600&q=80',
+    url: 'https://images.unsplash.com/photo-1777529565155-049acfe14129?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     alt: 'Stadium overhead view',
   },
   {
-    url: 'https://images.unsplash.com/photo-1579546929518-9e396f3cc809?auto=format&fit=crop&w=1600&q=80',
+    url: 'https://images.unsplash.com/photo-1766525133589-e3b4b090c04b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     alt: 'Neon sports turf',
   },
 ];
@@ -36,15 +36,14 @@ export default function Hero({ onBookCall }) {
   };
 
   return (
-    <section className="relative min-h-[92vh] flex items-center overflow-hidden">
+    <section className="relative min-h-[85vh] flex items-center overflow-hidden mt-[64px]">
       {/* ── Background carousel ─────────────────────────────────── */}
       <div className="absolute inset-0 z-0">
         {slides.map((slide, idx) => (
           <div
             key={idx}
-            className={`absolute inset-0 transition-opacity duration-1000 ${
-              idx === current ? 'opacity-100' : 'opacity-0'
-            }`}
+            className={`absolute inset-0 transition-opacity duration-1000 ${idx === current ? 'opacity-100' : 'opacity-0'
+              }`}
           >
             <img
               src={slide.url}
@@ -57,12 +56,10 @@ export default function Hero({ onBookCall }) {
 
         {/* Dark overlay so text stays readable */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#072541]/85 via-[#072541]/60 to-[#072541]/30" />
-        {/* Bottom fade */}
-        <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-[#f8f5f2] to-transparent" />
       </div>
 
       {/* ── Content ─────────────────────────────────────────────── */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 w-full pt-28 pb-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 w-full pt-20 pb-20">
         <div className="max-w-3xl space-y-8">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/30 bg-white/10 backdrop-blur-sm text-white font-display text-sm font-bold uppercase tracking-wider">
@@ -108,9 +105,9 @@ export default function Hero({ onBookCall }) {
           {/* Quick stats row */}
           <div className="flex items-center gap-8 pt-4">
             {[
-              { value: '2M+',   label: 'Total Views' },
-              { value: '10L+',  label: 'Interactions' },
-              { value: '800+',  label: 'Media Pieces' },
+              { value: '2M+', label: 'Total Views' },
+              { value: '10L+', label: 'Interactions' },
+              { value: '800+', label: 'Media Pieces' },
             ].map((stat) => (
               <div key={stat.label}>
                 <p className="font-display text-2xl font-bold text-white">{stat.value}</p>
@@ -129,11 +126,10 @@ export default function Hero({ onBookCall }) {
           <button
             key={idx}
             onClick={() => setCurrent(idx)}
-            className={`rounded-full transition-all duration-300 cursor-pointer ${
-              idx === current
-                ? 'w-6 h-2 bg-[#e95f0c]'
-                : 'w-2 h-2 bg-white/40 hover:bg-white/70'
-            }`}
+            className={`rounded-full transition-all duration-300 cursor-pointer ${idx === current
+              ? 'w-6 h-2 bg-[#e95f0c]'
+              : 'w-2 h-2 bg-white/40 hover:bg-white/70'
+              }`}
             aria-label={`Go to slide ${idx + 1}`}
           />
         ))}
