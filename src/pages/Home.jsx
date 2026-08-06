@@ -7,6 +7,7 @@ import ServicesPreview from '../components/ServicesPreview';
 import SportsShowreel from '../components/SportsShowreel';
 import PortfolioPreview from '../components/PortfolioPreview';
 import AboutPreview from '../components/AboutPreview';
+import Testimonials from '../components/Testimonials';
 import LatestBlogs from '../components/LatestBlogs';
 import ContactCTA from '../components/ContactCTA';
 
@@ -21,6 +22,7 @@ export default function Home({ onBookCall }) {
       <PortfolioPreview />
       <ServicesPreview />
       <AboutPreview />
+      <Testimonials />
       <LatestBlogs />
       <ContactCTA onBookCall={onBookCall} />
     </div>
