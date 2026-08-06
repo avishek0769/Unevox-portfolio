@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import BookCallModal from './components/BookCallModal';
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import About from './pages/About';
 
 // Scroll to top helper on navigation
 function ScrollToTop() {
@@ -62,7 +63,7 @@ function AppContent() {
           <Route path="/" element={<Home onBookCall={handleOpenModal} />} />
 
           {/* Temporary placeholder pages */}
-          <Route path="/about" element={<ComingSoonPlaceholder title="About" />} />
+          <Route path="/about" element={<About title="About" />} />
           <Route path="/services" element={<ComingSoonPlaceholder title="Services" />} />
           <Route path="/portfolio" element={<ComingSoonPlaceholder title="Portfolio" />} />
           <Route path="/achievements" element={<ComingSoonPlaceholder title="Achievements" />} />
