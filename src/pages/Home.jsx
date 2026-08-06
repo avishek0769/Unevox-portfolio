@@ -13,34 +13,15 @@ import ContactCTA from '../components/ContactCTA';
 export default function Home({ onBookCall }) {
   return (
     <div className="relative w-full">
-      {/* 1. Hero Section */}
       <Hero onBookCall={onBookCall} />
-
-      {/* 2. Trusted By Client Marquee */}
       <TrustedBy />
-
-      {/* 3. Featured Work Grid */}
       <FeaturedWork />
-
-      {/* 4. Statistics Index */}
-      <Statistics />
-
-      {/* 5. Services Preview Index */}
-      <ServicesPreview />
-
-      {/* 6. Sports Showreel Theater */}
       <SportsShowreel />
-
-      {/* 7. Portfolio Preview Tabbed Filters */}
+      <Statistics />
+      <ServicesPreview />
       <PortfolioPreview />
-
-      {/* 8. About Preview Grid */}
       <AboutPreview />
-
-      {/* 9. Latest Blogs Cards */}
       <LatestBlogs />
-
-      {/* 10. Final Call to Action Consultation Banner */}
       <ContactCTA onBookCall={onBookCall} />
     </div>
   );

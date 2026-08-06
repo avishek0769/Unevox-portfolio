@@ -1,131 +1,201 @@
-import React, { useState } from 'react';
-import { Play, Film } from 'lucide-react';
+import React, { useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Play, ArrowUpRight, Film, ChevronLeft, ChevronRight } from 'lucide-react';
 
-const clips = [
+const reelsData = [
   {
-    id: 'clip-1',
-    title: 'Durand Cup 2025 Matchday Promo',
-    duration: '1:45',
-    category: 'Sports Hype',
-    thumbnail: 'https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=1200&q=80',
-    views: '45K+ Views',
+    id: 'reel-1',
+    title: 'Behala SS Sporting Club Promo',
+    clientName: 'Behala SS Sporting Club',
+    category: 'Club Hype',
+    videoUrl: '/reels/potrait-reel.mp4',
+    type: 'portrait',
   },
   {
-    id: 'clip-2',
-    title: 'Kolkata Knight Riders Fan Walk',
-    duration: '0:58',
-    category: 'IPL Fan Activation',
-    thumbnail: 'https://images.unsplash.com/photo-1531415080290-bc9b8a3423b0?auto=format&fit=crop&w=1200&q=80',
-    views: '120K+ Views',
+    id: 'reel-2',
+    title: 'Durand Cup Matchday Hype',
+    clientName: 'Durand Cup',
+    category: 'Tournament Promo',
+    videoUrl: '/reels/square-type-reel.mp4',
+    type: 'square',
   },
   {
-    id: 'clip-3',
-    title: 'CFL Official Anthem',
-    duration: '2:15',
-    category: 'Official Production',
-    thumbnail: 'https://images.unsplash.com/photo-1579546929518-9e396f3cc809?auto=format&fit=crop&w=1200&q=80',
-    views: '88K+ Views',
+    id: 'reel-3',
+    title: 'Kolkata Knight Riders Fan Activation',
+    clientName: 'Kolkata Knight Riders',
+    category: 'Fan Engagement',
+    videoUrl: '/reels/potrait-reel.mp4',
+    type: 'portrait',
   },
   {
-    id: 'clip-4',
-    title: 'Behala Cup Finals Opening Reel',
-    duration: '1:12',
-    category: 'Local Cup',
-    thumbnail: 'https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=1200&q=80',
-    views: '32K+ Views',
+    id: 'reel-4',
+    title: 'Calcutta Football League Anthem',
+    clientName: 'CFL 2025',
+    category: 'League Anthem',
+    videoUrl: '/reels/square-type-reel.mp4',
+    type: 'square',
+  },
+  {
+    id: 'reel-5',
+    title: 'Behala Classical Festival Highlight',
+    clientName: 'Behala Classical Festival',
+    category: 'Cultural Event',
+    videoUrl: '/reels/potrait-reel.mp4',
+    type: 'portrait',
+  },
+  {
+    id: 'reel-6',
+    title: 'Behala Cup Official Highlights',
+    clientName: 'Behala Cup',
+    category: 'Finals Coverage',
+    videoUrl: '/reels/square-type-reel.mp4',
+    type: 'square',
   },
 ];
 
-export default function SportsShowreel() {
-  const [activeClip, setActiveClip] = useState(clips[0]);
-  const [playing, setPlaying] = useState(false);
+function ReelCard({ reel }) {
+  const videoRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const handleMouseEnter = () => {
+    if (videoRef.current) {
+      videoRef.current.play()
+        .then(() => setIsPlaying(true))
+        .catch((err) => console.log('Autoplay blocked:', err));
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (videoRef.current) {
+      videoRef.current.pause();
+      setIsPlaying(false);
+    }
+  };
 
   return (
-    <section className="py-24 bg-[#f8f5f2] border-y border-[#e2dbd3]">
-      <div className="max-w-7xl mx-auto px-6 md:px-8">
-        <div className="mb-12">
-          <span className="section-badge mb-3 inline-flex">Media Showreel</span>
-          <h2 className="font-display text-4xl sm:text-5xl font-bold tracking-tight text-[#072541]">
-            Sports Showreel
-          </h2>
-          <p className="text-[#4a5568] text-base mt-3 max-w-xl">
-            High-definition, high-impact reels capturing game action, fan interactions, and brand integrations.
-          </p>
+    <div
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      className={`relative shrink-0 rounded-3xl overflow-hidden border border-[#e2dbd3] bg-black hover:border-[#e95f0c] hover:shadow-2xl transition-all duration-300 group cursor-pointer ${
+        reel.type === 'portrait' ? 'w-64 sm:w-72 aspect-[9/16]' : 'w-80 sm:w-96 aspect-square'
+      }`}
+    >
+      {/* Video element */}
+      <video
+        ref={videoRef}
+        src={reel.videoUrl}
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover opacity-75 group-hover:opacity-100 transition-opacity duration-300"
+      />
+
+      {/* Static overlay details */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent z-10 flex flex-col justify-between p-5">
+        {/* Top Details */}
+        <div className="flex justify-between items-start">
+          <span className="px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm text-xs font-display font-bold text-white tracking-wider uppercase">
+            {reel.category}
+          </span>
+          <span className="px-2 py-0.5 rounded bg-black/40 text-[10px] font-mono text-white/60 uppercase">
+            {reel.type}
+          </span>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          {/* Player */}
-          <div className="lg:col-span-8">
-            <div className="relative aspect-video rounded-2xl overflow-hidden bg-[#072541] shadow-xl">
-              <img
-                src={activeClip.thumbnail}
-                alt={activeClip.title}
-                className={`w-full h-full object-cover transition-all duration-700 ${playing ? 'scale-105 brightness-75' : ''}`}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#072541]/80 via-[#072541]/20 to-[#072541]/40 flex flex-col justify-between p-6">
-                <div className="flex justify-between items-start">
-                  <span className="px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm text-sm font-display font-bold text-white tracking-wider">
-                    {activeClip.category}
-                  </span>
-                  <span className="text-sm font-semibold text-white/80">{activeClip.views}</span>
-                </div>
-                {/* Play button */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <button
-                    onClick={() => setPlaying(!playing)}
-                    className="w-16 h-16 rounded-full bg-[#e95f0c] text-white flex items-center justify-center hover:scale-110 active:scale-95 transition-transform shadow-xl shadow-[#e95f0c]/40 cursor-pointer"
-                  >
-                    {playing ? (
-                      <div className="flex gap-1.5">
-                        <span className="w-1.5 h-6 bg-white rounded" />
-                        <span className="w-1.5 h-6 bg-white rounded" />
-                      </div>
-                    ) : (
-                      <Play className="w-7 h-7 fill-current translate-x-0.5" />
-                    )}
-                  </button>
-                </div>
-                <div>
-                  <p className="font-display font-bold text-lg text-white">{activeClip.title}</p>
-                  <p className="text-sm text-white/60 font-mono mt-1">Duration: {activeClip.duration}</p>
-                </div>
-              </div>
-            </div>
+        {/* Play indicator */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div
+            className={`w-14 h-14 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white transition-all duration-300 ${
+              isPlaying
+                ? 'opacity-0 scale-75'
+                : 'opacity-100 scale-100 group-hover:scale-110 group-hover:bg-[#e95f0c] group-hover:border-[#e95f0c]'
+            }`}
+          >
+            <Play className="w-5 h-5 fill-current translate-x-0.5" />
           </div>
+        </div>
 
-          {/* Playlist */}
-          <div className="lg:col-span-4 flex flex-col gap-4">
-            <p className="text-sm font-display font-bold uppercase tracking-widest text-[#4a5568] border-b border-[#e2dbd3] pb-3 flex items-center gap-2">
-              <Film className="w-4 h-4 text-[#e95f0c]" /> Playlist
+        {/* Bottom Details */}
+        <div className="space-y-1">
+          <h3 className="font-display font-bold text-base sm:text-lg text-white group-hover:text-[#e95f0c] transition-colors leading-tight">
+            {reel.title}
+          </h3>
+          <p className="text-xs sm:text-sm text-white/60 font-semibold">
+            {reel.clientName}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default function SportsShowreel() {
+  const scrollRef = useRef(null);
+
+  const scroll = (direction) => {
+    if (scrollRef.current) {
+      const { scrollLeft, clientWidth } = scrollRef.current;
+      const offset = direction === 'left' ? -clientWidth * 0.75 : clientWidth * 0.75;
+      scrollRef.current.scrollTo({ left: scrollLeft + offset, behavior: 'smooth' });
+    }
+  };
+
+  return (
+    <section className="py-24 bg-[#f8f5f2] border-y border-[#e2dbd3] overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 md:px-8">
+        {/* Header section */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+          <div>
+            <span className="section-badge mb-3 inline-flex">
+              <Film className="w-3.5 h-3.5 mr-1" /> Shorts & Reels
+            </span>
+            <h2 className="font-display text-4xl sm:text-5xl font-bold tracking-tight text-[#072541]">
+              Media Showreel
+            </h2>
+            <p className="text-[#4a5568] text-base mt-3 max-w-xl">
+              Hover over any video card to play the social media reel. Scroll horizontally to view all productions.
             </p>
-            {clips.map((clip) => {
-              const isActive = clip.id === activeClip.id;
-              return (
-                <button
-                  key={clip.id}
-                  onClick={() => { setActiveClip(clip); setPlaying(false); }}
-                  className={`text-left p-4 rounded-xl border transition-all duration-200 flex items-center gap-4 cursor-pointer ${
-                    isActive
-                      ? 'border-[#e95f0c] bg-[#e95f0c]/5 shadow-sm'
-                      : 'border-[#e2dbd3] bg-white hover:border-[#e95f0c]/50'
-                  }`}
-                >
-                  <div className="relative w-16 h-14 rounded-lg overflow-hidden shrink-0">
-                    <img src={clip.thumbnail} alt={clip.title} className="w-full h-full object-cover" />
-                    <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                      <Play className={`w-4 h-4 ${isActive ? 'text-[#e95f0c] fill-current' : 'text-white'}`} />
-                    </div>
-                  </div>
-                  <div className="min-w-0">
-                    <p className={`text-sm font-display font-bold truncate ${isActive ? 'text-[#e95f0c]' : 'text-[#072541]'}`}>
-                      {clip.title}
-                    </p>
-                    <p className="text-sm text-[#9ca3af] font-mono mt-0.5">{clip.duration}</p>
-                  </div>
-                </button>
-              );
-            })}
           </div>
+          
+          <div className="flex items-center gap-4 shrink-0">
+            {/* Scroll navigation arrows */}
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => scroll('left')}
+                className="w-10 h-10 rounded-full border border-[#e2dbd3] bg-white hover:bg-[#e95f0c] hover:border-[#e95f0c] hover:text-white flex items-center justify-center transition-all duration-200 cursor-pointer text-[#072541]"
+                aria-label="Scroll left"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+              <button
+                onClick={() => scroll('right')}
+                className="w-10 h-10 rounded-full border border-[#e2dbd3] bg-white hover:bg-[#e95f0c] hover:border-[#e95f0c] hover:text-white flex items-center justify-center transition-all duration-200 cursor-pointer text-[#072541]"
+                aria-label="Scroll right"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            </div>
+
+            <Link
+              to="/portfolio"
+              className="inline-flex items-center gap-2 font-display font-bold text-base text-[#e95f0c] hover:underline"
+            >
+              See Portfolio <ArrowUpRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+
+        {/* Scrollable container area */}
+        <div
+          ref={scrollRef}
+          className="flex items-center gap-6 overflow-x-auto pb-8 scroll-smooth scrollbar-none snap-x snap-mandatory"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        >
+          {reelsData.map((reel) => (
+            <div key={reel.id} className="snap-start">
+              <ReelCard reel={reel} />
+            </div>
+          ))}
         </div>
       </div>
     </section>
