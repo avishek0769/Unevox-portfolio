@@ -19,6 +19,8 @@ const logos = [
 ];
 
 export default function TrustedBy() {
+  const [activeLogo, setActiveLogo] = React.useState(null);
+
   return (
     <section className="py-20 bg-white border-y border-[#e2dbd3]">
       <div className="max-w-7xl mx-auto px-6 md:px-8">
@@ -34,23 +36,41 @@ export default function TrustedBy() {
 
         {/* Logo grid */}
         <div className="flex flex-wrap justify-center gap-6">
-          {logos.map((logo) => (
-            <div
-              key={logo.name}
-              title={logo.name}
-              className="w-[calc(50%-12px)] sm:w-[calc(33.33%-16px)] md:w-[calc(25%-18px)] lg:w-[calc(16.66%-20px)] flex flex-col items-center justify-center gap-3 p-4 rounded-2xl border border-[#e2dbd3] bg-[#f8f5f2] hover:border-[#e95f0c] hover:shadow-md transition-all duration-250 group"
-            >
-              <img
-                src={logo.file}
-                alt={logo.name}
-                className="h-14 w-full object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
-                loading="lazy"
-              />
-              <span className="text-center text-sm font-semibold text-[#4a5568] group-hover:text-[#e95f0c] transition-colors leading-tight line-clamp-2">
-                {logo.name}
-              </span>
-            </div>
-          ))}
+          {logos.map((logo) => {
+            const isActive = activeLogo === logo.name;
+            return (
+              <div
+                key={logo.name}
+                title={logo.name}
+                onTouchStart={() => setActiveLogo(logo.name)}
+                onTouchEnd={() => setActiveLogo(null)}
+                onTouchCancel={() => setActiveLogo(null)}
+                className={`w-[calc(50%-12px)] sm:w-[calc(33.33%-16px)] md:w-[calc(25%-18px)] lg:w-[calc(16.66%-20px)] flex flex-col items-center justify-center gap-3 p-4 rounded-2xl border bg-[#f8f5f2] transition-all duration-250 group ${
+                  isActive
+                    ? 'border-[#e95f0c] shadow-md'
+                    : 'border-[#e2dbd3] hover:border-[#e95f0c] hover:shadow-md'
+                }`}
+              >
+                <img
+                  src={logo.file}
+                  alt={logo.name}
+                  className={`h-14 w-full object-contain transition-all duration-300 ${
+                    isActive
+                      ? 'grayscale-0'
+                      : 'grayscale group-hover:grayscale-0'
+                  }`}
+                  loading="lazy"
+                />
+                <span className={`text-center text-sm font-semibold transition-colors leading-tight line-clamp-2 ${
+                  isActive
+                    ? 'text-[#e95f0c]'
+                    : 'text-[#4a5568] group-hover:text-[#e95f0c]'
+                }`}>
+                  {logo.name}
+                </span>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
