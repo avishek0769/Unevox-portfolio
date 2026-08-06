@@ -5,42 +5,36 @@ import { Play, ArrowUpRight, Film, ChevronLeft, ChevronRight } from 'lucide-reac
 const reelsData = [
   {
     id: 'reel-1',
-    title: 'Behala SS Sporting Club Promo',
     clientName: 'Behala SS Sporting Club',
     videoUrl: '/reels/potrait-reel.mp4',
     type: 'portrait',
   },
   {
     id: 'reel-3',
-    title: 'Kolkata Knight Riders Fan Activation',
     clientName: 'Kolkata Knight Riders',
     videoUrl: '/reels/potrait-reel.mp4',
     type: 'portrait',
   },
   {
     id: 'reel-2',
-    title: 'Durand Cup Matchday Hype',
     clientName: 'Durand Cup',
     videoUrl: '/reels/square-type-reel.mp4',
     type: 'square',
   },
   {
     id: 'reel-5',
-    title: 'Behala Classical Festival Highlight',
     clientName: 'Behala Classical Festival',
     videoUrl: '/reels/potrait-reel.mp4',
     type: 'portrait',
   },
   {
     id: 'reel-4',
-    title: 'Calcutta Football League Anthem',
     clientName: 'CFL 2025',
     videoUrl: '/reels/square-type-reel.mp4',
     type: 'square',
   },
   {
     id: 'reel-6',
-    title: 'Behala Cup Official Highlights',
     clientName: 'Behala Cup',
     videoUrl: '/reels/square-type-reel.mp4',
     type: 'square',
@@ -66,27 +60,29 @@ function ReelCard({ reel }) {
     }
   };
 
+  const isPortrait = reel.type === 'portrait' || reel.type === 'potrait';
+
   return (
     <div
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className={`relative shrink-0 rounded-3xl overflow-hidden border border-[#e2dbd3] bg-black hover:border-[#e95f0c] hover:shadow-2xl transition-all duration-300 group cursor-pointer ${reel.type === 'portrait' ? 'w-64 sm:w-72 aspect-[9/16]' : 'w-80 sm:w-96 aspect-square'
+      className={`flex flex-col shrink-0 group cursor-pointer ${isPortrait ? 'w-64 sm:w-72' : 'w-80 sm:w-96'
         }`}
     >
-      {/* Video element */}
-      <video
-        ref={videoRef}
-        src={reel.videoUrl}
-        muted
-        loop
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover opacity-75 group-hover:opacity-100 transition-opacity duration-300"
-      />
-
-      {/* Static overlay details */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent z-10 flex flex-col justify-between p-5">
-        {/* Top Details */}
-        <div className="flex justify-between items-start"></div>
+      {/* Video Container */}
+      <div
+        className={`relative w-full rounded-3xl overflow-hidden border border-[#e2dbd3] bg-black group-hover:border-[#e95f0c] group-hover:shadow-2xl transition-all duration-300 ${isPortrait ? 'aspect-[3/4]' : 'aspect-square'
+          }`}
+      >
+        {/* Video element */}
+        <video
+          ref={videoRef}
+          src={reel.videoUrl}
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover opacity-75 group-hover:opacity-100 transition-opacity duration-300"
+        />
 
         {/* Play indicator */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
@@ -99,16 +95,13 @@ function ReelCard({ reel }) {
             <Play className="w-5 h-5 fill-current translate-x-0.5" />
           </div>
         </div>
+      </div>
 
-        {/* Bottom Details */}
-        <div className="space-y-1">
-          <h3 className="font-display font-bold text-base sm:text-lg text-white group-hover:text-[#e95f0c] transition-colors leading-tight">
-            {reel.title}
-          </h3>
-          <p className="text-xs sm:text-sm text-white/60 font-semibold">
-            {reel.clientName}
-          </p>
-        </div>
+      {/* Details below video component */}
+      <div className="mt-4 px-1">
+        <h3 className="font-display font-bold text-base sm:text-lg text-[#072541] group-hover:text-[#e95f0c] transition-colors leading-tight">
+          {reel.clientName}
+        </h3>
       </div>
     </div>
   );
