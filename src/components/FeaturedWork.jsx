@@ -7,58 +7,58 @@ const projects = [
     clientName: 'Durand Cup',
     category: 'Sports Media & Coverage',
     description:
-      "Official visual coverage, promotional reels, and live social media management for Asia's oldest football tournament.",
-    image: 'https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=1200&q=80',
-    wide: true, // spans 2 columns
+      'Captured match highlights, behind-the-scenes moments, and social media content throughout the tournament.',
+    image: 'https://images.unsplash.com/photo-1766525133589-e3b4b090c04b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    wide: true,
   },
   {
     id: 'kkr',
     clientName: 'Kolkata Knight Riders',
     category: 'Brand Activation & Media',
     description:
-      'High-impact fan engagement reels and coverage during the IPL season in Kolkata.',
-    image: 'https://images.unsplash.com/photo-1531415080290-bc9b8a3423b0?auto=format&fit=crop&w=800&q=80',
+      'Produced off-season reels and photography to keep fans engaged beyond the tournament.',
+    image: 'https://images.mid-day.com/images/images/2024/apr/KKR-win_d.jpg',
   },
   {
     id: 'behala-classical-festival',
     clientName: 'Behala Classical Festival',
     category: 'Cultural Promotion & Media',
     description:
-      "Digital storytelling and live event coverage for the prestigious Behala Classical Festival.",
-    image: 'https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=800&q=80',
+      'Delivered event coverage, artist stories, and social media content for the cultural festival.',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzhfgg-UepyEtpwOHi6JWSysveqBNjAsDzXWlKXDNjQA&s',
   },
   {
     id: 'cfl-2025',
     clientName: 'CFL 2025',
     category: 'Digital Promotion',
     description:
-      'Comprehensive digital storytelling and match-day graphics for the historic Calcutta Football League.',
-    image: 'https://images.unsplash.com/photo-1579546929518-9e396f3cc809?auto=format&fit=crop&w=800&q=80',
+      'Designed match-day graphics, score updates, and motion visuals for the football league.',
+    image: 'https://images.unsplash.com/photo-1602674809970-89073c530b0a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
   {
     id: 'cfl-2024',
     clientName: 'CFL 2024',
-    category: 'Video Production',
+    category: 'Digital Promotion',
     description:
-      'Produced 100+ match-day reels, behind-the-scenes content, and brand promotions.',
-    image: 'https://images.unsplash.com/photo-1540747737956-378724044602?auto=format&fit=crop&w=800&q=80',
+      'Created premium match-day graphics and digital content to elevate the league’s online presence.',
+    image: 'https://images.unsplash.com/photo-1715277331640-d268f7739800?q=80&w=2061&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
   {
     id: 'behala-cup',
     clientName: 'Behala Cup',
     category: 'Official Media Partner',
     description:
-      'Complete branding, live streams, video content, and tournament highlights coverage.',
-    image: 'https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=800&q=80',
+      'Official media partner delivering match coverage, highlights, and real-time social media content.',
+    image: 'https://images.unsplash.com/photo-1613125479732-14543c793349?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
   {
     id: 'behala-ss',
     clientName: 'Behala SS Sporting Club',
     category: 'Social Media Management',
     description:
-      'Strategic graphics, publishing schedules, and promotional content for the athletic club.',
-    image: 'https://images.unsplash.com/photo-1431324155629-1a6edd1dec1d?auto=format&fit=crop&w=800&q=80',
-    wide: true, // spans 2 columns to balance the 7-item grid
+      'Managed social media, produced 800+ creatives, and generated over 2 million total views.',
+    image: 'https://images.unsplash.com/photo-1626248801379-51a0748a5f96?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    wide: true,
   },
 ];
 

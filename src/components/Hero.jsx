@@ -64,7 +64,7 @@ export default function Hero({ onBookCall }) {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/30 bg-white/10 backdrop-blur-sm text-white font-display text-sm font-bold uppercase tracking-wider">
             <span className="w-2 h-2 rounded-full bg-[#e95f0c] animate-pulse-subtle" />
-            Unevox Services OPC Pvt. Ltd.
+            Unevox Services Pvt. Ltd.
           </div>
 
           {/* Headline */}
