@@ -36,7 +36,7 @@ export default function Hero({ onBookCall }) {
   };
 
   return (
-    <section className="relative min-h-[85vh] flex items-center overflow-hidden mt-[64px]">
+    <section className="relative min-h-[90vh] flex items-center overflow-hidden">
       {/* ── Background carousel ─────────────────────────────────── */}
       <div className="absolute inset-0 z-0">
         {slides.map((slide, idx) => (
@@ -100,22 +100,6 @@ export default function Hero({ onBookCall }) {
               View Our Work
               <ArrowRight className="w-5 h-5" />
             </button>
-          </div>
-
-          {/* Quick stats row */}
-          <div className="flex items-center gap-8 pt-4">
-            {[
-              { value: '2M+', label: 'Total Views' },
-              { value: '10L+', label: 'Interactions' },
-              { value: '800+', label: 'Media Pieces' },
-            ].map((stat) => (
-              <div key={stat.label}>
-                <p className="font-display text-2xl font-bold text-white">{stat.value}</p>
-                <p className="text-sm text-white/60 font-semibold uppercase tracking-wide">
-                  {stat.label}
-                </p>
-              </div>
-            ))}
           </div>
         </div>
       </div>

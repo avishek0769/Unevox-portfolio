@@ -28,7 +28,7 @@ export default function Navbar({ onBookCall }) {
 
   return (
     <nav
-      className="fixed top-0 left-0 w-full z-40 bg-white border-b border-[#e2dbd3] shadow-sm py-3"
+      className="sticky top-0 z-40 bg-white border-b border-[#e2dbd3] shadow-sm py-1"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-8 flex items-center justify-between">
         {/* Logo */}
@@ -36,7 +36,7 @@ export default function Navbar({ onBookCall }) {
           <img
             src="/unevox_logo.png"
             alt="Unevox Logo"
-            className="h-12 w-auto object-contain"
+            className="h-16 w-auto object-contain"
           />
         </Link>
 

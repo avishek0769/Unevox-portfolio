@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Calendar, Clock, User, ArrowRight } from 'lucide-react';
+import { Calendar, Clock, ArrowRight } from 'lucide-react';
 
 const blogs = [
   {
@@ -10,7 +10,8 @@ const blogs = [
     snippet:
       'Unlocking the secrets to filming fast-paced action on the pitch — camera angles, frame rates, and split-second decisions that drive views.',
     image: 'https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=800&q=80',
-    author: 'Avishek Adhikary',
+    clientName: 'Durand Cup',
+    clientLogo: '/client_logos/Durand_Cup.svg.webp',
     date: 'Aug 04, 2026',
     readTime: '5 min read',
   },
@@ -21,7 +22,8 @@ const blogs = [
     snippet:
       'Short-form content rules the feed. The hook-retain-reward model that earned KKR and Durand Cup campaigns massive engagement.',
     image: 'https://images.unsplash.com/photo-1540747737956-378724044602?auto=format&fit=crop&w=800&q=80',
-    author: 'Rohit Sen',
+    clientName: 'Kolkata Knight Riders',
+    clientLogo: '/client_logos/Kolkata_Knight_Riders_Logo.svg',
     date: 'Jul 28, 2026',
     readTime: '4 min read',
   },
@@ -32,7 +34,8 @@ const blogs = [
     snippet:
       'How local and national leagues can build year-round value and keep sponsors happy long after the final whistle.',
     image: 'https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=800&q=80',
-    author: 'Debayan Mitra',
+    clientName: 'Behala SS Sporting Club',
+    clientLogo: '/client_logos/behala_ss_sporting_club-logo.png',
     date: 'Jul 15, 2026',
     readTime: '6 min read',
   },
@@ -99,10 +102,14 @@ export default function LatestBlogs() {
 
                 <div className="pt-5 border-t border-[#e2dbd3] mt-5 flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-full bg-[#e95f0c]/10 flex items-center justify-center text-[#e95f0c]">
-                      <User className="w-4 h-4" />
+                    <div className="w-8 h-8 rounded-full overflow-hidden border border-[#e2dbd3] bg-white flex items-center justify-center p-1">
+                      <img
+                        src={post.clientLogo}
+                        alt={post.clientName}
+                        className="w-full h-full object-contain"
+                      />
                     </div>
-                    <span className="text-sm font-semibold text-[#072541]">{post.author}</span>
+                    <span className="text-sm font-semibold text-[#072541]">{post.clientName}</span>
                   </div>
                   <span className="text-sm text-[#e95f0c] font-bold flex items-center gap-1 group-hover:gap-2 transition-all">
                     Read <ArrowRight className="w-4 h-4" />

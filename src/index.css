@@ -136,3 +136,14 @@
   50%       { opacity: 0.75; }
 }
 .animate-pulse-subtle { animation: pulse-subtle 3s ease-in-out infinite; }
+
+/* WhatsApp Shake animation: Shakes for ~1.2s, then remains still for ~6.8s */
+@keyframes whatsapp-attention {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  2%, 6%, 10%, 14% { transform: scale(1.1) rotate(-8deg); }
+  4%, 8%, 12% { transform: scale(1.1) rotate(8deg); }
+  16%, 98% { transform: scale(1) rotate(0deg); }
+}
+.whatsapp-shake {
+  animation: whatsapp-attention 8s ease-in-out infinite;
+}

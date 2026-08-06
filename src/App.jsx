@@ -60,7 +60,7 @@ function AppContent() {
       <main className="flex-1 w-full">
         <Routes>
           <Route path="/" element={<Home onBookCall={handleOpenModal} />} />
-          
+
           {/* Temporary placeholder pages */}
           <Route path="/about" element={<ComingSoonPlaceholder title="About" />} />
           <Route path="/services" element={<ComingSoonPlaceholder title="Services" />} />
@@ -68,7 +68,7 @@ function AppContent() {
           <Route path="/achievements" element={<ComingSoonPlaceholder title="Achievements" />} />
           <Route path="/blogs" element={<ComingSoonPlaceholder title="Blogs" />} />
           <Route path="/contact" element={<ComingSoonPlaceholder title="Contact" />} />
-          
+
           {/* Fallback route */}
           <Route path="*" element={<ComingSoonPlaceholder title="Page Not Found" />} />
         </Routes>
@@ -76,6 +76,21 @@ function AppContent() {
 
       {/* Global Footer */}
       <Footer onBookCall={handleOpenModal} />
+
+      {/* Floating WhatsApp Button */}
+      <a
+        href="https://wa.me/918617228753"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 z-50 w-14 h-14 hover:scale-110 active:scale-95 transition-all duration-300 drop-shadow-lg whatsapp-shake"
+        aria-label="Chat on WhatsApp"
+      >
+        <img
+          src="/WhatsApp-logo.webp"
+          alt="WhatsApp"
+          className="w-full h-full object-contain"
+        />
+      </a>
 
       {/* Consultation Request Modal */}
       <BookCallModal isOpen={isModalOpen} onClose={handleCloseModal} />
