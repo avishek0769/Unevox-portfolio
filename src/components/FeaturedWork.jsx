@@ -9,17 +9,16 @@ const projects = [
     category: 'Sports Media & Coverage',
     year: '2024',
     description:
-      'Captured match highlights, behind-the-scenes moments, and social media content throughout Asia\'s oldest football tournament.',
+      "Captured match highlights, behind-the-scenes moments, and social media content throughout Asia's oldest football tournament.",
     image: 'https://images.unsplash.com/photo-1766525133589-e3b4b090c04b?q=80&w=1170&auto=format&fit=crop',
     logo: '/client_logos/Durand_Cup.svg.webp',
     accentColor: '#e95f0c',
     stat: '1M+ Views',
-    featured: true, // hero card
+    featured: true,
   },
   {
     id: 'kkr',
     clientName: 'Kolkata Knight Riders',
-    category: 'Brand Activation',
     year: '2024',
     description:
       'Produced off-season reels and photography to keep fans engaged beyond the IPL season.',
@@ -31,7 +30,6 @@ const projects = [
   {
     id: 'cfl-2025',
     clientName: 'CFL 2025',
-    category: 'Digital Promotion',
     year: '2025',
     description:
       'Designed match-day graphics, score updates, and motion visuals for the Calcutta Football League.',
@@ -43,10 +41,9 @@ const projects = [
   {
     id: 'cfl-2024',
     clientName: 'CFL 2024',
-    category: 'Digital Promotion',
     year: '2024',
     description:
-      'Created premium match-day graphics and digital content to elevate the league\'s online presence.',
+      "Created premium match-day graphics and digital content to elevate the league's online presence.",
     image: 'https://images.unsplash.com/photo-1715277331640-d268f7739800?q=80&w=2061&auto=format&fit=crop',
     logo: '/client_logos/Calcutta_Football_League.svg',
     accentColor: '#dc2626',
@@ -55,7 +52,6 @@ const projects = [
   {
     id: 'behala-cup',
     clientName: 'Behala Cup',
-    category: 'Official Media Partner',
     year: '2024',
     description:
       'Official media partner delivering match coverage, highlights, and real-time social media content.',
@@ -67,7 +63,6 @@ const projects = [
   {
     id: 'behala-ss',
     clientName: 'Behala SS Sporting Club',
-    category: 'Social Media Management',
     year: '2024',
     description:
       'Managed social media, produced 800+ creatives, and generated over 2 million total views in just 2 months.',
@@ -75,22 +70,23 @@ const projects = [
     logo: '/client_logos/behala_ss_sporting_club-logo.png',
     accentColor: '#e95f0c',
     stat: '2M+ Total Views',
-    wide: true, // spans 2 columns
+    wide: true,
   },
 ];
 
+/* ─── Hero Card (Durand Cup — full width) ─── */
 function HeroCard({ project }) {
   const [hovered, setHovered] = useState(false);
 
   return (
     <div
       id={project.id}
-      className="col-span-1 md:col-span-2 lg:col-span-3 relative group rounded-[2rem] overflow-hidden cursor-pointer"
+      className="relative rounded-[2rem] overflow-hidden cursor-pointer"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      {/* Image */}
-      <div className="relative aspect-[21/8] overflow-hidden">
+      {/* Image with responsive aspect ratio */}
+      <div className="relative aspect-[4/3] sm:aspect-[16/7] overflow-hidden">
         <img
           src={project.image}
           alt={project.clientName}
@@ -98,57 +94,54 @@ function HeroCard({ project }) {
           loading="eager"
         />
 
-        {/* Gradient overlays */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#072541]/95 via-[#072541]/60 to-transparent z-10" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#072541]/50 via-transparent to-transparent z-10" />
+        {/* Gradients */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#072541]/95 via-[#072541]/70 to-[#072541]/20 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#072541]/60 via-transparent to-transparent z-10" />
 
-        {/* Glowing accent bar */}
+        {/* Glowing accent bar ── expands on hover */}
         <div
-          className="absolute bottom-0 left-0 h-1 z-20 transition-all duration-700"
+          className="absolute bottom-0 left-0 h-[3px] z-20 transition-all duration-700 ease-out"
           style={{
-            width: hovered ? '100%' : '30%',
+            width: hovered ? '100%' : '25%',
             background: `linear-gradient(to right, ${project.accentColor}, transparent)`,
           }}
         />
 
         {/* Content */}
-        <div className="absolute inset-0 z-20 flex flex-col justify-between p-8 md:p-12">
+        <div className="absolute inset-0 z-20 flex flex-col justify-between p-6 sm:p-10 md:p-12">
           {/* Top row */}
           <div className="flex items-start justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center p-2">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center p-2">
                 <img src={project.logo} alt={project.clientName} className="w-full h-full object-contain" />
               </div>
-              <span
-                className="px-3 py-1 rounded-full text-xs font-display font-bold uppercase tracking-widest text-white backdrop-blur-sm border border-white/20"
-                style={{ background: `${project.accentColor}40` }}
-              >
-                {project.category}
-              </span>
             </div>
             <span className="text-white/40 font-display font-bold text-sm tracking-wider">{project.year}</span>
           </div>
 
           {/* Bottom row */}
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-            <div>
-              {/* <div className="text-white/50 font-display text-sm font-bold uppercase tracking-widest mb-2">Featured Project — 01</div> */}
-              <h3 className="font-display text-4xl md:text-5xl font-black text-white leading-tight mb-3" style={{ textShadow: '0 2px 20px rgba(0,0,0,0.3)' }}>
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-5">
+            <div className="flex-1 min-w-0">
+              <h3 className="font-display text-3xl sm:text-4xl md:text-5xl font-black text-white leading-tight mb-2 sm:mb-3">
                 {project.clientName}
               </h3>
-              <p className="text-white/70 text-base max-w-xl leading-relaxed">{project.description}</p>
+              <p className="text-white/70 text-sm sm:text-base max-w-xl leading-relaxed line-clamp-2 sm:line-clamp-none">
+                {project.description}
+              </p>
             </div>
 
-            <div className="flex flex-col items-start md:items-end gap-4 shrink-0">
-              <div className="text-right">
-                <div className="font-display text-3xl font-black" style={{ color: project.accentColor }}>{project.stat}</div>
+            <div className="flex sm:flex-col items-center sm:items-end gap-4 sm:gap-3 shrink-0">
+              <div className="sm:text-right">
+                <div className="font-display text-2xl sm:text-3xl font-black" style={{ color: project.accentColor }}>
+                  {project.stat}
+                </div>
                 <div className="text-white/50 text-xs uppercase tracking-widest font-semibold">Campaign Impact</div>
               </div>
               <Link
                 to="/portfolio"
-                className="flex items-center gap-2 px-5 py-2.5 rounded-full font-display font-bold text-sm border border-white/30 text-white bg-white/10 backdrop-blur-sm hover:bg-white hover:text-[#072541] transition-all duration-300"
+                className="flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full font-display font-bold text-xs sm:text-sm border border-white/30 text-white bg-white/10 backdrop-blur-sm hover:bg-white hover:text-[#072541] transition-all duration-300 whitespace-nowrap"
               >
-                View Case Study <ArrowUpRight className="w-4 h-4" />
+                View Case Study <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               </Link>
             </div>
           </div>
@@ -158,89 +151,80 @@ function HeroCard({ project }) {
   );
 }
 
+/* ─── Regular Project Card ─── */
 function ProjectCard({ project, index }) {
   const [hovered, setHovered] = useState(false);
 
   return (
     <div
       id={project.id}
-      className={`group relative rounded-[1.5rem] overflow-hidden cursor-pointer bg-[#072541] shadow-sm hover:shadow-2xl transition-all duration-500 ${project.wide ? 'md:col-span-2' : ''
-        }`}
+      className={`group relative rounded-[1.5rem] overflow-hidden cursor-pointer bg-[#072541] shadow-sm hover:shadow-2xl transition-all duration-500 ${
+        project.wide ? 'md:col-span-2 aspect-[16/7] sm:aspect-[21/9]' : 'aspect-[4/3]'
+      }`}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      {/* Image */}
-      <div className={`relative overflow-hidden ${project.wide ? 'aspect-[21/9]' : 'aspect-[4/3]'}`}>
-        <img
-          src={project.image}
-          alt={project.clientName}
-          className={`w-full h-full object-cover transition-all duration-700 ${hovered ? 'scale-110 brightness-90' : 'scale-100 brightness-75'
-            }`}
-          loading="lazy"
-        />
+      {/* Background Image */}
+      <img
+        src={project.image}
+        alt={project.clientName}
+        className={`absolute inset-0 w-full h-full object-cover transition-transform duration-700 ${
+          hovered ? 'scale-110' : 'scale-100'
+        }`}
+        style={{ filter: hovered ? 'brightness(0.85)' : 'brightness(0.7)' }}
+        loading="lazy"
+      />
 
-        {/* Base gradient */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#072541] via-[#072541]/40 to-transparent z-10" />
+      {/* Permanent dark-to-bottom gradient so text is always readable */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[#072541] via-[#072541]/40 to-transparent z-10" />
 
-        {/* Hover overlay — full cover slide-up */}
-        <div
-          className="absolute inset-0 z-20 flex flex-col justify-end p-6 transition-all duration-500"
-          style={{
-            background: hovered
-              ? `linear-gradient(to top, ${project.accentColor}ee 0%, ${project.accentColor}99 40%, transparent 100%)`
-              : 'transparent',
-          }}
-        />
+      {/* Accent colour overlay ── slides up from the absolute bottom of the card */}
+      <div
+        className="absolute inset-x-0 bottom-0 z-20 transition-all duration-500 ease-out"
+        style={{
+          height: '100%',
+          background: `linear-gradient(to top, ${project.accentColor}dd 0%, ${project.accentColor}88 35%, transparent 70%)`,
+          opacity: hovered ? 1 : 0,
+          transform: hovered ? 'translateY(0%)' : 'translateY(12%)',
+        }}
+      />
 
-        {/* Glowing left border on hover */}
-        <div
-          className="absolute left-0 top-0 w-1 z-30 transition-all duration-500"
-          style={{
-            height: hovered ? '100%' : '0%',
-            background: project.accentColor,
-            boxShadow: `0 0 20px ${project.accentColor}`,
-          }}
-        />
+      {/* Glowing left border ── slides down from top */}
+      <div
+        className="absolute left-0 top-0 w-[3px] z-30 transition-all duration-500 ease-out"
+        style={{
+          height: hovered ? '100%' : '0%',
+          background: project.accentColor,
+          boxShadow: hovered ? `0 0 16px ${project.accentColor}` : 'none',
+        }}
+      />
 
-        {/* Top chips */}
-        <div className="absolute top-4 left-4 z-30 flex items-center gap-2">
-          <span
-            className="px-2.5 py-1 rounded-lg text-xs font-display font-black uppercase tracking-wider text-white backdrop-blur-sm"
-            style={{ background: `${project.accentColor}cc` }}
-          >
-            {project.category}
-          </span>
-        </div>
-
-        {/* Number index */}
-        <div className="absolute top-4 right-4 z-30 font-display font-black text-white/20 text-3xl leading-none select-none">
-          {String(index).padStart(2, '0')}
-        </div>
+      {/* Number index ── top right */}
+      <div className="absolute top-4 right-4 z-30 font-display font-black text-white/15 text-3xl leading-none select-none">
+        {String(index).padStart(2, '0')}
       </div>
 
-      {/* Content footer */}
-      <div className="absolute bottom-0 left-0 right-0 z-30 p-5">
-        <div className="flex items-end justify-between gap-4">
+      {/* Content footer ── always visible at the bottom */}
+      <div className="absolute bottom-0 left-0 right-0 z-30 p-4 sm:p-5">
+        <div className="flex items-end justify-between gap-3">
           <div className="flex-1 min-w-0">
-            {/* Client logo + name row */}
+            {/* Logo + year */}
             <div className="flex items-center gap-2 mb-2">
-              <div className="w-7 h-7 rounded-lg bg-white/15 backdrop-blur-sm p-1 flex items-center justify-center border border-white/20">
+              <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-white/15 backdrop-blur-sm p-1 flex items-center justify-center border border-white/20 shrink-0">
                 <img src={project.logo} alt={project.clientName} className="w-full h-full object-contain" />
               </div>
-              <span className="text-white/60 font-display text-xs font-bold uppercase tracking-wider">{project.year}</span>
+              <span className="text-white/50 font-display text-xs font-bold uppercase tracking-wider">{project.year}</span>
             </div>
 
-            <h3
-              className="font-display text-lg font-black text-white leading-tight truncate transition-all duration-300"
-              style={{ color: hovered ? 'white' : 'white' }}
-            >
+            {/* Client name */}
+            <h3 className="font-display text-base sm:text-lg font-black text-white leading-tight">
               {project.clientName}
             </h3>
 
-            {/* Description on hover */}
+            {/* Description slides in on hover */}
             <div
-              className="overflow-hidden transition-all duration-500"
-              style={{ maxHeight: hovered ? '80px' : '0px', opacity: hovered ? 1 : 0 }}
+              className="overflow-hidden transition-all duration-500 ease-out"
+              style={{ maxHeight: hovered ? '72px' : '0px', opacity: hovered ? 1 : 0 }}
             >
               <p className="text-white/80 text-xs leading-relaxed mt-1.5 line-clamp-3">
                 {project.description}
@@ -251,23 +235,22 @@ function ProjectCard({ project, index }) {
           <div className="flex flex-col items-end gap-2 shrink-0">
             {/* Stat */}
             <div
-              className="font-display text-sm font-black leading-tight text-right transition-colors duration-300"
+              className="font-display text-xs sm:text-sm font-black leading-tight text-right transition-colors duration-300"
               style={{ color: hovered ? 'white' : project.accentColor }}
             >
               {project.stat}
             </div>
 
-            {/* Arrow button */}
+            {/* Arrow */}
             <div
-              className="w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300"
+              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center transition-all duration-300"
               style={{
                 background: hovered ? 'white' : 'rgba(255,255,255,0.1)',
                 color: hovered ? project.accentColor : 'white',
-                borderWidth: 1,
-                borderColor: hovered ? 'white' : 'rgba(255,255,255,0.2)',
+                border: `1px solid ${hovered ? 'white' : 'rgba(255,255,255,0.2)'}`,
               }}
             >
-              <ExternalLink className="w-4 h-4" />
+              <ExternalLink className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             </div>
           </div>
         </div>
@@ -276,25 +259,26 @@ function ProjectCard({ project, index }) {
   );
 }
 
+/* ─── Section ─── */
 export default function FeaturedWork() {
   const [heroProject, ...restProjects] = projects;
 
   return (
-    <section id="featured-work" className="py-28 bg-[#f8f5f2]">
-      <div className="max-w-7xl mx-auto px-6 md:px-8">
-        {/* ── Section Header ── */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+    <section id="featured-work" className="py-20 sm:py-28 bg-[#f8f5f2]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+
+        {/* Section Header */}
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-10 sm:mb-16">
           <div>
             <span className="section-badge mb-4 inline-flex">Our Work</span>
-            <h2 className="flex font-display text-5xl sm:text-6xl font-black tracking-tight text-[#072541] leading-none">
-              Featured
-              <span className="pl-4 block text-[#e95f0c]">Work</span>
+            <h2 className="font-display text-5xl sm:text-6xl font-black tracking-tight text-[#072541] leading-none">
+              Featured <span className="text-[#e95f0c]">Work</span>
             </h2>
             <p className="text-[#4a5568] text-base mt-4 max-w-md leading-relaxed">
-              How we capture action, shape narratives, and drive record-breaking audience engagement for our clients.
+              How we capture action, shape narratives, and drive record-breaking audience engagement.
             </p>
           </div>
-          <div className="flex flex-col items-start md:items-end gap-3">
+          <div className="flex flex-col items-start sm:items-end gap-2 shrink-0">
             <Link
               to="/portfolio"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-display font-bold text-sm bg-[#072541] text-white hover:bg-[#e95f0c] transition-all duration-300 shadow-lg shadow-[#072541]/20"
@@ -305,13 +289,13 @@ export default function FeaturedWork() {
           </div>
         </div>
 
-        {/* ── Hero Card (full width) ── */}
-        <div className="mb-6">
+        {/* Hero card */}
+        <div className="mb-5 sm:mb-6">
           <HeroCard project={heroProject} />
         </div>
 
-        {/* ── Rest of the grid ── */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6">
           {restProjects.map((project, idx) => (
             <ProjectCard
               key={project.id}

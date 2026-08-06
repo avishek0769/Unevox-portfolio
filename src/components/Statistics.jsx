@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, FileText } from 'lucide-react';
 
 const stats = [
-  { value: '10+ Lacs',    label: 'Audience Interactions' },
-  { value: '20+ Lacs',    label: 'Total Views' },
-  { value: '800+',        label: 'Content Pieces' },
-  { value: '2,000+',      label: 'Instagram Followers' },
-  { value: '3,000+',      label: 'Facebook Followers' },
+  { value: '1 M+', label: 'Audience Interactions' },
+  { value: '2 M+', label: 'Total Views' },
+  { value: '800+', label: 'Content Pieces' },
+  { value: '2,000+', label: 'Instagram Followers' },
+  { value: '3,000+', label: 'Facebook Followers' },
 ];
 
 export default function Statistics() {
@@ -46,11 +46,10 @@ export default function Statistics() {
         {/* Stats Grid */}
         <div className="grid grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-4 max-w-6xl mx-auto mb-16">
           {stats.map((stat, idx) => (
-            <div 
-              key={stat.label} 
-              className={`flex flex-col items-center justify-center p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-[#e95f0c]/50 hover:bg-white/10 transition-all duration-300 ${
-                idx === 4 ? 'col-span-2 lg:col-span-1' : ''
-              }`}
+            <div
+              key={stat.label}
+              className={`flex flex-col items-center justify-center p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-[#e95f0c]/50 hover:bg-white/10 transition-all duration-300 ${idx === 4 ? 'col-span-2 lg:col-span-1' : ''
+                }`}
             >
               <span className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#e95f0c] leading-none mb-3">
                 {stat.value}
@@ -71,7 +70,7 @@ export default function Statistics() {
             <FileText className="w-5 h-5" />
             See Behala SS Case Study
           </button>
-          
+
           <Link
             to="/portfolio"
             className="px-8 py-3.5 rounded-full font-display font-bold text-base text-white border-2 border-white/20 hover:border-white hover:bg-white/10 transition-all duration-200 flex items-center gap-2"

@@ -9,7 +9,7 @@ const blogs = [
     category: 'Sports Media',
     snippet:
       'Unlocking the secrets to filming fast-paced action on the pitch — camera angles, frame rates, and split-second decisions that drive views.',
-    image: 'https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1766525133589-e3b4b090c04b?q=80&w=1170&auto=format&fit=crop',
     clientName: 'Durand Cup',
     clientLogo: '/client_logos/Durand_Cup.svg.webp',
     date: 'Aug 04, 2026',
@@ -21,7 +21,7 @@ const blogs = [
     category: 'Short-Form Video',
     snippet:
       'Short-form content rules the feed. The hook-retain-reward model that earned KKR and Durand Cup campaigns massive engagement.',
-    image: 'https://images.unsplash.com/photo-1540747737956-378724044602?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1766525133589-e3b4b090c04b?q=80&w=1170&auto=format&fit=crop',
     clientName: 'Kolkata Knight Riders',
     clientLogo: '/client_logos/Kolkata_Knight_Riders_Logo.svg',
     date: 'Jul 28, 2026',
@@ -33,7 +33,7 @@ const blogs = [
     category: 'Brand Strategy',
     snippet:
       'How local and national leagues can build year-round value and keep sponsors happy long after the final whistle.',
-    image: 'https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1766525133589-e3b4b090c04b?q=80&w=1170&auto=format&fit=crop',
     clientName: 'Behala SS Sporting Club',
     clientLogo: '/client_logos/behala_ss_sporting_club-logo.png',
     date: 'Jul 15, 2026',
@@ -49,10 +49,10 @@ export default function LatestBlogs() {
           <div>
             <span className="section-badge mb-3 inline-flex">Knowledge</span>
             <h2 className="font-display text-4xl sm:text-5xl font-bold tracking-tight text-[#072541]">
-              Latest Insights
+              Client Case Study Blogs
             </h2>
             <p className="text-[#4a5568] text-base mt-3 max-w-lg">
-              Guides on sports marketing, creative direction, and digital content operations.
+              Case study blogs about how our services improved our client's businesses, social media and their impact
             </p>
           </div>
           <Link
