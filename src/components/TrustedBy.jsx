@@ -1,21 +1,21 @@
 import React from 'react';
 
 const logos = [
-  { file: '/client_logos/Kolkata_Knight_Riders_Logo.svg',        name: 'Kolkata Knight Riders' },
-  { file: '/client_logos/Durand_Cup.svg.webp',                   name: 'Durand Cup' },
-  { file: '/client_logos/Calcutta_Football_League.svg',          name: 'Calcutta Football League' },
-  { file: '/client_logos/north_24_parganas_logo.png',            name: 'North 24 Parganas Football Team' },
-  { file: '/client_logos/behala_ss_sporting_club-logo.png',      name: 'Behala SS Sporting Club' },
-  { file: '/client_logos/behala_cup.jpeg',                       name: 'Behala Cup' },
-  { file: '/client_logos/rainbow_house-logo.png',                name: 'Rainbow House Banquet' },
-  { file: '/client_logos/ripley_group.png',                      name: 'Ripley Group' },
-  { file: '/client_logos/maharaja_caterer-Photoroom.png',        name: 'Maharaja Caterer' },
-  { file: '/client_logos/behala_nutan_dal-logo.png',             name: 'Behala Nutan Dal' },
-  { file: '/client_logos/Suruchi_Sangha-logo.png',               name: 'Suruchi Sangha' },
-  { file: '/client_logos/tarun_matri_sevak_samity-logo.png',     name: 'Tarun Matri Sevak Samity' },
-  { file: '/client_logos/behala_classical_festival-logo.png',    name: 'Behala Classical Festival' },
-  { file: '/client_logos/behala_bachonik_utsav.png',             name: 'Behala Bachonik Utsav' },
-  { file: '/client_logos/upgrad_logo.avif',                      name: 'upGrad Kolkata' },
+  { file: '/client_logos/ripley_group.png', name: 'Ripley Group' },
+  { file: '/client_logos/dpdl.png', name: 'Double Pass Development League' },
+  { file: '/client_logos/upgrad_logo.avif', name: 'upGrad Kolkata' },
+  { file: '/client_logos/Banaras_FC.png', name: 'FC Banaras Baghpat' },
+  { file: '/client_logos/Calcutta_Football_League.svg', name: 'Calcutta Football League' },
+  { file: '/client_logos/north_24_parganas_logo.png', name: 'North 24 Parganas Football Team' },
+  { file: '/client_logos/behala_ss_sporting_club-logo.png', name: 'Behala SS Sporting Club' },
+  { file: '/client_logos/behala_cup.jpeg', name: 'Behala Cup' },
+  { file: '/client_logos/rainbow_house-logo.png', name: 'Rainbow House Banquet' },
+  { file: '/client_logos/maharaja_caterer-Photoroom.png', name: 'Maharaja Caterer' },
+  { file: '/client_logos/behala_nutan_dal-logo.png', name: 'Behala Nutan Dal' },
+  { file: '/client_logos/behala_classical_festival.png', name: 'Behala Theatre Festival' },
+  { file: '/client_logos/Suruchi_Sangha-logo.png', name: 'Suruchi Sangha' },
+  { file: '/client_logos/behala_classical_festival-logo.png', name: 'Behala Classical Festival' },
+  { file: '/client_logos/behala_bachonik_utsav.png', name: 'Behala Bachonik Utsav' },
 ];
 
 export default function TrustedBy() {
