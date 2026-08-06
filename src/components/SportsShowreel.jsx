@@ -7,7 +7,13 @@ const reelsData = [
     id: 'reel-1',
     title: 'Behala SS Sporting Club Promo',
     clientName: 'Behala SS Sporting Club',
-    category: 'Club Hype',
+    videoUrl: '/reels/potrait-reel.mp4',
+    type: 'portrait',
+  },
+  {
+    id: 'reel-3',
+    title: 'Kolkata Knight Riders Fan Activation',
+    clientName: 'Kolkata Knight Riders',
     videoUrl: '/reels/potrait-reel.mp4',
     type: 'portrait',
   },
@@ -15,23 +21,6 @@ const reelsData = [
     id: 'reel-2',
     title: 'Durand Cup Matchday Hype',
     clientName: 'Durand Cup',
-    category: 'Tournament Promo',
-    videoUrl: '/reels/square-type-reel.mp4',
-    type: 'square',
-  },
-  {
-    id: 'reel-3',
-    title: 'Kolkata Knight Riders Fan Activation',
-    clientName: 'Kolkata Knight Riders',
-    category: 'Fan Engagement',
-    videoUrl: '/reels/potrait-reel.mp4',
-    type: 'portrait',
-  },
-  {
-    id: 'reel-4',
-    title: 'Calcutta Football League Anthem',
-    clientName: 'CFL 2025',
-    category: 'League Anthem',
     videoUrl: '/reels/square-type-reel.mp4',
     type: 'square',
   },
@@ -39,15 +28,20 @@ const reelsData = [
     id: 'reel-5',
     title: 'Behala Classical Festival Highlight',
     clientName: 'Behala Classical Festival',
-    category: 'Cultural Event',
     videoUrl: '/reels/potrait-reel.mp4',
     type: 'portrait',
+  },
+  {
+    id: 'reel-4',
+    title: 'Calcutta Football League Anthem',
+    clientName: 'CFL 2025',
+    videoUrl: '/reels/square-type-reel.mp4',
+    type: 'square',
   },
   {
     id: 'reel-6',
     title: 'Behala Cup Official Highlights',
     clientName: 'Behala Cup',
-    category: 'Finals Coverage',
     videoUrl: '/reels/square-type-reel.mp4',
     type: 'square',
   },
@@ -76,9 +70,8 @@ function ReelCard({ reel }) {
     <div
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className={`relative shrink-0 rounded-3xl overflow-hidden border border-[#e2dbd3] bg-black hover:border-[#e95f0c] hover:shadow-2xl transition-all duration-300 group cursor-pointer ${
-        reel.type === 'portrait' ? 'w-64 sm:w-72 aspect-[9/16]' : 'w-80 sm:w-96 aspect-square'
-      }`}
+      className={`relative shrink-0 rounded-3xl overflow-hidden border border-[#e2dbd3] bg-black hover:border-[#e95f0c] hover:shadow-2xl transition-all duration-300 group cursor-pointer ${reel.type === 'portrait' ? 'w-64 sm:w-72 aspect-[9/16]' : 'w-80 sm:w-96 aspect-square'
+        }`}
     >
       {/* Video element */}
       <video
@@ -93,23 +86,15 @@ function ReelCard({ reel }) {
       {/* Static overlay details */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent z-10 flex flex-col justify-between p-5">
         {/* Top Details */}
-        <div className="flex justify-between items-start">
-          <span className="px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm text-xs font-display font-bold text-white tracking-wider uppercase">
-            {reel.category}
-          </span>
-          <span className="px-2 py-0.5 rounded bg-black/40 text-[10px] font-mono text-white/60 uppercase">
-            {reel.type}
-          </span>
-        </div>
+        <div className="flex justify-between items-start"></div>
 
         {/* Play indicator */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
           <div
-            className={`w-14 h-14 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white transition-all duration-300 ${
-              isPlaying
-                ? 'opacity-0 scale-75'
-                : 'opacity-100 scale-100 group-hover:scale-110 group-hover:bg-[#e95f0c] group-hover:border-[#e95f0c]'
-            }`}
+            className={`w-14 h-14 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white transition-all duration-300 ${isPlaying
+              ? 'opacity-0 scale-75'
+              : 'opacity-100 scale-100 group-hover:scale-110 group-hover:bg-[#e95f0c] group-hover:border-[#e95f0c]'
+              }`}
           >
             <Play className="w-5 h-5 fill-current translate-x-0.5" />
           </div>
@@ -156,7 +141,7 @@ export default function SportsShowreel() {
               Hover over any video card to play the social media reel. Scroll horizontally to view all productions.
             </p>
           </div>
-          
+
           <div className="flex items-center gap-4 shrink-0">
             {/* Scroll navigation arrows */}
             <div className="flex items-center gap-2">

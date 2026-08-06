@@ -99,80 +99,52 @@ function ProjectCard({ project }) {
 
   return (
     <div
-      className="group relative rounded-2xl overflow-hidden bg-[#072541] cursor-pointer shadow-sm transition-all duration-500 hover:shadow-2xl aspect-[4/3]"
+      className="group bg-white rounded-2xl overflow-hidden border border-[#e2dbd3] hover:border-[#e95f0c] hover:shadow-xl transition-all duration-300 flex flex-col cursor-pointer"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      {/* Image */}
-      <img
-        src={project.image}
-        alt={project.title}
-        className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ${
-          hovered ? 'scale-110' : 'scale-100'
-        }`}
-        style={{ filter: hovered ? 'brightness(0.7)' : 'brightness(0.55)' }}
-        loading="lazy"
-      />
-
-      {/* Permanent bottom gradient */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#072541] via-[#072541]/30 to-transparent z-10" />
-
-      {/* Accent hover overlay */}
-      <div
-        className="absolute inset-x-0 bottom-0 z-20 transition-all duration-500 ease-out"
-        style={{
-          height: '100%',
-          background: `linear-gradient(to top, ${project.accentColor}cc 0%, ${project.accentColor}66 30%, transparent 65%)`,
-          opacity: hovered ? 1 : 0,
-          transform: hovered ? 'translateY(0%)' : 'translateY(10%)',
-        }}
-      />
-
-      {/* Glowing left bar */}
-      <div
-        className="absolute left-0 top-0 w-[3px] z-30 transition-all duration-500 ease-out"
-        style={{
-          height: hovered ? '100%' : '0%',
-          background: project.accentColor,
-          boxShadow: hovered ? `0 0 12px ${project.accentColor}` : 'none',
-        }}
-      />
-
-      {/* Label chip - top */}
-      <div
-        className="absolute top-3 left-4 z-30 px-2.5 py-0.5 rounded-md text-xs font-display font-bold text-white backdrop-blur-sm"
-        style={{ background: `${project.accentColor}cc` }}
-      >
-        {project.label}
+      {/* Image container */}
+      <div className="relative aspect-[16/10] overflow-hidden bg-[#072541]">
+        <img
+          src={project.image}
+          alt={project.title}
+          className={`w-full h-full object-cover transition-transform duration-700 ${
+            hovered ? 'scale-105' : 'scale-100'
+          }`}
+          loading="lazy"
+        />
+        {/* Label chip - top */}
+        <div
+          className="absolute top-3 left-4 z-10 px-2.5 py-0.5 rounded-md text-xs font-display font-bold text-white shadow-sm"
+          style={{ background: project.accentColor }}
+        >
+          {project.label}
+        </div>
       </div>
 
-      {/* Content footer */}
-      <div className="absolute bottom-0 left-0 right-0 z-30 p-4">
-        <p className="text-white/50 text-xs font-bold uppercase tracking-wider mb-0.5">{project.client}</p>
-        <div className="flex items-end justify-between gap-2">
-          <h3 className="font-display text-base font-black text-white leading-tight flex-1">
-            {project.title}
-          </h3>
-          <div
-            className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-all duration-300"
-            style={{
-              background: hovered ? 'white' : 'rgba(255,255,255,0.12)',
-              color: hovered ? project.accentColor : 'white',
-              border: `1px solid ${hovered ? 'white' : 'rgba(255,255,255,0.2)'}`,
-            }}
-          >
-            <ArrowUpRight className="w-3.5 h-3.5" />
-          </div>
-        </div>
+      {/* Content footer - shown below the image */}
+      <div className="p-5 flex flex-col flex-1">
+        <p className="text-[#9ca3af] text-xs font-bold uppercase tracking-wider mb-1">
+          {project.client}
+        </p>
 
-        {/* Desc on hover */}
-        <div
-          className="overflow-hidden transition-all duration-400 ease-out"
-          style={{ maxHeight: hovered ? '60px' : '0px', opacity: hovered ? 1 : 0 }}
-        >
-          <p className="text-white/75 text-xs leading-relaxed mt-2 line-clamp-2">
-            {project.desc}
-          </p>
+        <h3 className="font-display text-lg font-bold text-[#072541] group-hover:text-[#e95f0c] transition-colors leading-tight mb-2">
+          {project.title}
+        </h3>
+
+        <p className="text-[#4a5568] text-sm leading-relaxed mb-5 flex-1 line-clamp-2">
+          {project.desc}
+        </p>
+
+        <div className="pt-4 border-t border-[#e2dbd3] flex items-center justify-between mt-auto">
+          <span className="text-sm text-[#9ca3af] font-medium group-hover:text-[#e95f0c] transition-colors">
+            View Details
+          </span>
+          <div
+            className="w-8 h-8 rounded-full border border-[#e2dbd3] group-hover:bg-[#e95f0c] group-hover:border-[#e95f0c] flex items-center justify-center text-[#e95f0c] group-hover:text-white transition-all duration-300"
+          >
+            <ArrowUpRight className="w-4 h-4" />
+          </div>
         </div>
       </div>
     </div>
@@ -226,7 +198,7 @@ export default function PortfolioPreview() {
         </div>
 
         {/* Cards grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filtered.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}

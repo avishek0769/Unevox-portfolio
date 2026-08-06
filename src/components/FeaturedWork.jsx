@@ -90,13 +90,13 @@ function HeroCard({ project }) {
         <img
           src={project.image}
           alt={project.clientName}
-          className={`w-full h-full object-cover transition-transform duration-700 ${hovered ? 'scale-105' : 'scale-100'}`}
+          className={`w-full h-full object-cover transition-all duration-700 ${hovered ? 'scale-105' : 'scale-100'}`}
+          style={{ filter: hovered ? 'brightness(0.95)' : 'brightness(0.8)' }}
           loading="eager"
         />
 
-        {/* Gradients */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#072541]/95 via-[#072541]/70 to-[#072541]/20 z-10" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#072541]/60 via-transparent to-transparent z-10" />
+        {/* Gradients ── bottom to top for improved image visibility */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#072541]/90 via-[#072541]/35 to-transparent z-10" />
 
         {/* Glowing accent bar ── expands on hover */}
         <div
@@ -171,19 +171,19 @@ function ProjectCard({ project, index }) {
         className={`absolute inset-0 w-full h-full object-cover transition-transform duration-700 ${
           hovered ? 'scale-110' : 'scale-100'
         }`}
-        style={{ filter: hovered ? 'brightness(0.85)' : 'brightness(0.7)' }}
+        style={{ filter: hovered ? 'brightness(0.95)' : 'brightness(0.8)' }}
         loading="lazy"
       />
 
-      {/* Permanent dark-to-bottom gradient so text is always readable */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#072541] via-[#072541]/40 to-transparent z-10" />
+      {/* Permanent dark-to-bottom gradient so text is always readable ── reduced intensity */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[#072541]/90 via-[#072541]/30 to-transparent z-10" />
 
       {/* Accent colour overlay ── slides up from the absolute bottom of the card */}
       <div
         className="absolute inset-x-0 bottom-0 z-20 transition-all duration-500 ease-out"
         style={{
           height: '100%',
-          background: `linear-gradient(to top, ${project.accentColor}dd 0%, ${project.accentColor}88 35%, transparent 70%)`,
+          background: `linear-gradient(to top, ${project.accentColor}bb 0%, ${project.accentColor}55 35%, transparent 70%)`,
           opacity: hovered ? 1 : 0,
           transform: hovered ? 'translateY(0%)' : 'translateY(12%)',
         }}
