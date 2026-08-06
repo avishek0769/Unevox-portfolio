@@ -20,7 +20,6 @@ export default function Navbar({ onBookCall }) {
     { name: 'Portfolio', path: '/portfolio' },
     { name: 'Achievements', path: '/achievements' },
     { name: 'Blogs', path: '/blogs' },
-    { name: 'Contact', path: '/contact' },
   ];
 
   const isActive = (path) =>

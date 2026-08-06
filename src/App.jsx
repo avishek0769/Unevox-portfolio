@@ -8,6 +8,7 @@ import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import About from './pages/About';
 import Portfolio from './pages/Portfolio';
+import Achievements from './pages/Achievements';
 
 // Scroll to top helper on navigation
 function ScrollToTop() {
@@ -67,9 +68,8 @@ function AppContent() {
           <Route path="/about" element={<About title="About" />} />
           <Route path="/services" element={<ComingSoonPlaceholder title="Services" />} />
           <Route path="/portfolio" element={<Portfolio />} />
-          <Route path="/achievements" element={<ComingSoonPlaceholder title="Achievements" />} />
+          <Route path="/achievements" element={<Achievements />} />
           <Route path="/blogs" element={<ComingSoonPlaceholder title="Blogs" />} />
-          <Route path="/contact" element={<ComingSoonPlaceholder title="Contact" />} />
 
           {/* Fallback route */}
           <Route path="*" element={<ComingSoonPlaceholder title="Page Not Found" />} />
