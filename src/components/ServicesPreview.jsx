@@ -1,151 +1,96 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { 
-  Share2, Trophy, Megaphone, Briefcase, Sparkles, 
-  Calendar, Camera, Play, Video, Palette, Target, ArrowRight 
-} from 'lucide-react';
+import { Share2, Trophy, Megaphone, Camera, Video, Palette, ArrowRight } from 'lucide-react';
+
+const services = [
+  {
+    icon: Trophy,
+    title: 'Sports Media Production',
+    description:
+      'High-octane match coverage, athlete promos, and league hype reels that put your brand at the heart of the action.',
+  },
+  {
+    icon: Share2,
+    title: 'Social Media Management',
+    description:
+      'End-to-end content calendars, daily publishing, and community growth strategies tailored to your audience.',
+  },
+  {
+    icon: Video,
+    title: 'Video & Reel Production',
+    description:
+      'Cinematic showreels, short-form content, and corporate films crafted for maximum platform reach.',
+  },
+  {
+    icon: Camera,
+    title: 'Photography',
+    description:
+      'Professional sports action shots, event photography, and product imagery shot with precision and passion.',
+  },
+  {
+    icon: Megaphone,
+    title: 'Digital Marketing',
+    description:
+      'Performance campaigns, paid ads, and organic growth plans that convert audiences into loyal followers.',
+  },
+  {
+    icon: Palette,
+    title: 'Creative Graphics & Branding',
+    description:
+      'Visual identity systems, matchday posters, merchandise design, and premium brand assets.',
+  },
+];
 
 export default function ServicesPreview() {
-  const services = [
-    {
-      title: 'Social Media Management',
-      icon: Share2,
-      description: 'End-to-end management, content calendars, and community engagement.',
-      tag: 'Scale Growth'
-    },
-    {
-      title: 'Sports Media Production',
-      icon: Trophy,
-      description: 'High-octane coverage of matches, athletic promo videos, and league hype.',
-      tag: 'Athletic Vibe'
-    },
-    {
-      title: 'Digital Marketing',
-      icon: Megaphone,
-      description: 'Performance marketing, PPC, SEO, and paid ad campaign structures.',
-      tag: 'Data Driven'
-    },
-    {
-      title: 'Business Development',
-      icon: Briefcase,
-      description: 'Strategic partnerships, sponsorships, and commercial expansion guides.',
-      tag: 'Monetization'
-    },
-    {
-      title: 'Festival Promotions',
-      icon: Sparkles,
-      description: 'Special campaigns for cultural events, durga puja, and classical festivals.',
-      tag: 'Cultural Reach'
-    },
-    {
-      title: 'Event Promotions',
-      icon: Calendar,
-      description: 'Pre and post event coverage, ticketing campaigns, and stadium hype.',
-      tag: 'Live Hype'
-    },
-    {
-      title: 'Photography',
-      icon: Camera,
-      description: 'Professional sports action shots, corporate headshots, and event photography.',
-      tag: 'High Res'
-    },
-    {
-      title: 'Reel Production',
-      icon: Play,
-      description: 'Short-form portrait videos tailored for maximum Instagram Reels algorithmic reach.',
-      tag: 'Going Viral'
-    },
-    {
-      title: 'Video Production',
-      icon: Video,
-      description: 'Cinematic showreels, corporate videos, commercials, and high-end interviews.',
-      tag: 'Production'
-    },
-    {
-      title: 'Creative Graphics',
-      icon: Palette,
-      description: 'Social posters, stadium ticket designs, merchandise branding, and logo assets.',
-      tag: 'Visual Identity'
-    },
-    {
-      title: 'Brand Promotion',
-      icon: Target,
-      description: 'Outdoors, brand activations, influencer tie-ups, and PR campaigns.',
-      tag: 'Brand Value'
-    }
-  ];
-
   return (
-    <section className="py-24 bg-obsidian relative">
-      {/* Background glow */}
-      <div className="absolute bottom-10 left-10 w-96 h-96 bg-electric-cyan/5 rounded-full blur-3xl pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
-        
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+    <section className="py-24 bg-white">
+      <div className="max-w-7xl mx-auto px-6 md:px-8">
+        {/* Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-volt/20 bg-volt/5 text-volt font-display text-[10px] font-bold uppercase tracking-wider mb-3">
-              Capabilities
-            </div>
-            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white">
-              Creative Solutions
+            <span className="section-badge mb-3 inline-flex">Capabilities</span>
+            <h2 className="font-display text-4xl sm:text-5xl font-bold tracking-tight text-[#072541]">
+              What We Do
             </h2>
-            <p className="text-text-secondary mt-3 max-w-xl">
-              We merge strategic planning with bleeding-edge visual execution to solve complex marketing challenges.
+            <p className="text-[#4a5568] text-base mt-3 max-w-lg">
+              Six focused disciplines — every one built to push your brand further.
             </p>
           </div>
-          <div>
-            <Link 
-              to="/services" 
-              className="inline-flex items-center gap-2 font-display font-bold text-sm text-volt hover:text-volt-hover group transition-colors duration-200"
-            >
-              View Detailed Services
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </div>
+          <Link
+            to="/services"
+            className="inline-flex items-center gap-2 font-display font-bold text-base text-[#e95f0c] hover:underline shrink-0"
+          >
+            See all services <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service, index) => {
-            const IconComponent = service.icon;
+        {/* Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((service) => {
+            const Icon = service.icon;
             return (
-              <div 
-                key={index}
-                className="glassmorphism-card rounded-2xl p-6 md:p-8 flex flex-col justify-between h-full group"
+              <div
+                key={service.title}
+                className="card-light rounded-2xl p-8 flex flex-col gap-6 group"
               >
-                <div className="space-y-6">
-                  {/* Top line with Icon & Tag */}
-                  <div className="flex items-center justify-between">
-                    <div className="w-12 h-12 rounded-2xl bg-slate-dark border border-slate-border/80 flex items-center justify-center text-volt group-hover:bg-volt group-hover:text-obsidian group-hover:scale-105 transition-all duration-300">
-                      <IconComponent className="w-6 h-6" />
-                    </div>
-                    <span className="text-[9px] uppercase tracking-wider font-bold text-text-muted bg-white/5 px-2.5 py-1 rounded-lg border border-white/5">
-                      {service.tag}
-                    </span>
-                  </div>
-
-                  {/* Text Details */}
-                  <div className="space-y-2">
-                    <h3 className="font-display text-lg font-bold text-white group-hover:text-volt transition-colors">
-                      {service.title}
-                    </h3>
-                    <p className="text-text-secondary text-sm leading-relaxed">
-                      {service.description}
-                    </p>
-                  </div>
+                <div className="w-14 h-14 rounded-2xl bg-[#e95f0c]/10 flex items-center justify-center text-[#e95f0c] group-hover:bg-[#e95f0c] group-hover:text-white transition-all duration-300">
+                  <Icon className="w-7 h-7" />
                 </div>
-
-                <div className="mt-8 pt-4 border-t border-slate-border/40 flex items-center gap-2 text-xs text-text-muted group-hover:text-volt transition-colors">
-                  <span>Learn more</span>
-                  <ArrowRight className="w-3 h-3 transform group-hover:translate-x-1 transition-transform" />
+                <div>
+                  <h3 className="font-display text-xl font-bold text-[#072541] mb-3 group-hover:text-[#e95f0c] transition-colors">
+                    {service.title}
+                  </h3>
+                  <p className="text-[#4a5568] text-base leading-relaxed">
+                    {service.description}
+                  </p>
+                </div>
+                <div className="mt-auto pt-4 border-t border-[#e2dbd3] flex items-center gap-2 text-sm text-[#e95f0c] font-semibold">
+                  Learn more <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </div>
               </div>
             );
           })}
         </div>
-
       </div>
     </section>
   );

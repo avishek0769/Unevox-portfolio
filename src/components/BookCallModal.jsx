@@ -60,9 +60,9 @@ export default function BookCallModal({ isOpen, onClose }) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-obsidian/80 backdrop-blur-md">
-      <div 
-        className="relative w-full max-w-2xl overflow-hidden rounded-3xl border border-slate-border bg-slate-dark/95 shadow-2xl transition-all duration-300 transform scale-100 max-h-[90vh] flex flex-col"
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#072541]/70 backdrop-blur-md">
+      <div
+        className="relative w-full max-w-2xl overflow-hidden rounded-3xl border border-[#e2dbd3] bg-white shadow-2xl transition-all duration-300 max-h-[90vh] flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Neon accent top border */}

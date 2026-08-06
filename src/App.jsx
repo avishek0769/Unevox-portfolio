@@ -4,7 +4,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import BookCallModal from './components/BookCallModal';
-import { ArrowLeft, Sparkles } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 // Scroll to top helper on navigation
@@ -19,24 +19,20 @@ function ScrollToTop() {
 // Beautiful Placeholder for unfinished pages
 function ComingSoonPlaceholder({ title }) {
   return (
-    <div className="min-h-[75vh] flex items-center justify-center pt-24 pb-16 sports-grid-pattern relative">
-      <div className="absolute inset-0 radial-glow-green pointer-events-none" />
-      <div className="absolute inset-0 radial-glow-cyan pointer-events-none" />
-      
+    <div className="min-h-[75vh] flex items-center justify-center pt-24 pb-16 dot-grid relative bg-[#f8f5f2]">
       <div className="relative z-10 max-w-xl mx-auto px-6 text-center">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-volt/30 bg-volt/10 text-volt font-display text-[10px] font-bold uppercase tracking-wider mb-6 animate-pulse-subtle">
-          <Sparkles className="w-3.5 h-3.5" />
-          Page Construction
+        <div className="section-badge mb-6 inline-flex animate-pulse-subtle">
+          Page Under Construction
         </div>
-        <h1 className="font-display text-4xl sm:text-5xl font-bold tracking-tight text-white mb-4">
+        <h1 className="font-display text-5xl font-bold tracking-tight text-[#072541] mb-4">
           {title} Page
         </h1>
-        <p className="text-text-secondary text-base leading-relaxed mb-8">
-          This section is currently under development as part of our incremental project plan. Please check back soon or book a free call to get in touch.
+        <p className="text-[#4a5568] text-lg leading-relaxed mb-8">
+          This section is currently under development. Please check back soon or book a free call to get in touch.
         </p>
-        <Link 
+        <Link
           to="/"
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-display font-bold text-sm text-obsidian bg-volt hover:bg-volt-hover hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
+          className="btn-primary inline-flex items-center gap-2 px-6 py-3 text-base"
         >
           <ArrowLeft className="w-4 h-4" />
           Back to Home
