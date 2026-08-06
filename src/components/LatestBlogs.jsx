@@ -6,7 +6,6 @@ const blogs = [
   {
     id: 'blog-1',
     title: 'The Stadium Feed: How to Capture Game-Day Adrenaline',
-    category: 'Sports Media',
     snippet:
       'Unlocking the secrets to filming fast-paced action on the pitch — camera angles, frame rates, and split-second decisions that drive views.',
     image: 'https://images.unsplash.com/photo-1766525133589-e3b4b090c04b?q=80&w=1170&auto=format&fit=crop',
@@ -18,7 +17,6 @@ const blogs = [
   {
     id: 'blog-2',
     title: 'Reels That Convert: Hooking the Modern Football Fan',
-    category: 'Short-Form Video',
     snippet:
       'Short-form content rules the feed. The hook-retain-reward model that earned KKR and Durand Cup campaigns massive engagement.',
     image: 'https://images.unsplash.com/photo-1766525133589-e3b4b090c04b?q=80&w=1170&auto=format&fit=crop',
@@ -30,7 +28,6 @@ const blogs = [
   {
     id: 'blog-3',
     title: 'Beyond the Ground: Digital Branding for Athletic Leagues',
-    category: 'Brand Strategy',
     snippet:
       'How local and national leagues can build year-round value and keep sponsors happy long after the final whistle.',
     image: 'https://images.unsplash.com/photo-1766525133589-e3b4b090c04b?q=80&w=1170&auto=format&fit=crop',
@@ -76,9 +73,6 @@ export default function LatestBlogs() {
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   loading="lazy"
                 />
-                <div className="absolute top-4 left-4 px-3 py-1 rounded-lg bg-white/90 backdrop-blur-sm text-sm font-display font-bold text-[#e95f0c]">
-                  {post.category}
-                </div>
               </div>
 
               <div className="p-6 flex flex-col flex-1">

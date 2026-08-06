@@ -18,8 +18,8 @@ export default function Home({ onBookCall }) {
       <FeaturedWork />
       <SportsShowreel />
       <Statistics />
-      <ServicesPreview />
       <PortfolioPreview />
+      <ServicesPreview />
       <AboutPreview />
       <LatestBlogs />
       <ContactCTA onBookCall={onBookCall} />
