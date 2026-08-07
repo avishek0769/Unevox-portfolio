@@ -30,7 +30,6 @@ export default function AboutPreview() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
           {/* Left */}
           <div className="space-y-7">
-            <span className="section-badge inline-flex">Identity</span>
             <h2 className="font-display text-4xl sm:text-5xl font-bold tracking-tight text-[#072541] leading-tight">
               Who We Are
             </h2>

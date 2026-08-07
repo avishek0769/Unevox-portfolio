@@ -11,6 +11,7 @@ import Portfolio from './pages/Portfolio';
 import Achievements from './pages/Achievements';
 import Blogs from './pages/Blogs';
 import BlogPost from './pages/BlogPost';
+import Services from './pages/Services';
 
 // Scroll to top helper on navigation
 function ScrollToTop() {
@@ -68,7 +69,7 @@ function AppContent() {
 
           {/* Temporary placeholder pages */}
           <Route path="/about" element={<About title="About" />} />
-          <Route path="/services" element={<ComingSoonPlaceholder title="Services" />} />
+          <Route path="/services" element={<Services />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/achievements" element={<Achievements />} />
           <Route path="/blogs" element={<Blogs />} />

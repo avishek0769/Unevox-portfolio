@@ -7,6 +7,7 @@ const services = [
     icon: Trophy,
     num: '01',
     title: 'Sports Media Production',
+    slug: 'sports-media-production',
     description:
       'High-octane match coverage, athlete promos, and league hype reels that put your brand at the heart of the action.',
     accent: '#e95f0c',
@@ -15,6 +16,7 @@ const services = [
     icon: Share2,
     num: '02',
     title: 'Social Media Management',
+    slug: 'social-media-management',
     description:
       'End-to-end content calendars, daily publishing, and community growth strategies tailored to your audience.',
     accent: '#7c3aed',
@@ -22,7 +24,8 @@ const services = [
   {
     icon: Video,
     num: '03',
-    title: 'Video & Reel Production',
+    title: 'Cinematography',
+    slug: 'cinematography',
     description:
       'Cinematic showreels, short-form content, and corporate films crafted for maximum platform reach.',
     accent: '#0284c7',
@@ -31,6 +34,7 @@ const services = [
     icon: Camera,
     num: '04',
     title: 'Photography',
+    slug: 'photography',
     description:
       'Professional sports action shots, event photography, and product imagery shot with precision and passion.',
     accent: '#059669',
@@ -39,6 +43,7 @@ const services = [
     icon: Megaphone,
     num: '05',
     title: 'Digital Marketing',
+    slug: 'digital-marketing',
     description:
       'Performance campaigns, paid ads, and organic growth plans that convert audiences into loyal followers.',
     accent: '#dc2626',
@@ -47,6 +52,7 @@ const services = [
     icon: Palette,
     num: '06',
     title: 'Creative Graphics & Branding',
+    slug: 'creative-design',
     description:
       'Visual identity systems, matchday posters, merchandise design, and premium brand assets.',
     accent: '#d97706',
@@ -58,8 +64,9 @@ function ServiceCard({ service }) {
   const Icon = service.icon;
 
   return (
-    <div
-      className="relative bg-white border border-[#e2dbd3] rounded-2xl p-7 flex flex-col gap-5 overflow-hidden group cursor-pointer transition-all duration-400 hover:shadow-xl hover:border-transparent"
+    <Link
+      to={`/services#${service.slug}`}
+      className="relative bg-white border border-[#e2dbd3] rounded-2xl p-7 flex flex-col gap-5 overflow-hidden group cursor-pointer transition-all duration-400 hover:shadow-xl hover:border-transparent block"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
@@ -114,7 +121,7 @@ function ServiceCard({ service }) {
           style={{ transform: hovered ? 'translateX(4px)' : 'translateX(0px)' }}
         />
       </div>
-    </div>
+    </Link>
   );
 }
 
@@ -138,9 +145,6 @@ export default function ServicesPreview() {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
           <div>
-            <span className="section-badge mb-4 inline-flex border-[#e95f0c]/40 bg-[#e95f0c]/10 text-[#e95f0c]">
-              Capabilities
-            </span>
             <h2 className="font-display text-5xl sm:text-6xl font-black tracking-tight text-black leading-none">
               What We <span className="text-[#e95f0c]">Do</span>
             </h2>
