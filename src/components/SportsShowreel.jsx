@@ -6,13 +6,13 @@ const reelsData = [
   {
     id: 'reel-1',
     clientName: 'Behala SS Sporting Club',
-    videoUrl: '/reels/potrait-reel.mp4',
+    videoUrl: '/reels/portrait-reel.mp4',
     type: 'portrait',
   },
   {
     id: 'reel-3',
     clientName: 'Kolkata Knight Riders',
-    videoUrl: '/reels/potrait-reel.mp4',
+    videoUrl: '/reels/portrait-reel.mp4',
     type: 'portrait',
   },
   {
@@ -24,7 +24,7 @@ const reelsData = [
   {
     id: 'reel-5',
     clientName: 'Behala Classical Festival',
-    videoUrl: '/reels/potrait-reel.mp4',
+    videoUrl: '/reels/portrait-reel.mp4',
     type: 'portrait',
   },
   {
@@ -60,7 +60,7 @@ function ReelCard({ reel }) {
     }
   };
 
-  const isPortrait = reel.type === 'portrait' || reel.type === 'potrait';
+  const isPortrait = reel.type === 'portrait' || reel.type === 'portrait';
 
   return (
     <div

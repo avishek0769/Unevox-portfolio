@@ -30,9 +30,9 @@ const ALL_MEDIA = [
   // ── KKR ──
   { id: 'kkr-1', clientId: 'kkr', type: 'image', aspect: 'landscape', span2: true, thumbnail: 'https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=800&q=80', url: 'https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=1920&q=90' },
   { id: 'kkr-2', clientId: 'kkr', type: 'image', aspect: 'square', thumbnail: 'https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&w=800&q=80', url: 'https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&w=1920&q=90' },
-  { id: 'kkr-3', clientId: 'kkr', type: 'video', aspect: 'portrait', thumbnail: 'https://images.unsplash.com/photo-1569517282132-25d22f4573e6?auto=format&fit=crop&w=800&q=80', url: '/reels/potrait-reel.mp4' },
+  { id: 'kkr-3', clientId: 'kkr', type: 'video', aspect: 'portrait', thumbnail: 'https://images.unsplash.com/photo-1569517282132-25d22f4573e6?auto=format&fit=crop&w=800&q=80', url: '/reels/portrait-reel.mp4' },
   // ── DURAND ──
-  { id: 'durand-1', clientId: 'durand', type: 'video', aspect: 'portrait', thumbnail: 'https://images.unsplash.com/photo-1575361204480-aadea25e6e68?auto=format&fit=crop&w=800&q=80', url: '/reels/potrait-reel.mp4' },
+  { id: 'durand-1', clientId: 'durand', type: 'video', aspect: 'portrait', thumbnail: 'https://images.unsplash.com/photo-1575361204480-aadea25e6e68?auto=format&fit=crop&w=800&q=80', url: '/reels/portrait-reel.mp4' },
   { id: 'durand-2', clientId: 'durand', type: 'image', aspect: 'landscape', span2: true, thumbnail: 'https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=800&q=80', url: 'https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=1920&q=90' },
   { id: 'durand-3', clientId: 'durand', type: 'video', aspect: 'square', thumbnail: 'https://images.unsplash.com/photo-1517927033932-b3d18e61fb3a?auto=format&fit=crop&w=800&q=80', url: '/reels/square-type-reel.mp4' },
   // ── CFL25 ──
@@ -40,12 +40,12 @@ const ALL_MEDIA = [
   { id: 'cfl25-2', clientId: 'cfl25', type: 'image', aspect: 'landscape', span2: true, thumbnail: 'https://images.unsplash.com/photo-1560272564-c83b66b1ad12?auto=format&fit=crop&w=800&q=80', url: 'https://images.unsplash.com/photo-1560272564-c83b66b1ad12?auto=format&fit=crop&w=1920&q=90' },
   // ── CFL24 ──
   { id: 'cfl24-1', clientId: 'cfl24', type: 'image', aspect: 'landscape', thumbnail: 'https://images.unsplash.com/photo-1526232761682-d26e03ac148e?auto=format&fit=crop&w=800&q=80', url: 'https://images.unsplash.com/photo-1526232761682-d26e03ac148e?auto=format&fit=crop&w=1920&q=90' },
-  { id: 'cfl24-2', clientId: 'cfl24', type: 'video', aspect: 'portrait', thumbnail: 'https://images.unsplash.com/photo-1606925797300-0b35e9d1794e?auto=format&fit=crop&w=800&q=80', url: '/reels/potrait-reel.mp4' },
+  { id: 'cfl24-2', clientId: 'cfl24', type: 'video', aspect: 'portrait', thumbnail: 'https://images.unsplash.com/photo-1606925797300-0b35e9d1794e?auto=format&fit=crop&w=800&q=80', url: '/reels/portrait-reel.mp4' },
   // ── BEHALA CUP ──
   { id: 'bc-1', clientId: 'behala-cup', type: 'video', aspect: 'square', thumbnail: 'https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=800&q=80', url: '/reels/square-type-reel.mp4' },
   { id: 'bc-2', clientId: 'behala-cup', type: 'image', aspect: 'landscape', thumbnail: 'https://images.unsplash.com/photo-1553778263-73a83bab9b0c?auto=format&fit=crop&w=800&q=80', url: 'https://images.unsplash.com/photo-1553778263-73a83bab9b0c?auto=format&fit=crop&w=1920&q=90' },
   // ── BSS ──
-  { id: 'bss-1', clientId: 'bss', type: 'video', aspect: 'portrait', thumbnail: 'https://images.unsplash.com/photo-1624718501777-1f6e5e38a1b1?auto=format&fit=crop&w=800&q=80', url: '/reels/potrait-reel.mp4' },
+  { id: 'bss-1', clientId: 'bss', type: 'video', aspect: 'portrait', thumbnail: 'https://images.unsplash.com/photo-1624718501777-1f6e5e38a1b1?auto=format&fit=crop&w=800&q=80', url: '/reels/portrait-reel.mp4' },
   { id: 'bss-2', clientId: 'bss', type: 'image', aspect: 'square', thumbnail: 'https://images.unsplash.com/photo-1517927033932-b3d18e61fb3a?auto=format&fit=crop&w=800&q=80', url: 'https://images.unsplash.com/photo-1517927033932-b3d18e61fb3a?auto=format&fit=crop&w=1920&q=90' },
   // ── N24P ──
   { id: 'n24p-1', clientId: 'n24p', type: 'image', aspect: 'landscape', span2: true, thumbnail: 'https://images.unsplash.com/photo-1542144612-1b726c7f6b96?auto=format&fit=crop&w=800&q=80', url: 'https://images.unsplash.com/photo-1542144612-1b726c7f6b96?auto=format&fit=crop&w=1920&q=90' },
@@ -53,9 +53,9 @@ const ALL_MEDIA = [
   { id: 'pp-1', clientId: 'playport', type: 'image', aspect: 'square', thumbnail: 'https://images.unsplash.com/photo-1484920795226-7a8d9b2e3b43?auto=format&fit=crop&w=800&q=80', url: 'https://images.unsplash.com/photo-1484920795226-7a8d9b2e3b43?auto=format&fit=crop&w=1920&q=90' },
   // ── BCF ──
   { id: 'bcf-1', clientId: 'bcf', type: 'image', aspect: 'landscape', span2: true, thumbnail: 'https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&w=800&q=80', url: 'https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&w=1920&q=90' },
-  { id: 'bcf-2', clientId: 'bcf', type: 'video', aspect: 'portrait', thumbnail: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=800&q=80', url: '/reels/potrait-reel.mp4' },
+  { id: 'bcf-2', clientId: 'bcf', type: 'video', aspect: 'portrait', thumbnail: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=800&q=80', url: '/reels/portrait-reel.mp4' },
   // ── GODHULI ──
-  { id: 'gg-1', clientId: 'godhuli', type: 'video', aspect: 'portrait', thumbnail: 'https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?auto=format&fit=crop&w=800&q=80', url: '/reels/potrait-reel.mp4' },
+  { id: 'gg-1', clientId: 'godhuli', type: 'video', aspect: 'portrait', thumbnail: 'https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?auto=format&fit=crop&w=800&q=80', url: '/reels/portrait-reel.mp4' },
   { id: 'gg-2', clientId: 'godhuli', type: 'image', aspect: 'landscape', thumbnail: 'https://images.unsplash.com/photo-1501612780327-45045538702b?auto=format&fit=crop&w=800&q=80', url: 'https://images.unsplash.com/photo-1501612780327-45045538702b?auto=format&fit=crop&w=1920&q=90' },
   // ── CAESAR ──
   { id: 'cs-1', clientId: 'caesar', type: 'image', aspect: 'landscape', span2: true, thumbnail: 'https://images.unsplash.com/photo-1460723237483-7a6dc9d0b212?auto=format&fit=crop&w=800&q=80', url: 'https://images.unsplash.com/photo-1460723237483-7a6dc9d0b212?auto=format&fit=crop&w=1920&q=90' },
@@ -271,7 +271,7 @@ function MasonryItem({ children, isSpan2, item }) {
     calculateSpans();
     // Run again next frame to guarantee layout is computed
     const id = requestAnimationFrame(calculateSpans);
-    
+
     // Also re-run after a small delay in case images or videos have not fully laid out
     const timeoutId = setTimeout(calculateSpans, 150);
 
