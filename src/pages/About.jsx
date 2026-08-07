@@ -68,38 +68,23 @@ const milestones = [
 
 function HeroSection() {
     return (
-        <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-white">
+        <section className="relative min-h-[55vh] flex items-center justify-center overflow-hidden bg-white">
             {/* Accent glow */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 rounded-full bg-[#e95f0c]/10 blur-3xl pointer-events-none" />
 
             {/* Content */}
             <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-                <h1 className="font-display text-5xl sm:text-6xl md:text-7xl font-black text-black leading-[1.05] tracking-tight mb-8">
+                <h1 className="font-display text-5xl sm:text-6xl md:text-7xl font-black text-[#072541] leading-[1.05] tracking-tight mb-8">
                     Every Brand Has a Story.{' '}
                     <br />
-                    <span className="text-[#e95f0c]">We Make It</span>
+                    We Make It
                     <br />
-                    Impossible to Ignore.
+                    <span className="text-[#e95f0c]">Impossible to Ignore.</span>
                 </h1>
 
-                <p className="text-black/60 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed mb-10">
+                <p className="text-black/60 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed">
                     A creative media agency crafting impactful visual stories through strategy, creativity, and premium content production.
                 </p>
-
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <Link
-                        to="/contact"
-                        className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#e95f0c] text-white font-display font-bold text-base hover:bg-[#d04f08] transition-all duration-300 shadow-lg shadow-[#e95f0c]/30"
-                    >
-                        Work With Us <ArrowRight className="w-4 h-4" />
-                    </Link>
-                    <Link
-                        to="/portfolio"
-                        className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-black/20 text-black font-display font-bold text-base hover:bg-black/10 transition-all duration-300"
-                    >
-                        View Our Work
-                    </Link>
-                </div>
             </div>
         </section>
     );
