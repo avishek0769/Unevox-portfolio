@@ -5,18 +5,21 @@ import { ArrowRight } from 'lucide-react';
 const pillars = [
   {
     number: '01',
-    title: 'Strategic Marketing',
-    description: 'Aligning every campaign with your brand objectives to drive growth and high-conversion results.',
+    title: 'Brand Building & Strategic Marketing',
+    description:
+      'Helping brands grow through thoughtful positioning, strategic marketing, and campaigns that create lasting impact.',
   },
   {
     number: '02',
-    title: 'Creative Storytelling',
-    description: 'Drafting high-octane narratives that resonate emotionally and capture defining sports moments.',
+    title: 'Digital Campaigns',
+    description:
+      'Executing high-impact digital campaigns, social media management, and content strategies that drive visibility, engagement, and audience growth.',
   },
   {
     number: '03',
-    title: 'Premium Production',
-    description: 'High-end camera rigs, skilled editors, and top-tier post-production for pixel-perfect content.',
+    title: 'Creative Film Making',
+    description:
+      'Producing cinematic reels, commercial films, event coverage, photography, and visual storytelling that brings every brand and event to life.',
   },
 ];
 
