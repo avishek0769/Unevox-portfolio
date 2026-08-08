@@ -44,7 +44,6 @@ export default function LatestBlogs() {
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
           <div>
-            <span className="section-badge mb-3 inline-flex">Knowledge</span>
             <h2 className="font-display text-4xl sm:text-5xl font-bold tracking-tight text-[#072541]">
               Client Case Study Blogs
             </h2>

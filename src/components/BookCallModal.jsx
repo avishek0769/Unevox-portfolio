@@ -98,7 +98,7 @@ export default function BookCallModal({ isOpen, onClose }) {
               </div>
               <h4 className="font-display text-2xl font-bold text-white mb-2">Booking Requested!</h4>
               <p className="text-text-secondary max-w-md mb-8">
-                Thank you for choosing Unevox. Our sports & creative consultants will review your request and get in touch via email and phone within 24 hours.
+                Thank you for choosing Unevox. Our team will review your request and get in touch via email and phone within 24 hours.
               </p>
               <button
                 onClick={() => {

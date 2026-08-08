@@ -2,8 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import {
     Lightbulb, BookOpen, Star, Handshake,
-    ArrowRight, Calendar, ChevronRight, Phone
+    ArrowRight, Calendar, ChevronRight, Phone, Package
 } from 'lucide-react';
+import CustomizePackageModal from '../components/CustomizePackageModal';
 
 // ─── DATA ────────────────────────────────────────────────────────────────────
 
@@ -263,62 +264,77 @@ function JourneySection() {
 
 // ─── CTA ─────────────────────────────────────────────────────────────────────
 
-function CTASection() {
+function CTASection({ onBookCall }) {
+    const [isCustomizeOpen, setIsCustomizeOpen] = useState(false);
+
     return (
-        <section className="py-28 bg-[#072541] relative overflow-hidden">
-            {/* Decorative blobs */}
-            <div className="absolute -top-40 -left-40 w-96 h-96 rounded-full bg-[#e95f0c]/15 blur-3xl pointer-events-none" />
-            <div className="absolute -bottom-40 -right-40 w-96 h-96 rounded-full bg-[#7c3aed]/10 blur-3xl pointer-events-none" />
-            <div
-                className="absolute inset-0 opacity-[0.04]"
-                style={{
-                    backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
-                    backgroundSize: '28px 28px',
-                }}
-            />
+        <>
+            <section className="py-28 bg-[#072541] relative overflow-hidden">
+                {/* Decorative blobs */}
+                <div className="absolute -top-40 -left-40 w-96 h-96 rounded-full bg-[#e95f0c]/15 blur-3xl pointer-events-none" />
+                <div className="absolute -bottom-40 -right-40 w-96 h-96 rounded-full bg-[#7c3aed]/10 blur-3xl pointer-events-none" />
+                <div
+                    className="absolute inset-0 opacity-[0.04]"
+                    style={{
+                        backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
+                        backgroundSize: '28px 28px',
+                    }}
+                />
 
-            <div className="relative max-w-4xl mx-auto px-6 text-center">
-                <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#e95f0c]/40 bg-[#e95f0c]/10 text-[#e95f0c] text-xs font-display font-black uppercase tracking-widest mb-8">
-                    Start a Conversation
-                </span>
-                <h2 className="font-display text-5xl sm:text-6xl md:text-7xl font-black text-white leading-[1.05] tracking-tight mb-6">
-                    Let's Create Something{' '}
-                    <span className="text-[#e95f0c]">Extraordinary</span>{' '}
-                    Together.
-                </h2>
-                <p className="text-white/60 text-lg max-w-2xl mx-auto leading-relaxed mb-12">
-                    Whether you're a sports club, brand, business, or event organizer — let's bring your story to life.
-                </p>
+                <div className="relative max-w-4xl mx-auto px-6 text-center">
+                    <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#e95f0c]/40 bg-[#e95f0c]/10 text-[#e95f0c] text-xs font-display font-black uppercase tracking-widest mb-8">
+                        Start a Conversation
+                    </span>
+                    <h2 className="font-display text-5xl sm:text-6xl md:text-7xl font-black text-white leading-[1.05] tracking-tight mb-6">
+                        Let's Create Something{' '}
+                        <span className="text-[#e95f0c]">Extraordinary</span>{' '}
+                        Together.
+                    </h2>
+                    <p className="text-white/60 text-lg max-w-2xl mx-auto leading-relaxed mb-12">
+                        Whether you're a sports club, brand, business, or event organizer — let's bring your story to life.
+                    </p>
 
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <Link
-                        to="/contact"
-                        className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#e95f0c] text-white font-display font-bold text-base hover:bg-[#d04f08] transition-all duration-300 shadow-xl shadow-[#e95f0c]/30"
-                    >
-                        <Phone className="w-4 h-4" /> Book a Free Call
-                    </Link>
-                    <Link
-                        to="/portfolio"
-                        className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-white/20 text-white font-display font-bold text-base hover:bg-white/10 transition-all duration-300"
-                    >
-                        View Our Portfolio <ChevronRight className="w-4 h-4" />
-                    </Link>
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <button
+                            onClick={onBookCall}
+                            className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#e95f0c] text-white font-display font-bold text-base hover:bg-[#d04f08] transition-all duration-300 shadow-xl shadow-[#e95f0c]/30 cursor-pointer"
+                        >
+                            <Phone className="w-4 h-4" /> Book a Free Call
+                        </button>
+                        <button
+                            onClick={() => setIsCustomizeOpen(true)}
+                            className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-white/30 text-white font-display font-bold text-base hover:bg-white/10 transition-all duration-300 cursor-pointer"
+                        >
+                            <Package className="w-4 h-4" /> Customize Your Package
+                        </button>
+                        <Link
+                            to="/portfolio"
+                            className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-white/20 text-white/70 font-display font-bold text-base hover:bg-white/10 transition-all duration-300"
+                        >
+                            View Our Portfolio <ChevronRight className="w-4 h-4" />
+                        </Link>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+
+            <CustomizePackageModal
+                isOpen={isCustomizeOpen}
+                onClose={() => setIsCustomizeOpen(false)}
+            />
+        </>
     );
 }
 
 // ─── PAGE ─────────────────────────────────────────────────────────────────────
 
-export default function About() {
+export default function About({ onBookCall }) {
     return (
         <div>
             <HeroSection />
             <StorySection />
             <TeamSection />
             <JourneySection />
-            <CTASection />
+            <CTASection onBookCall={onBookCall} />
         </div>
     );
 }

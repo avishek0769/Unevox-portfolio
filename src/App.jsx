@@ -68,7 +68,7 @@ function AppContent() {
           <Route path="/" element={<Home onBookCall={handleOpenModal} />} />
 
           {/* Temporary placeholder pages */}
-          <Route path="/about" element={<About title="About" />} />
+          <Route path="/about" element={<About onBookCall={handleOpenModal} />} />
           <Route path="/services" element={<Services />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/achievements" element={<Achievements />} />
