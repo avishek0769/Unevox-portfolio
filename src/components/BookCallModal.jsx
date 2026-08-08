@@ -1,22 +1,24 @@
 import React, { useState } from 'react';
-import { X, Calendar, Clock, Sparkles, Send, CheckCircle } from 'lucide-react';
+import { X, Calendar, Clock, Sparkles, Send, CheckCircle, AlertCircle } from 'lucide-react';
 
 export default function BookCallModal({ isOpen, onClose }) {
   if (!isOpen) return null;
 
   const [formData, setFormData] = useState({
-    fullName: '',
-    companyName: '',
-    email: '',
+    name: '',
+    company: '',
     phone: '',
+    email: '',
     service: '',
-    preferredDate: '',
-    preferredTime: '',
-    message: ''
+    date: '',
+    time: '',
+    message: '',
+    formType: "call"
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [isError, setIsError] = useState(false);
 
   const servicesList = [
     'Social Media Management',
@@ -37,26 +39,37 @@ export default function BookCallModal({ isOpen, onClose }) {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setIsError(false);
 
-    // Simulate API request
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSuccess(true);
-      // Clear form after success
+    try {
+      await fetch(
+        'https://script.google.com/macros/s/AKfycbw00qiqQIiympVbhhBjTxtxvqvV6-Ef6WyKO9Xh4G6lzpcGyHOLf2blwHtemaFZaMVQ6g/exec',
+        {
+          method: 'POST',
+          body: JSON.stringify(formData),
+        }
+      );
+      // Clear form and show success
       setFormData({
-        fullName: '',
-        companyName: '',
-        email: '',
+        name: '',
+        company: '',
         phone: '',
+        email: '',
         service: '',
-        preferredDate: '',
-        preferredTime: '',
-        message: ''
+        date: '',
+        time: '',
+        message: '',
+        formType: 'call'
       });
-    }, 1200);
+      setIsSuccess(true);
+    } catch (_err) {
+      setIsError(true);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -96,7 +109,7 @@ export default function BookCallModal({ isOpen, onClose }) {
                 <div className="absolute inset-0 rounded-full bg-volt/20 blur-xl animate-pulse" />
                 <CheckCircle className="w-20 h-20 text-volt relative z-10" />
               </div>
-              <h4 className="font-display text-2xl font-bold text-white mb-2">Booking Requested!</h4>
+              <h4 className="font-display text-2xl font-bold text-[#072541] mb-2">Booking Requested!</h4>
               <p className="text-text-secondary max-w-md mb-8">
                 Thank you for choosing Unevox. Our team will review your request and get in touch via email and phone within 24 hours.
               </p>
@@ -105,9 +118,26 @@ export default function BookCallModal({ isOpen, onClose }) {
                   setIsSuccess(false);
                   onClose();
                 }}
-                className="px-8 py-3.5 rounded-full font-display font-bold text-obsidian bg-volt hover:bg-volt-hover hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
+                className="px-8 py-3.5 rounded-full font-display font-bold text-white bg-primary hover:bg-primary-hover hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
               >
                 Close Window
+              </button>
+            </div>
+          ) : isError ? (
+            <div className="flex flex-col items-center justify-center py-12 text-center">
+              <div className="relative mb-6">
+                <div className="absolute inset-0 rounded-full bg-red-100 blur-xl animate-pulse" />
+                <AlertCircle className="w-20 h-20 text-red-500 relative z-10" />
+              </div>
+              <h4 className="font-display text-2xl font-bold text-[#072541] mb-2">Something went wrong</h4>
+              <p className="text-text-secondary max-w-md mb-8">
+                We couldn't send your request right now. Please try again, or reach us directly on WhatsApp.
+              </p>
+              <button
+                onClick={() => setIsError(false)}
+                className="px-8 py-3.5 rounded-full font-display font-bold text-white bg-primary hover:bg-primary-hover hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
+              >
+                Try Again
               </button>
             </div>
           ) : (
@@ -120,15 +150,15 @@ export default function BookCallModal({ isOpen, onClose }) {
                   </label>
                   <input
                     type="text"
-                    name="fullName"
+                    name="name"
                     required
-                    value={formData.fullName}
+                    value={formData.name}
                     onChange={handleChange}
                     placeholder="Rahul Das"
                     className="w-full px-4 py-3 rounded-xl border border-slate-border bg-slate-dark text-black-100 placeholder-text-muted focus:outline-none focus:border-volt transition-colors"
                   />
                 </div>
-
+ 
                 {/* Company Name */}
                 <div>
                   <label className="block text-xs font-semibold uppercase tracking-wider text-text-secondary mb-2">
@@ -136,8 +166,8 @@ export default function BookCallModal({ isOpen, onClose }) {
                   </label>
                   <input
                     type="text"
-                    name="companyName"
-                    value={formData.companyName}
+                    name="company"
+                    value={formData.company}
                     onChange={handleChange}
                     placeholder="e.g. Farmigo Corp"
                     className="w-full px-4 py-3 rounded-xl border border-slate-border bg-slate-dark text-black-100 placeholder-text-muted focus:outline-none focus:border-volt transition-colors"
@@ -204,14 +234,14 @@ export default function BookCallModal({ isOpen, onClose }) {
                   </label>
                   <input
                     type="date"
-                    name="preferredDate"
+                    name="date"
                     required
-                    value={formData.preferredDate}
+                    value={formData.date}
                     onChange={handleChange}
                     className="w-full px-4 py-3 rounded-xl border border-slate-border bg-slate-dark text-black-100 focus:outline-none focus:border-volt transition-colors cursor-pointer"
                   />
                 </div>
-
+ 
                 {/* Preferred Time */}
                 <div>
                   <label className="block text-xs font-semibold uppercase tracking-wider text-text-secondary mb-2 flex items-center gap-1.5">
@@ -219,9 +249,9 @@ export default function BookCallModal({ isOpen, onClose }) {
                   </label>
                   <input
                     type="time"
-                    name="preferredTime"
+                    name="time"
                     required
-                    value={formData.preferredTime}
+                    value={formData.time}
                     onChange={handleChange}
                     className="w-full px-4 py-3 rounded-xl border border-slate-border bg-slate-dark text-black-100 focus:outline-none focus:border-volt transition-colors cursor-pointer"
                   />

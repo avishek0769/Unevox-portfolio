@@ -1,21 +1,23 @@
 import React, { useState } from 'react';
-import { X, Sparkles, Send, CheckCircle } from 'lucide-react';
+import { X, Sparkles, Send, CheckCircle, AlertCircle } from 'lucide-react';
 
 export default function CustomizePackageModal({ isOpen, onClose }) {
   if (!isOpen) return null;
 
   const [formData, setFormData] = useState({
-    fullName: '',
-    companyName: '',
+    name: '',
+    company: '',
     phone: '',
     email: '',
-    industries: [],
-    needs: [],
-    requirement: ''
+    industry: [],
+    service: [],
+    requirements: '',
+    formType: "lead"
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [isError, setIsError] = useState(false);
 
   const industryOptions = [
     'Restaurant / Café',
@@ -55,36 +57,54 @@ export default function CustomizePackageModal({ isOpen, onClose }) {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validation for checkboxes since they are marked with '*' in requirements
-    if (formData.industries.length === 0) {
+    // Validate checkbox groups
+    if (formData.industry.length === 0) {
       alert('Please select at least one Industry / Business Type.');
       return;
     }
-    if (formData.needs.length === 0) {
+    if (formData.service.length === 0) {
       alert('Please select at least one service you need.');
       return;
     }
 
     setIsSubmitting(true);
+    setIsError(false);
 
-    // Simulate API request
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSuccess(true);
-      // Clear form after success
+    try {
+      // Convert arrays to comma-separated strings for the Google Sheet payload
+      const payload = {
+        ...formData,
+        industry: formData.industry.join(', '),
+        service: formData.service.join(', ')
+      };
+
+      await fetch(
+        'https://script.google.com/macros/s/AKfycbw00qiqQIiympVbhhBjTxtxvqvV6-Ef6WyKO9Xh4G6lzpcGyHOLf2blwHtemaFZaMVQ6g/exec',
+        {
+          method: 'POST',
+          body: JSON.stringify(payload),
+        }
+      );
+      // Clear form and show success
       setFormData({
-        fullName: '',
-        companyName: '',
+        name: '',
+        company: '',
         phone: '',
         email: '',
-        industries: [],
-        needs: [],
-        requirement: ''
+        industry: [],
+        service: [],
+        requirements: '',
+        formType: 'lead'
       });
-    }, 1200);
+      setIsSuccess(true);
+    } catch (_err) {
+      setIsError(true);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -138,6 +158,23 @@ export default function CustomizePackageModal({ isOpen, onClose }) {
                 Close Window
               </button>
             </div>
+          ) : isError ? (
+            <div className="flex flex-col items-center justify-center py-12 text-center">
+              <div className="relative mb-6">
+                <div className="absolute inset-0 rounded-full bg-red-100 blur-xl animate-pulse" />
+                <AlertCircle className="w-20 h-20 text-red-500 relative z-10" />
+              </div>
+              <h4 className="font-display text-2xl font-bold text-secondary mb-2">Something went wrong</h4>
+              <p className="text-text-secondary max-w-md mb-8">
+                We couldn't send your request right now. Please try again, or reach us directly on WhatsApp.
+              </p>
+              <button
+                onClick={() => setIsError(false)}
+                className="px-8 py-3.5 rounded-full font-display font-bold text-white bg-primary hover:bg-primary-hover hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
+              >
+                Try Again
+              </button>
+            </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
 
@@ -160,9 +197,9 @@ export default function CustomizePackageModal({ isOpen, onClose }) {
                     </label>
                     <input
                       type="text"
-                      name="fullName"
+                      name="name"
                       required
-                      value={formData.fullName}
+                      value={formData.name}
                       onChange={handleChange}
                       placeholder="e.g. Rahul Das"
                       className="w-full px-4 py-3 rounded-xl border border-slate-border bg-slate-dark text-black-100 placeholder-text-muted focus:outline-none focus:border-volt transition-colors"
@@ -176,9 +213,9 @@ export default function CustomizePackageModal({ isOpen, onClose }) {
                     </label>
                     <input
                       type="text"
-                      name="companyName"
+                      name="company"
                       required
-                      value={formData.companyName}
+                      value={formData.company}
                       onChange={handleChange}
                       placeholder="e.g. Unevox Agency"
                       className="w-full px-4 py-3 rounded-xl border border-slate-border bg-slate-dark text-black-100 placeholder-text-muted focus:outline-none focus:border-volt transition-colors"
@@ -228,15 +265,15 @@ export default function CustomizePackageModal({ isOpen, onClose }) {
                   {industryOptions.map((option) => (
                     <label
                       key={option}
-                      className={`flex items-center gap-3 p-3 rounded-xl border transition-all cursor-pointer ${formData.industries.includes(option)
-                          ? 'border-[#e95f0c] bg-[#e95f0c]/5 text-[#e95f0c]'
-                          : 'border-[#e2dbd3] hover:border-[#e95f0c]/50 text-text-secondary'
+                      className={`flex items-center gap-3 p-3 rounded-xl border transition-all cursor-pointer ${formData.industry.includes(option)
+                        ? 'border-[#e95f0c] bg-[#e95f0c]/5 text-[#e95f0c]'
+                        : 'border-[#e2dbd3] hover:border-[#e95f0c]/50 text-text-secondary'
                         }`}
                     >
                       <input
                         type="checkbox"
-                        checked={formData.industries.includes(option)}
-                        onChange={() => handleCheckboxChange('industries', option)}
+                        checked={formData.industry.includes(option)}
+                        onChange={() => handleCheckboxChange('industry', option)}
                         className="accent-[#e95f0c] w-4 h-4 cursor-pointer"
                       />
                       <span className="text-xs font-semibold">{option}</span>
@@ -254,15 +291,15 @@ export default function CustomizePackageModal({ isOpen, onClose }) {
                   {needOptions.map((option) => (
                     <label
                       key={option}
-                      className={`flex items-center gap-3 p-3 rounded-xl border transition-all cursor-pointer ${formData.needs.includes(option)
-                          ? 'border-[#e95f0c] bg-[#e95f0c]/5 text-[#e95f0c]'
-                          : 'border-[#e2dbd3] hover:border-[#e95f0c]/50 text-text-secondary'
+                      className={`flex items-center gap-3 p-3 rounded-xl border transition-all cursor-pointer ${formData.service.includes(option)
+                        ? 'border-[#e95f0c] bg-[#e95f0c]/5 text-[#e95f0c]'
+                        : 'border-[#e2dbd3] hover:border-[#e95f0c]/50 text-text-secondary'
                         }`}
                     >
                       <input
                         type="checkbox"
-                        checked={formData.needs.includes(option)}
-                        onChange={() => handleCheckboxChange('needs', option)}
+                        checked={formData.service.includes(option)}
+                        onChange={() => handleCheckboxChange('service', option)}
                         className="accent-[#e95f0c] w-4 h-4 cursor-pointer"
                       />
                       <span className="text-xs font-semibold">{option}</span>
@@ -277,9 +314,9 @@ export default function CustomizePackageModal({ isOpen, onClose }) {
                   Tell us about your requirement
                 </h4>
                 <textarea
-                  name="requirement"
+                  name="requirements"
                   rows="3"
-                  value={formData.requirement}
+                  value={formData.requirements}
                   onChange={handleChange}
                   placeholder="Briefly describe what you need, your goals, or any specific requirements."
                   className="w-full px-4 py-3 rounded-xl border border-slate-border bg-slate-dark text-black-100 placeholder-text-muted focus:outline-none focus:border-volt transition-colors resize-none text-sm"
