@@ -52,39 +52,109 @@ const otherCategories = [
     works: [
       {
         id: 'cc-1',
-        name: 'Classical Festival',
+        name: 'Beahala Classical Festival',
         type: 'video',
-        url: '/media/portrait-reel.mp4',
+        url: '/media/cultural/classical-fest-3.mp4',
         aspect: 'portrait',
       },
       {
         id: 'cc-2',
-        name: 'Theatre Fest',
-        type: 'image',
-        url: 'https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?auto=format&fit=crop&w=600&q=80',
+        name: 'Behala Theatre Festival',
+        type: 'video',
+        url: '/media/cultural/theatre-fest-1.mp4',
         aspect: 'portrait',
       },
       {
         id: 'cc-3',
         name: 'Bachonik Utsav',
-        type: 'image',
-        url: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=600&q=80',
+        type: 'video',
+        url: '/media/cultural/bachonik-1.mp4',
         aspect: 'square',
       },
       {
         id: 'cc-4',
-        name: 'Shailosik Theatre',
-        type: 'image',
-        url: 'https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?auto=format&fit=crop&w=600&q=80',
-        aspect: 'portrait',
+        name: 'Beahala Classical Festival',
+        type: 'video',
+        url: '/media/cultural/classical-fest-4.mp4',
+        aspect: 'square',
       },
       {
         id: 'cc-5',
-        name: 'Godhuli Gogone',
-        type: 'image',
-        url: 'https://images.unsplash.com/photo-1460723237483-7a6dc9d0b212?auto=format&fit=crop&w=600&q=80',
+        name: 'Behala Theatre Festival',
+        type: 'video',
+        url: '/media/cultural/theatre-fest-2.mp4',
         aspect: 'portrait',
-      }
+      },
+      {
+        id: 'cc-6',
+        name: 'Behala Theatre Festival',
+        type: 'video',
+        url: '/media/cultural/theatre-fest-3.mp4',
+        aspect: 'portrait',
+      },
+      {
+        id: 'cc-7',
+        name: 'Bachonik Utsav',
+        type: 'video',
+        url: '/media/cultural/bachonik-3.mp4',
+        aspect: 'portrait',
+      },
+      {
+        id: 'cc-8',
+        name: 'Shailosik Theatre',
+        type: 'video',
+        url: '/media/cultural/Godhuli-1.mp4',
+        aspect: 'portrait',
+      },
+      {
+        id: 'cc-9',
+        name: 'Shailosik Theatre',
+        type: 'image',
+        url: '/media/cultural/Godhuli-1.jpg',
+        aspect: 'portrait',
+      },
+      {
+        id: 'cc-10',
+        name: 'Shailosik Theatre',
+        type: 'video',
+        url: '/media/cultural/Godhuli-2.mp4',
+        aspect: 'portrait',
+      },
+      {
+        id: 'cc-11',
+        name: 'Shailosik Theatre',
+        type: 'image',
+        url: '/media/cultural/Godhuli-2.jpg',
+        aspect: 'portrait',
+      },
+      {
+        id: 'cc-12',
+        name: 'Shailosik Theatre',
+        type: 'video',
+        url: '/media/cultural/Godhuli-3.mp4',
+        aspect: 'portrait',
+      },
+      {
+        id: 'cc-13',
+        name: 'Shailosik Theatre',
+        type: 'image',
+        url: '/media/cultural/Godhuli-3.jpg',
+        aspect: 'portrait',
+      },
+      {
+        id: 'cc-14',
+        name: 'Behala Theatre Festival',
+        type: 'video',
+        url: '/media/cultural/theatre-fest-4.mp4',
+        aspect: 'portrait',
+      },
+      {
+        id: 'cc-15',
+        name: 'Bachonik Utsav',
+        type: 'video',
+        url: '/media/cultural/bachonik-4.mp4',
+        aspect: 'portrait',
+      },
     ]
   },
   {
@@ -230,12 +300,12 @@ function MediaCard({ item }) {
   // Compact sizing for reduced media slider height
   const getAspectClass = () => {
     if (item.aspect === 'portrait') {
-      return 'w-[11rem] sm:w-[15rem] aspect-[3/4]';
+      return 'w-[13rem] sm:w-[16rem] aspect-[3/4]';
     }
     if (item.aspect === 'landscape' || item.aspect === 'video') {
-      return 'w-[15rem] sm:w-[17rem] aspect-[16/10]';
+      return 'w-[15rem] sm:w-[18rem] aspect-[16/10]';
     }
-    return 'w-[12rem] sm:w-[16rem] aspect-square';
+    return 'w-[15rem] sm:w-[22rem] aspect-[4/3]';
   };
 
   return (
