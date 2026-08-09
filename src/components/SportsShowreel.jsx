@@ -124,9 +124,6 @@ export default function SportsShowreel() {
         {/* Header section */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
           <div>
-            <span className="section-badge mb-3 inline-flex">
-              <Film className="w-3.5 h-3.5 mr-1" /> Shorts & Reels
-            </span>
             <h2 className="font-display text-4xl sm:text-5xl font-bold tracking-tight text-[#072541]">
               Media Showreel
             </h2>

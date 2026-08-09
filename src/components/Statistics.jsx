@@ -29,9 +29,6 @@ export default function Statistics() {
   return (
     <section className="py-20 bg-[#072541]">
       <div className="max-w-7xl mx-auto px-6 md:px-8 text-center">
-        <span className="section-badge mb-6 inline-flex border-[#e95f0c]/50 bg-[#e95f0c]/10 text-[#e95f0c]">
-          Case Study Highlights
-        </span>
         <h2 className="font-display text-4xl sm:text-5xl font-bold text-white tracking-tight mb-4">
           Driven by Real Impact
         </h2>
