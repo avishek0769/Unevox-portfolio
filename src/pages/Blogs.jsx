@@ -34,7 +34,7 @@ export const BLOG_POSTS = [
     ],
     gallery: [
       { type: 'image', aspect: 'landscape', url: 'https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=1200&q=80' },
-      { type: 'video', aspect: 'portrait', url: '/reels/portrait-reel.mp4', thumbnail: 'https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=800&q=80' },
+      { type: 'video', aspect: 'portrait', url: '/media/portrait-reel.mp4', thumbnail: 'https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=800&q=80' },
       { type: 'image', aspect: 'square', url: 'https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&w=800&q=80' },
       { type: 'image', aspect: 'landscape', url: 'https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=1200&q=80' },
     ],
@@ -59,9 +59,9 @@ export const BLOG_POSTS = [
       { label: 'National Syndication', value: 'Featured on Star Sports' },
     ],
     gallery: [
-      { type: 'video', aspect: 'portrait', url: '/reels/portrait-reel.mp4', thumbnail: 'https://images.unsplash.com/photo-1575361204480-aadea25e6e68?auto=format&fit=crop&w=800&q=80' },
+      { type: 'video', aspect: 'portrait', url: '/media/portrait-reel.mp4', thumbnail: 'https://images.unsplash.com/photo-1575361204480-aadea25e6e68?auto=format&fit=crop&w=800&q=80' },
       { type: 'image', aspect: 'landscape', url: 'https://images.unsplash.com/photo-1517927033932-b3d18e61fb3a?auto=format&fit=crop&w=1200&q=80' },
-      { type: 'video', aspect: 'square', url: '/reels/square-type-reel.mp4', thumbnail: 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=800&q=80' }
+      { type: 'video', aspect: 'square', url: '/media/square-type-reel.mp4', thumbnail: 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=800&q=80' }
     ],
     conclusion: 'Our agile content workflows ensured Durand Cup maintained top-of-mind relevance throughout the month, proving that legacy sports properties can connect with Gen-Z using the right platform format strategy.',
   },
@@ -85,7 +85,7 @@ export const BLOG_POSTS = [
     ],
     gallery: [
       { type: 'image', aspect: 'landscape', url: 'https://images.unsplash.com/photo-1553778263-73a83bab9b0c?auto=format&fit=crop&w=1200&q=80' },
-      { type: 'video', aspect: 'portrait', url: '/reels/portrait-reel.mp4', thumbnail: 'https://images.unsplash.com/photo-1624718501777-1f6e5e38a1b1?auto=format&fit=crop&w=800&q=80' },
+      { type: 'video', aspect: 'portrait', url: '/media/portrait-reel.mp4', thumbnail: 'https://images.unsplash.com/photo-1624718501777-1f6e5e38a1b1?auto=format&fit=crop&w=800&q=80' },
       { type: 'image', aspect: 'square', url: 'https://images.unsplash.com/photo-1560272564-c83b66b1ad12?auto=format&fit=crop&w=800&q=80' }
     ],
     conclusion: 'Elevating grassroots events through high-end digital design and cinematic video doesn\'t just benefit spectators—it creates a robust monetization platform for organizers and sponsors.',
@@ -109,7 +109,7 @@ export const BLOG_POSTS = [
     ],
     gallery: [
       { type: 'image', aspect: 'landscape', url: 'https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&w=1200&q=80' },
-      { type: 'video', aspect: 'portrait', url: '/reels/portrait-reel.mp4', thumbnail: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=800&q=80' },
+      { type: 'video', aspect: 'portrait', url: '/media/portrait-reel.mp4', thumbnail: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=800&q=80' },
       { type: 'image', aspect: 'square', url: 'https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?auto=format&fit=crop&w=800&q=80' }
     ],
     conclusion: 'Visual content for cultural festivals requires an understanding of the art form itself. By letting the music guide the rhythm of our edits, we created a digital archive that respected and elevated the heritage stage.',

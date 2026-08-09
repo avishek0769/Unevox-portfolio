@@ -54,7 +54,7 @@ const otherCategories = [
         id: 'cc-1',
         name: 'Classical Festival',
         type: 'video',
-        url: '/reels/portrait-reel.mp4',
+        url: '/media/portrait-reel.mp4',
         aspect: 'portrait',
       },
       {

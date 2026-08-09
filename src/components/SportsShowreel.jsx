@@ -6,37 +6,37 @@ const reelsData = [
   {
     id: 'reel-1',
     clientName: 'Behala SS Sporting Club',
-    videoUrl: '/reels/portrait-reel.mp4',
+    videoUrl: '/media/portrait-reel.mp4',
     type: 'portrait',
   },
   {
     id: 'reel-3',
     clientName: 'Kolkata Knight Riders',
-    videoUrl: '/reels/portrait-reel.mp4',
+    videoUrl: '/media/portrait-reel.mp4',
     type: 'portrait',
   },
   {
     id: 'reel-2',
     clientName: 'Durand Cup',
-    videoUrl: '/reels/square-type-reel.mp4',
+    videoUrl: '/media/square-type-reel.mp4',
     type: 'square',
   },
   {
     id: 'reel-5',
     clientName: 'Behala Classical Festival',
-    videoUrl: '/reels/portrait-reel.mp4',
+    videoUrl: '/media/portrait-reel.mp4',
     type: 'portrait',
   },
   {
     id: 'reel-4',
     clientName: 'CFL 2025',
-    videoUrl: '/reels/square-type-reel.mp4',
+    videoUrl: '/media/square-type-reel.mp4',
     type: 'square',
   },
   {
     id: 'reel-6',
     clientName: 'Behala Cup',
-    videoUrl: '/reels/square-type-reel.mp4',
+    videoUrl: '/media/square-type-reel.mp4',
     type: 'square',
   },
 ];
