@@ -1,43 +1,61 @@
 import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Play, ArrowUpRight, Film, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Play, ArrowUpRight, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const reelsData = [
   {
     id: 'reel-1',
-    clientName: 'Behala SS Sporting Club',
-    videoUrl: '/media/portrait-reel.mp4',
-    type: 'portrait',
-  },
-  {
-    id: 'reel-3',
-    clientName: 'Kolkata Knight Riders',
-    videoUrl: '/media/portrait-reel.mp4',
+    clientName: 'BSL - North 24 Paraganas',
+    videoUrl: '/media/sports/bsl-north-24-1.mp4',
     type: 'portrait',
   },
   {
     id: 'reel-2',
-    clientName: 'Durand Cup',
-    videoUrl: '/media/square-type-reel.mp4',
+    clientName: 'BSL - North 24 Paraganas',
+    videoUrl: '/media/sports/bsl-north-24-2.mp4',
+    type: 'portrait',
+  },
+  {
+    id: 'reel-3',
+    clientName: 'FC Banaras',
+    videoUrl: '/media/sports/fc_banaras-1.mp4',
+    type: 'square',
+  },
+  {
+    id: 'reel-4',
+    clientName: 'Behala Classical Festival',
+    videoUrl: '/media/cultural/classical-fest-1.mp4',
     type: 'square',
   },
   {
     id: 'reel-5',
     clientName: 'Behala Classical Festival',
-    videoUrl: '/media/portrait-reel.mp4',
+    videoUrl: '/media/cultural/classical-fest-2.mp4',
     type: 'portrait',
   },
   {
-    id: 'reel-4',
-    clientName: 'CFL 2025',
-    videoUrl: '/media/square-type-reel.mp4',
-    type: 'square',
+    id: 'reel-6',
+    clientName: 'BSL - North 24 Paraganas',
+    videoUrl: '/media/sports/bsl-north-24-3.mp4',
+    type: 'portrait',
   },
   {
-    id: 'reel-6',
-    clientName: 'Behala Cup',
-    videoUrl: '/media/square-type-reel.mp4',
-    type: 'square',
+    id: 'reel-7',
+    clientName: 'BSL - North 24 Paraganas',
+    videoUrl: '/media/sports/bsl-north-24-4.mp4',
+    type: 'portrait',
+  },
+  {
+    id: 'reel-8',
+    clientName: 'Durga Puja',
+    videoUrl: '/media/puja/',
+    type: 'portrait',
+  },
+  {
+    id: 'reel-9',
+    clientName: 'Durga Puja',
+    videoUrl: '/media/puja/',
+    type: 'portrait',
   },
 ];
 
@@ -60,7 +78,7 @@ function ReelCard({ reel }) {
     }
   };
 
-  const isPortrait = reel.type === 'portrait' || reel.type === 'portrait';
+  const isPortrait = reel.type === 'portrait';
 
   return (
     <div
@@ -71,7 +89,7 @@ function ReelCard({ reel }) {
     >
       {/* Video Container */}
       <div
-        className={`relative w-full rounded-3xl overflow-hidden border border-[#e2dbd3] bg-black group-hover:border-[#e95f0c] group-hover:shadow-2xl transition-all duration-300 ${isPortrait ? 'aspect-[3/4]' : 'aspect-square'
+        className={`relative w-full rounded-3xl overflow-hidden border border-[#e2dbd3] bg-black group-hover:border-[#e95f0c] group-hover:shadow-2xl transition-all duration-300 ${isPortrait ? 'aspect-[3/4]' : 'aspect-[4/3]'
           }`}
       >
         {/* Video element */}
@@ -107,7 +125,7 @@ function ReelCard({ reel }) {
   );
 }
 
-export default function SportsShowreel() {
+export default function Showreel() {
   const scrollRef = useRef(null);
 
   const scroll = (direction) => {

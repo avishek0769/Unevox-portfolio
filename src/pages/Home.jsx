@@ -4,7 +4,7 @@ import TrustedBy from '../components/TrustedBy';
 import FeaturedWork from '../components/FeaturedWork';
 import Statistics from '../components/Statistics';
 import ServicesPreview from '../components/ServicesPreview';
-import SportsShowreel from '../components/SportsShowreel';
+import Showreel from '../components/Showreel';
 import PortfolioPreview from '../components/PortfolioPreview';
 import AboutPreview from '../components/AboutPreview';
 import Testimonials from '../components/Testimonials';
@@ -17,7 +17,7 @@ export default function Home({ onBookCall }) {
       <Hero onBookCall={onBookCall} />
       <TrustedBy />
       <FeaturedWork />
-      <SportsShowreel />
+      <Showreel />
       <Statistics />
       <PortfolioPreview />
       <ServicesPreview />
