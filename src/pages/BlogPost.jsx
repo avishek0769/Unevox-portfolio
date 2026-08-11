@@ -1,9 +1,78 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, Calendar, Clock, ChevronRight, CheckCircle, ChevronLeft, Play, X } from 'lucide-react';
-import { BLOG_POSTS } from './Blogs';
+import { sanityClient } from "../sanity/client";
+import { BLOG_BY_SLUG_QUERY } from "../sanity/queries";
+import { urlFor } from "../sanity/image";
+import { PortableText } from "@portabletext/react";
+
 
 // ─── GALLERY CARD ─────────────────────────────────────────────────────────────
+
+const portableTextComponents = {
+  block: {
+    normal: ({ children }) => (
+      <p className="mb-6 leading-8 text-gray-700">
+        {children}
+      </p>
+    ),
+
+    h2: ({ children }) => (
+      <h2 className="mt-12 mb-5 text-3xl font-bold">
+        {children}
+      </h2>
+    ),
+
+    h3: ({ children }) => (
+      <h3 className="mt-8 mb-4 text-2xl font-semibold">
+        {children}
+      </h3>
+    ),
+
+    blockquote: ({ children }) => (
+      <blockquote className="my-8 border-l-4 pl-6 italic">
+        {children}
+      </blockquote>
+    ),
+  },
+
+  list: {
+    bullet: ({ children }) => (
+      <ul className="mb-6 list-disc pl-6">
+        {children}
+      </ul>
+    ),
+
+    number: ({ children }) => (
+      <ol className="mb-6 list-decimal pl-6">
+        {children}
+      </ol>
+    ),
+  },
+
+  marks: {
+    strong: ({ children }) => (
+      <strong className="font-semibold">
+        {children}
+      </strong>
+    ),
+
+    em: ({ children }) => (
+      <em>{children}</em>
+    ),
+
+    link: ({ value, children }) => (
+      <a
+        href={value.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="underline"
+      >
+        {children}
+      </a>
+    ),
+  },
+};
 
 function GalleryCard({ item, onClick }) {
   const videoRef = useRef(null);
@@ -31,14 +100,12 @@ function GalleryCard({ item, onClick }) {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onClick={() => onClick(item)}
-      className={`flex flex-col shrink-0 group cursor-pointer ${
-        isPortrait ? 'w-64 sm:w-72' : 'w-80 sm:w-96'
-      }`}
+      className={`flex flex-col shrink-0 group cursor-pointer ${isPortrait ? 'w-64 sm:w-72' : 'w-80 sm:w-96'
+        }`}
     >
       <div
-        className={`relative w-full rounded-3xl overflow-hidden border border-[#e2dbd3] bg-black group-hover:border-[#e95f0c] group-hover:shadow-2xl transition-all duration-300 ${
-          isPortrait ? 'aspect-[3/4]' : 'aspect-square'
-        }`}
+        className={`relative w-full rounded-3xl overflow-hidden border border-[#e2dbd3] bg-black group-hover:border-[#e95f0c] group-hover:shadow-2xl transition-all duration-300 ${isPortrait ? 'aspect-[3/4]' : 'aspect-square'
+          }`}
       >
         {item.type === 'video' ? (
           <>
@@ -53,11 +120,10 @@ function GalleryCard({ item, onClick }) {
             {/* Play indicator */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
               <div
-                className={`w-14 h-14 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white transition-all duration-300 ${
-                  isPlaying
-                    ? 'opacity-0 scale-75'
-                    : 'opacity-100 scale-100 group-hover:scale-110 group-hover:bg-[#e95f0c] group-hover:border-[#e95f0c]'
-                }`}
+                className={`w-14 h-14 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white transition-all duration-300 ${isPlaying
+                  ? 'opacity-0 scale-75'
+                  : 'opacity-100 scale-100 group-hover:scale-110 group-hover:bg-[#e95f0c] group-hover:border-[#e95f0c]'
+                  }`}
               >
                 <Play className="w-5 h-5 fill-current translate-x-0.5" />
               </div>
@@ -164,7 +230,27 @@ export default function BlogPost() {
   const scrollRef = useRef(null);
   const [lightboxIndex, setLightboxIndex] = useState(null);
 
-  const post = BLOG_POSTS.find((p) => p.slug === slug);
+  // const post = BLOG_POSTS.find((p) => p.slug === slug);
+  const [post, setPost] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchPost() {
+      try {
+        const data = await sanityClient.fetch(
+          BLOG_BY_SLUG_QUERY,
+          { slug }
+        );
+
+        setPost(data);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchPost();
+  }, [slug]);
+
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' });
@@ -202,12 +288,12 @@ export default function BlogPost() {
 
   return (
     <article className="bg-[#f8f5f2] min-h-screen">
-      
+
       {/* ── HERO HEADER ── */}
       <header className="relative pt-28 pb-16 bg-white overflow-hidden border-b border-[#e2dbd3]">
         <div className="absolute -bottom-20 left-1/2 -translate-x-1/2 w-[600px] h-[200px] rounded-full bg-[#e95f0c]/10 blur-3xl pointer-events-none" />
         <div className="max-w-4xl mx-auto px-6 relative z-10">
-          
+
           <div className="flex items-center gap-2 text-xs font-display font-bold text-[#9ca3af] uppercase tracking-wider mb-6">
             <Link to="/blogs" className="hover:text-[#e95f0c] transition-colors">Blogs</Link>
             <ChevronRight className="w-3.5 h-3.5" />
@@ -234,9 +320,9 @@ export default function BlogPost() {
       {/* ── HERO COVER IMAGE ── */}
       <div className="max-w-6xl mx-auto px-6 -mt-8 sm:-mt-12 relative z-20">
         <div className="aspect-[21/9] rounded-2xl overflow-hidden shadow-2xl border border-[#e2dbd3] bg-[#072541]">
-          <img 
-            src={post.coverImage} 
-            alt={post.title} 
+          <img
+            src={post.coverImage}
+            alt={post.title}
             className="w-full h-full object-cover"
           />
         </div>
@@ -245,7 +331,7 @@ export default function BlogPost() {
       {/* ── CONTENT & DETAILS ── */}
       <section className="max-w-4xl mx-auto px-6 py-16">
         <div className="prose prose-lg max-w-none space-y-12">
-          
+
           {/* Client Info */}
           <div className="bg-white rounded-2xl p-8 border border-[#e2dbd3] grid grid-cols-1 sm:grid-cols-2 gap-8 shadow-sm">
             <div>
@@ -293,8 +379,8 @@ export default function BlogPost() {
             </h2>
             <div className="flex flex-wrap gap-3">
               {post.contentProduced.map((item, idx) => (
-                <span 
-                  key={idx} 
+                <span
+                  key={idx}
                   className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white border border-[#e2dbd3] text-sm font-display font-bold text-[#072541]"
                 >
                   <CheckCircle className="w-4 h-4 text-[#e95f0c]" />
@@ -385,7 +471,7 @@ export default function BlogPost() {
             </p>
           </div>
         </div>
-        
+
         <div className="mt-16 pt-8 border-t border-[#e2dbd3]">
           <Link to="/blogs" className="inline-flex items-center gap-2 text-[#072541] font-display font-black hover:text-[#e95f0c] transition-colors">
             <ArrowLeft className="w-4 h-4" /> Back to all articles
@@ -401,15 +487,15 @@ export default function BlogPost() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {relatedPosts.map((rPost) => (
-              <Link 
-                to={`/blogs/${rPost.slug}`} 
+              <Link
+                to={`/blogs/${rPost.slug}`}
                 key={rPost.id}
                 className="group flex flex-col h-full bg-[#f8f5f2] rounded-xl overflow-hidden border border-[#e2dbd3] hover:shadow-lg transition-all duration-300"
               >
                 <div className="aspect-[16/10] overflow-hidden bg-[#072541]">
-                  <img 
-                    src={rPost.coverImage} 
-                    alt={rPost.title} 
+                  <img
+                    src={rPost.coverImage}
+                    alt={rPost.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>

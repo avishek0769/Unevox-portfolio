@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Calendar, Clock } from 'lucide-react';
+import { sanityClient } from "../sanity/client";
+import { BLOGS_QUERY } from "../sanity/queries";
+import { urlFor } from "../sanity/image";
 
 const CATEGORIES = [
   'All',
@@ -118,6 +121,25 @@ export const BLOG_POSTS = [
 
 export default function Blogs() {
   const [activeCategory, setActiveCategory] = useState('All');
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    async function fetchBlogs() {
+      try {
+        const data = await sanityClient.fetch(BLOGS_QUERY);
+        setPosts(data);
+      } catch (err) {
+        console.error("Failed to fetch blogs:", err);
+        setError(true);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchBlogs();
+  }, []);
 
   const filteredPosts = activeCategory === 'All'
     ? BLOG_POSTS
