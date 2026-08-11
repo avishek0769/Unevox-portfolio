@@ -41,7 +41,7 @@ export default {
 
         {
             name: "excerpt",
-            title: "Excerpt",
+            title: "Summary (one liner)",
             type: "text",
             rows: 3,
             validation: (Rule) => Rule.required().max(300),
@@ -68,13 +68,6 @@ export default {
             options: {
                 hotspot: true,
             },
-            fields: [
-                {
-                    name: "alt",
-                    title: "Alt Text",
-                    type: "string",
-                },
-            ],
             validation: (Rule) => Rule.required(),
         },
 
@@ -85,28 +78,10 @@ export default {
         },
 
         {
-            name: "challenge",
-            title: "Challenge",
-            type: "text",
-            rows: 5,
-        },
-
-        {
-            name: "approach",
-            title: "Our Approach",
-            type: "text",
-            rows: 5,
-        },
-
-        {
             name: "contentProduced",
             title: "Content Produced",
             type: "array",
-            of: [
-                {
-                    type: "string",
-                },
-            ],
+            of: [{ type: "string" }],
         },
 
         {
@@ -139,6 +114,8 @@ export default {
             of: [
                 {
                     type: "object",
+                    name: "galleryItem",
+                    title: "Media Item",
                     fields: [
                         {
                             name: "type",
@@ -149,7 +126,9 @@ export default {
                                     { title: "Image", value: "image" },
                                     { title: "Video", value: "video" },
                                 ],
+                                layout: "radio",
                             },
+                            validation: (Rule) => Rule.required(),
                         },
 
                         {
@@ -162,46 +141,48 @@ export default {
                                     { title: "Portrait", value: "portrait" },
                                     { title: "Square", value: "square" },
                                 ],
+                                layout: "radio",
                             },
+                            validation: (Rule) => Rule.required(),
                         },
 
+                        // Shown when type === "image"
                         {
                             name: "image",
-                            title: "Image",
+                            title: "Image File",
                             type: "image",
                             options: {
                                 hotspot: true,
                             },
+                            hidden: ({ parent }) => parent?.type !== "image",
                         },
 
+                        // Shown when type === "video"
                         {
-                            name: "videoUrl",
-                            title: "Video URL",
-                            type: "url",
-                            description: "Use for externally hosted videos.",
-                        },
-
-                        {
-                            name: "title",
-                            title: "Media Title",
-                            type: "string",
-                        },
-
-                        {
-                            name: "alt",
-                            title: "Alt Text",
-                            type: "string",
+                            name: "video",
+                            title: "Video File",
+                            type: "file",
+                            options: {
+                                accept: "video/*",
+                            },
+                            hidden: ({ parent }) => parent?.type !== "video",
                         },
                     ],
+                    preview: {
+                        select: {
+                            type: "type",
+                            aspect: "aspect",
+                            media: "image",
+                        },
+                        prepare({ type, aspect, media }) {
+                            return {
+                                title: `${type ?? "media"} · ${aspect ?? ""}`,
+                                media,
+                            };
+                        },
+                    },
                 },
             ],
-        },
-
-        {
-            name: "conclusion",
-            title: "Conclusion",
-            type: "text",
-            rows: 5,
         },
 
         {
@@ -245,19 +226,10 @@ export default {
                 },
                 {
                     type: "image",
-                    options: {
-                        hotspot: true,
-                    },
-                    fields: [
-                        {
-                            name: "alt",
-                            type: "string",
-                            title: "Alternative text",
-                        },
-                    ],
+                    options: { hotspot: true },
                 },
             ],
-        }
+        },
     ],
 
     preview: {

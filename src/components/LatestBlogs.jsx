@@ -1,44 +1,56 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
+import { sanityClient } from '../sanity/client';
+import { LATEST_BLOGS_QUERY } from '../sanity/queries';
+import { urlFor } from '../sanity/image';
 
-const blogs = [
-  {
-    id: 'blog-1',
-    title: 'The Stadium Feed: How to Capture Game-Day Adrenaline',
-    snippet:
-      'Unlocking the secrets to filming fast-paced action on the pitch — camera angles, frame rates, and split-second decisions that drive views.',
-    image: 'https://images.unsplash.com/photo-1766525133589-e3b4b090c04b?q=80&w=1170&auto=format&fit=crop',
-    clientName: 'Durand Cup',
-    clientLogo: '/client_logos/Durand_Cup.svg.webp',
-    date: 'Aug 04, 2026',
-    readTime: '5 min read',
-  },
-  {
-    id: 'blog-2',
-    title: 'Reels That Convert: Hooking the Modern Football Fan',
-    snippet:
-      'Short-form content rules the feed. The hook-retain-reward model that earned KKR and Durand Cup campaigns massive engagement.',
-    image: 'https://images.unsplash.com/photo-1766525133589-e3b4b090c04b?q=80&w=1170&auto=format&fit=crop',
-    clientName: 'Kolkata Knight Riders',
-    clientLogo: '/client_logos/Kolkata_Knight_Riders_Logo.svg',
-    date: 'Jul 28, 2026',
-    readTime: '4 min read',
-  },
-  {
-    id: 'blog-3',
-    title: 'Beyond the Ground: Digital Branding for Athletic Leagues',
-    snippet:
-      'How local and national leagues can build year-round value and keep sponsors happy long after the final whistle.',
-    image: 'https://images.unsplash.com/photo-1766525133589-e3b4b090c04b?q=80&w=1170&auto=format&fit=crop',
-    clientName: 'Behala SS Sporting Club',
-    clientLogo: '/client_logos/behala_ss_sporting_club-logo.png',
-    date: 'Jul 15, 2026',
-    readTime: '6 min read',
-  },
-];
+function formatDate(dateStr) {
+  if (!dateStr) return '';
+  return new Date(dateStr).toLocaleDateString('en-US', {
+    month: 'short', day: 'numeric', year: 'numeric',
+  });
+}
+
+function SkeletonCard() {
+  return (
+    <div className="bg-[#f8f5f2] border border-[#e2dbd3] rounded-2xl overflow-hidden flex flex-col animate-pulse">
+      <div className="aspect-[16/10] bg-[#e2dbd3]" />
+      <div className="p-6 flex flex-col gap-3">
+        <div className="flex gap-3">
+          <div className="h-3 w-24 bg-[#e2dbd3] rounded-full" />
+          <div className="h-3 w-16 bg-[#e2dbd3] rounded-full" />
+        </div>
+        <div className="h-5 w-full bg-[#e2dbd3] rounded-full" />
+        <div className="h-5 w-3/4 bg-[#e2dbd3] rounded-full" />
+        <div className="h-3 w-full bg-[#ede9e4] rounded-full mt-1" />
+        <div className="h-3 w-5/6 bg-[#ede9e4] rounded-full" />
+        <div className="flex justify-between mt-4 pt-4 border-t border-[#e2dbd3]">
+          <div className="h-3 w-20 bg-[#e2dbd3] rounded-full" />
+          <div className="h-3 w-10 bg-[#e2dbd3] rounded-full" />
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function LatestBlogs() {
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    let cancelled = false;
+    sanityClient
+      .fetch(LATEST_BLOGS_QUERY)
+      .then((data) => { if (!cancelled) setPosts(data ?? []); })
+      .catch(() => { if (!cancelled) setPosts([]); })
+      .finally(() => { if (!cancelled) setLoading(false); });
+    return () => { cancelled = true; };
+  }, []);
+
+  // Don't render the section at all if we loaded and there's nothing
+  if (!loading && posts.length === 0) return null;
+
   return (
     <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6 md:px-8">
@@ -60,57 +72,72 @@ export default function LatestBlogs() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {blogs.map((post) => (
-            <article
-              key={post.id}
-              className="group bg-[#f8f5f2] border border-[#e2dbd3] rounded-2xl overflow-hidden hover:border-[#e95f0c] hover:shadow-lg transition-all duration-300 flex flex-col"
-            >
-              <div className="relative aspect-[16/10] overflow-hidden">
-                <img
-                  src={post.image}
-                  alt={post.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  loading="lazy"
-                />
-              </div>
+          {loading
+            ? [1, 2, 3].map((n) => <SkeletonCard key={n} />)
+            : posts.map((post) => {
+                const slug = post.slug?.current ?? post.slug;
+                const imgSrc = post.coverImage?.asset
+                  ? urlFor(post.coverImage).width(700).auto('format').url()
+                  : '';
 
-              <div className="p-6 flex flex-col flex-1">
-                <div className="flex items-center gap-5 text-sm text-[#9ca3af] mb-4">
-                  <span className="flex items-center gap-1.5">
-                    <Calendar className="w-4 h-4 text-[#e95f0c]" />
-                    {post.date}
-                  </span>
-                  <span className="flex items-center gap-1.5">
-                    <Clock className="w-4 h-4 text-[#e95f0c]" />
-                    {post.readTime}
-                  </span>
-                </div>
-
-                <h3 className="font-display text-xl font-bold text-[#072541] group-hover:text-[#e95f0c] transition-colors line-clamp-2 mb-3">
-                  {post.title}
-                </h3>
-                <p className="text-[#4a5568] text-base leading-relaxed line-clamp-3 flex-1">
-                  {post.snippet}
-                </p>
-
-                <div className="pt-5 border-t border-[#e2dbd3] mt-5 flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-full overflow-hidden border border-[#e2dbd3] bg-white flex items-center justify-center p-1">
-                      <img
-                        src={post.clientLogo}
-                        alt={post.clientName}
-                        className="w-full h-full object-contain"
-                      />
+                return (
+                  <Link
+                    key={post._id}
+                    to={`/blogs/${slug}`}
+                    className="group bg-[#f8f5f2] border border-[#e2dbd3] rounded-2xl overflow-hidden hover:border-[#e95f0c] hover:shadow-lg transition-all duration-300 flex flex-col"
+                  >
+                    <div className="relative aspect-[16/10] overflow-hidden bg-[#072541]">
+                      {imgSrc ? (
+                        <img
+                          src={imgSrc}
+                          alt={post.coverImage?.alt || post.title}
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          loading="lazy"
+                        />
+                      ) : (
+                        <div className="w-full h-full bg-gradient-to-br from-[#072541] to-[#0f3d6b] flex items-center justify-center">
+                          <span className="font-display font-black text-white/20 text-4xl">U</span>
+                        </div>
+                      )}
                     </div>
-                    <span className="text-sm font-semibold text-[#072541]">{post.clientName}</span>
-                  </div>
-                  <span className="text-sm text-[#e95f0c] font-bold flex items-center gap-1 group-hover:gap-2 transition-all">
-                    Read <ArrowRight className="w-4 h-4" />
-                  </span>
-                </div>
-              </div>
-            </article>
-          ))}
+
+                    <div className="p-6 flex flex-col flex-1">
+                      <div className="flex items-center gap-5 text-sm text-[#9ca3af] mb-4">
+                        <span className="flex items-center gap-1.5">
+                          <Calendar className="w-4 h-4 text-[#e95f0c]" />
+                          {formatDate(post.publishedAt)}
+                        </span>
+                        {post.readingTime && (
+                          <span className="flex items-center gap-1.5">
+                            <Clock className="w-4 h-4 text-[#e95f0c]" />
+                            {post.readingTime}
+                          </span>
+                        )}
+                      </div>
+
+                      <h3 className="font-display text-xl font-bold text-[#072541] group-hover:text-[#e95f0c] transition-colors line-clamp-2 mb-3">
+                        {post.title}
+                      </h3>
+                      <p className="text-[#4a5568] text-base leading-relaxed line-clamp-3 flex-1">
+                        {post.excerpt}
+                      </p>
+
+                      <div className="pt-5 border-t border-[#e2dbd3] mt-5 flex items-center justify-between">
+                        {post.client ? (
+                          <span className="text-sm font-semibold text-[#072541]">{post.client}</span>
+                        ) : (
+                          <span className="text-sm font-semibold text-[#e95f0c] uppercase tracking-wider text-xs">
+                            {post.category}
+                          </span>
+                        )}
+                        <span className="text-sm text-[#e95f0c] font-bold flex items-center gap-1 group-hover:gap-2 transition-all">
+                          Read <ArrowRight className="w-4 h-4" />
+                        </span>
+                      </div>
+                    </div>
+                  </Link>
+                );
+              })}
         </div>
       </div>
     </section>
