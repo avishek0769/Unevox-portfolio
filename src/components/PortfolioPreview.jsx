@@ -620,7 +620,7 @@ export default function PortfolioPreview() {
           src="/assets/tribe-tree.png"
           alt=""
           aria-hidden="true"
-          className="absolute right-[85%] md:right-[64%] top-[95rem] md:top-[87.5rem] h-[7rem] md:h-[12rem] w-auto object-contain pointer-events-none select-none z-0 opacity-65"
+          className="absolute right-[85%] md:right-[62%] top-[95rem] md:top-[87.5rem] h-[7rem] md:h-[12rem] w-auto object-contain pointer-events-none select-none z-0 opacity-65"
         />
 
         <img
@@ -628,6 +628,12 @@ export default function PortfolioPreview() {
           alt=""
           aria-hidden="true"
           className="absolute hidden md:block md:right-[75%] md:top-[93rem] md:h-[5.8rem] w-auto object-contain pointer-events-none select-none z-0 opacity-35 -rotate-6"
+        />
+        <img
+          src="/assets/deer.png"
+          alt=""
+          aria-hidden="true"
+          className="absolute hidden md:block md:right-[71.5%] md:top-[93rem] md:h-[5.8rem] w-auto object-contain pointer-events-none select-none z-0 opacity-35 -rotate-6"
         />
         <img
           src="/assets/tribe-3-man.png"
