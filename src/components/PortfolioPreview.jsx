@@ -6,7 +6,7 @@ const otherCategories = [
   {
     id: 'durga-puja',
     categoryName: 'Durga Puja Campaign',
-    description: 'Capturing the grandeur, themes, and emotional devotion of Kolkata\'s biggest street festival across top community pandals.',
+    description: 'Unevox partners with some of Kolkata’s most renowned Durga Puja committees, delivering end-to-end media coverage, social media management, cinematic reels, photography, promotional creatives, and real-time event storytelling. Through visually compelling content and strategic digital campaigns, we help transform each celebration into a memorable digital experience while amplifying audience engagement and cultural reach.',
     works: [
       {
         id: 'dp-1',
@@ -322,14 +322,14 @@ function MediaCard({ item }) {
             muted
             loop
             playsInline
-            className="absolute inset-0 w-full h-full object-cover opacity-75 group-hover:opacity-100 transition-opacity duration-300"
+            className="absolute inset-0 w-full h-full object-cover duration-300"
           />
           {/* Play indicator */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-20">
             <div
               className={`w-11 h-11 rounded-full bg-white/15 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white transition-all duration-300 ${isPlaying
-                ? 'opacity-0 scale-75'
-                : 'opacity-100 scale-100 group-hover:scale-110 group-hover:bg-[#e95f0c] group-hover:border-[#e95f0c]'
+                ? 'scale-75'
+                : 'scale-100 group-hover:scale-110 group-hover:bg-[#e95f0c] group-hover:border-[#e95f0c]'
                 }`}
             >
               <Play className="w-4 h-4 fill-current translate-x-0.5" />
@@ -340,7 +340,7 @@ function MediaCard({ item }) {
         <img
           src={item.url}
           alt={item.name}
-          className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+          className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
         />
       )}
 
@@ -354,7 +354,7 @@ function MediaCard({ item }) {
   );
 }
 
-function CategorySection({ category }) {
+function CategorySection({ category, isDurgaPuja }) {
   const scrollRef = useRef(null);
 
   const scroll = (direction) => {
@@ -368,12 +368,26 @@ function CategorySection({ category }) {
   return (
     <div className="mb-14 last:mb-0 border-b border-[#e2dbd3]/60 pb-8 last:border-b-0 last:pb-0">
       {/* Category header & navigation arrows */}
-      <div className="flex items-end justify-between gap-6 mb-6">
+      <div className="relative z-10 flex items-end justify-between gap-6 mb-6">
         <div className="max-w-2xl">
-          <h3 className="font-display text-2xl sm:text-3xl font-black text-[#072541] mb-2">
-            {category.categoryName}
-          </h3>
-          <p className="text-[#4a5568] text-xs sm:text-sm leading-relaxed max-w-xl">
+          {/* Heading — swap text for image on Durga Puja */}
+          {isDurgaPuja ? (
+            <div className="flex items-center gap-3 mb-2">
+              <img
+                src="/assets/durga-puja.png"
+                alt="Durga Puja Campaign"
+                className="h-10 sm:h-12 w-auto object-contain"
+              />
+              <span className="font-display text-2xl sm:text-3xl font-black text-[#072541]">
+                Campaign
+              </span>
+            </div>
+          ) : (
+            <h3 className="font-display text-2xl sm:text-3xl font-black text-[#072541] mb-2">
+              {category.categoryName}
+            </h3>
+          )}
+          <p className="text-[#4a5568] text-xs sm:text-sm leading-relaxed">
             {category.description}
           </p>
         </div>
@@ -400,7 +414,7 @@ function CategorySection({ category }) {
       {/* Horizontal media slider */}
       <div
         ref={scrollRef}
-        className="flex items-center gap-5 overflow-x-auto pb-4 scroll-smooth scrollbar-none snap-x snap-mandatory"
+        className={`relative z-10 flex items-center gap-5 overflow-x-auto ${isDurgaPuja ? "pb-16" : "pb-4"} scroll-smooth scrollbar-none snap-x snap-mandatory`}
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
         {category.works.map((work) => (
@@ -415,8 +429,117 @@ function CategorySection({ category }) {
 
 export default function PortfolioPreview() {
   return (
-    <section className="py-24 bg-[#f8f5f2] border-t border-[#e2dbd3] overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 md:px-8">
+    <section className="relative py-24 bg-[#f8f5f2] border-t border-[#e2dbd3] overflow-hidden">
+      {/* ── Durga Puja decorative images — anchored to the section edge ── */}
+      {/* Durga Maa: Horizontally centred, in the Durga puja section */}
+      <img
+        src="/assets/durga-maa.png"
+        alt=""
+        aria-hidden="true"
+        className="absolute left-[34%] top-[30rem] md:left-[63%] md:top-[22rem] h-[25rem] md:h-[33rem] w-auto object-contain pointer-events-none select-none z-0"
+        style={{ transform: 'translateY(-50%) translateX(-30%)', filter: 'saturate(0.7)' }}
+      />
+      {/* Dhak: right bottom corner - in the Durga Puja section (desktop only) */}
+      <img
+        src="/assets/dhak.png"
+        alt=""
+        aria-hidden="true"
+        className="absolute hidden md:block -right-[1rem] top-[33rem] h-[20rem] opacity-55 w-auto object-contain pointer-events-none select-none z-0"
+        style={{ transform: 'rotate(12deg) translateX(20%)' }}
+      />
+      {/* Kans flowers: Bottom of the durga puja section */}
+      <img
+        src="/assets/kans-flower.png"
+        alt=""
+        aria-hidden="true"
+        className="absolute right-[0] md:-right-[3%] top-[57rem] md:top-[45rem] h-[7rem] md:h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+        style={{ transform: 'rotate(-8deg)' }}
+      />
+      <img
+        src="/assets/kans-flower.png"
+        alt=""
+        aria-hidden="true"
+        className="absolute right-[12%] md:right-[4%] top-[57rem] md:top-[45rem] h-[7rem] md:h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+        style={{ transform: 'rotate(-8deg)' }}
+      />
+      <img
+        src="/assets/kans-flower.png"
+        alt=""
+        aria-hidden="true"
+        className="absolute hidden md:block right-[12%] top-[45rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+        style={{ transform: 'rotate(-8deg)' }}
+      />
+      <img
+        src="/assets/kans-flower.png"
+        alt=""
+        aria-hidden="true"
+        className="absolute hidden md:block right-[17%] top-[45rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+        style={{ transform: 'rotate(-8deg)' }}
+      />
+      <img
+        src="/assets/kans-flower.png"
+        alt=""
+        aria-hidden="true"
+        className="absolute hidden md:block right-[27%] top-[45rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+        style={{ transform: 'rotate(-8deg)' }}
+      />
+      <img
+        src="/assets/kans-flower.png"
+        alt=""
+        aria-hidden="true"
+        className="absolute hidden md:block right-[33%] top-[45rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+        style={{ transform: 'rotate(-8deg)' }}
+      />
+      <img
+        src="/assets/kans-flower.png"
+        alt=""
+        aria-hidden="true"
+        className="absolute hidden md:block right-[38%] top-[45rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+        style={{ transform: 'rotate(-8deg)' }}
+      />
+      <img
+        src="/assets/kans-flower.png"
+        alt=""
+        aria-hidden="true"
+        className="absolute right-[45%] md:right-[50%] top-[57rem] md:top-[45rem] h-[7rem] md:h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+        style={{ transform: 'rotate(-8deg)' }}
+      />
+      <img
+        src="/assets/kans-flower.png"
+        alt=""
+        aria-hidden="true"
+        className="absolute hidden md:block right-[55%] top-[45rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+        style={{ transform: 'rotate(-8deg)' }}
+      />
+      <img
+        src="/assets/kans-flower.png"
+        alt=""
+        aria-hidden="true"
+        className="absolute hidden md:block right-[71%] top-[45rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+        style={{ transform: 'rotate(-8deg)' }}
+      />
+      <img
+        src="/assets/kans-flower.png"
+        alt=""
+        aria-hidden="true"
+        className="absolute hidden md:block right-[77%] top-[45rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+        style={{ transform: 'rotate(-8deg)' }}
+      />
+      <img
+        src="/assets/kans-flower.png"
+        alt=""
+        aria-hidden="true"
+        className="absolute right-[60%] md:right-[83%] top-[57rem] md:top-[45rem] h-[7rem] md:h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+        style={{ transform: 'rotate(-8deg)' }}
+      />
+      <img
+        src="/assets/kans-flower.png"
+        alt=""
+        aria-hidden="true"
+        className="absolute right-[75%] md:right-[88%] top-[57rem] md:top-[45rem] h-[7rem] md:h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+        style={{ transform: 'rotate(-8deg)' }}
+      />
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8">
         {/* Main Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
           <div>
@@ -438,7 +561,11 @@ export default function PortfolioPreview() {
         {/* List of category sections */}
         <div className="space-y-12">
           {otherCategories.map((category) => (
-            <CategorySection key={category.id} category={category} />
+            <CategorySection
+              key={category.id}
+              category={category}
+              isDurgaPuja={category.id === 'durga-puja'}
+            />
           ))}
         </div>
 
