@@ -431,114 +431,135 @@ export default function PortfolioPreview() {
   return (
     <section className="relative py-24 bg-[#f8f5f2] border-t border-[#e2dbd3] overflow-hidden">
       {/* ── Durga Puja decorative images — anchored to the section edge ── */}
-      {/* Durga Maa: Horizontally centred, in the Durga puja section */}
-      <img
-        src="/assets/durga-maa.png"
-        alt=""
-        aria-hidden="true"
-        className="absolute left-[34%] top-[30rem] md:left-[63%] md:top-[22rem] h-[25rem] md:h-[33rem] w-auto object-contain pointer-events-none select-none z-0"
-        style={{ transform: 'translateY(-50%) translateX(-30%)', filter: 'saturate(0.7)' }}
-      />
-      {/* Dhak: right bottom corner - in the Durga Puja section (desktop only) */}
-      <img
-        src="/assets/dhak.png"
-        alt=""
-        aria-hidden="true"
-        className="absolute hidden md:block -right-[1rem] top-[33rem] h-[20rem] opacity-55 w-auto object-contain pointer-events-none select-none z-0"
-        style={{ transform: 'rotate(12deg) translateX(20%)' }}
-      />
-      {/* Kans flowers: Bottom of the durga puja section */}
-      <img
-        src="/assets/kans-flower.png"
-        alt=""
-        aria-hidden="true"
-        className="absolute right-[0] md:-right-[3%] top-[57rem] md:top-[45rem] h-[7rem] md:h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
-        style={{ transform: 'rotate(-8deg)' }}
-      />
-      <img
-        src="/assets/kans-flower.png"
-        alt=""
-        aria-hidden="true"
-        className="absolute right-[12%] md:right-[4%] top-[57rem] md:top-[45rem] h-[7rem] md:h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
-        style={{ transform: 'rotate(-8deg)' }}
-      />
-      <img
-        src="/assets/kans-flower.png"
-        alt=""
-        aria-hidden="true"
-        className="absolute hidden md:block right-[12%] top-[45rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
-        style={{ transform: 'rotate(-8deg)' }}
-      />
-      <img
-        src="/assets/kans-flower.png"
-        alt=""
-        aria-hidden="true"
-        className="absolute hidden md:block right-[17%] top-[45rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
-        style={{ transform: 'rotate(-8deg)' }}
-      />
-      <img
-        src="/assets/kans-flower.png"
-        alt=""
-        aria-hidden="true"
-        className="absolute hidden md:block right-[27%] top-[45rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
-        style={{ transform: 'rotate(-8deg)' }}
-      />
-      <img
-        src="/assets/kans-flower.png"
-        alt=""
-        aria-hidden="true"
-        className="absolute hidden md:block right-[33%] top-[45rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
-        style={{ transform: 'rotate(-8deg)' }}
-      />
-      <img
-        src="/assets/kans-flower.png"
-        alt=""
-        aria-hidden="true"
-        className="absolute hidden md:block right-[38%] top-[45rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
-        style={{ transform: 'rotate(-8deg)' }}
-      />
-      <img
-        src="/assets/kans-flower.png"
-        alt=""
-        aria-hidden="true"
-        className="absolute right-[45%] md:right-[50%] top-[57rem] md:top-[45rem] h-[7rem] md:h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
-        style={{ transform: 'rotate(-8deg)' }}
-      />
-      <img
-        src="/assets/kans-flower.png"
-        alt=""
-        aria-hidden="true"
-        className="absolute hidden md:block right-[55%] top-[45rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
-        style={{ transform: 'rotate(-8deg)' }}
-      />
-      <img
-        src="/assets/kans-flower.png"
-        alt=""
-        aria-hidden="true"
-        className="absolute hidden md:block right-[71%] top-[45rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
-        style={{ transform: 'rotate(-8deg)' }}
-      />
-      <img
-        src="/assets/kans-flower.png"
-        alt=""
-        aria-hidden="true"
-        className="absolute hidden md:block right-[77%] top-[45rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
-        style={{ transform: 'rotate(-8deg)' }}
-      />
-      <img
-        src="/assets/kans-flower.png"
-        alt=""
-        aria-hidden="true"
-        className="absolute right-[60%] md:right-[83%] top-[57rem] md:top-[45rem] h-[7rem] md:h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
-        style={{ transform: 'rotate(-8deg)' }}
-      />
-      <img
-        src="/assets/kans-flower.png"
-        alt=""
-        aria-hidden="true"
-        className="absolute right-[75%] md:right-[88%] top-[57rem] md:top-[45rem] h-[7rem] md:h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
-        style={{ transform: 'rotate(-8deg)' }}
-      />
+      <>
+        {/* Durga Maa: Horizontally centred, in the Durga puja section */}
+        <img
+          src="/assets/durga-maa.png"
+          alt=""
+          aria-hidden="true"
+          className="absolute left-[34%] top-[30rem] md:left-[63%] md:top-[22rem] h-[25rem] md:h-[33rem] w-auto object-contain pointer-events-none select-none z-0"
+          style={{ transform: 'translateY(-50%) translateX(-30%)', filter: 'saturate(0.7)' }}
+        />
+        {/* Dhak: right bottom corner - in the Durga Puja section (desktop only) */}
+        <img
+          src="/assets/dhak.png"
+          alt=""
+          aria-hidden="true"
+          className="absolute hidden md:block -right-[1rem] top-[33rem] h-[20rem] opacity-55 w-auto object-contain pointer-events-none select-none z-0"
+          style={{ transform: 'rotate(12deg) translateX(20%)' }}
+        />
+        {/* Kans flowers: Bottom of the durga puja section */}
+        <img
+          src="/assets/kans-flower.png"
+          alt=""
+          aria-hidden="true"
+          className="absolute right-[0] md:-right-[3%] top-[57rem] md:top-[45rem] h-[7rem] md:h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+          style={{ transform: 'rotate(-8deg)' }}
+        />
+        <img
+          src="/assets/kans-flower.png"
+          alt=""
+          aria-hidden="true"
+          className="absolute right-[12%] md:right-[4%] top-[57rem] md:top-[45rem] h-[7rem] md:h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+          style={{ transform: 'rotate(-8deg)' }}
+        />
+        <img
+          src="/assets/kans-flower.png"
+          alt=""
+          aria-hidden="true"
+          className="absolute hidden md:block right-[12%] top-[45rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+          style={{ transform: 'rotate(-8deg)' }}
+        />
+        <img
+          src="/assets/kans-flower.png"
+          alt=""
+          aria-hidden="true"
+          className="absolute hidden md:block right-[17%] top-[45rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+          style={{ transform: 'rotate(-8deg)' }}
+        />
+        <img
+          src="/assets/kans-flower.png"
+          alt=""
+          aria-hidden="true"
+          className="absolute hidden md:block right-[27%] top-[45rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+          style={{ transform: 'rotate(-8deg)' }}
+        />
+        <img
+          src="/assets/kans-flower.png"
+          alt=""
+          aria-hidden="true"
+          className="absolute hidden md:block right-[33%] top-[45rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+          style={{ transform: 'rotate(-8deg)' }}
+        />
+        <img
+          src="/assets/kans-flower.png"
+          alt=""
+          aria-hidden="true"
+          className="absolute hidden md:block right-[38%] top-[45rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+          style={{ transform: 'rotate(-8deg)' }}
+        />
+        <img
+          src="/assets/kans-flower.png"
+          alt=""
+          aria-hidden="true"
+          className="absolute right-[45%] md:right-[50%] top-[57rem] md:top-[45rem] h-[7rem] md:h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+          style={{ transform: 'rotate(-8deg)' }}
+        />
+        <img
+          src="/assets/kans-flower.png"
+          alt=""
+          aria-hidden="true"
+          className="absolute hidden md:block right-[55%] top-[45rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+          style={{ transform: 'rotate(-8deg)' }}
+        />
+        <img
+          src="/assets/kans-flower.png"
+          alt=""
+          aria-hidden="true"
+          className="absolute hidden md:block right-[71%] top-[45rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+          style={{ transform: 'rotate(-8deg)' }}
+        />
+        <img
+          src="/assets/kans-flower.png"
+          alt=""
+          aria-hidden="true"
+          className="absolute hidden md:block right-[77%] top-[45rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+          style={{ transform: 'rotate(-8deg)' }}
+        />
+        <img
+          src="/assets/kans-flower.png"
+          alt=""
+          aria-hidden="true"
+          className="absolute right-[60%] md:right-[83%] top-[57rem] md:top-[45rem] h-[7rem] md:h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+          style={{ transform: 'rotate(-8deg)' }}
+        />
+        <img
+          src="/assets/kans-flower.png"
+          alt=""
+          aria-hidden="true"
+          className="absolute right-[75%] md:right-[88%] top-[57rem] md:top-[45rem] h-[7rem] md:h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+          style={{ transform: 'rotate(-8deg)' }}
+        />
+      </>
+
+      {/* ── Cultural Campaign decorative images — anchored to the section edge ── */}
+      <>
+        <img
+          src="/assets/man-sitar.png"
+          alt="man-sitar"
+          aria-hidden="true"
+          className="absolute left-[34%] md:left-[3%] top-[78rem] md:top-[76rem] h-[25rem] md:h-[33rem] w-auto object-contain pointer-events-none select-none z-0"
+          style={{ transform: 'translateY(-50%) translateX(-30%)', filter: 'saturate(0.7)' }}
+        />
+        <img
+          src="/assets/chakra.png"
+          alt="chakra"
+          aria-hidden="true"
+          className="absolute hidden md:block left-[34%] md:left-[96%] top-[30rem] md:top-[76rem] h-[25rem] md:h-[33rem] w-auto object-contain pointer-events-none select-none z-0"
+          style={{ transform: 'translateY(-50%) translateX(-30%)', filter: 'saturate(0.7)' }}
+        />
+      </>
+
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8">
         {/* Main Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
@@ -565,6 +586,7 @@ export default function PortfolioPreview() {
               key={category.id}
               category={category}
               isDurgaPuja={category.id === 'durga-puja'}
+              isCultural={category.id === 'cultural-campaign'}
             />
           ))}
         </div>
