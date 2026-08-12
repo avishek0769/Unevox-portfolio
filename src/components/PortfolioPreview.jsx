@@ -368,7 +368,7 @@ function MediaCard({ item }) {
   );
 }
 
-function CategorySection({ category, isDurgaPuja }) {
+function CategorySection({ category, isDurgaPuja, isCultural }) {
   const scrollRef = useRef(null);
 
   const scroll = (direction) => {
@@ -428,7 +428,7 @@ function CategorySection({ category, isDurgaPuja }) {
       {/* Horizontal media slider */}
       <div
         ref={scrollRef}
-        className={`relative z-10 flex items-center gap-5 overflow-x-auto ${isDurgaPuja ? "pb-16" : "pb-4 md:pb-6"} scroll-smooth scrollbar-none snap-x snap-mandatory`}
+        className={`relative z-10 flex items-center gap-5 overflow-x-auto ${isDurgaPuja || isCultural ? "pb-[5rem]" : "pb-4 md:pb-6"} scroll-smooth scrollbar-none snap-x snap-mandatory`}
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
         {category.works.map((work) => (
@@ -467,91 +467,91 @@ export default function PortfolioPreview() {
           src="/assets/kans-flower.png"
           alt=""
           aria-hidden="true"
-          className="absolute right-[0] md:-right-[3%] top-[57rem] md:top-[45rem] h-[7rem] md:h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+          className="absolute right-[0] md:-right-[3%] top-[58rem] md:top-[46rem] h-[7rem] md:h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
           style={{ transform: 'rotate(-8deg)' }}
         />
         <img
           src="/assets/kans-flower.png"
           alt=""
           aria-hidden="true"
-          className="absolute right-[12%] md:right-[4%] top-[57rem] md:top-[45rem] h-[7rem] md:h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+          className="absolute right-[12%] md:right-[4%] top-[58rem] md:top-[46rem] h-[7rem] md:h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
           style={{ transform: 'rotate(-8deg)' }}
         />
         <img
           src="/assets/kans-flower.png"
           alt=""
           aria-hidden="true"
-          className="absolute hidden md:block right-[12%] top-[45rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+          className="absolute hidden md:block right-[12%] top-[46rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
           style={{ transform: 'rotate(-8deg)' }}
         />
         <img
           src="/assets/kans-flower.png"
           alt=""
           aria-hidden="true"
-          className="absolute hidden md:block right-[17%] top-[45rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+          className="absolute hidden md:block right-[17%] top-[46rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
           style={{ transform: 'rotate(-8deg)' }}
         />
         <img
           src="/assets/kans-flower.png"
           alt=""
           aria-hidden="true"
-          className="absolute hidden md:block right-[27%] top-[45rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+          className="absolute hidden md:block right-[27%] top-[46rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
           style={{ transform: 'rotate(-8deg)' }}
         />
         <img
           src="/assets/kans-flower.png"
           alt=""
           aria-hidden="true"
-          className="absolute hidden md:block right-[33%] top-[45rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+          className="absolute hidden md:block right-[33%] top-[46rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
           style={{ transform: 'rotate(-8deg)' }}
         />
         <img
           src="/assets/kans-flower.png"
           alt=""
           aria-hidden="true"
-          className="absolute hidden md:block right-[38%] top-[45rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+          className="absolute hidden md:block right-[38%] top-[46rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
           style={{ transform: 'rotate(-8deg)' }}
         />
         <img
           src="/assets/kans-flower.png"
           alt=""
           aria-hidden="true"
-          className="absolute right-[45%] md:right-[50%] top-[57rem] md:top-[45rem] h-[7rem] md:h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+          className="absolute right-[45%] md:right-[50%] top-[58rem] md:top-[46rem] h-[7rem] md:h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
           style={{ transform: 'rotate(-8deg)' }}
         />
         <img
           src="/assets/kans-flower.png"
           alt=""
           aria-hidden="true"
-          className="absolute hidden md:block right-[55%] top-[45rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+          className="absolute hidden md:block right-[55%] top-[46rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
           style={{ transform: 'rotate(-8deg)' }}
         />
         <img
           src="/assets/kans-flower.png"
           alt=""
           aria-hidden="true"
-          className="absolute hidden md:block right-[71%] top-[45rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+          className="absolute hidden md:block right-[71%] top-[46rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
           style={{ transform: 'rotate(-8deg)' }}
         />
         <img
           src="/assets/kans-flower.png"
           alt=""
           aria-hidden="true"
-          className="absolute hidden md:block right-[77%] top-[45rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+          className="absolute hidden md:block right-[77%] top-[46rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
           style={{ transform: 'rotate(-8deg)' }}
         />
         <img
           src="/assets/kans-flower.png"
           alt=""
           aria-hidden="true"
-          className="absolute right-[60%] md:right-[83%] top-[57rem] md:top-[45rem] h-[7rem] md:h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+          className="absolute right-[60%] md:right-[83%] top-[58rem] md:top-[46rem] h-[7rem] md:h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
           style={{ transform: 'rotate(-8deg)' }}
         />
         <img
           src="/assets/kans-flower.png"
           alt=""
           aria-hidden="true"
-          className="absolute right-[75%] md:right-[88%] top-[57rem] md:top-[45rem] h-[7rem] md:h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+          className="absolute right-[75%] md:right-[88%] top-[58rem] md:top-[46rem] h-[7rem] md:h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
           style={{ transform: 'rotate(-8deg)' }}
         />
       </>
