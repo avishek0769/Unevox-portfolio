@@ -224,6 +224,20 @@ const otherCategories = [
         type: 'image',
         url: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80',
         aspect: 'square',
+      },
+      {
+        id: 'edu-3',
+        name: 'Upgrad Kolkata',
+        type: 'image',
+        url: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80',
+        aspect: 'square',
+      },
+      {
+        id: 'edu-4',
+        name: 'Upgrad Kolkata',
+        type: 'image',
+        url: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80',
+        aspect: 'square',
       }
     ]
   },
@@ -414,7 +428,7 @@ function CategorySection({ category, isDurgaPuja }) {
       {/* Horizontal media slider */}
       <div
         ref={scrollRef}
-        className={`relative z-10 flex items-center gap-5 overflow-x-auto ${isDurgaPuja ? "pb-16" : "pb-4"} scroll-smooth scrollbar-none snap-x snap-mandatory`}
+        className={`relative z-10 flex items-center gap-5 overflow-x-auto ${isDurgaPuja ? "pb-16" : "pb-4 md:pb-6"} scroll-smooth scrollbar-none snap-x snap-mandatory`}
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
         {category.works.map((work) => (
@@ -555,7 +569,25 @@ export default function PortfolioPreview() {
           src="/assets/chakra.png"
           alt="chakra"
           aria-hidden="true"
-          className="absolute hidden md:block left-[34%] md:left-[96%] top-[30rem] md:top-[76rem] h-[25rem] md:h-[33rem] w-auto object-contain pointer-events-none select-none z-0"
+          className="absolute hidden md:block left-[34%] md:left-[96%] top-[30rem] md:top-[90rem] h-[25rem] md:h-[33rem] w-auto object-contain pointer-events-none select-none z-0"
+          style={{ transform: 'translateY(-50%) translateX(-30%)', filter: 'saturate(0.7)' }}
+        />
+      </>
+
+      {/* ── Cafe decorative images — anchored to the section edge ── */}
+      <>
+        <img
+          src="/assets/food-front.png"
+          alt="food-front"
+          aria-hidden="true"
+          className="absolute hidden md:block left-[34%] md:-left-[4%] top-[128rem] md:top-[185rem] h-[25rem] md:h-[25rem] opacity-65 w-auto object-contain pointer-events-none select-none z-0"
+          style={{ transform: 'translateY(-50%) translateX(-30%)', filter: 'saturate(0.7)' }}
+        />
+        <img
+          src="/assets/food-side.png"
+          alt="food-side"
+          aria-hidden="true"
+          className="absolute left-[34%] md:left-[80%] top-[162rem] md:top-[161rem] h-[22rem] md:h-[24rem] opacity-65 w-auto object-contain pointer-events-none select-none z-0"
           style={{ transform: 'translateY(-50%) translateX(-30%)', filter: 'saturate(0.7)' }}
         />
       </>
