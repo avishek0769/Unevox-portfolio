@@ -575,7 +575,7 @@ export default function PortfolioPreview() {
           src="/assets/tribe-tree.png"
           alt=""
           aria-hidden="true"
-          className="absolute right-[80%] md:right-[1%] top-[97.5rem] md:top-[85.5rem] h-[4.5rem] md:h-[14rem] w-auto object-contain pointer-events-none select-none z-0 opacity-65"
+          className="absolute hidden md:block right-[80%] md:right-[1%] top-[97.5rem] md:top-[85.5rem] h-[4.5rem] md:h-[14rem] w-auto object-contain pointer-events-none select-none z-0 opacity-65"
         />
         <img
           src="/assets/tribe-3-man.png"
@@ -594,13 +594,13 @@ export default function PortfolioPreview() {
           src="/assets/elephant.png"
           alt=""
           aria-hidden="true"
-          className="absolute right-[30%] md:right-[25%] top-[97.5rem] md:top-[91.3rem] h-[4.5rem] md:h-[8rem] w-auto object-contain pointer-events-none select-none z-0 opacity-35"
+          className="absolute right-[27%] md:right-[25%] top-[96.5rem] md:top-[91.3rem] h-[5.5rem] md:h-[8rem] w-auto object-contain pointer-events-none select-none z-0 opacity-35"
         />
         <img
           src="/assets/tribe-3-man.png"
           alt=""
           aria-hidden="true"
-          className="absolute right-[52%] md:right-[36%] top-[97.5rem] md:top-[93.3rem] md:top-[93.3rem] h-[4.5rem] md:h-[6rem] w-auto object-contain pointer-events-none select-none z-0 opacity-35"
+          className="absolute right-[58%] md:right-[36%] top-[97.5rem] md:top-[93.3rem] md:top-[93.3rem] h-[4.5rem] md:h-[6rem] w-auto object-contain pointer-events-none select-none z-0 opacity-35"
         />
 
         <img
@@ -620,7 +620,7 @@ export default function PortfolioPreview() {
           src="/assets/tribe-tree.png"
           alt=""
           aria-hidden="true"
-          className="absolute right-[80%] md:right-[64%] top-[97.5rem] md:top-[87.5rem] h-[4.5rem] md:h-[12rem] w-auto object-contain pointer-events-none select-none z-0 opacity-65"
+          className="absolute right-[85%] md:right-[64%] top-[95rem] md:top-[87.5rem] h-[7rem] md:h-[12rem] w-auto object-contain pointer-events-none select-none z-0 opacity-65"
         />
 
         <img
