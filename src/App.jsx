@@ -92,7 +92,7 @@ function AppContent() {
         aria-label="Chat on WhatsApp"
       >
         <img
-          src="/WhatsApp-logo.webp"
+          src="/assets/WhatsApp-logo.webp"
           alt="WhatsApp"
           className="w-full h-full object-contain"
         />

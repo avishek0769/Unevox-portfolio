@@ -34,7 +34,7 @@ export default function Navbar({ onBookCall }) {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 shrink-0">
             <img
-              src="/unevox_logo.png"
+              src="/assets/unevox_logo.png"
               alt="Unevox Logo"
               className="h-16 w-auto object-contain"
             />
@@ -105,7 +105,7 @@ export default function Navbar({ onBookCall }) {
             }`}
         >
           <div className="flex items-center justify-between mb-8 pb-4 border-b border-[#e2dbd3]">
-            <img src="/unevox_logo.png" alt="Unevox" className="h-9 w-auto" />
+            <img src="/assets/unevox_logo.png" alt="Unevox" className="h-9 w-auto" />
             <button
               onClick={() => setIsOpen(false)}
               className="p-2 rounded-full hover:bg-[#f1ede8] text-[#4a5568]"

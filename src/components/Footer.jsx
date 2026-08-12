@@ -29,13 +29,13 @@ const LinkedinIcon = (props) => (
 );
 
 const quickLinks = [
-  { name: 'Home',         path: '/' },
-  { name: 'About',        path: '/about' },
-  { name: 'Services',     path: '/services' },
-  { name: 'Portfolio',    path: '/portfolio' },
+  { name: 'Home', path: '/' },
+  { name: 'About', path: '/about' },
+  { name: 'Services', path: '/services' },
+  { name: 'Portfolio', path: '/portfolio' },
   { name: 'Achievements', path: '/achievements' },
-  { name: 'Blogs',        path: '/blogs' },
-  { name: 'Contact',      path: '/contact' },
+  { name: 'Blogs', path: '/blogs' },
+  { name: 'Contact', path: '/contact' },
 ];
 
 const serviceLinks = [
@@ -49,9 +49,9 @@ const serviceLinks = [
 
 const socials = [
   { Icon: InstagramIcon, label: 'Instagram', href: 'https://instagram.com' },
-  { Icon: FacebookIcon,  label: 'Facebook',  href: 'https://facebook.com' },
-  { Icon: YoutubeIcon,   label: 'YouTube',   href: 'https://youtube.com' },
-  { Icon: LinkedinIcon,  label: 'LinkedIn',  href: 'https://linkedin.com' },
+  { Icon: FacebookIcon, label: 'Facebook', href: 'https://facebook.com' },
+  { Icon: YoutubeIcon, label: 'YouTube', href: 'https://youtube.com' },
+  { Icon: LinkedinIcon, label: 'LinkedIn', href: 'https://linkedin.com' },
 ];
 
 export default function Footer({ onBookCall }) {
@@ -65,7 +65,7 @@ export default function Footer({ onBookCall }) {
           {/* Brand */}
           <div className="space-y-6">
             <Link to="/" className="inline-block">
-              <img src="/unevox_logo.png" alt="Unevox" className="h-12 w-auto brightness-0 invert" />
+              <img src="/assets/unevox_logo.png" alt="Unevox" className="h-12 w-auto brightness-0 invert" />
             </Link>
             <p className="text-base text-white/60 leading-relaxed max-w-xs">
               Where brands breathe, and every pixel pulses with purpose. Premier creative partner for sports, culture, and growth.
