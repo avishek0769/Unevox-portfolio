@@ -110,7 +110,7 @@ const otherCategories = [
         id: 'cc-9',
         name: 'Shailosik Theatre',
         type: 'image',
-        url: '/media/cultural/Godhuli-1.jpg',
+        url: '/media/cultural/Godhuli-1-g.jpg',
         aspect: 'portrait',
       },
       {
@@ -124,7 +124,7 @@ const otherCategories = [
         id: 'cc-11',
         name: 'Shailosik Theatre',
         type: 'image',
-        url: '/media/cultural/Godhuli-2.jpg',
+        url: '/media/cultural/Godhuli-2-g.jpg',
         aspect: 'portrait',
       },
       {
@@ -138,7 +138,7 @@ const otherCategories = [
         id: 'cc-13',
         name: 'Shailosik Theatre',
         type: 'image',
-        url: '/media/cultural/Godhuli-3.jpg',
+        url: '/media/cultural/Godhuli-3-g.jpg',
         aspect: 'portrait',
       },
       {
