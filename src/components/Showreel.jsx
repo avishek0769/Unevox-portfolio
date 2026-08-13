@@ -96,7 +96,6 @@ function ReelCard({ reel }) {
         <video
           ref={videoRef}
           src={reel.videoUrl}
-          muted
           loop
           playsInline
           className="absolute inset-0 w-full h-full object-cover opacity-75 group-hover:opacity-100 transition-opacity duration-300"

@@ -118,7 +118,6 @@ function VideoCard({ item, onClick }) {
       <video
         ref={videoRef}
         src={item.url}
-        muted
         loop
         playsInline
         className="absolute inset-0 w-full h-full object-cover"
@@ -224,7 +223,6 @@ function Lightbox({ items, index, onClose, onPrev, onNext }) {
             src={item.url}
             controls
             autoPlay
-            muted
             className="max-w-full max-h-full rounded-xl object-contain"
             style={getAspectStyle(item.aspect)}
           />

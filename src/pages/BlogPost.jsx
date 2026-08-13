@@ -126,7 +126,7 @@ function GalleryCard({ item, onClick }) {
     if (item.type === 'video' && videoRef.current) {
       videoRef.current.play()
         .then(() => setIsPlaying(true))
-        .catch(() => {});
+        .catch(() => { });
     }
   };
 
@@ -152,7 +152,7 @@ function GalleryCard({ item, onClick }) {
             <video
               ref={videoRef}
               src={mediaUrl}
-              muted loop playsInline
+              loop playsInline
               className="absolute inset-0 w-full h-full object-cover opacity-75 group-hover:opacity-100 transition-opacity duration-300"
             />
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">

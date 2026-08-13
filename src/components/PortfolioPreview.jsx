@@ -333,7 +333,6 @@ function MediaCard({ item }) {
           <video
             ref={videoRef}
             src={item.url}
-            muted
             loop
             playsInline
             className="absolute inset-0 w-full h-full object-cover duration-300"
