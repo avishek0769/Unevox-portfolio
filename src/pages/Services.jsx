@@ -1,5 +1,8 @@
 import React, { useEffect } from 'react';
 import { CheckCircle, Trophy, Theater, Compass, Heart, GraduationCap, Building2, UtensilsCrossed } from 'lucide-react';
+import { useRef } from 'react';
+import { useState } from 'react';
+import { Play } from 'lucide-react';
 
 const SERVICES_DATA = [
   {
@@ -32,7 +35,7 @@ const SERVICES_DATA = [
     id: 'sports-media-production',
     title: 'Sports Media Production',
     description: 'End-to-end sports media coverage designed to fuel fan engagement, elevate leagues, and spotlight athletes across tournaments.',
-    image: 'https://images.unsplash.com/photo-1626248801379-51a0748a5f96',
+    video: '/media/sports/fc_banaras-1.mp4',
     deliverables: [
       'Real-time Gameday Coverage & Edits',
       'Athlete Highlight Reels & Promos',
@@ -45,7 +48,7 @@ const SERVICES_DATA = [
     id: 'social-media-management',
     title: 'Social Media Management',
     description: 'Turn your profiles into active communities with consistent content calendars, organic copy, and data-driven publishing schedules.',
-    image: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=1200&q=80',
+    image: '/media/services/social-media.png',
     deliverables: [
       'Monthly Content Strategy & Calendars',
       'Custom Graphic Design for Posts & Stories',
@@ -58,7 +61,7 @@ const SERVICES_DATA = [
     id: 'digital-marketing',
     title: 'Digital Marketing',
     description: 'Growth-focused marketing campaigns designed to convert audiences into loyal followers and customer leads.',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80',
+    image: '/media/services/digital.png',
     deliverables: [
       'Paid Social Media Campaigns (Meta & Google Ads)',
       'Search Engine Optimization (SEO) & Marketing',
@@ -71,7 +74,7 @@ const SERVICES_DATA = [
     id: 'creative-design',
     title: 'Creative Design',
     description: 'High-impact graphics, custom illustrations, matchday posters, and promotional merchandise that build a beautiful visual identity.',
-    image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5',
+    image: '/media/services/design.png',
     deliverables: [
       'Matchday Graphics & Social Media Creatives',
       'Custom Digital Illustrations & Layouts',
@@ -84,7 +87,7 @@ const SERVICES_DATA = [
     id: 'branding',
     title: 'Branding',
     description: 'Crafting cohesive identity systems, brand voice guidelines, and logo assets that help businesses stand out and build long-term value.',
-    image: 'https://images.unsplash.com/photo-1534670007418-fbb7f6cf32c3?auto=format&fit=crop&w=1200&q=80',
+    image: '/media/services/branding.jpeg',
     deliverables: [
       'Brand Strategy & Market Positioning',
       'Custom Logo Design & Core Visual Identity',
@@ -115,6 +118,24 @@ const PROCESS_STEPS = [
 ];
 
 export default function Services() {
+  const videoRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const handleMouseEnter = () => {
+    if (videoRef.current) {
+      videoRef.current.play()
+        .then(() => setIsPlaying(true))
+        .catch((err) => console.log('Autoplay blocked:', err));
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (videoRef.current) {
+      videoRef.current.pause();
+      setIsPlaying(false);
+    }
+  };
+
   // Scroll to hash-anchor on page load or hash change
   useEffect(() => {
     const hash = window.location.hash;
@@ -156,16 +177,36 @@ export default function Services() {
               className="max-w-7xl mx-auto px-6 md:px-8 scroll-mt-24"
             >
               <div className={`grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center`}>
-
                 {/* Image wrapper */}
-                <div className={`lg:col-span-6 ${isEven ? 'lg:order-1' : 'lg:order-2'}`}>
-                  <div className="aspect-[4/3] sm:aspect-[16/10] lg:aspect-[4/3] rounded-3xl overflow-hidden border border-[#e2dbd3] shadow-md bg-white group">
-                    <img
-                      src={service.image}
-                      alt={service.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                      loading="lazy"
-                    />
+                <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className={`lg:col-span-6 ${isEven ? 'lg:order-1' : 'lg:order-2'}`}>
+                  <div className="relative aspect-[4/3] sm:aspect-[16/10] lg:aspect-[4/3] rounded-3xl overflow-hidden border border-[#e2dbd3] shadow-md bg-white group">
+                    {/* Play button */}
+                    {service.video ? <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-[10000]">
+                      <div
+                        className={`w-14 h-14 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white transition-all duration-300 ${isPlaying
+                          ? 'opacity-0 scale-75'
+                          : 'opacity-100 scale-100 group-hover:scale-110 group-hover:bg-[#e95f0c] group-hover:border-[#e95f0c]'
+                          }`}
+                      >
+                        <Play className="w-5 h-5 fill-current translate-x-0.5" />
+                      </div>
+                    </div> : null}
+
+                    {service.image ?
+                      <img
+                        src={service.image}
+                        alt={service.title}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        loading="lazy"
+                      />
+                      :
+                      <video
+                        ref={videoRef}
+                        src={service.video}
+                        loop
+                        playsInline
+                      />
+                    }
                   </div>
                 </div>
 
