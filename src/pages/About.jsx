@@ -126,13 +126,10 @@ function StorySection() {
 
                         <div className="space-y-5 text-[#4a5568] text-base leading-relaxed">
                             <p>
-                                <strong className="text-[#072541]">TODO:</strong> Replace this with the real founding story of Unevox — why it was started, the challenge it set out to solve, and the moment the agency came to life.
+                                At Unevox, we turn ideas into impactful digital experiences through creative storytelling, strategic social media, and visually engaging content. We work closely with brands, organizations, and events to build stronger identities and meaningful connections with their audiences.
                             </p>
                             <p>
-                                <strong className="text-[#072541]">TODO:</strong> Replace this with the vision behind the agency — what Unevox aims to achieve for its clients, and the long-term impact it wants to create through creative media.
-                            </p>
-                            <p>
-                                <strong className="text-[#072541]">TODO:</strong> Replace this with how Unevox approaches every project — the process, the passion, and the commitment to quality that defines each delivery.
+                                For what makes unevox the best is our vision to tell stories that matter 60th glorious year, we planned unique content ideas - from a heartfelt to a and a vibrant dance performance video that beautifully captured the spirit of their celebration and legacy.
                             </p>
                         </div>
                     </div>
