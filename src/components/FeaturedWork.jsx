@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight, ExternalLink } from 'lucide-react';
 
@@ -7,8 +7,7 @@ const projects = [
     id: 'durand-baghpat',
     league: 'Durand Cup',
     team: 'Baghpat FC',
-    description:
-      "Captured match highlights, behind-the-scenes moments, and social media content throughout Asia's oldest football tournament — fuelling Baghpat FC's digital presence.",
+    // description: "Captured match highlights, behind-the-scenes moments, and social media content throughout Asia's oldest football tournament — fuelling Baghpat FC's digital presence.",
     image: 'https://images.unsplash.com/photo-1766525133589-e3b4b090c04b?q=80&w=1170&auto=format&fit=crop',
     leagueLogo: '/client_logos/Durand_Cup.svg.webp',
     accentColor: '#e95f0c',
@@ -17,11 +16,16 @@ const projects = [
   },
   {
     id: 'cfl-behala-ss',
-    league: 'Calcutta Football League',
-    team: 'Behala SS',
-    description:
-      'Match-day graphics, live coverage, and highlight reels that drove Behala SS Sporting Club\'s social media growth throughout the CFL season.',
-    image: 'https://images.unsplash.com/photo-1626248801379-51a0748a5f96?q=80&w=1170&auto=format&fit=crop',
+    league: 'Bengal Super League',
+    team: 'North 24 Parganas',
+    // description: 'End-to-end media coverage for North 24 Parganas across the Bengal Super League — from pre-season promos to post-match rundowns.',
+    image: '/media/sports/n24-1.jpg',
+    images: [
+      '/media/sports/n24-1.jpg',
+      '/media/sports/n24-2.jpg',
+      '/media/sports/n24-3.jpg',
+      '/media/sports/n24-4.jpg'
+    ],
     leagueLogo: '/client_logos/Calcutta_Football_League.svg',
     accentColor: '#059669',
     blogSlug: '/blogs/durand-cup-coverage',
@@ -30,20 +34,30 @@ const projects = [
     id: 'cfl-suruchi',
     league: 'Calcutta Football League',
     team: 'Suruchi Sangha',
-    description:
-      'Creative campaign production and real-time social media content that gave Suruchi Sangha a premium digital identity during the CFL season.',
+    // description: 'Creative campaign production and real-time social media content that gave Suruchi Sangha a premium digital identity during the CFL season.',
     image: 'https://images.unsplash.com/photo-1602674809970-89073c530b0a?q=80&w=1170&auto=format&fit=crop',
+    images: [
+      '/media/sports/cfl-suruchi-1-g.jpg',
+      '/media/sports/cfl-suruchi-2-g.jpg',
+      '/media/sports/cfl-suruchi-3-g.jpg',
+      '/media/sports/cfl-suruchi-4-g.jpg'
+    ],
     leagueLogo: '/client_logos/Calcutta_Football_League.svg',
     accentColor: '#7c3aed',
     blogSlug: '/blogs/durand-cup-coverage',
   },
   {
     id: 'bsl-north24',
-    league: 'Bengal Super League',
-    team: 'North 24 Parganas',
-    description:
-      'End-to-end media coverage for North 24 Parganas across the Bengal Super League — from pre-season promos to post-match rundowns.',
-    image: 'https://images.unsplash.com/photo-1715277331640-d268f7739800?q=80&w=2061&auto=format&fit=crop',
+    league: 'Calcutta Football League',
+    team: 'Behala SS',
+    // description: 'Match-day graphics, live coverage, and highlight reels that drove Behala SS Sporting Club\'s social media growth throughout the CFL season.',
+    image: '/media/sports/bss-2.jpg',
+    images: [
+      '/media/sports/bss-2.jpg',
+      '/media/sports/bss-1.jpg',
+      '/media/sports/bss-3.jpg',
+      '/media/sports/bss-4.jpg'
+    ],
     leagueLogo: '/client_logos/north_24_parganas_logo.png',
     accentColor: '#dc2626',
     blogSlug: '/blogs/durand-cup-coverage',
@@ -118,37 +132,78 @@ function HeroCard({ project }) {
 /* ─── Regular Card ─── */
 function ProjectCard({ project, index }) {
   const [hovered, setHovered] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    let intervalId = null;
+    if (hovered && project.images?.length > 1) {
+      intervalId = setInterval(() => {
+        setCurrentImageIndex((prev) => (prev + 1) % project.images.length);
+      }, 2000);
+    } else {
+      setCurrentImageIndex(0);
+    }
+    return () => {
+      if (intervalId) clearInterval(intervalId);
+    };
+  }, [hovered, project.images]);
+
+  const handleMouseEnter = () => {
+    setHovered(true);
+    if (project.images?.length > 1) {
+      // Trigger the first transition immediately
+      setCurrentImageIndex(1);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    setHovered(false);
+  };
 
   return (
     <Link
       to={project.blogSlug}
       id={project.id}
-      className="block group relative rounded-[1.5rem] overflow-hidden cursor-pointer bg-[#072541] shadow-sm hover:shadow-2xl transition-all duration-500 aspect-[4/3]"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+      className="block group relative rounded-[1.5rem] overflow-hidden cursor-pointer bg-[#072541] shadow-sm hover:shadow-2xl transition-all duration-500 aspect-[3/4]"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
-      {/* Background image */}
-      <img
-        src={project.image}
-        alt={`${project.league} — ${project.team}`}
-        className={`absolute inset-0 w-full h-full object-cover transition-transform duration-700 ${hovered ? 'scale-110' : 'scale-100'}`}
-        style={{ filter: hovered ? 'brightness(0.95)' : 'brightness(0.8)' }}
-        loading="lazy"
-      />
+      {/* Background images (slideshow on hover) */}
+      {project.images && project.images.length > 0 ? (
+        project.images.map((imgUrl, imgIdx) => (
+          <img
+            key={imgIdx}
+            src={imgUrl}
+            alt={`${project.league} — ${project.team}`}
+            className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ${imgIdx === currentImageIndex ? 'opacity-100 scale-110' : 'opacity-0 scale-100'
+              }`}
+            style={{ filter: hovered ? 'brightness(0.95)' : 'brightness(0.8)' }}
+            loading="lazy"
+          />
+        ))
+      ) : (
+        <img
+          src={project.image}
+          alt={`${project.league} — ${project.team}`}
+          className={`absolute inset-0 w-full h-full object-cover transition-transform duration-700 ${hovered ? 'scale-110' : 'scale-100'}`}
+          style={{ filter: hovered ? 'brightness(0.95)' : 'brightness(0.8)' }}
+          loading="lazy"
+        />
+      )}
 
       {/* Base gradient */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#072541]/90 via-[#072541]/30 to-transparent z-10" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#072541]/80 via-[#072541]/20 to-transparent z-10" />
 
       {/* Accent overlay on hover */}
-      <div
+      {/* <div
         className="absolute inset-x-0 bottom-0 z-20 transition-all duration-500 ease-out"
         style={{
           height: '100%',
-          background: `linear-gradient(to top, ${project.accentColor}bb 0%, ${project.accentColor}55 35%, transparent 70%)`,
+          background: `linear-gradient(to top, ${project.accentColor}bb 0%, ${project.accentColor}45 20%, transparent 80%)`,
           opacity: hovered ? 1 : 0,
           transform: hovered ? 'translateY(0%)' : 'translateY(12%)',
         }}
-      />
+      /> */}
 
       {/* Glowing left border */}
       <div
