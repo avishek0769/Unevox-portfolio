@@ -51,7 +51,7 @@ const ALL_MEDIA = [
   { id: 'sp-13', categoryId: 'sports', url: '/media/sports/bsl-north-24-1.mp4', aspect: 'tall' },
   { id: 'sp-14', categoryId: 'sports', url: '/media/sports/bsl-north-24-2.mp4', aspect: 'tall' },
   { id: 'sp-15', categoryId: 'sports', url: '/media/sports/bsl-north-24-3.mp4', aspect: 'tall' },
-  { id: 'sp-16', categoryId: 'sports', url: '/media/sports/bsl-north-24-4.mp4', aspect: 'tall' },
+  { id: 'sp-16', categoryId: 'sports', url: '/media/sports/bsl-north-24-4.mp4', aspect: 'portrait' },
   { id: 'sp-17', categoryId: 'sports', url: '/media/sports/cfl-bss-1.mp4', aspect: 'tall' },
   { id: 'sp-18', categoryId: 'sports', url: '/media/sports/cfl-bss-2.mp4', aspect: 'tall' },
   { id: 'sp-19', categoryId: 'sports', url: '/media/sports/cfl-bss-3.mp4', aspect: 'portrait' },
@@ -300,10 +300,12 @@ function MasonryItem({ children, item }) {
     };
   }, [calculateSpans, item]);
 
+  const isWide = item.aspect === 'wide' || item.aspect === 'landscape';
+
   return (
     <div
       ref={itemRef}
-      className="col-span-1"
+      className={isWide ? "sm:col-span-2 col-span-1" : "col-span-1"}
       style={{ gridRowEnd: spans ? `span ${spans}` : 'auto' }}
     >
       <div onLoad={calculateSpans}>{children}</div>
