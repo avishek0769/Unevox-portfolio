@@ -11,7 +11,7 @@ const projects = [
     image: 'https://images.unsplash.com/photo-1766525133589-e3b4b090c04b?q=80&w=1170&auto=format&fit=crop',
     leagueLogo: '/client_logos/Durand_Cup.svg.webp',
     accentColor: '#e95f0c',
-    blogSlug: '/blogs/durand-cup-coverage',
+    slug: '/portfolio?cat=sports',
     featured: true,
   },
   {
@@ -28,7 +28,7 @@ const projects = [
     ],
     leagueLogo: '/client_logos/Calcutta_Football_League.svg',
     accentColor: '#059669',
-    blogSlug: '/blogs/durand-cup-coverage',
+    slug: '/portfolio?cat=sports',
   },
   {
     id: 'cfl-suruchi',
@@ -44,7 +44,7 @@ const projects = [
     ],
     leagueLogo: '/client_logos/Calcutta_Football_League.svg',
     accentColor: '#7c3aed',
-    blogSlug: '/blogs/durand-cup-coverage',
+    slug: '/portfolio?cat=sports',
   },
   {
     id: 'bsl-north24',
@@ -60,7 +60,7 @@ const projects = [
     ],
     leagueLogo: '/client_logos/north_24_parganas_logo.png',
     accentColor: '#dc2626',
-    blogSlug: '/blogs/durand-cup-coverage',
+    slug: '/portfolio?cat=sports',
   },
 ];
 
@@ -70,7 +70,7 @@ function HeroCard({ project }) {
 
   return (
     <Link
-      to={project.blogSlug}
+      to={project.slug}
       id={project.id}
       className="block relative rounded-[2rem] overflow-hidden cursor-pointer"
       onMouseEnter={() => setHovered(true)}
@@ -162,7 +162,7 @@ function ProjectCard({ project, index }) {
 
   return (
     <Link
-      to={project.blogSlug}
+      to={project.slug}
       id={project.id}
       className="block group relative rounded-[1.5rem] overflow-hidden cursor-pointer bg-[#072541] shadow-sm hover:shadow-2xl transition-all duration-500 aspect-[3/4]"
       onMouseEnter={handleMouseEnter}

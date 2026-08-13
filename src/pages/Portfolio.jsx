@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Play, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useSearchParams } from 'react-router-dom';
 
 // ─── CAMPAIGN CATEGORIES ──────────────────────────────────────────────────────
 const CATEGORIES = [
@@ -329,11 +330,23 @@ function Pill({ active, onClick, children }) {
 
 // ─── PAGE ─────────────────────────────────────────────────────────────────────
 export default function Portfolio() {
-  const [activeCat, setActiveCat] = useState('all');
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  // Read ?cat= from URL on mount; fall back to 'all'
+  const paramCat = searchParams.get('cat') ?? 'all';
+  const validCat = CATEGORIES.some((c) => c.id === paramCat) ? paramCat : 'all';
+
+  const [activeCat, setActiveCat] = useState(validCat);
   const [activeType, setActiveType] = useState('all');
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   const [lightboxIndex, setLightboxIndex] = useState(null);
   const sentinelRef = useRef(null);
+
+  // Keep URL in sync when user changes the campaign filter
+  const handleSetCat = useCallback((id) => {
+    setActiveCat(id);
+    setSearchParams(id === 'all' ? {} : { cat: id }, { replace: true });
+  }, [setSearchParams]);
 
   const filtered = ALL_MEDIA.filter((m) => {
     const catMatch = activeCat === 'all' || m.categoryId === activeCat;
@@ -401,7 +414,7 @@ export default function Portfolio() {
             </p>
             <div className="flex items-center gap-2 overflow-x-auto pb-2" style={{ scrollbarWidth: 'none' }}>
               {CATEGORIES.map((c) => (
-                <Pill key={c.id} active={activeCat === c.id} onClick={() => setActiveCat(c.id)}>
+                <Pill key={c.id} active={activeCat === c.id} onClick={() => handleSetCat(c.id)}>
                   {c.name}
                 </Pill>
               ))}
