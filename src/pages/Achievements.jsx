@@ -1,23 +1,13 @@
-import React from 'react';
 import { Award, Target, Trophy, Milestone } from 'lucide-react';
 
 const AWARDS = [
   {
     id: 'award-1',
-    title: 'Best Sports Media Coverage',
-    organization: 'Bengal Sports Journalists Association',
-    year: '2024',
-    description: 'Recognized for outstanding cinematic storytelling and media coverage during local football leagues.',
-    image: 'https://images.unsplash.com/photo-1778864874646-1da1647a22df',
-  },
-  {
-    id: 'award-2',
-    title: 'Creative Media Agency of the Year',
-    organization: 'Kolkata Creative Guild',
-    year: '2023',
-    description: 'Awarded for exceptional visual campaigns, digital showreels, and event promotion strategy.',
-    image: 'https://images.unsplash.com/photo-1759560245150-8dcbb7f01142',
-  },
+    title: 'Felicitation - Media Team',
+    organization: 'Behala Classical Festival',
+    description: 'Felicitation to the Media Team for their dedication, hard work, and exceptional media coverage throughout the Behala Classical Festival.',
+    image: '/media/achievements/achi-1.jpeg',
+  }
 ];
 
 const MILESTONES = [
@@ -91,9 +81,6 @@ export default function Achievements() {
                   alt={award.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
                 />
-                <div className="absolute top-4 right-4 bg-[#072541] text-white font-display font-bold text-xs px-3 py-1.5 rounded-full shadow-lg">
-                  {award.year}
-                </div>
               </div>
               <div className="p-6 sm:p-8">
                 <p className="text-[#e95f0c] font-display font-bold text-xs uppercase tracking-widest mb-1">
@@ -129,9 +116,6 @@ export default function Achievements() {
               <div key={idx} className="relative group">
                 {/* Year tag for large screen (placed in left gutter) */}
                 <div className="hidden md:block absolute -left-44 top-6 text-right w-28">
-                  <span className="font-display font-black text-2xl text-[#072541] tracking-tight block">
-                    {milestone.year}
-                  </span>
                   <span className="text-xs font-display font-bold text-[#e95f0c] uppercase tracking-widest">
                     Unevox
                   </span>
@@ -144,9 +128,6 @@ export default function Achievements() {
 
                 {/* Content card */}
                 <div className="bg-white rounded-2xl border border-[#e2dbd3] p-6 hover:shadow-lg transition-shadow duration-300">
-                  <span className="inline-block md:hidden bg-[#e95f0c]/10 text-[#e95f0c] font-display font-black text-xs px-2.5 py-1 rounded-full mb-3">
-                    {milestone.year}
-                  </span>
                   <h3 className="font-display text-lg sm:text-xl font-black text-[#072541] mb-2">
                     {milestone.title}
                   </h3>
