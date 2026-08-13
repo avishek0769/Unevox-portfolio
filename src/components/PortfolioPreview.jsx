@@ -727,13 +727,13 @@ export default function PortfolioPreview() {
         />
 
         {/* Chakra */}
-        <img
+        {/* <img
           src="/assets/chakra.png"
           alt="chakra"
           aria-hidden="true"
           className="absolute left-[14%] md:-left-[15%] top-[67rem] md:top-[65rem] h-[20rem] md:h-[27rem] w-auto object-contain pointer-events-none select-none z-0"
           style={{ filter: 'saturate(0.7)' }}
-        />
+        /> */}
       </>
 
       {/* ── Cafe decorative images — anchored to the section edge ── */}

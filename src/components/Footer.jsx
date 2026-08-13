@@ -42,13 +42,13 @@ const serviceLinks = [
   'Social Media Management',
   'Sports Media Production',
   'Digital Marketing',
-  'Video & Reel Production',
+  'Videography',
   'Photography',
   'Creative Graphics & Branding',
 ];
 
 const socials = [
-  { Icon: InstagramIcon, label: 'Instagram', href: 'https://instagram.com' },
+  { Icon: InstagramIcon, label: 'Instagram', href: 'https://www.instagram.com/unevox_' },
   { Icon: FacebookIcon, label: 'Facebook', href: 'https://facebook.com' },
   { Icon: YoutubeIcon, label: 'YouTube', href: 'https://youtube.com' },
   { Icon: LinkedinIcon, label: 'LinkedIn', href: 'https://linkedin.com' },
