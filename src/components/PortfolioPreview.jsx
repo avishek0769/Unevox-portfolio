@@ -51,17 +51,17 @@ const otherCategories = [
     description: 'Promotional campaigns, cinematic summaries, and content curation for prominent classical arts, theater, and music events.',
     works: [
       {
-        id: 'cc-1',
-        name: 'Beahala Classical Festival',
-        type: 'video',
-        url: '/media/cultural/classical-fest-3.mp4',
-        aspect: 'portrait',
-      },
-      {
         id: 'cc-2',
         name: 'Behala Theatre Festival',
         type: 'video',
         url: '/media/cultural/theatre-fest-1.mp4',
+        aspect: 'portrait',
+      },
+      {
+        id: 'cc-1',
+        name: 'Beahala Classical Festival',
+        type: 'video',
+        url: '/media/cultural/classical-fest-3.mp4',
         aspect: 'portrait',
       },
       {
@@ -314,12 +314,12 @@ function MediaCard({ item }) {
   // Compact sizing for reduced media slider height
   const getAspectClass = () => {
     if (item.aspect === 'portrait') {
-      return 'w-[13rem] sm:w-[16rem] aspect-[3/4]';
+      return 'w-[13rem] sm:w-[17rem] aspect-[3/4]';
     }
     if (item.aspect === 'landscape' || item.aspect === 'video') {
       return 'w-[15rem] sm:w-[18rem] aspect-[16/10]';
     }
-    return 'w-[15rem] sm:w-[22rem] aspect-[4/3]';
+    return 'w-[15rem] sm:w-[23rem] aspect-[4/3]';
   };
 
   return (
@@ -466,91 +466,91 @@ export default function PortfolioPreview() {
           src="/assets/kans-flower.png"
           alt=""
           aria-hidden="true"
-          className="absolute right-[0] md:-right-[3%] top-[59rem] md:top-[47rem] h-[7rem] md:h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+          className="absolute right-[0] md:-right-[3%] top-[59rem] md:top-[48rem] h-[7rem] md:h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
           style={{ transform: 'rotate(-8deg)' }}
         />
         <img
           src="/assets/kans-flower.png"
           alt=""
           aria-hidden="true"
-          className="absolute right-[12%] md:right-[4%] top-[59rem] md:top-[47rem] h-[7rem] md:h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+          className="absolute right-[12%] md:right-[4%] top-[59rem] md:top-[48rem] h-[7rem] md:h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
           style={{ transform: 'rotate(-8deg)' }}
         />
         <img
           src="/assets/kans-flower.png"
           alt=""
           aria-hidden="true"
-          className="absolute hidden md:block right-[12%] top-[47rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+          className="absolute hidden md:block right-[12%] top-[48rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
           style={{ transform: 'rotate(-8deg)' }}
         />
         <img
           src="/assets/kans-flower.png"
           alt=""
           aria-hidden="true"
-          className="absolute hidden md:block right-[17%] top-[47rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+          className="absolute hidden md:block right-[17%] top-[48rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
           style={{ transform: 'rotate(-8deg)' }}
         />
         <img
           src="/assets/kans-flower.png"
           alt=""
           aria-hidden="true"
-          className="absolute hidden md:block right-[27%] top-[47rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+          className="absolute hidden md:block right-[27%] top-[48rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
           style={{ transform: 'rotate(-8deg)' }}
         />
         <img
           src="/assets/kans-flower.png"
           alt=""
           aria-hidden="true"
-          className="absolute hidden md:block right-[33%] top-[47rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+          className="absolute hidden md:block right-[33%] top-[48rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
           style={{ transform: 'rotate(-8deg)' }}
         />
         <img
           src="/assets/kans-flower.png"
           alt=""
           aria-hidden="true"
-          className="absolute hidden md:block right-[38%] top-[47rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+          className="absolute hidden md:block right-[38%] top-[48rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
           style={{ transform: 'rotate(-8deg)' }}
         />
         <img
           src="/assets/kans-flower.png"
           alt=""
           aria-hidden="true"
-          className="absolute right-[45%] md:right-[50%] top-[59rem] md:top-[47rem] h-[7rem] md:h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+          className="absolute right-[45%] md:right-[50%] top-[59rem] md:top-[48rem] h-[7rem] md:h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
           style={{ transform: 'rotate(-8deg)' }}
         />
         <img
           src="/assets/kans-flower.png"
           alt=""
           aria-hidden="true"
-          className="absolute hidden md:block right-[55%] top-[47rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+          className="absolute hidden md:block right-[55%] top-[48rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
           style={{ transform: 'rotate(-8deg)' }}
         />
         <img
           src="/assets/kans-flower.png"
           alt=""
           aria-hidden="true"
-          className="absolute hidden md:block right-[71%] top-[47rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+          className="absolute hidden md:block right-[71%] top-[48rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
           style={{ transform: 'rotate(-8deg)' }}
         />
         <img
           src="/assets/kans-flower.png"
           alt=""
           aria-hidden="true"
-          className="absolute hidden md:block right-[77%] top-[47rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+          className="absolute hidden md:block right-[77%] top-[48rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
           style={{ transform: 'rotate(-8deg)' }}
         />
         <img
           src="/assets/kans-flower.png"
           alt=""
           aria-hidden="true"
-          className="absolute right-[60%] md:right-[83%] top-[59rem] md:top-[47rem] h-[7rem] md:h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+          className="absolute right-[60%] md:right-[83%] top-[59rem] md:top-[48rem] h-[7rem] md:h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
           style={{ transform: 'rotate(-8deg)' }}
         />
         <img
           src="/assets/kans-flower.png"
           alt=""
           aria-hidden="true"
-          className="absolute right-[75%] md:right-[88%] top-[59rem] md:top-[47rem] h-[7rem] md:h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+          className="absolute right-[75%] md:right-[88%] top-[59rem] md:top-[48rem] h-[7rem] md:h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
           style={{ transform: 'rotate(-8deg)' }}
         />
       </>
@@ -574,77 +574,77 @@ export default function PortfolioPreview() {
           src="/assets/tribe-tree.png"
           alt=""
           aria-hidden="true"
-          className="absolute hidden md:block right-[80%] md:right-[1%] top-[97.5rem] md:top-[85.5rem] h-[4.5rem] md:h-[14rem] w-auto object-contain pointer-events-none select-none z-0 opacity-65"
+          className="absolute hidden md:block right-[80%] md:right-[0%] top-[97.5rem] md:top-[85.5rem] h-[4.5rem] md:h-[16rem] w-auto object-contain pointer-events-none select-none z-0 opacity-65"
         />
         <img
           src="/assets/tribe-3-man.png"
           alt=""
           aria-hidden="true"
-          className="absolute right-[1%] md:right-[10%] top-[97.5rem] md:top-[93.3rem] h-[4.5rem] md:h-[6rem] w-auto object-contain pointer-events-none select-none z-0 opacity-35"
+          className="absolute right-[1%] md:right-[10%] top-[97.5rem] md:top-[95.3rem] h-[4.5rem] md:h-[6rem] w-auto object-contain pointer-events-none select-none z-0 opacity-35"
         />
         <img
           src="/assets/tribe-2-man.png"
           alt=""
           aria-hidden="true"
-          className="absolute hidden md:block md:right-[19%] md:top-[93.3rem] md:h-[6rem] w-auto object-contain pointer-events-none select-none z-0 opacity-35"
+          className="absolute hidden md:block md:right-[19%] md:top-[95.3rem] md:h-[6rem] w-auto object-contain pointer-events-none select-none z-0 opacity-35"
         />
 
         <img
           src="/assets/elephant.png"
           alt=""
           aria-hidden="true"
-          className="absolute right-[27%] md:right-[25%] top-[96.5rem] md:top-[91.3rem] h-[5.5rem] md:h-[8rem] w-auto object-contain pointer-events-none select-none z-0 opacity-35"
+          className="absolute right-[27%] md:right-[25%] top-[96.5rem] md:top-[93.3rem] h-[5.5rem] md:h-[8rem] w-auto object-contain pointer-events-none select-none z-0 opacity-35"
         />
         <img
           src="/assets/tribe-3-man.png"
           alt=""
           aria-hidden="true"
-          className="absolute right-[58%] md:right-[36%] top-[97.5rem] md:top-[93.3rem] md:top-[93.3rem] h-[4.5rem] md:h-[6rem] w-auto object-contain pointer-events-none select-none z-0 opacity-35"
+          className="absolute right-[58%] md:right-[36%] top-[97.5rem] md:top-[95.3rem] md:top-[95.3rem] h-[4.5rem] md:h-[6rem] w-auto object-contain pointer-events-none select-none z-0 opacity-35"
         />
 
         <img
           src="/assets/tribe-2-man.png"
           alt=""
           aria-hidden="true"
-          className="absolute hidden md:block md:right-[47%] md:top-[93.3rem] md:h-[6rem] w-auto object-contain pointer-events-none select-none z-0 opacity-35 -rotate-6"
+          className="absolute hidden md:block md:right-[47%] md:top-[95.3rem] md:h-[6rem] w-auto object-contain pointer-events-none select-none z-0 opacity-35 -rotate-6"
         />
         <img
           src="/assets/tribe-3-man.png"
           alt=""
           aria-hidden="true"
-          className="absolute hidden md:block md:right-[54%] md:top-[93.3rem] md:h-[6rem] w-auto object-contain pointer-events-none select-none z-0 opacity-35"
+          className="absolute hidden md:block md:right-[54%] md:top-[95.3rem] md:h-[6rem] w-auto object-contain pointer-events-none select-none z-0 opacity-35"
         />
 
         <img
           src="/assets/tribe-tree.png"
           alt=""
           aria-hidden="true"
-          className="absolute right-[85%] md:right-[62%] top-[95rem] md:top-[87.5rem] h-[7rem] md:h-[12rem] w-auto object-contain pointer-events-none select-none z-0 opacity-65"
+          className="absolute right-[85%] md:right-[62%] top-[95rem] md:top-[89.5rem] h-[7rem] md:h-[12rem] w-auto object-contain pointer-events-none select-none z-0 opacity-65"
         />
 
         <img
           src="/assets/deer.png"
           alt=""
           aria-hidden="true"
-          className="absolute hidden md:block md:right-[75%] md:top-[93rem] md:h-[5.8rem] w-auto object-contain pointer-events-none select-none z-0 opacity-35 -rotate-6"
+          className="absolute hidden md:block md:right-[75%] md:top-[95rem] md:h-[5.8rem] w-auto object-contain pointer-events-none select-none z-0 opacity-35 -rotate-6"
         />
         <img
           src="/assets/deer.png"
           alt=""
           aria-hidden="true"
-          className="absolute hidden md:block md:right-[71.5%] md:top-[93rem] md:h-[5.8rem] w-auto object-contain pointer-events-none select-none z-0 opacity-35 -rotate-6"
+          className="absolute hidden md:block md:right-[71.5%] md:top-[95rem] md:h-[5.8rem] w-auto object-contain pointer-events-none select-none z-0 opacity-35 -rotate-6"
         />
         <img
           src="/assets/tribe-3-man.png"
           alt=""
           aria-hidden="true"
-          className="absolute hidden md:block md:right-[80%] md:top-[93.3rem] md:h-[6rem] w-auto object-contain pointer-events-none select-none z-0 opacity-35"
+          className="absolute hidden md:block md:right-[80%] md:top-[95.3rem] md:h-[6rem] w-auto object-contain pointer-events-none select-none z-0 opacity-35"
         />
         <img
           src="/assets/tribe-2-man.png"
           alt=""
           aria-hidden="true"
-          className="absolute hidden md:block md:right-[89%] md:top-[93.3rem] md:h-[6rem] w-auto object-contain pointer-events-none select-none z-0 opacity-35"
+          className="absolute hidden md:block md:right-[89%] md:top-[95.3rem] md:h-[6rem] w-auto object-contain pointer-events-none select-none z-0 opacity-35"
         />
 
         {/* Grass */}
@@ -652,61 +652,61 @@ export default function PortfolioPreview() {
           src="/assets/grass.png"
           alt=""
           aria-hidden="true"
-          className="absolute hidden md:block md:right-[0%] top-[100.5rem] md:top-[97.3rem] h-[2rem] md:h-[3rem] w-auto object-contain pointer-events-none select-none z-0 opacity-40"
+          className="absolute hidden md:block md:right-[0%] top-[100.5rem] md:top-[99.3rem] h-[2rem] md:h-[3rem] w-auto object-contain pointer-events-none select-none z-0 opacity-45"
         />
         <img
           src="/assets/grass.png"
           alt=""
           aria-hidden="true"
-          className="absolute right-[0%] md:right-[10%] top-[100.5rem] md:top-[97.3rem] h-[2rem] md:h-[3rem] w-auto object-contain pointer-events-none select-none z-0 opacity-40"
+          className="absolute right-[0%] md:right-[10%] top-[100.5rem] md:top-[99.3rem] h-[2rem] md:h-[3rem] w-auto object-contain pointer-events-none select-none z-0 opacity-45"
         />
         <img
           src="/assets/grass.png"
           alt=""
           aria-hidden="true"
-          className="absolute hidden md:block md:right-[20%] top-[100.5rem] md:top-[97.3rem] h-[2rem] md:h-[3rem] w-auto object-contain pointer-events-none select-none z-0 opacity-40"
+          className="absolute hidden md:block md:right-[20%] top-[100.5rem] md:top-[99.3rem] h-[2rem] md:h-[3rem] w-auto object-contain pointer-events-none select-none z-0 opacity-45"
         />
         <img
           src="/assets/grass.png"
           alt=""
           aria-hidden="true"
-          className="absolute right-[27%] md:right-[30%] top-[100.5rem] md:top-[97.3rem] h-[2rem] md:h-[3rem] w-auto object-contain pointer-events-none select-none z-0 opacity-40"
+          className="absolute right-[27%] md:right-[30%] top-[100.5rem] md:top-[99.3rem] h-[2rem] md:h-[3rem] w-auto object-contain pointer-events-none select-none z-0 opacity-45"
         />
         <img
           src="/assets/grass.png"
           alt=""
           aria-hidden="true"
-          className="absolute hidden md:block md:right-[40%] top-[100.5rem] md:top-[97.3rem] h-[2rem] md:h-[3rem] w-auto object-contain pointer-events-none select-none z-0 opacity-40"
+          className="absolute hidden md:block md:right-[40%] top-[100.5rem] md:top-[99.3rem] h-[2rem] md:h-[3rem] w-auto object-contain pointer-events-none select-none z-0 opacity-45"
         />
         <img
           src="/assets/grass.png"
           alt=""
           aria-hidden="true"
-          className="absolute right-[50%] md:right-[50%] top-[100.5rem] md:top-[97.3rem] h-[2rem] md:h-[3rem] w-auto object-contain pointer-events-none select-none z-0 opacity-40"
+          className="absolute right-[50%] md:right-[50%] top-[100.5rem] md:top-[99.3rem] h-[2rem] md:h-[3rem] w-auto object-contain pointer-events-none select-none z-0 opacity-45"
         />
         <img
           src="/assets/grass.png"
           alt=""
           aria-hidden="true"
-          className="absolute hidden md:block md:right-[60%] top-[100.5rem] md:top-[97.3rem] h-[2rem] md:h-[3rem] w-auto object-contain pointer-events-none select-none z-0 opacity-40"
+          className="absolute hidden md:block md:right-[60%] top-[100.5rem] md:top-[99.3rem] h-[2rem] md:h-[3rem] w-auto object-contain pointer-events-none select-none z-0 opacity-45"
         />
         <img
           src="/assets/grass.png"
           alt=""
           aria-hidden="true"
-          className="absolute md:right-[70%] top-[100.5rem] md:top-[97.3rem] h-[2rem] md:h-[3rem] w-auto object-contain pointer-events-none select-none z-0 opacity-40"
+          className="absolute md:right-[70%] top-[100.5rem] md:top-[99.3rem] h-[2rem] md:h-[3rem] w-auto object-contain pointer-events-none select-none z-0 opacity-45"
         />
         <img
           src="/assets/grass.png"
           alt=""
           aria-hidden="true"
-          className="absolute hidden md:block md:right-[80%] top-[100.5rem] md:top-[97.3rem] h-[2rem] md:h-[3rem] w-auto object-contain pointer-events-none select-none z-0 opacity-40"
+          className="absolute hidden md:block md:right-[80%] top-[100.5rem] md:top-[99.3rem] h-[2rem] md:h-[3rem] w-auto object-contain pointer-events-none select-none z-0 opacity-45"
         />
         <img
           src="/assets/grass.png"
           alt=""
           aria-hidden="true"
-          className="absolute right-[90%] md:right-[90%] top-[100.5rem] md:top-[97.3rem] h-[2rem] md:h-[3rem] w-auto object-contain pointer-events-none select-none z-0 opacity-40"
+          className="absolute right-[90%] md:right-[90%] top-[100.5rem] md:top-[99.3rem] h-[2rem] md:h-[3rem] w-auto object-contain pointer-events-none select-none z-0 opacity-45"
         />
 
         {/* Tribal Tree */}
