@@ -575,7 +575,7 @@ export default function PortfolioPreview() {
       </>
 
       {/* ── Industries decorative images — anchored to the section edge ── */}
-      <>
+      {/* <>
         <img
           src="/assets/buildings.png"
           alt="food-front"
@@ -583,7 +583,7 @@ export default function PortfolioPreview() {
           className="absolute left-[30%] md:left-[77%] top-[116rem] md:top-[122.5rem] h-[25rem] md:h-[30rem] opacity-65 w-auto object-contain pointer-events-none select-none z-0"
           style={{ transform: 'translateY(-50%) translateX(-30%)', filter: 'saturate(0.7)' }}
         />
-      </>
+      </> */}
 
       {/* ── Cafe & Food decorative images — anchored to the section edge ── */}
       <>
