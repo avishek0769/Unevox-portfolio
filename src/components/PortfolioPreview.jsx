@@ -54,6 +54,17 @@ const otherCategories = [
     ],
   },
   {
+    id: 'cafe-food',
+    categoryName: 'Cafe & Food',
+    description: 'Elevate your culinary brand with meticulous food styling, atmospheric restaurant interior photography, and cinematic video clips designed to captivate diners.',
+    works: [
+      { id: 'cf-1', order: 1, name: 'Krysalis Cafe', type: 'image', url: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=600&q=80', aspect: 'square' },
+      { id: 'cf-2', order: 2, name: 'Shoreline Bistro', type: 'image', url: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80', aspect: 'square' },
+      { id: 'cf-3', order: 3, name: 'Maharaja Caterer', type: 'image', url: 'https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=600&q=80', aspect: 'square' },
+      { id: 'cf-4', order: 4, name: 'Sree Lakshmi Caterer', type: 'image', url: 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=600&q=80', aspect: 'square' },
+    ],
+  },
+  {
     id: 'education',
     categoryName: 'Education',
     description: 'Promotional content, online course graphics, and student spotlight documentaries for leading learning networks.',
@@ -62,17 +73,6 @@ const otherCategories = [
       { id: 'edu-2', order: 2, name: 'Upgrad Kolkata', type: 'image', url: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80', aspect: 'square' },
       { id: 'edu-3', order: 3, name: 'Upgrad Kolkata', type: 'image', url: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80', aspect: 'square' },
       { id: 'edu-4', order: 4, name: 'Upgrad Kolkata', type: 'image', url: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80', aspect: 'square' },
-    ],
-  },
-  {
-    id: 'cafe-food',
-    categoryName: 'Cafe & Food',
-    description: 'Stunning commercial food styling, restaurant ambiance shoots, and culinary highlight clips.',
-    works: [
-      { id: 'cf-1', order: 1, name: 'Krysalis Cafe', type: 'image', url: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=600&q=80', aspect: 'square' },
-      { id: 'cf-2', order: 2, name: 'Shoreline Bistro', type: 'image', url: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80', aspect: 'square' },
-      { id: 'cf-3', order: 3, name: 'Maharaja Caterer', type: 'image', url: 'https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=600&q=80', aspect: 'square' },
-      { id: 'cf-4', order: 4, name: 'Sree Lakshmi Caterer', type: 'image', url: 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=600&q=80', aspect: 'square' },
     ],
   },
   {
@@ -578,6 +578,59 @@ export default function PortfolioPreview() {
           alt="food-front"
           aria-hidden="true"
           className="absolute left-[30%] md:left-[77%] top-[116rem] md:top-[122.5rem] h-[25rem] md:h-[30rem] opacity-65 w-auto object-contain pointer-events-none select-none z-0"
+          style={{ transform: 'translateY(-50%) translateX(-30%)', filter: 'saturate(0.7)' }}
+        />
+      </>
+
+      {/* ── Cafe & Food decorative images — anchored to the section edge ── */}
+      <>
+        <img
+          src="/assets/cafe.png"
+          alt="food-front"
+          aria-hidden="true"
+          className="absolute -left-[10%] md:-left-[7%] top-[148rem] md:top-[154.7rem] h-[20rem] md:h-[30rem] opacity-65 w-auto object-contain pointer-events-none select-none z-0"
+          style={{ transform: 'translateY(-50%) translateX(-30%)', filter: 'saturate(0.7)' }}
+        />
+        <img
+          src="/assets/bulbs.png"
+          alt="food-front"
+          aria-hidden="true"
+          className="absolute left-[35%] md:left-[12%] top-[138.5rem] md:top-[142rem] h-[6rem] md:h-[10rem] opacity-65 w-auto object-contain pointer-events-none select-none z-0"
+          style={{ transform: 'translateY(-50%) translateX(-30%)', filter: 'saturate(0.7)' }}
+        />
+        <img
+          src="/assets/lights.png"
+          alt="food-front"
+          aria-hidden="true"
+          className="absolute left-[80%] md:left-[60%] top-[138rem] md:top-[140.3rem] h-[6rem] md:h-[8rem] opacity-65 w-auto object-contain pointer-events-none select-none z-0 opacity-25"
+          style={{ transform: 'translateY(-50%) translateX(-30%)', filter: 'saturate(0.7)' }}
+        />
+        <img
+          src="/assets/lights.png"
+          alt="food-front"
+          aria-hidden="true"
+          className="absolute hidden md:block md:left-[38%] md:top-[140.3rem] h-[7rem] md:h-[8rem] opacity-65 w-auto object-contain pointer-events-none select-none z-0 opacity-25"
+          style={{ transform: 'translateY(-50%) translateX(-30%)', filter: 'saturate(0.7)' }}
+        />
+        <img
+          src="/assets/lights.png"
+          alt="food-front"
+          aria-hidden="true"
+          className="absolute hidden md:block md:left-[83%] md:top-[140.3rem] h-[7rem] md:h-[8rem] opacity-65 w-auto object-contain pointer-events-none select-none z-0 opacity-25"
+          style={{ transform: 'translateY(-50%) translateX(-30%)', filter: 'saturate(0.7)' }}
+        />
+        <img
+          src="/assets/cafe-board.png"
+          alt="food-front"
+          aria-hidden="true"
+          className="absolute hidden md:block md:-right-[2.7%] md:top-[147rem] md:h-[10rem] opacity-65 w-auto object-contain pointer-events-none select-none z-0"
+          style={{ transform: 'translateY(-50%) translateX(-30%)', filter: 'saturate(0.7)' }}
+        />
+        <img
+          src="/assets/plants.png"
+          alt="food-front"
+          aria-hidden="true"
+          className="absolute hidden md:block md:-right-[10%] md:top-[164rem] md:h-[10rem] opacity-65 w-auto object-contain pointer-events-none select-none z-0"
           style={{ transform: 'translateY(-50%) translateX(-30%)', filter: 'saturate(0.7)' }}
         />
       </>
