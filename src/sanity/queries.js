@@ -124,3 +124,14 @@ export const PORTFOLIO_ALL_QUERY = `
     "url": select(defined(mediaFile.asset) => mediaFile.asset->url, mediaUrl)
   }
 `;
+
+// Achievements page – all awards ordered by sequence number and creation date
+export const AWARDS_QUERY = `
+  *[_type == "award"] | order(order asc, _createdAt asc) {
+    "id": _id,
+    title,
+    organization,
+    description,
+    "image": image.asset->url
+  }
+`;

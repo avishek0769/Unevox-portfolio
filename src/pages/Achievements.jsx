@@ -1,14 +1,7 @@
+import React, { useState, useEffect } from 'react';
 import { Award, Target, Trophy, Milestone } from 'lucide-react';
-
-const AWARDS = [
-  {
-    id: 'award-1',
-    title: 'Felicitation - Media Team',
-    organization: 'Behala Classical Festival',
-    description: 'Felicitation to the Media Team for their dedication, hard work, and exceptional media coverage throughout the Behala Classical Festival.',
-    image: '/media/achievements/achi-1.jpeg',
-  }
-];
+import { sanityClient } from '../sanity/client';
+import { AWARDS_QUERY } from '../sanity/queries';
 
 const MILESTONES = [
   {
@@ -41,6 +34,24 @@ const MILESTONES = [
 const CERTIFICATIONS = [];
 
 export default function Achievements() {
+  const [awards, setAwards] = useState([]);
+
+  useEffect(() => {
+    let active = true;
+    async function fetchAwards() {
+      try {
+        const data = await sanityClient.fetch(AWARDS_QUERY);
+        if (active && data) {
+          setAwards(data);
+        }
+      } catch (err) {
+        console.error('Achievements: Sanity fetch failed:', err);
+      }
+    }
+    fetchAwards();
+    return () => { active = false; };
+  }, []);
+
   return (
     <div className="bg-[#f8f5f2] min-h-screen">
 
@@ -59,44 +70,48 @@ export default function Achievements() {
       </section>
 
       {/* ── AWARDS & RECOGNITIONS ── */}
-      <section className="max-w-7xl mx-auto px-6 md:px-8 py-16">
-        <div className="mb-12">
-          <span className="text-[10px] font-display font-black uppercase tracking-widest text-[#e95f0c] block mb-2">
-            Recognitions
-          </span>
-          <h2 className="font-display text-3xl sm:text-4xl font-black text-[#072541]">
-            Awards & Accolades
-          </h2>
-        </div>
+      {awards.length > 0 && (
+        <section className="max-w-7xl mx-auto px-6 md:px-8 py-16">
+          <div className="mb-12">
+            <span className="text-[10px] font-display font-black uppercase tracking-widest text-[#e95f0c] block mb-2">
+              Recognitions
+            </span>
+            <h2 className="font-display text-3xl sm:text-4xl font-black text-[#072541]">
+              Awards & Accolades
+            </h2>
+          </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {AWARDS.map((award) => (
-            <div
-              key={award.id}
-              className="bg-white rounded-2xl overflow-hidden border border-[#e2dbd3] hover:shadow-xl transition-all duration-300 group"
-            >
-              <div className="aspect-[16/9] overflow-hidden relative bg-[#072541]">
-                <img
-                  src={award.image}
-                  alt={award.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
-                />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {awards.map((award) => (
+              <div
+                key={award.id}
+                className="bg-white rounded-2xl overflow-hidden border border-[#e2dbd3] hover:shadow-xl transition-all duration-300 group"
+              >
+                {award.image && (
+                  <div className="aspect-[16/9] overflow-hidden relative bg-[#072541]">
+                    <img
+                      src={award.image}
+                      alt={award.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
+                    />
+                  </div>
+                )}
+                <div className="p-6 sm:p-8">
+                  <p className="text-[#e95f0c] font-display font-bold text-xs uppercase tracking-widest mb-1">
+                    {award.organization}
+                  </p>
+                  <h3 className="font-display text-xl sm:text-2xl font-black text-[#072541] mb-3">
+                    {award.title}
+                  </h3>
+                  <p className="text-[#4a5568] text-sm leading-relaxed">
+                    {award.description}
+                  </p>
+                </div>
               </div>
-              <div className="p-6 sm:p-8">
-                <p className="text-[#e95f0c] font-display font-bold text-xs uppercase tracking-widest mb-1">
-                  {award.organization}
-                </p>
-                <h3 className="font-display text-xl sm:text-2xl font-black text-[#072541] mb-3">
-                  {award.title}
-                </h3>
-                <p className="text-[#4a5568] text-sm leading-relaxed">
-                  {award.description}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* ── TIMELINE MILESTONES ── */}
       <section className="max-w-4xl mx-auto px-6 md:px-8 py-16 border-t border-[#e2dbd3]">
