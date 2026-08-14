@@ -1,63 +1,9 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Play, ArrowUpRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { sanityClient } from '../sanity/client';
+import { SHOWREEL_QUERY } from '../sanity/queries';
 
-const reelsData = [
-  {
-    id: 'reel-1',
-    clientName: 'BSL - North 24 Paraganas',
-    videoUrl: '/media/sports/bsl-north-24-1.mp4',
-    type: 'portrait',
-  },
-  {
-    id: 'reel-2',
-    clientName: 'BSL - North 24 Paraganas',
-    videoUrl: '/media/sports/bsl-north-24-2.mp4',
-    type: 'portrait',
-  },
-  {
-    id: 'reel-3',
-    clientName: 'FC Banaras',
-    videoUrl: '/media/sports/fc_banaras-1.mp4',
-    type: 'square',
-  },
-  {
-    id: 'reel-4',
-    clientName: 'Behala Classical Festival',
-    videoUrl: '/media/cultural/classical-fest-1.mp4',
-    type: 'square',
-  },
-  {
-    id: 'reel-5',
-    clientName: 'Behala Classical Festival',
-    videoUrl: '/media/cultural/classical-fest-2.mp4',
-    type: 'portrait',
-  },
-  {
-    id: 'reel-6',
-    clientName: 'BSL - North 24 Paraganas',
-    videoUrl: '/media/sports/bsl-north-24-3.mp4',
-    type: 'portrait',
-  },
-  {
-    id: 'reel-7',
-    clientName: 'BSL - North 24 Paraganas',
-    videoUrl: '/media/sports/bsl-north-24-4.mp4',
-    type: 'portrait',
-  },
-  {
-    id: 'reel-8',
-    clientName: 'Durga Puja',
-    videoUrl: '/media/puja/',
-    type: 'portrait',
-  },
-  {
-    id: 'reel-9',
-    clientName: 'Durga Puja',
-    videoUrl: '/media/puja/',
-    type: 'portrait',
-  },
-];
 
 function ReelCard({ reel }) {
   const videoRef = useRef(null);
@@ -125,7 +71,32 @@ function ReelCard({ reel }) {
 }
 
 export default function Showreel() {
+  const [reels, setReels] = useState([]);
   const scrollRef = useRef(null);
+
+  useEffect(() => {
+    let active = true;
+    async function getReels() {
+      try {
+        const data = await sanityClient.fetch(SHOWREEL_QUERY);
+        if (active && data && data.length > 0) {
+          const formatted = data.map((item) => ({
+            id: item.id,
+            clientName: item.clientName,
+            videoUrl: item.videoFileUrl || item.videoUrl,
+            type: item.type,
+          }));
+          setReels(formatted);
+        }
+      } catch (error) {
+        console.error('Error fetching showreels from Sanity, using fallback:', error);
+      }
+    }
+    getReels();
+    return () => {
+      active = false;
+    };
+  }, []);
 
   const scroll = (direction) => {
     if (scrollRef.current) {
@@ -183,7 +154,7 @@ export default function Showreel() {
           className="flex items-center gap-6 overflow-x-auto pb-8 scroll-smooth scrollbar-none snap-x snap-mandatory"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
-          {reelsData.map((reel) => (
+          {reels.map((reel) => (
             <div key={reel.id} className="snap-start">
               <ReelCard reel={reel} />
             </div>

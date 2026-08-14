@@ -22,7 +22,7 @@ const projects = [
     image: '/media/sports/n24-1.jpg',
     images: [
       '/media/sports/n24-1.jpg',
-      '/media/sports/n24-2.jpg',
+      // '/media/sports/n24-2.jpg',
       '/media/sports/n24-3.jpg',
       '/media/sports/n24-4.jpg'
     ],
@@ -119,7 +119,7 @@ function HeroCard({ project }) {
 
             <div className="shrink-0">
               <span className="inline-flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full font-display font-bold text-xs sm:text-sm border border-white/30 text-white bg-white/10 backdrop-blur-sm hover:bg-white hover:text-[#072541] transition-all duration-300 whitespace-nowrap">
-                View Case Study <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                View Portfolio <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               </span>
             </div>
           </div>

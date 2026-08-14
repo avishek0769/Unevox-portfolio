@@ -87,3 +87,14 @@ export const RELATED_BLOGS_QUERY = `
     }
   }
 `;
+
+// Showreel query – all reels ordered by sequence number and creation date
+export const SHOWREEL_QUERY = `
+  *[_type == "showreel"] | order(order asc, _createdAt asc) {
+    "id": _id,
+    clientName,
+    type,
+    videoUrl,
+    "videoFileUrl": videoFile.asset->url
+  }
+`;
