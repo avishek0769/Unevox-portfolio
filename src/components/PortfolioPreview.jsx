@@ -571,23 +571,16 @@ export default function PortfolioPreview() {
         /> */}
       </>
 
-      {/* ── Cafe decorative images — anchored to the section edge ── */}
-      {/* <>
+      {/* ── Industries decorative images — anchored to the section edge ── */}
+      <>
         <img
-          src="/assets/food-front.png"
+          src="/assets/buildings.png"
           alt="food-front"
           aria-hidden="true"
-          className="absolute hidden md:block left-[34%] md:-left-[4%] top-[128rem] md:top-[185rem] h-[25rem] md:h-[25rem] opacity-65 w-auto object-contain pointer-events-none select-none z-0"
+          className="absolute left-[30%] md:left-[77%] top-[116rem] md:top-[122.5rem] h-[25rem] md:h-[30rem] opacity-65 w-auto object-contain pointer-events-none select-none z-0"
           style={{ transform: 'translateY(-50%) translateX(-30%)', filter: 'saturate(0.7)' }}
         />
-        <img
-          src="/assets/food-side.png"
-          alt="food-side"
-          aria-hidden="true"
-          className="absolute left-[34%] md:left-[80%] top-[162rem] md:top-[161rem] h-[22rem] md:h-[24rem] opacity-65 w-auto object-contain pointer-events-none select-none z-0"
-          style={{ transform: 'translateY(-50%) translateX(-30%)', filter: 'saturate(0.7)' }}
-        />
-      </> */}
+      </>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8">
         {/* Main Section Header */}
