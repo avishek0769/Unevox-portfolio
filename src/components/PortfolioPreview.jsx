@@ -81,6 +81,9 @@ const otherCategories = [
     description: 'Immersive venue tours and premium event decor photography for wedding and luxury corporate spaces.',
     works: [
       { id: 'bq-1', order: 1, name: 'Rainbow Banquet', type: 'image', url: 'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=600&q=80', aspect: 'square' },
+      { id: 'bq-2', order: 2, name: 'Rainbow Banquet', type: 'image', url: 'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=600&q=80', aspect: 'square' },
+      { id: 'bq-3', order: 3, name: 'Rainbow Banquet', type: 'image', url: 'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=600&q=80', aspect: 'square' },
+      { id: 'bq-4', order: 4, name: 'Rainbow Banquet', type: 'image', url: 'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=600&q=80', aspect: 'square' },
     ],
   },
 ];
@@ -631,6 +634,52 @@ export default function PortfolioPreview() {
           alt="food-front"
           aria-hidden="true"
           className="absolute hidden md:block md:-right-[10%] md:top-[164rem] md:h-[10rem] opacity-65 w-auto object-contain pointer-events-none select-none z-0"
+          style={{ transform: 'translateY(-50%) translateX(-30%)', filter: 'saturate(0.7)' }}
+        />
+      </>
+
+      {/* ── Banquet decorative images — anchored to the section edge ── */}
+      <>
+        <img
+          src="/assets/light-1.png"
+          alt="food-front"
+          aria-hidden="true"
+          className="absolute left-[1%] md:-left-[1.2%] top-[193rem] md:top-[206.5rem] h-[11rem] md:h-[15rem] opacity-65 w-auto object-contain pointer-events-none select-none z-0"
+          style={{ transform: 'translateY(-50%) translateX(-30%)', filter: 'saturate(0.7)' }}
+        />
+        <img
+          src="/assets/sitting.png"
+          alt="food-front"
+          aria-hidden="true"
+          className="absolute -left-[3%] md:-left-[4%] top-[211rem] md:top-[227rem] h-[13rem] md:h-[17rem] opacity-65 w-auto object-contain pointer-events-none select-none z-0"
+          style={{ transform: 'translateY(-50%) translateX(-30%)', filter: 'saturate(0.7)' }}
+        />
+        <img
+          src="/assets/light-2.png"
+          alt="food-front"
+          aria-hidden="true"
+          className="absolute left-[60%] md:left-[65%] top-[190rem] md:top-[202.75rem] h-[4rem] md:h-[5rem] opacity-65 w-auto object-contain pointer-events-none select-none z-0"
+          style={{ transform: 'translateY(-50%) translateX(-30%)', filter: 'saturate(0.7)' }}
+        />
+        <img
+          src="/assets/light-3.png"
+          alt="food-front"
+          aria-hidden="true"
+          className="absolute left-[75%] md:left-[70%] top-[191.5rem] md:top-[204.2rem] h-[7rem] md:h-[8rem] opacity-65 w-auto object-contain pointer-events-none select-none z-0"
+          style={{ transform: 'translateY(-50%) translateX(-30%)', filter: 'saturate(0.7)' }}
+        />
+        <img
+          src="/assets/light-3.png"
+          alt="food-front"
+          aria-hidden="true"
+          className="absolute left-[85%] md:left-[74%] top-[191.5rem] md:top-[204.2rem] h-[7rem] md:h-[8rem] opacity-65 w-auto object-contain pointer-events-none select-none z-0"
+          style={{ transform: 'translateY(-50%) translateX(-30%)', filter: 'saturate(0.7)' }}
+        />
+        <img
+          src="/assets/flower-1.png"
+          alt="food-front"
+          aria-hidden="true"
+          className="absolute hidden md:block md:left-[93%] md:top-[229rem] md:h-[13rem] opacity-65 w-auto object-contain pointer-events-none select-none z-0"
           style={{ transform: 'translateY(-50%) translateX(-30%)', filter: 'saturate(0.7)' }}
         />
       </>
