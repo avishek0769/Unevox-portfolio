@@ -98,3 +98,29 @@ export const SHOWREEL_QUERY = `
     "videoFileUrl": videoFile.asset->url
   }
 `;
+
+// PortfolioPreview – all items grouped by category, sorted by order then createdAt
+// Used in PortfolioPreview (home page section) to merge with static data per category
+export const PORTFOLIO_PREVIEW_QUERY = `
+  *[_type == "portfolioItem"] | order(category asc, order asc, _createdAt asc) {
+    "id": _id,
+    name,
+    category,
+    type,
+    aspect,
+    order,
+    "url": select(defined(mediaFile.asset) => mediaFile.asset->url, mediaUrl)
+  }
+`;
+
+// Portfolio page – all items, no ordering (infinite scroll handles order client-side)
+export const PORTFOLIO_ALL_QUERY = `
+  *[_type == "portfolioItem"] {
+    "id": _id,
+    name,
+    category,
+    type,
+    aspect,
+    "url": select(defined(mediaFile.asset) => mediaFile.asset->url, mediaUrl)
+  }
+`;

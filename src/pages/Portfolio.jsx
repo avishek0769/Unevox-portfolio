@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Play, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useSearchParams } from 'react-router-dom';
+import { sanityClient } from '../sanity/client';
+import { PORTFOLIO_ALL_QUERY } from '../sanity/queries';
 
 // ─── CAMPAIGN CATEGORIES ──────────────────────────────────────────────────────
 const CATEGORIES = [
@@ -344,13 +346,44 @@ export default function Portfolio() {
   const [lightboxIndex, setLightboxIndex] = useState(null);
   const sentinelRef = useRef(null);
 
+  // allMedia = static items merged with any Sanity items
+  const [allMedia, setAllMedia] = useState(ALL_MEDIA);
+
+  useEffect(() => {
+    let active = true;
+    async function fetchSanityItems() {
+      try {
+        const data = await sanityClient.fetch(PORTFOLIO_ALL_QUERY);
+        if (!active || !data || data.length === 0) return;
+        // Build a set of existing URLs to avoid duplicates
+        const existingUrls = new Set(ALL_MEDIA.map((m) => m.url));
+        const sanityItems = data
+          .filter((item) => item.url && !existingUrls.has(item.url))
+          .map((item) => ({
+            id: item.id,
+            categoryId: item.category,
+            url: item.url,
+            aspect: item.aspect || 'square',
+            type: item.type === 'video' ? 'video' : deriveType(item.url),
+          }));
+        if (sanityItems.length > 0) {
+          setAllMedia([...ALL_MEDIA, ...sanityItems]);
+        }
+      } catch (err) {
+        console.error('Portfolio: Sanity fetch failed, using static data:', err);
+      }
+    }
+    fetchSanityItems();
+    return () => { active = false; };
+  }, []);
+
   // Keep URL in sync when user changes the campaign filter
   const handleSetCat = useCallback((id) => {
     setActiveCat(id);
     setSearchParams(id === 'all' ? {} : { cat: id }, { replace: true });
   }, [setSearchParams]);
 
-  const filtered = ALL_MEDIA.filter((m) => {
+  const filtered = allMedia.filter((m) => {
     const catMatch = activeCat === 'all' || m.categoryId === activeCat;
     const typeMatch = activeType === 'all' || m.type === activeType;
     return catMatch && typeMatch;

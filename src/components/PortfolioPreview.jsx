@@ -1,295 +1,88 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight, ChevronLeft, ChevronRight, Play } from 'lucide-react';
+import { sanityClient } from '../sanity/client';
+import { PORTFOLIO_PREVIEW_QUERY } from '../sanity/queries';
 
+// category IDs map to Sanity portfolioItem.category values
 const otherCategories = [
   {
     id: 'durga-puja',
     categoryName: 'Durga Puja Campaign',
     description: 'Unevox partners with some of Kolkata’s most renowned Durga Puja committees, delivering end-to-end media coverage, social media management, cinematic reels, photography, promotional creatives, and real-time event storytelling. Through visually compelling content and strategic digital campaigns, we help transform each celebration into a memorable digital experience while amplifying audience engagement and cultural reach.',
     works: [
-      {
-        id: 'dp-1',
-        name: 'Forum Suruchi',
-        type: 'image',
-        url: 'https://images.unsplash.com/photo-1605649487212-47bdab064df7?auto=format&fit=crop&w=600&q=80',
-        aspect: 'portrait',
-      },
-      {
-        id: 'dp-2',
-        name: 'Behala Nutan Dal',
-        type: 'image',
-        url: 'https://images.unsplash.com/photo-1620121692029-d088224ddc74?auto=format&fit=crop&w=600&q=80',
-        aspect: 'portrait',
-      },
-      {
-        id: 'dp-3',
-        name: 'Newtown Pandal',
-        type: 'image',
-        url: 'https://images.unsplash.com/photo-1561361062-856753540121?auto=format&fit=crop&w=600&q=80',
-        aspect: 'square',
-      },
-      {
-        id: 'dp-4',
-        name: 'Behala Club',
-        type: 'image',
-        url: 'https://images.unsplash.com/photo-1620121470810-64418f75d5b0?auto=format&fit=crop&w=600&q=80',
-        aspect: 'square',
-      },
-      {
-        id: 'dp-5',
-        name: 'TMSS Puja',
-        type: 'image',
-        url: 'https://images.unsplash.com/photo-1590073844006-33379778ae09?auto=format&fit=crop&w=600&q=80',
-        aspect: 'portrait',
-      }
-    ]
+      { id: 'dp-1', order: 1, name: 'Forum Suruchi', type: 'image', url: 'https://images.unsplash.com/photo-1605649487212-47bdab064df7?auto=format&fit=crop&w=600&q=80', aspect: 'portrait' },
+      { id: 'dp-2', order: 2, name: 'Behala Nutan Dal', type: 'image', url: 'https://images.unsplash.com/photo-1620121692029-d088224ddc74?auto=format&fit=crop&w=600&q=80', aspect: 'portrait' },
+      { id: 'dp-3', order: 3, name: 'Newtown Pandal', type: 'image', url: 'https://images.unsplash.com/photo-1561361062-856753540121?auto=format&fit=crop&w=600&q=80', aspect: 'square' },
+      { id: 'dp-4', order: 4, name: 'Behala Club', type: 'image', url: 'https://images.unsplash.com/photo-1620121470810-64418f75d5b0?auto=format&fit=crop&w=600&q=80', aspect: 'square' },
+      { id: 'dp-5', order: 5, name: 'TMSS Puja', type: 'image', url: 'https://images.unsplash.com/photo-1590073844006-33379778ae09?auto=format&fit=crop&w=600&q=80', aspect: 'portrait' },
+    ],
   },
   {
     id: 'cultural-campaign',
     categoryName: 'Cultural Campaign',
     description: 'Promotional campaigns, cinematic summaries, and content curation for prominent classical arts, theater, and music events.',
     works: [
-      {
-        id: 'cc-2',
-        name: 'Behala Theatre Festival',
-        type: 'video',
-        url: '/media/cultural/theatre-fest-1.mp4',
-        aspect: 'portrait',
-      },
-      {
-        id: 'cc-1',
-        name: 'Beahala Classical Festival',
-        type: 'video',
-        url: '/media/cultural/classical-fest-3.mp4',
-        aspect: 'portrait',
-      },
-      {
-        id: 'cc-3',
-        name: 'Bachonik Utsav',
-        type: 'video',
-        url: '/media/cultural/bachonik-1.mp4',
-        aspect: 'square',
-      },
-      {
-        id: 'cc-4',
-        name: 'Beahala Classical Festival',
-        type: 'video',
-        url: '/media/cultural/classical-fest-4.mp4',
-        aspect: 'square',
-      },
-      {
-        id: 'cc-5',
-        name: 'Behala Theatre Festival',
-        type: 'video',
-        url: '/media/cultural/theatre-fest-2.mp4',
-        aspect: 'portrait',
-      },
-      {
-        id: 'cc-6',
-        name: 'Behala Theatre Festival',
-        type: 'video',
-        url: '/media/cultural/theatre-fest-3.mp4',
-        aspect: 'portrait',
-      },
-      {
-        id: 'cc-7',
-        name: 'Bachonik Utsav',
-        type: 'video',
-        url: '/media/cultural/bachonik-3.mp4',
-        aspect: 'portrait',
-      },
-      {
-        id: 'cc-8',
-        name: 'Shailosik Theatre',
-        type: 'video',
-        url: '/media/cultural/Godhuli-1.mp4',
-        aspect: 'portrait',
-      },
-      {
-        id: 'cc-9',
-        name: 'Shailosik Theatre',
-        type: 'image',
-        url: '/media/cultural/Godhuli-1-g.jpg',
-        aspect: 'portrait',
-      },
-      {
-        id: 'cc-10',
-        name: 'Shailosik Theatre',
-        type: 'video',
-        url: '/media/cultural/Godhuli-2.mp4',
-        aspect: 'portrait',
-      },
-      {
-        id: 'cc-11',
-        name: 'Shailosik Theatre',
-        type: 'image',
-        url: '/media/cultural/Godhuli-2-g.jpg',
-        aspect: 'portrait',
-      },
-      {
-        id: 'cc-12',
-        name: 'Shailosik Theatre',
-        type: 'video',
-        url: '/media/cultural/Godhuli-3.mp4',
-        aspect: 'portrait',
-      },
-      {
-        id: 'cc-13',
-        name: 'Shailosik Theatre',
-        type: 'image',
-        url: '/media/cultural/Godhuli-3-g.jpg',
-        aspect: 'portrait',
-      },
-      {
-        id: 'cc-14',
-        name: 'Behala Theatre Festival',
-        type: 'video',
-        url: '/media/cultural/theatre-fest-4.mp4',
-        aspect: 'portrait',
-      },
-      {
-        id: 'cc-15',
-        name: 'Bachonik Utsav',
-        type: 'video',
-        url: '/media/cultural/bachonik-4.mp4',
-        aspect: 'portrait',
-      },
-    ]
+      { id: 'cc-2', order: 1, name: 'Behala Theatre Festival', type: 'video', url: '/media/cultural/theatre-fest-1.mp4', aspect: 'portrait' },
+      { id: 'cc-1', order: 2, name: 'Beahala Classical Festival', type: 'video', url: '/media/cultural/classical-fest-3.mp4', aspect: 'portrait' },
+      { id: 'cc-3', order: 3, name: 'Bachonik Utsav', type: 'video', url: '/media/cultural/bachonik-1.mp4', aspect: 'square' },
+      { id: 'cc-4', order: 4, name: 'Beahala Classical Festival', type: 'video', url: '/media/cultural/classical-fest-4.mp4', aspect: 'square' },
+      { id: 'cc-5', order: 5, name: 'Behala Theatre Festival', type: 'video', url: '/media/cultural/theatre-fest-2.mp4', aspect: 'portrait' },
+      { id: 'cc-6', order: 6, name: 'Behala Theatre Festival', type: 'video', url: '/media/cultural/theatre-fest-3.mp4', aspect: 'portrait' },
+      { id: 'cc-7', order: 7, name: 'Bachonik Utsav', type: 'video', url: '/media/cultural/bachonik-3.mp4', aspect: 'portrait' },
+      { id: 'cc-8', order: 8, name: 'Shailosik Theatre', type: 'video', url: '/media/cultural/Godhuli-1.mp4', aspect: 'portrait' },
+      { id: 'cc-9', order: 9, name: 'Shailosik Theatre', type: 'image', url: '/media/cultural/Godhuli-1-g.jpg', aspect: 'portrait' },
+      { id: 'cc-10', order: 10, name: 'Shailosik Theatre', type: 'video', url: '/media/cultural/Godhuli-2.mp4', aspect: 'portrait' },
+      { id: 'cc-11', order: 11, name: 'Shailosik Theatre', type: 'image', url: '/media/cultural/Godhuli-2-g.jpg', aspect: 'portrait' },
+      { id: 'cc-12', order: 12, name: 'Shailosik Theatre', type: 'video', url: '/media/cultural/Godhuli-3.mp4', aspect: 'portrait' },
+      { id: 'cc-13', order: 13, name: 'Shailosik Theatre', type: 'image', url: '/media/cultural/Godhuli-3-g.jpg', aspect: 'portrait' },
+      { id: 'cc-14', order: 14, name: 'Behala Theatre Festival', type: 'video', url: '/media/cultural/theatre-fest-4.mp4', aspect: 'portrait' },
+      { id: 'cc-15', order: 15, name: 'Bachonik Utsav', type: 'video', url: '/media/cultural/bachonik-4.mp4', aspect: 'portrait' },
+    ],
   },
   {
     id: 'industries',
     categoryName: 'Industries',
     description: 'Premium corporate messaging, branding materials, industrial documentaries, and product summaries.',
     works: [
-      {
-        id: 'ind-1',
-        name: 'Ripley Group',
-        type: 'image',
-        url: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80',
-        aspect: 'square',
-      },
-      {
-        id: 'ind-2',
-        name: 'Creative Videos',
-        type: 'image',
-        url: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=600&q=80',
-        aspect: 'square',
-      },
-      {
-        id: 'ind-3',
-        name: 'Vision AV',
-        type: 'image',
-        url: 'https://images.unsplash.com/photo-1478737270239-2f02b77fc618?auto=format&fit=crop&w=600&q=80',
-        aspect: 'square',
-      },
-      {
-        id: 'ind-4',
-        name: 'Smile Events',
-        type: 'image',
-        url: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=600&q=80',
-        aspect: 'square',
-      },
-      {
-        id: 'ind-5',
-        name: 'Economic Times',
-        type: 'image',
-        url: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=600&q=80',
-        aspect: 'portrait',
-      },
-      {
-        id: 'ind-6',
-        name: 'Economic Times',
-        type: 'image',
-        url: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80',
-        aspect: 'square',
-      }
-    ]
+      { id: 'ind-1', order: 1, name: 'Ripley Group', type: 'image', url: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80', aspect: 'square' },
+      { id: 'ind-2', order: 2, name: 'Creative Videos', type: 'image', url: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=600&q=80', aspect: 'square' },
+      { id: 'ind-3', order: 3, name: 'Vision AV', type: 'image', url: 'https://images.unsplash.com/photo-1478737270239-2f02b77fc618?auto=format&fit=crop&w=600&q=80', aspect: 'square' },
+      { id: 'ind-4', order: 4, name: 'Smile Events', type: 'image', url: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=600&q=80', aspect: 'square' },
+      { id: 'ind-5', order: 5, name: 'Economic Times', type: 'image', url: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=600&q=80', aspect: 'portrait' },
+      { id: 'ind-6', order: 6, name: 'Economic Times', type: 'image', url: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80', aspect: 'square' },
+    ],
   },
   {
     id: 'education',
     categoryName: 'Education',
     description: 'Promotional content, online course graphics, and student spotlight documentaries for leading learning networks.',
     works: [
-      {
-        id: 'edu-1',
-        name: 'Upgrad Kolkata',
-        type: 'image',
-        url: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80',
-        aspect: 'square',
-      },
-      {
-        id: 'edu-2',
-        name: 'Upgrad Kolkata',
-        type: 'image',
-        url: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80',
-        aspect: 'square',
-      },
-      {
-        id: 'edu-3',
-        name: 'Upgrad Kolkata',
-        type: 'image',
-        url: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80',
-        aspect: 'square',
-      },
-      {
-        id: 'edu-4',
-        name: 'Upgrad Kolkata',
-        type: 'image',
-        url: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80',
-        aspect: 'square',
-      }
-    ]
+      { id: 'edu-1', order: 1, name: 'Upgrad Kolkata', type: 'image', url: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80', aspect: 'square' },
+      { id: 'edu-2', order: 2, name: 'Upgrad Kolkata', type: 'image', url: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80', aspect: 'square' },
+      { id: 'edu-3', order: 3, name: 'Upgrad Kolkata', type: 'image', url: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80', aspect: 'square' },
+      { id: 'edu-4', order: 4, name: 'Upgrad Kolkata', type: 'image', url: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80', aspect: 'square' },
+    ],
   },
   {
     id: 'cafe-food',
     categoryName: 'Cafe & Food',
     description: 'Stunning commercial food styling, restaurant ambiance shoots, and culinary highlight clips.',
     works: [
-      {
-        id: 'cf-1',
-        name: 'Krysalis Cafe',
-        type: 'image',
-        url: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=600&q=80',
-        aspect: 'square',
-      },
-      {
-        id: 'cf-2',
-        name: 'Shoreline Bistro',
-        type: 'image',
-        url: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80',
-        aspect: 'square',
-      },
-      {
-        id: 'cf-3',
-        name: 'Maharaja Caterer',
-        type: 'image',
-        url: 'https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=600&q=80',
-        aspect: 'square',
-      },
-      {
-        id: 'cf-4',
-        name: 'Sree Lakshmi Caterer',
-        type: 'image',
-        url: 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=600&q=80',
-        aspect: 'square',
-      }
-    ]
+      { id: 'cf-1', order: 1, name: 'Krysalis Cafe', type: 'image', url: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=600&q=80', aspect: 'square' },
+      { id: 'cf-2', order: 2, name: 'Shoreline Bistro', type: 'image', url: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80', aspect: 'square' },
+      { id: 'cf-3', order: 3, name: 'Maharaja Caterer', type: 'image', url: 'https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=600&q=80', aspect: 'square' },
+      { id: 'cf-4', order: 4, name: 'Sree Lakshmi Caterer', type: 'image', url: 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=600&q=80', aspect: 'square' },
+    ],
   },
   {
     id: 'banquets',
     categoryName: 'Banquets',
     description: 'Immersive venue tours and premium event decor photography for wedding and luxury corporate spaces.',
     works: [
-      {
-        id: 'bq-1',
-        name: 'Rainbow Banquet',
-        type: 'image',
-        url: 'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=600&q=80',
-        aspect: 'square',
-      }
-    ]
-  }
+      { id: 'bq-1', order: 1, name: 'Rainbow Banquet', type: 'image', url: 'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=600&q=80', aspect: 'square' },
+    ],
+  },
 ];
 
 function MediaCard({ item }) {
@@ -317,7 +110,7 @@ function MediaCard({ item }) {
       return 'w-[13rem] sm:w-[17rem] aspect-[3/4]';
     }
     if (item.aspect === 'landscape' || item.aspect === 'video') {
-      return 'w-[15rem] sm:w-[18rem] aspect-[16/10]';
+      return 'w-[15rem] sm:w-[20rem] aspect-[16/10]';
     }
     return 'w-[15rem] sm:w-[23rem] aspect-[4/3]';
   };
@@ -441,6 +234,49 @@ function CategorySection({ category, isDurgaPuja, isCultural }) {
 }
 
 export default function PortfolioPreview() {
+  // State holds categories with works that may be augmented from Sanity
+  const [categories, setCategories] = useState(otherCategories);
+
+  useEffect(() => {
+    let active = true;
+    async function fetchPortfolioItems() {
+      try {
+        const data = await sanityClient.fetch(PORTFOLIO_PREVIEW_QUERY);
+        if (!active || !data || data.length === 0) return;
+
+        // Group Sanity items by category
+        const sanityByCategory = {};
+        data.forEach((item) => {
+          if (!item.url) return; // skip items with no resolved URL
+          const catId = item.category;
+          if (!sanityByCategory[catId]) sanityByCategory[catId] = [];
+          sanityByCategory[catId].push(item);
+        });
+
+        // Merge into each static category, then sort all works by order
+        setCategories((prev) =>
+          prev.map((cat) => {
+            // Map static id → Sanity category value
+            // 'cultural-campaign' → 'cultural', others match directly
+            const sanityCatKey = cat.id === 'cultural-campaign' ? 'cultural' : cat.id;
+            const sanityWorks = sanityByCategory[sanityCatKey] || [];
+            const merged = [...cat.works, ...sanityWorks];
+            merged.sort((a, b) => {
+              const oa = a.order ?? Infinity;
+              const ob = b.order ?? Infinity;
+              return oa - ob;
+            });
+            return { ...cat, works: merged };
+          })
+        );
+      } catch (err) {
+        console.error('PortfolioPreview: Sanity fetch failed, using static data:', err);
+      }
+    }
+    fetchPortfolioItems();
+    return () => { active = false; };
+  }, []);
+
   return (
     <section className="relative py-24 bg-[#f8f5f2] border-t border-[#e2dbd3] overflow-hidden">
       {/* ── Durga Puja decorative images — anchored to the section edge ── */}
@@ -774,7 +610,7 @@ export default function PortfolioPreview() {
 
         {/* List of category sections */}
         <div className="space-y-12">
-          {otherCategories.map((category) => (
+          {categories.map((category) => (
             <CategorySection
               key={category.id}
               category={category}
