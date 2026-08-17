@@ -5,28 +5,28 @@ import { AWARDS_QUERY } from '../sanity/queries';
 
 const MILESTONES = [
   {
-    year: '2025',
-    title: 'Official Media Partner — Behala Cup 2025',
-    description: 'Selected as the exclusive media and broadcasting partner for one of Kolkata\'s biggest sports events.',
-    icon: Trophy,
-  },
-  {
-    year: '2024',
-    title: 'Worked with Kolkata Knight Riders',
-    description: 'Produced high-engagement creative video reels and digital assets for KKR\'s social platforms.',
+    title: 'Kolkata’s First Durga Puja Social Campaign',
+    description:
+      'Started a dedicated social media campaign for Kolkata’s Puja clubs, covering celebrations through photography, reels, videos, and digital storytelling.',
     icon: Target,
   },
   {
-    year: '2024',
-    title: 'Worked with Durand Cup',
-    description: 'Captured high-impact matchday summaries, promotions, and visual stories for Asia\'s oldest football tournament.',
+    title: '20+ Brands & Companies',
+    description:
+      'In just 1.6 years, Unevox has worked with more than 20 brands and companies across sports, cultural events, hospitality, corporate, and other creative industries.',
+    icon: Trophy,
+  },
+  {
+    title: 'Multi-Genre Creative Expertise',
+    description:
+      'Built a strong portfolio across multiple genres, combining social media, digital campaigns, photography, video production, and creative storytelling.',
     icon: Award,
   },
   {
-    year: '2023',
-    title: 'Official Media Partner for Major Sports & Cultural Events',
-    description: 'Established Unevox as a trusted partner for live events, theater showcases, and local sports cups.',
-    icon: Milestone,
+    title: 'Client Recognition',
+    description:
+      'Been felicitated by clients for outstanding work, creative execution, and quality deliverables across various projects.',
+    icon: Award,
   },
 ];
 

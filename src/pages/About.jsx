@@ -34,33 +34,28 @@ const team = [
 
 const milestones = [
     {
-        year: '2022',
-        title: 'Unevox Founded',
-        body: 'TODO — Replace with the actual founding story, location, and motivation.',
+        title: 'Unevox Founded - 2024',
+        body: 'Unevox was founded in November 2024 with a vision to bring creative storytelling, digital marketing, and media production together under one roof.',
         accent: '#e95f0c',
     },
     {
-        year: '2023',
-        title: 'First Client Win',
-        body: 'TODO — Replace with the actual first client name and the project delivered.',
+        title: 'City’s First Durga Puja Social Campaign',
+        body: 'Unevox pioneered a dedicated social media campaign for Kolkata’s Puja clubs, combining photography, reels, videos, and real-time digital storytelling to bring the celebrations to a wider audience.',
         accent: '#7c3aed',
     },
     {
-        year: '2023',
-        title: 'First Major Sports Campaign',
-        body: 'TODO — Replace with the first major sports brand or tournament partnership details.',
+        title: '20+ Brands & Companies',
+        body: 'In just 1.6 years, Unevox has built a diverse portfolio by working with 20+ brands, companies, sports organisations, cultural events, and other clients.',
         accent: '#0284c7',
     },
     {
-        year: '2024',
-        title: 'Kolkata Knight Riders & Durand Cup',
-        body: 'Partnered with two of Indian football and cricket\'s most iconic properties, marking a landmark year for sports media.',
+        title: 'A Multi-Genre Creative Portfolio',
+        body: 'From sports and cultural events to hospitality, corporate, and digital campaigns, Unevox has developed a strong portfolio across multiple creative genres.',
         accent: '#059669',
     },
     {
-        year: '2025',
-        title: 'Official Media Partner — Behala Cup',
-        body: 'Recognised as Official Media Partner for Behala Cup 2025, solidifying Unevox\'s position in premium sports media.',
+        title: 'Recognised by Our Clients',
+        body: 'Unevox has been felicitated by clients for outstanding work, creative execution, and quality deliverables across various projects.',
         accent: '#d97706',
     },
 ];
@@ -231,12 +226,12 @@ function JourneySection() {
                                 >
                                     {/* Text block */}
                                     <div className={`pl-16 sm:pl-0 flex-1 ${isLeft ? 'sm:pr-12 sm:text-right' : 'sm:pl-12 sm:text-left'}`}>
-                                        <span
+                                        {/* <span
                                             className="inline-block text-xs font-display font-black uppercase tracking-widest mb-1"
                                             style={{ color: item.accent }}
                                         >
                                             {item.year}
-                                        </span>
+                                        </span> */}
                                         <h3 className="font-display text-xl font-bold text-[#072541] mb-1">{item.title}</h3>
                                         <p className="text-[#4a5568] text-sm leading-relaxed">{item.body}</p>
                                     </div>
