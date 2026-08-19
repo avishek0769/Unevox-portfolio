@@ -64,8 +64,9 @@ export default function Footer({ onBookCall }) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-14">
           {/* Brand */}
           <div className="space-y-6">
-            <Link to="/" className="inline-block">
+            <Link to="/" className="flex items-center gap-2">
               <img src="/assets/unevox_logo.png" alt="Unevox" className="h-12 w-auto brightness-0 invert" />
+              <span className="font-display font-black text-xl tracking-tighter text-white">UNEVOX</span>
             </Link>
             <p className="text-base text-white/60 leading-relaxed max-w-xs">
               Where brands breathe, and every pixel pulses with purpose. Premier creative partner for sports, culture, and growth.
