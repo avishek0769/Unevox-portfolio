@@ -3,6 +3,7 @@ import { Play, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useSearchParams } from 'react-router-dom';
 import { sanityClient } from '../sanity/client';
 import { PORTFOLIO_ALL_QUERY } from '../sanity/queries';
+import SEO from '../components/SEO';
 
 // ─── CAMPAIGN CATEGORIES ──────────────────────────────────────────────────────
 const CATEGORIES = [
@@ -423,6 +424,10 @@ export default function Portfolio() {
 
   return (
     <div className="bg-[#f8f5f2] min-h-screen">
+      <SEO 
+        title={`${activeCatName} Portfolio`}
+        description={`Explore our creative works, videography, photography, and campaign graphics for ${activeCatName} category.`}
+      />
 
       {/* ── HERO ── */}
       <section className="relative pt-20 pb-16 bg-white overflow-hidden">
