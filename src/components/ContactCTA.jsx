@@ -13,6 +13,15 @@ export default function ContactCTA({ onBookCall }) {
         <div className="absolute -bottom-24 -left-24 w-80 h-80 rounded-full bg-white/5 blur-3xl pointer-events-none" />
 
         <div className="max-w-4xl mx-auto px-6 md:px-8 text-center relative z-10">
+          <div className="flex items-center justify-center gap-2 mb-6">
+            <img
+              src="/assets/unevox_logo.png"
+              alt="Unevox Logo"
+              className="h-12 w-auto object-contain brightness-0 invert"
+            />
+            <span className="font-display font-black text-2xl tracking-tighter text-white">UNEVOX</span>
+          </div>
+
           <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-tight mb-6">
             Book Your Free Consultation
           </h2>
