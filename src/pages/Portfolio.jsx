@@ -165,6 +165,7 @@ function VideoCard({ item, onClick }) {
 
 // ─── PHOTO / GRAPHICS CARD ────────────────────────────────────────────────────
 function PhotoCard({ item, onClick }) {
+  const altText = item.alt || `${item.type === 'graphics' ? 'Creative graphic' : 'Portfolio photo'} – ${item.categoryId || 'work'}`;
   return (
     <div
       className="relative overflow-hidden rounded-2xl bg-[#072541] cursor-pointer group hover:shadow-2xl transition-all duration-300"
@@ -173,7 +174,7 @@ function PhotoCard({ item, onClick }) {
     >
       <img
         src={item.url}
-        alt=""
+        alt={altText}
         className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
         loading="lazy"
       />
