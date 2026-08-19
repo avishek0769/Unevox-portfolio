@@ -4,6 +4,7 @@ import { ArrowRight, Calendar, Clock, AlertCircle } from 'lucide-react';
 import { sanityClient } from '../sanity/client';
 import { BLOGS_QUERY } from '../sanity/queries';
 import { urlFor } from '../sanity/image';
+import SEO from '../components/SEO';
 
 const CATEGORIES = [
   'All',
@@ -139,6 +140,10 @@ export default function Blogs() {
 
   return (
     <div className="bg-[#f8f5f2] min-h-screen">
+      <SEO 
+        title="Our Blogs & Insights"
+        description="Stay updated with insights, design inspiration, case studies, and creative production thoughts from the Unevox team."
+      />
 
       {/* ── HERO ── */}
       <section className="relative pt-20 pb-16 bg-white overflow-hidden">
