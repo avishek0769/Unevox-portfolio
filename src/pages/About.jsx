@@ -274,6 +274,14 @@ function CTASection({ onBookCall }) {
                 />
 
                 <div className="relative max-w-4xl mx-auto px-6 text-center">
+                    <div className="flex items-center justify-center gap-2 mb-6">
+                        <img
+                            src="/assets/unevox_logo.png"
+                            alt="Unevox Logo"
+                            className="h-12 w-auto object-contain brightness-0 invert"
+                        />
+                        <span className="font-display font-black text-2xl tracking-tighter text-white">UNEVOX</span>
+                    </div>
                     <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#e95f0c]/40 bg-[#e95f0c]/10 text-[#e95f0c] text-xs font-display font-black uppercase tracking-widest mb-8">
                         Start a Conversation
                     </span>
