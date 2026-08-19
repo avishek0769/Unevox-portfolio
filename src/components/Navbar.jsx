@@ -31,13 +31,13 @@ export default function Navbar({ onBookCall }) {
     <>
       <nav className="sticky top-0 z-40 bg-white border-b border-[#e2dbd3] shadow-sm py-1">
         <div className="max-w-7xl mx-auto px-6 md:px-8 flex items-center justify-between">
-          {/* Logo */}
           <Link to="/" className="flex items-center gap-2 shrink-0">
             <img
               src="/assets/unevox_logo.png"
               alt="Unevox Logo"
               className="h-16 w-auto object-contain"
             />
+            <span className="font-display font-black text-2xl tracking-tighter text-[#072541]">UNEVOX</span>
           </Link>
 
           {/* Desktop links */}
@@ -105,7 +105,10 @@ export default function Navbar({ onBookCall }) {
             }`}
         >
           <div className="flex items-center justify-between mb-8 pb-4 border-b border-[#e2dbd3]">
-            <img src="/assets/unevox_logo.png" alt="Unevox" className="h-9 w-auto" />
+            <Link to="/" onClick={() => setIsOpen(false)} className="flex items-center gap-2">
+              <img src="/assets/unevox_logo.png" alt="Unevox" className="h-9 w-auto" />
+              <span className="font-display font-black text-lg tracking-tighter text-[#072541]">UNEVOX</span>
+            </Link>
             <button
               onClick={() => setIsOpen(false)}
               className="p-2 rounded-full hover:bg-[#f1ede8] text-[#4a5568]"
