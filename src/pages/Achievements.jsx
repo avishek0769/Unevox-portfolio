@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Award, Target, Trophy, Milestone } from 'lucide-react';
 import { sanityClient } from '../sanity/client';
 import { AWARDS_QUERY } from '../sanity/queries';
+import SEO from '../components/SEO';
 
 const MILESTONES = [
   {
@@ -54,6 +55,10 @@ export default function Achievements() {
 
   return (
     <div className="bg-[#f8f5f2] min-h-screen">
+      <SEO 
+        title="Our Achievements"
+        description="Discover Unevox's professional milestones, industry recognition, client awards, and certifications in digital marketing and production."
+      />
 
       {/* ── HERO ── */}
       <section className="relative pt-20 pb-16 bg-white overflow-hidden">
