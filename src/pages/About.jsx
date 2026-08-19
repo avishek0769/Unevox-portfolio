@@ -5,6 +5,7 @@ import {
     ArrowRight, Calendar, ChevronRight, Phone, Package
 } from 'lucide-react';
 import CustomizePackageModal from '../components/CustomizePackageModal';
+import SEO from '../components/SEO';
 
 // ─── DATA ────────────────────────────────────────────────────────────────────
 
@@ -330,6 +331,10 @@ function CTASection({ onBookCall }) {
 export default function About({ onBookCall }) {
     return (
         <div>
+            <SEO 
+                title="About Us"
+                description="Learn about the team behind Unevox, our core values, creative vision, and our journey as a premier sports-inspired digital marketing agency."
+            />
             <HeroSection />
             <StorySection />
             <TeamSection />
