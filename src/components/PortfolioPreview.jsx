@@ -679,7 +679,7 @@ export default function PortfolioPreview() {
           src="/assets/flower-1.png"
           alt="food-front"
           aria-hidden="true"
-          className="absolute hidden md:block md:left-[93%] md:top-[229rem] md:h-[13rem] opacity-65 w-auto object-contain pointer-events-none select-none z-0"
+          className="absolute hidden md:block md:left-[94%] md:top-[229rem] md:h-[13rem] opacity-65 w-auto object-contain pointer-events-none select-none z-0"
           style={{ transform: 'translateY(-50%) translateX(-30%)', filter: 'saturate(0.7)' }}
         />
       </>

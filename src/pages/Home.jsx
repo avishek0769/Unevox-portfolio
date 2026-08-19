@@ -27,15 +27,12 @@ export default function Home({ onBookCall }) {
     },
     "sameAs": [
       "https://www.instagram.com/unevox_",
-      "https://facebook.com",
-      "https://youtube.com",
-      "https://linkedin.com"
     ]
   };
 
   return (
     <div className="relative w-full">
-      <SEO 
+      <SEO
         title="Home"
         description="Unevox is a premier sports-inspired creative agency specializing in social media management, sports media production, videography, photography, and branding."
         structuredData={homeSchema}
