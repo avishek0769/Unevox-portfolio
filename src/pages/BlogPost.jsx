@@ -8,6 +8,7 @@ import { PortableText } from '@portabletext/react';
 import { sanityClient } from '../sanity/client';
 import { BLOG_BY_SLUG_QUERY, RELATED_BLOGS_QUERY } from '../sanity/queries';
 import { urlFor } from '../sanity/image';
+import SEO from '../components/SEO';
 
 // ─── HELPERS ──────────────────────────────────────────────────────────────────
 
@@ -364,8 +365,42 @@ export default function BlogPost() {
   const hasContent = Array.isArray(post.contentProduced) && post.contentProduced.length > 0;
   const hasBody = Array.isArray(post.body) && post.body.length > 0;
 
+  const blogSchema = post ? {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": post.title,
+    "description": post.excerpt || post.title,
+    "image": coverUrl || "https://unevox.com/assets/unevox_logo.png",
+    "datePublished": post.publishedAt,
+    "dateModified": post._updatedAt || post.publishedAt,
+    "author": {
+      "@type": "Organization",
+      "name": "Unevox",
+      "url": "https://unevox.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Unevox",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://unevox.com/assets/unevox_logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://unevox.com/blogs/${slug}`
+    }
+  } : null;
+
   return (
     <article className="bg-[#f8f5f2] min-h-screen">
+      <SEO 
+        title={post.title}
+        description={post.excerpt}
+        ogType="article"
+        ogImage={coverUrl}
+        structuredData={blogSchema}
+      />
 
       {/* ── HERO HEADER ── */}
       <header className="relative pt-28 pb-16 bg-white overflow-hidden border-b border-[#e2dbd3]">
