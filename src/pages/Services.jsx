@@ -3,6 +3,7 @@ import { CheckCircle, Trophy, Theater, Compass, Heart, GraduationCap, Building2,
 import { useRef } from 'react';
 import { useState } from 'react';
 import { Play } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const SERVICES_DATA = [
   {
@@ -152,6 +153,10 @@ export default function Services() {
 
   return (
     <div className="bg-[#f8f5f2] min-h-screen">
+      <SEO 
+        title="Our Services"
+        description="Explore our creative services including digital marketing, cinematography, photography, branding, social media management, and custom content strategy."
+      />
 
       {/* ── HERO ── */}
       <section className="relative pt-20 pb-16 bg-white overflow-hidden border-b border-[#e2dbd3]">
