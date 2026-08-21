@@ -92,10 +92,10 @@ const otherCategories = [
     categoryName: 'Banquets',
     description: 'Immersive venue tours and premium event decor photography for wedding and luxury corporate spaces.',
     works: [
-      { id: 'bq-1', order: 1, name: 'Rainbow Banquet', type: 'image', url: 'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=600&q=80', aspect: 'square' },
-      { id: 'bq-2', order: 2, name: 'Rainbow Banquet', type: 'image', url: 'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=600&q=80', aspect: 'square' },
-      { id: 'bq-3', order: 3, name: 'Rainbow Banquet', type: 'image', url: 'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=600&q=80', aspect: 'square' },
-      { id: 'bq-4', order: 4, name: 'Rainbow Banquet', type: 'image', url: 'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=600&q=80', aspect: 'square' },
+      { id: 'bq-1', order: 1, name: 'Rainbow Banquet', type: 'video', url: '/media/banquets/rainbow-1.mp4', aspect: 'portrait' },
+      { id: 'bq-2', order: 2, name: 'Rainbow Banquet', type: 'video', url: '/media/banquets/rainbow-2.mp4', aspect: 'portrait' },
+      { id: 'bq-3', order: 3, name: 'Rainbow Banquet', type: 'video', url: '/media/banquets/rainbow-3.mp4', aspect: 'portrait' },
+      { id: 'bq-4', order: 4, name: 'Rainbow Banquet', type: 'video', url: '/media/banquets/rainbow-4.mp4', aspect: 'portrait' },
     ],
   },
 ];
