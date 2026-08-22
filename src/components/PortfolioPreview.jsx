@@ -96,6 +96,12 @@ const otherCategories = [
       { id: 'bq-2', order: 2, name: 'Rainbow Banquet', type: 'video', url: '/media/banquets/rainbow-2.mp4', aspect: 'portrait' },
       { id: 'bq-3', order: 3, name: 'Rainbow Banquet', type: 'video', url: '/media/banquets/rainbow-3.mp4', aspect: 'portrait' },
       { id: 'bq-4', order: 4, name: 'Rainbow Banquet', type: 'video', url: '/media/banquets/rainbow-4.mp4', aspect: 'portrait' },
+      { id: 'bq-5', order: 5, name: 'Rainbow Banquet', type: 'video', url: '/media/banquets/rainbow-5.mp4', aspect: 'portrait' },
+      { id: 'bq-6', order: 6, name: 'Rainbow Banquet', type: 'video', url: '/media/banquets/rainbow-6.mp4', aspect: 'portrait' },
+      { id: 'bq-7', order: 7, name: 'Rainbow Banquet', type: 'video', url: '/media/banquets/rainbow-7.mp4', aspect: 'portrait' },
+      { id: 'bq-8', order: 8, name: 'Rainbow Banquet', type: 'video', url: '/media/banquets/rainbow-8.mp4', aspect: 'portrait' },
+      { id: 'bq-9', order: 9, name: 'Rainbow Banquet', type: 'video', url: '/media/banquets/rainbow-9.mp4', aspect: 'portrait' },
+      { id: 'bq-10', order: 10, name: 'Rainbow Banquet', type: 'video', url: '/media/banquets/rainbow-10.mp4', aspect: 'portrait' },
     ],
   },
 ];
@@ -149,8 +155,8 @@ function MediaCard({ item }) {
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-20">
             <div
               className={`w-11 h-11 rounded-full bg-white/15 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white transition-all duration-300 ${isPlaying
-                ? 'scale-75'
-                : 'scale-100 group-hover:scale-110 group-hover:bg-[#e95f0c] group-hover:border-[#e95f0c]'
+                ? 'opacity-0 scale-75'
+                : 'opacity-100 scale-100 group-hover:scale-110 group-hover:bg-[#e95f0c] group-hover:border-[#e95f0c]'
                 }`}
             >
               <Play className="w-4 h-4 fill-current translate-x-0.5" />
