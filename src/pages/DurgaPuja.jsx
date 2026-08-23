@@ -20,16 +20,16 @@ const CLUBS = [
     testimonial: 'The theme documentary created by Unevox was exceptional. They beautifully highlighted the tireless efforts of our artists and craftsmen.',
   },
   {
-    name: 'Behala SS Sporting Club',
-    logo: '/client_logos/behala_ss_sporting_club-logo.png',
-    work: 'Real-time crowd engagement, high-octane daily summaries, and interactive visitor contest curation.',
-    testimonial: 'Superb dedication from the team. Their live coverage kept our global audience connected and engaged with the pandal throughout the five days.',
+    name: 'Suruchi Sangha',
+    logo: '/client_logos/Suruchi_Sangha-logo.png',
+    work: 'Comprehensive digital campaign management, cinematic theme storytelling reels, real-time social handle coverage, and sponsor spotlight highlights.',
+    testimonial: 'Unevox transformed our digital presence. Their cinematic reels captured the true art and soul of our theme, making our pandal go viral across Bengal.',
   },
   {
-    name: 'Tarun Matri Sevak Samity',
-    logo: '/client_logos/tarun_matri_sevak_samity-logo.png',
-    work: 'Cinematic teaser release, digital visitor guide maps, and VIP visit coverage highlights.',
-    testimonial: 'Outstanding execution. Their sports-agency style pace and high-production value drove massive traffic to our social pages.',
+    name: 'Behala Nutan Dal',
+    logo: '/client_logos/behala_nutan_dal-logo.png',
+    work: 'In-depth craft documentary, architectural lighting showcase reels, and countdown creative design.',
+    testimonial: 'The theme documentary created by Unevox was exceptional. They beautifully highlighted the tireless efforts of our artists and craftsmen.',
   },
 ];
 
@@ -162,7 +162,7 @@ export default function DurgaPuja({ onBookCall }) {
       />
 
       {/* Decorative Bengali Motif accents */}
-      <div className="absolute top-10 right-4 w-48 h-48 opacity-10 pointer-events-none select-none">
+      {/* <div className="absolute top-10 right-4 w-48 h-48 opacity-10 pointer-events-none select-none">
         <img src="/assets/kans-flower.png" alt="Kans Flower Accent" className="w-full h-full object-contain" />
       </div>
       <div className="absolute top-[35%] left-4 w-40 h-40 opacity-15 pointer-events-none select-none">
@@ -170,10 +170,10 @@ export default function DurgaPuja({ onBookCall }) {
       </div>
       <div className="absolute top-[65%] right-4 w-40 h-40 opacity-10 pointer-events-none select-none">
         <img src="/assets/dhak.png" alt="Dhak Accent" className="w-full h-full object-contain" />
-      </div>
+      </div> */}
 
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center justify-center pt-24 pb-20 px-6 bg-gradient-to-br from-[#072541] via-[#0b2f52] to-[#0e3a61] text-white">
+      <section className="relative min-h-[90vh] flex items-center justify-center pt-24 pb-20 px-6 bg-gradient-to-br from-[#07254152] via-[#1434546a] to-[#0e3a6158] text-white">
         <div className="absolute inset-0 z-0 opacity-40 mix-blend-overlay">
           <video
             src="/media/durga-puja/durga-5.mp4"
@@ -184,14 +184,10 @@ export default function DurgaPuja({ onBookCall }) {
             className="w-full h-full object-cover"
           />
         </div>
-        
+
         <div className="absolute inset-0 bg-gradient-to-t from-[#072541] via-transparent to-[#072541]/80 z-1" />
 
         <div className="relative z-10 max-w-4xl mx-auto text-center px-4">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#e95f0c]/20 border border-[#e95f0c]/30 text-[#e95f0c] text-xs uppercase tracking-widest font-display font-extrabold mb-6">
-            <span className="w-2 h-2 rounded-full bg-[#e95f0c] animate-pulse" />
-            {`Durga Puja Campaigns`}
-          </div>
           <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white mb-6 leading-[1.1] uppercase">
             {`Turning Puja Celebrations`} <br className="hidden md:inline" />
             <span className="text-[#e95f0c]">{`Into Digital Experiences`}</span>
@@ -220,9 +216,6 @@ export default function DurgaPuja({ onBookCall }) {
       {/* Clubs Testimonials Section */}
       <section id="clubs" className="py-20 px-6 max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16">
-          <div className="section-badge inline-flex mb-3 bg-[#e95f0c]/10 text-[#e95f0c] border border-[#e95f0c]/20">
-            {`Our Collaborations`}
-          </div>
           <h2 className="font-display text-3xl sm:text-5xl font-black text-[#072541] mb-4">
             {`KOLKATA'S PROUD PUJA CLUBS`}
           </h2>
@@ -273,11 +266,8 @@ export default function DurgaPuja({ onBookCall }) {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(233,95,12,0.15),transparent)] z-0 pointer-events-none" />
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center mb-16">
-            <div className="section-badge inline-flex mb-3 bg-[#e95f0c]/20 text-[#e95f0c] border border-[#e95f0c]/30">
-              {`Why Professional Digital Coverage?`}
-            </div>
             <h2 className="font-display text-3xl sm:text-5xl font-black text-white mb-4 uppercase">
-              {`AMPING UP THE FESTIVITY`}
+              {`Why Your Puja Needs a Digital Presence ?`}
             </h2>
             <p className="text-white/60 max-w-2xl mx-auto text-sm sm:text-base">
               Durga Puja is a global carnival. Elevating it online requires a highly dynamic, swift, and cinematic approach.
@@ -324,7 +314,7 @@ export default function DurgaPuja({ onBookCall }) {
       </section>
 
       {/* Slider Content Subsections */}
-      <section className="py-20 px-6 max-w-7xl mx-auto space-y-24 relative z-10">
+      <section className="py-20 px-6 max-w-7xl mx-auto space-y-12 relative z-10">
         <ContentSliderSection
           label="DOCUMENTARY"
           heading="Behind the Art"
@@ -388,7 +378,8 @@ export default function DurgaPuja({ onBookCall }) {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(233,95,12,0.15),transparent)] z-0" />
         <div className="relative z-10 max-w-3xl mx-auto">
           <h2 className="font-display text-4xl sm:text-6xl font-black tracking-tight text-white mb-6 uppercase">
-            {`Make Your Puja Unforgettable`}
+            {`Make Your Puja`} <br className="hidden md:inline" />
+            <span className="text-[#e95f0c]">{`Unforgettable`}</span>
           </h2>
           <p className="text-white/80 text-base sm:text-lg leading-relaxed max-w-xl mx-auto mb-10">
             Secure premium digital presence and professional media storytelling. Book your slots for the upcoming festive season before campaigns fill up.
