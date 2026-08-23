@@ -12,6 +12,8 @@ import Achievements from './pages/Achievements';
 import Blogs from './pages/Blogs';
 import BlogPost from './pages/BlogPost';
 import Services from './pages/Services';
+import DurgaPuja from './pages/DurgaPuja';
+
 
 // Scroll to top helper on navigation
 function ScrollToTop() {
@@ -74,6 +76,8 @@ function AppContent() {
           <Route path="/achievements" element={<Achievements />} />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/blogs/:slug" element={<BlogPost />} />
+          <Route path="/durga-puja" element={<DurgaPuja onBookCall={handleOpenModal} />} />
+
 
           {/* Fallback route */}
           <Route path="*" element={<ComingSoonPlaceholder title="Page Not Found" />} />

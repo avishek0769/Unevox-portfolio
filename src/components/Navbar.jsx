@@ -21,6 +21,7 @@ export default function Navbar({ onBookCall }) {
     { name: 'Services', path: '/services' },
     { name: 'Portfolio', path: '/portfolio' },
     { name: 'Achievements', path: '/achievements' },
+    { name: 'Durga Puja', path: '/durga-puja' },
     { name: 'Blogs', path: '/blogs' },
   ];
 

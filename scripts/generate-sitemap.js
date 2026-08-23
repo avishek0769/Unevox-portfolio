@@ -28,6 +28,7 @@ async function generateSitemap() {
     { loc: `${domain}/services`, changefreq: 'monthly', priority: '0.8' },
     { loc: `${domain}/portfolio`, changefreq: 'weekly', priority: '0.9' },
     { loc: `${domain}/achievements`, changefreq: 'monthly', priority: '0.7' },
+    { loc: `${domain}/durga-puja`, changefreq: 'weekly', priority: '0.9' },
     { loc: `${domain}/blogs`, changefreq: 'weekly', priority: '0.8' },
   ];
 

@@ -214,9 +214,17 @@ function CategorySection({ category, isDurgaPuja, isCultural }) {
               {category.categoryName}
             </h3>
           )}
-          <p className="text-[#4a5568] text-xs sm:text-sm leading-relaxed">
+          <p className="text-[#4a5568] text-xs sm:text-sm leading-relaxed mb-3">
             {category.description}
           </p>
+          {isDurgaPuja && (
+            <Link
+              to="/durga-puja"
+              className="inline-flex items-center gap-1 text-[#e95f0c] hover:text-[#072541] text-xs sm:text-sm font-display font-bold hover:underline underline-offset-4 transition-colors"
+            >
+              Explore Durga Puja Campaigns <ArrowUpRight className="w-3.5 h-3.5" />
+            </Link>
+          )}
         </div>
 
         {/* Scroll Controls */}

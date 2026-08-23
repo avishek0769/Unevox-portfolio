@@ -34,6 +34,7 @@ const quickLinks = [
   { name: 'Services', path: '/services' },
   { name: 'Portfolio', path: '/portfolio' },
   { name: 'Achievements', path: '/achievements' },
+  { name: 'Durga Puja', path: '/durga-puja' },
   { name: 'Blogs', path: '/blogs' },
   { name: 'Contact', path: '/contact' },
 ];
