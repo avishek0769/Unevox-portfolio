@@ -321,7 +321,7 @@ export default function PortfolioPreview() {
           src="/assets/dhak.png"
           alt=""
           aria-hidden="true"
-          className="absolute hidden md:block -right-[1rem] top-[33rem] h-[20rem] opacity-55 w-auto object-contain pointer-events-none select-none z-0"
+          className="absolute hidden md:block -right-[1rem] top-[36rem] h-[20rem] opacity-55 w-auto object-contain pointer-events-none select-none z-0"
           style={{ transform: 'rotate(12deg) translateX(20%)' }}
         />
         {/* Kans flowers: Bottom of the durga puja section */}
@@ -329,91 +329,91 @@ export default function PortfolioPreview() {
           src="/assets/kans-flower.png"
           alt=""
           aria-hidden="true"
-          className="absolute right-[0] md:-right-[3%] top-[59rem] md:top-[48rem] h-[7rem] md:h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+          className="absolute right-[0] md:-right-[3%] top-[61.4rem] md:top-[50.5rem] h-[7rem] md:h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
           style={{ transform: 'rotate(-8deg)' }}
         />
         <img
           src="/assets/kans-flower.png"
           alt=""
           aria-hidden="true"
-          className="absolute right-[12%] md:right-[4%] top-[59rem] md:top-[48rem] h-[7rem] md:h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+          className="absolute right-[12%] md:right-[4%] top-[61.4rem] md:top-[50.5rem] h-[7rem] md:h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
           style={{ transform: 'rotate(-8deg)' }}
         />
         <img
           src="/assets/kans-flower.png"
           alt=""
           aria-hidden="true"
-          className="absolute hidden md:block right-[12%] top-[48rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+          className="absolute hidden md:block right-[12%] top-[50.5rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
           style={{ transform: 'rotate(-8deg)' }}
         />
         <img
           src="/assets/kans-flower.png"
           alt=""
           aria-hidden="true"
-          className="absolute hidden md:block right-[17%] top-[48rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+          className="absolute hidden md:block right-[17%] top-[50.5rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
           style={{ transform: 'rotate(-8deg)' }}
         />
         <img
           src="/assets/kans-flower.png"
           alt=""
           aria-hidden="true"
-          className="absolute hidden md:block right-[27%] top-[48rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+          className="absolute hidden md:block right-[27%] top-[50.5rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
           style={{ transform: 'rotate(-8deg)' }}
         />
         <img
           src="/assets/kans-flower.png"
           alt=""
           aria-hidden="true"
-          className="absolute hidden md:block right-[33%] top-[48rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+          className="absolute hidden md:block right-[33%] top-[50.5rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
           style={{ transform: 'rotate(-8deg)' }}
         />
         <img
           src="/assets/kans-flower.png"
           alt=""
           aria-hidden="true"
-          className="absolute hidden md:block right-[38%] top-[48rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+          className="absolute hidden md:block right-[38%] top-[50.5rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
           style={{ transform: 'rotate(-8deg)' }}
         />
         <img
           src="/assets/kans-flower.png"
           alt=""
           aria-hidden="true"
-          className="absolute right-[45%] md:right-[50%] top-[59rem] md:top-[48rem] h-[7rem] md:h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+          className="absolute right-[45%] md:right-[50%] top-[61.4rem] md:top-[50.5rem] h-[7rem] md:h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
           style={{ transform: 'rotate(-8deg)' }}
         />
         <img
           src="/assets/kans-flower.png"
           alt=""
           aria-hidden="true"
-          className="absolute hidden md:block right-[55%] top-[48rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+          className="absolute hidden md:block right-[55%] top-[50.5rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
           style={{ transform: 'rotate(-8deg)' }}
         />
         <img
           src="/assets/kans-flower.png"
           alt=""
           aria-hidden="true"
-          className="absolute hidden md:block right-[71%] top-[48rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+          className="absolute hidden md:block right-[71%] top-[50.5rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
           style={{ transform: 'rotate(-8deg)' }}
         />
         <img
           src="/assets/kans-flower.png"
           alt=""
           aria-hidden="true"
-          className="absolute hidden md:block right-[77%] top-[48rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+          className="absolute hidden md:block right-[77%] top-[50.5rem] h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
           style={{ transform: 'rotate(-8deg)' }}
         />
         <img
           src="/assets/kans-flower.png"
           alt=""
           aria-hidden="true"
-          className="absolute right-[60%] md:right-[83%] top-[59rem] md:top-[48rem] h-[7rem] md:h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+          className="absolute right-[60%] md:right-[83%] top-[61.4rem] md:top-[50.5rem] h-[7rem] md:h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
           style={{ transform: 'rotate(-8deg)' }}
         />
         <img
           src="/assets/kans-flower.png"
           alt=""
           aria-hidden="true"
-          className="absolute right-[75%] md:right-[88%] top-[59rem] md:top-[48rem] h-[7rem] md:h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
+          className="absolute right-[75%] md:right-[88%] top-[61.4rem] md:top-[50.5rem] h-[7rem] md:h-[12rem] w-auto object-contain pointer-events-none select-none z-0"
           style={{ transform: 'rotate(-8deg)' }}
         />
       </>
