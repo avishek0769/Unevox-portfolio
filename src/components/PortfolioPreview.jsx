@@ -668,44 +668,44 @@ export default function PortfolioPreview() {
           src="/assets/light-1.png"
           alt="food-front"
           aria-hidden="true"
-          className="absolute left-[1%] md:-left-[1.2%] top-[193rem] md:top-[206.5rem] h-[11rem] md:h-[15rem] opacity-65 w-auto object-contain pointer-events-none select-none z-0"
+          className="absolute left-[1%] md:-left-[1.2%] top-[211rem] md:top-[223.5rem] h-[11rem] md:h-[15rem] opacity-65 w-auto object-contain pointer-events-none select-none z-0"
           style={{ transform: 'translateY(-50%) translateX(-30%)', filter: 'saturate(0.7)' }}
         />
         <img
           src="/assets/sitting.png"
           alt="food-front"
           aria-hidden="true"
-          className="absolute -left-[3%] md:-left-[4%] top-[211rem] md:top-[227rem] h-[13rem] md:h-[17rem] opacity-65 w-auto object-contain pointer-events-none select-none z-0"
+          className="absolute -left-[3%] md:-left-[4%] top-[235rem] md:top-[245rem] h-[13rem] md:h-[17rem] opacity-65 w-auto object-contain pointer-events-none select-none z-0"
           style={{ transform: 'translateY(-50%) translateX(-30%)', filter: 'saturate(0.7)' }}
         />
         <img
           src="/assets/light-2.png"
           alt="food-front"
           aria-hidden="true"
-          className="absolute left-[60%] md:left-[65%] top-[190rem] md:top-[202.75rem] h-[4rem] md:h-[5rem] opacity-65 w-auto object-contain pointer-events-none select-none z-0"
+          className="absolute left-[60%] md:left-[65%] top-[207.3rem] md:top-[218.75rem] h-[4rem] md:h-[5rem] opacity-65 w-auto object-contain pointer-events-none select-none z-0"
           style={{ transform: 'translateY(-50%) translateX(-30%)', filter: 'saturate(0.7)' }}
         />
         <img
           src="/assets/light-3.png"
           alt="food-front"
           aria-hidden="true"
-          className="absolute left-[75%] md:left-[70%] top-[191.5rem] md:top-[204.2rem] h-[7rem] md:h-[8rem] opacity-65 w-auto object-contain pointer-events-none select-none z-0"
+          className="absolute left-[75%] md:left-[70%] top-[208.6rem] md:top-[220.2rem] h-[7rem] md:h-[8rem] opacity-65 w-auto object-contain pointer-events-none select-none z-0"
           style={{ transform: 'translateY(-50%) translateX(-30%)', filter: 'saturate(0.7)' }}
         />
         <img
           src="/assets/light-3.png"
           alt="food-front"
           aria-hidden="true"
-          className="absolute left-[85%] md:left-[74%] top-[191.5rem] md:top-[204.2rem] h-[7rem] md:h-[8rem] opacity-65 w-auto object-contain pointer-events-none select-none z-0"
+          className="absolute left-[85%] md:left-[74%] top-[208.6rem] md:top-[220.2rem] h-[7rem] md:h-[8rem] opacity-65 w-auto object-contain pointer-events-none select-none z-0"
           style={{ transform: 'translateY(-50%) translateX(-30%)', filter: 'saturate(0.7)' }}
         />
-        <img
+        {/* <img
           src="/assets/flower-1.png"
           alt="food-front"
           aria-hidden="true"
-          className="absolute hidden md:block md:left-[94%] md:top-[229rem] md:h-[13rem] opacity-65 w-auto object-contain pointer-events-none select-none z-0"
+          className="absolute hidden md:block md:left-[94%] md:top-[245rem] md:h-[13rem] opacity-65 w-auto object-contain pointer-events-none select-none z-0"
           style={{ transform: 'translateY(-50%) translateX(-30%)', filter: 'saturate(0.7)' }}
-        />
+        /> */}
       </>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8">
