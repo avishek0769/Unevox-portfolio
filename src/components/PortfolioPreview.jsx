@@ -11,11 +11,9 @@ const otherCategories = [
     categoryName: 'Durga Puja Campaign',
     description: 'Unevox partners with some of Kolkata’s most renowned Durga Puja committees, delivering end-to-end media coverage, social media management, cinematic reels, photography, promotional creatives, and real-time event storytelling. Through visually compelling content and strategic digital campaigns, we help transform each celebration into a memorable digital experience while amplifying audience engagement and cultural reach.',
     works: [
-      { id: 'dp-1', order: 1, name: 'Forum Suruchi', type: 'image', url: 'https://images.unsplash.com/photo-1605649487212-47bdab064df7?auto=format&fit=crop&w=600&q=80', aspect: 'portrait' },
-      { id: 'dp-2', order: 2, name: 'Behala Nutan Dal', type: 'image', url: 'https://images.unsplash.com/photo-1620121692029-d088224ddc74?auto=format&fit=crop&w=600&q=80', aspect: 'portrait' },
-      { id: 'dp-3', order: 3, name: 'Newtown Pandal', type: 'image', url: 'https://images.unsplash.com/photo-1561361062-856753540121?auto=format&fit=crop&w=600&q=80', aspect: 'square' },
-      { id: 'dp-4', order: 4, name: 'Behala Club', type: 'image', url: 'https://images.unsplash.com/photo-1620121470810-64418f75d5b0?auto=format&fit=crop&w=600&q=80', aspect: 'square' },
-      { id: 'dp-5', order: 5, name: 'TMSS Puja', type: 'image', url: 'https://images.unsplash.com/photo-1590073844006-33379778ae09?auto=format&fit=crop&w=600&q=80', aspect: 'portrait' },
+      { id: 'dp-1', order: 1, name: 'Behala Natun Dal', type: 'video', url: '/media/durga-puja/doc-1.mp4', aspect: 'square' },
+      { id: 'dp-2', order: 2, name: 'Behala Natun Dal', type: 'video', url: '/media/durga-puja/doc-2.mp4', aspect: 'square' },
+      { id: 'dp-3', order: 3, name: 'TMSS Behala', type: 'video', url: '/media/durga-puja/doc-3.mp4', aspect: 'portrait' },
     ],
   },
   {
@@ -45,7 +43,7 @@ const otherCategories = [
     categoryName: 'Industries',
     description: 'Premium corporate messaging, branding materials, industrial documentaries, and product summaries.',
     works: [
-      { id: 'ind-1', order: 1, name: 'Ripley Group', type: 'image', url: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80', aspect: 'square' },
+      { id: 'ind-1', order: 1, name: 'Ripley Group', type: 'image', url: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80', aspect: 'portrait' },
       { id: 'ind-2', order: 2, name: 'Creative Videos', type: 'image', url: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=600&q=80', aspect: 'square' },
       { id: 'ind-3', order: 3, name: 'Vision AV', type: 'image', url: 'https://images.unsplash.com/photo-1478737270239-2f02b77fc618?auto=format&fit=crop&w=600&q=80', aspect: 'square' },
       { id: 'ind-4', order: 4, name: 'Smile Events', type: 'image', url: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=600&q=80', aspect: 'square' },
@@ -81,7 +79,7 @@ const otherCategories = [
     categoryName: 'Education',
     description: 'Promotional content, online course graphics, and student spotlight documentaries for leading learning networks.',
     works: [
-      { id: 'edu-1', order: 1, name: 'Upgrad Kolkata', type: 'image', url: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80', aspect: 'square' },
+      { id: 'edu-1', order: 1, name: 'Upgrad Kolkata', type: 'image', url: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80', aspect: 'portrait' },
       { id: 'edu-2', order: 2, name: 'Upgrad Kolkata', type: 'image', url: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80', aspect: 'square' },
       { id: 'edu-3', order: 3, name: 'Upgrad Kolkata', type: 'image', url: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80', aspect: 'square' },
       { id: 'edu-4', order: 4, name: 'Upgrad Kolkata', type: 'image', url: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80', aspect: 'square' },
