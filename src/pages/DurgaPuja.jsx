@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Play, X, ChevronLeft, ChevronRight, PhoneCall, ArrowUpRight } from 'lucide-react';
-import { sanityClient } from '../sanity/client';
-import { PORTFOLIO_ALL_QUERY } from '../sanity/queries';
+import { Play, X, ChevronLeft, ChevronRight, PhoneCall, ArrowUpRight, Globe, Sparkles, Tv, TrendingUp, Award, ShieldCheck } from 'lucide-react';
 import SEO from '../components/SEO';
 import { Link } from 'react-router-dom';
 
@@ -35,49 +33,79 @@ const CLUBS = [
 
 // ─── WHY PUJA CAMPAIGNS INFO CARDS ──────────────────────────────────────────
 const WHY_CARDS = [
-  { title: 'Reach Audiences Beyond the Venue', desc: 'Connect with millions of devotees globally who cannot visit the physical pandal.' },
-  { title: 'Build a Strong Digital Identity', desc: 'Establish your club as a digital-first cultural landmark with premium content.' },
-  { title: 'Showcase Theme and Creativity', desc: 'Highlight the meticulous craftsmanship, clay modeling, and artistic details.' },
-  { title: 'Increase Social Engagement', desc: 'Drive viral conversations, comments, and shares across Instagram, YouTube, and Facebook.' },
-  { title: 'Content That Lasts Beyond the Festival', desc: 'Archive your puja\'s legacy forever with professional, high-definition media assets.' },
-  { title: 'Build a Recognizable Brand Year After Year', desc: 'Build anticipation and attract premium sponsorship deals with consistent year-on-year growth.' },
+  { icon: Globe, title: 'Reach Audiences Beyond the Venue', desc: 'Connect with millions of devotees globally who cannot visit the physical pandal.' },
+  { icon: Sparkles, title: 'Build a Strong Digital Identity', desc: 'Establish your club as a digital-first cultural landmark with premium content.' },
+  { icon: Tv, title: 'Showcase Theme and Creativity', desc: 'Highlight the meticulous craftsmanship, clay modeling, and artistic details.' },
+  { icon: TrendingUp, title: 'Increase Social Engagement', desc: 'Drive viral conversations, comments, and shares across Instagram, YouTube, and Facebook.' },
+  { icon: Award, title: 'Content That Lasts Beyond the Festival', desc: 'Archive your puja\'s legacy forever with professional, high-definition media assets.' },
+  { icon: ShieldCheck, title: 'Build a Recognizable Brand Year After Year', desc: 'Build anticipation and attract premium sponsorship deals with consistent year-on-year growth.' },
 ];
 
-// ─── STATS RESULTS ──────────────────────────────────────────────────────────
-const STATS = [
-  { value: '10L+', label: 'Audience Interactions' },
-  { value: '2M+', label: 'Total Campaign Views' },
-  { value: '800+', label: 'Content Pieces Produced' },
-  { value: '40%+', label: 'Engagement Rate Growth' },
+// ─── CLUB-SPECIFIC RESULTS ──────────────────────────────────────────────────
+const CLUB_RESULTS = [
+  {
+    name: 'Suruchi Sangha',
+    logo: '/client_logos/Suruchi_Sangha-logo.png',
+    campaign: 'Cinematic Narrative Campaign',
+    desc: 'Complete digital strategy & theme storytelling launch. The thematic teaser went viral across social media channels, drawing unprecedented footfall.',
+    stats: [
+      { value: '2.4M+', label: 'Total Views' },
+      { value: '1.2M+', label: 'Reach' },
+      { value: '+45%', label: 'Engagement' },
+    ]
+  },
+  {
+    name: 'Behala Nutan Dal',
+    logo: '/client_logos/behala_nutan_dal-logo.png',
+    campaign: 'Art & Craft Documentary Series',
+    desc: 'An in-depth, artistic video feature profiling the sculptors and pandal planners. Widely shared by design and heritage forums.',
+    stats: [
+      { value: '1800+', label: 'Facebook Followers in a month' },
+      { value: '1300+', label: 'Instagram Followers in a month' },
+      { value: '600K+', label: 'Profile Visits' },
+    ]
+  },
+  // {
+  //   name: 'Behala SS Sporting Club',
+  //   logo: '/client_logos/behala_ss_sporting_club-logo.png',
+  //   campaign: 'Real-Time Festive Recap',
+  //   desc: 'Daily 60-second high-energy recaps of peak crowd interactions, VIP visitor experiences, and interactive audience contests.',
+  //   stats: [
+  //     { value: '1.6M+', label: 'Impressions' },
+  //     { value: '+210%', label: 'Follower Growth' },
+  //     { value: '150K+', label: 'Interactions' },
+  //   ]
+  // }
 ];
 
 // ─── STATIC MEDIA CONTENT DEFINITIONS ───────────────────────────────────────
 const STATIC_DOCUMENTARIES = [
-  { id: 'static-doc-1', name: 'Behind the Art of Suruchi Sangha', type: 'video', url: '/media/durga-puja/durga-5.mp4', aspect: 'portrait' },
-  { id: 'static-doc-2', name: 'The Making of Kumartuli Clay', type: 'video', url: '/media/cultural/theatre-fest-1.mp4', aspect: 'portrait' },
+  { id: 'doc-1', name: 'Behind the Art of Suruchi Sangha', type: 'video', url: '/media/durga-puja/doc-1.mp4', aspect: 'square' },
+  { id: 'doc-2', name: 'The Making of Kumartuli Clay', type: 'video', url: '/media/durga-puja/doc-2.mp4', aspect: 'square' },
+  { id: 'doc-2', name: 'The Making of Kumartuli Clay', type: 'video', url: '/media/durga-puja/doc-3.mp4', aspect: 'square' },
 ];
 
 const STATIC_REELS = [
-  { id: 'static-reel-1', name: 'Vibrant Sindur Khela Reels', type: 'video', url: '/media/durga-puja/durga-5.mp4', aspect: 'portrait' },
-  { id: 'static-reel-2', name: 'Dhak Beats Live Showcase', type: 'video', url: '/media/cultural/classical-fest-2.mp4', aspect: 'portrait' },
-  { id: 'static-reel-3', name: 'Maha Aarti Festive Devotion', type: 'video', url: '/media/cultural/classical-fest-3.mp4', aspect: 'portrait' },
+  { id: 'reel-1', name: 'Vibrant Sindur Khela Reels', type: 'video', url: '/media/durga-puja/durga-5.mp4', aspect: 'portrait' },
+  { id: 'reel-2', name: 'Dhak Beats Live Showcase', type: 'video', url: '/media/cultural/classical-fest-2.mp4', aspect: 'portrait' },
+  { id: 'reel-3', name: 'Maha Aarti Festive Devotion', type: 'video', url: '/media/cultural/classical-fest-3.mp4', aspect: 'portrait' },
 ];
 
 const STATIC_PHOTOGRAPHY = [
-  { id: 'static-photo-1', name: 'Suruchi Sangha Divine Protima', type: 'photo', url: '/media/durga-puja/durga-1.jpg', aspect: 'wide' },
-  { id: 'static-photo-2', name: 'Architectural Details Behala Nutan Dal', type: 'photo', url: '/media/durga-puja/durga-2.jpg', aspect: 'tall' },
-  { id: 'static-photo-3', name: 'Pandal Lighting Glow at Night', type: 'photo', url: '/media/durga-puja/durga-3.jpg', aspect: 'landscape' },
+  { id: 'photo-1', name: 'Suruchi Sangha Divine Protima', type: 'photo', url: '/media/durga-puja/durga-1.jpg', aspect: 'wide' },
+  { id: 'photo-2', name: 'Architectural Details Behala Nutan Dal', type: 'photo', url: '/media/durga-puja/durga-2.jpg', aspect: 'tall' },
+  { id: 'photo-3', name: 'Pandal Lighting Glow at Night', type: 'photo', url: '/media/durga-puja/durga-3.jpg', aspect: 'landscape' },
 ];
 
 const STATIC_GRAPHICS = [
-  { id: 'static-graphic-1', name: 'Subho Nabami Greeting Creative', type: 'graphics', url: '/media/durga-puja/durga-4-g.jpg', aspect: 'portrait' },
-  { id: 'static-graphic-2', name: 'Ashtami Countdown Digital Art', type: 'graphics', url: 'https://images.unsplash.com/photo-1620121470810-64418f75d5b0?auto=format&fit=crop&w=600&q=80', aspect: 'square' },
-  { id: 'static-graphic-3', name: 'Puja Announcement Invitation', type: 'graphics', url: 'https://images.unsplash.com/photo-1561361062-856753540121?auto=format&fit=crop&w=600&q=80', aspect: 'square' },
+  { id: 'graphic-1', name: 'Subho Nabami Greeting Creative', type: 'graphics', url: '/media/durga-puja/durga-4-g.jpg', aspect: 'portrait' },
+  { id: 'graphic-2', name: 'Ashtami Countdown Digital Art', type: 'graphics', url: 'https://images.unsplash.com/photo-1620121470810-64418f75d5b0?auto=format&fit=crop&w=600&q=80', aspect: 'square' },
+  { id: 'graphic-3', name: 'Puja Announcement Invitation', type: 'graphics', url: 'https://images.unsplash.com/photo-1561361062-856753540121?auto=format&fit=crop&w=600&q=80', aspect: 'square' },
 ];
 
 const STATIC_FILMS = [
-  { id: 'static-film-1', name: 'Utsav - The Soul of Kolkata', type: 'video', url: '/media/durga-puja/durga-5.mp4', aspect: 'portrait' },
-  { id: 'static-film-2', name: 'Pride of Behala Cultural Heritage', type: 'video', url: '/media/cultural/classical-fest-1.mp4', aspect: 'wide' },
+  { id: 'film-1', name: 'Utsav - The Soul of Kolkata', type: 'video', url: '/media/durga-puja/durga-5.mp4', aspect: 'portrait' },
+  { id: 'film-2', name: 'Pride of Behala Cultural Heritage', type: 'video', url: '/media/cultural/classical-fest-1.mp4', aspect: 'wide' },
 ];
 
 // ─── MULTI-MARQUEE CLIENT LOGOS ──────────────────────────────────────────────
@@ -89,38 +117,14 @@ const MARQUEE_LOGOS = [
 ];
 
 export default function DurgaPuja({ onBookCall }) {
-  const [sanityItems, setSanityItems] = useState([]);
   const [lightboxState, setLightboxState] = useState({ isOpen: false, items: [], index: 0 });
 
-  useEffect(() => {
-    async function fetchSanityPuja() {
-      try {
-        const data = await sanityClient.fetch(PORTFOLIO_ALL_QUERY);
-        const items = (data ?? []).filter((item) => item.category === 'durga-puja');
-        setSanityItems(items);
-      } catch (err) {
-        console.error('Failed to fetch Durga Puja items from Sanity:', err);
-      }
-    }
-    fetchSanityPuja();
-  }, []);
-
-  // Classify sanity items based on type, aspect and name
-  const sanityVideos = sanityItems.filter((i) => i.type === 'video');
-  const sanityImages = sanityItems.filter((i) => i.type === 'photo' || i.type === 'image' || i.type === 'graphics');
-
-  const sanityDoc = sanityVideos.filter((i) => i.name.toLowerCase().includes('doc') || i.name.toLowerCase().includes('behind'));
-  const sanityReels = sanityVideos.filter((i) => i.aspect === 'portrait' || i.aspect === 'tall');
-  const sanityFilms = sanityVideos.filter((i) => !sanityReels.includes(i) && !sanityDoc.includes(i));
-  const sanityGraphics = sanityImages.filter((i) => i.type === 'graphics' || i.name.toLowerCase().includes('graphic') || i.name.toLowerCase().includes('post') || i.url.includes('-g.'));
-  const sanityPhoto = sanityImages.filter((i) => !sanityGraphics.includes(i));
-
-  // Merge static & sanity items safely
-  const documentaries = [...sanityDoc, ...STATIC_DOCUMENTARIES];
-  const reels = [...sanityReels, ...STATIC_REELS];
-  const photography = [...sanityPhoto, ...STATIC_PHOTOGRAPHY];
-  const graphics = [...sanityGraphics, ...STATIC_GRAPHICS];
-  const films = [...sanityFilms, ...STATIC_FILMS];
+  // Classify static items directly
+  const documentaries = STATIC_DOCUMENTARIES;
+  const reels = STATIC_REELS;
+  const photography = STATIC_PHOTOGRAPHY;
+  const graphics = STATIC_GRAPHICS;
+  const films = STATIC_FILMS;
 
   const handleOpenLightbox = (items, index) => {
     setLightboxState({ isOpen: true, items, index });
@@ -137,6 +141,7 @@ export default function DurgaPuja({ onBookCall }) {
   const handleNext = () => {
     setLightboxState((prev) => ({ ...prev, index: Math.min(prev.items.length - 1, prev.index + 1) }));
   };
+
 
   const schemaData = {
     "@context": "https://schema.org",
@@ -173,10 +178,11 @@ export default function DurgaPuja({ onBookCall }) {
       </div> */}
 
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center justify-center pt-24 pb-20 px-6 bg-gradient-to-br from-[#07254152] via-[#1434546a] to-[#0e3a6158] text-white">
-        <div className="absolute inset-0 z-0 opacity-40 mix-blend-overlay">
+      <section className="relative min-h-[90vh] flex items-center justify-center pt-24 pb-20 px-6 text-white">
+        {/* Full-visibility background video */}
+        <div className="absolute inset-0 z-0">
           <video
-            src="/media/durga-puja/durga-5.mp4"
+            src="/media/durga-puja/doc-1.mp4"
             autoPlay
             loop
             muted
@@ -185,7 +191,8 @@ export default function DurgaPuja({ onBookCall }) {
           />
         </div>
 
-        <div className="absolute inset-0 bg-gradient-to-t from-[#072541] via-transparent to-[#072541]/80 z-1" />
+        {/* Very light blue-tinted vignette — same treatment as Home hero */}
+        <div className="absolute inset-0 z-1 bg-gradient-to-t from-[#000000bd] via-[#00000062] to-[#000000bd]" />
 
         <div className="relative z-10 max-w-4xl mx-auto text-center px-4">
           <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white mb-6 leading-[1.1] uppercase">
@@ -275,37 +282,78 @@ export default function DurgaPuja({ onBookCall }) {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {WHY_CARDS.map((card, i) => (
-              <div
-                key={i}
-                className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-[#e95f0c]/40 hover:bg-white/10 transition-all duration-300 group"
-              >
-                <div className="w-10 h-10 rounded-xl bg-[#e95f0c]/20 border border-[#e95f0c]/30 flex items-center justify-center text-[#e95f0c] font-display font-extrabold text-lg mb-5 group-hover:scale-110 transition-transform">
-                  {`0${i + 1}`}
+            {WHY_CARDS.map((card, i) => {
+              const Icon = card.icon;
+              return (
+                <div
+                  key={i}
+                  className="relative p-7 rounded-2xl bg-white/5 border border-white/10 hover:border-[#e95f0c]/50 hover:bg-white/8 transition-all duration-300 group overflow-hidden"
+                >
+                  {/* Subtle glow accent on hover */}
+                  <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#e95f0c]/0 to-transparent group-hover:via-[#e95f0c]/70 transition-all duration-500" />
+                  {/* Icon badge */}
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#e95f0c]/30 to-[#e95f0c]/10 border border-[#e95f0c]/30 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:from-[#e95f0c]/50 transition-all duration-300">
+                    <Icon className="w-5 h-5 text-[#e95f0c]" strokeWidth={2} />
+                  </div>
+                  {/* Card number watermark */}
+                  <span className="absolute top-5 right-6 font-display text-5xl font-black text-white/5 group-hover:text-white/8 transition-colors select-none leading-none">{String(i + 1).padStart(2, '0')}</span>
+                  <h3 className="font-display text-lg sm:text-xl font-bold mb-2 text-white group-hover:text-[#e95f0c] transition-colors leading-snug">
+                    {card.title}
+                  </h3>
+                  <p className="text-white/55 text-sm leading-relaxed">
+                    {card.desc}
+                  </p>
                 </div>
-                <h3 className="font-display text-lg sm:text-xl font-bold mb-2 text-white group-hover:text-[#e95f0c] transition-colors">
-                  {card.title}
-                </h3>
-                <p className="text-white/60 text-sm leading-relaxed">
-                  {card.desc}
-                </p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Results Section */}
-      <section className="py-20 px-6 bg-white relative z-10">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12">
-            {STATS.map((stat, i) => (
-              <div key={i} className="text-center group">
-                <div className="font-display text-4xl sm:text-6xl lg:text-7xl font-black text-[#e95f0c] mb-2 tracking-tight group-hover:scale-105 transition-transform duration-300">
-                  {stat.value}
-                </div>
-                <div className="text-sm sm:text-base font-bold text-[#072541] uppercase tracking-wider">
-                  {stat.label}
+      {/* Results Section — per-club performance */}
+      <section className="py-24 px-6 bg-[#f8f5f2] relative z-10 overflow-hidden">
+        {/* Background texture */}
+        <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 80% 20%, rgba(233,95,12,0.06) 0%, transparent 50%), radial-gradient(circle at 10% 80%, rgba(7,37,65,0.05) 0%, transparent 50%)' }} />
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="text-center mb-16">
+            <p className="text-xs uppercase font-extrabold text-[#e95f0c] tracking-widest mb-3">CAMPAIGN RESULTS</p>
+            <h2 className="font-display text-3xl sm:text-5xl font-black text-[#072541] uppercase mb-4">Numbers That Speak</h2>
+            <p className="text-[#4a5568] max-w-xl mx-auto text-sm sm:text-base">
+              Real performance data from Unevox-powered campaigns across Kolkata's biggest puja clubs.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {CLUB_RESULTS.map((club, ci) => (
+              <div key={ci} className="group relative rounded-3xl overflow-hidden bg-white border border-[#e2dbd3] hover:border-[#e95f0c]/40 hover:shadow-2xl transition-all duration-500">
+                {/* Top accent gradient bar */}
+                <div className="h-1 w-full bg-gradient-to-r from-[#e95f0c] via-[#ff8c42] to-[#e95f0c]" />
+                <div className="p-7 sm:p-8">
+                  {/* Club identity */}
+                  <div className="flex items-center gap-4 mb-5">
+                    <div className="w-14 h-14 rounded-2xl bg-[#f8f5f2] border border-[#e2dbd3] p-1 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300 overflow-hidden">
+                      <img src={club.logo} alt={club.name} className="w-full h-full object-contain" />
+                    </div>
+                    <div>
+                      <h3 className="font-display text-lg font-black text-[#072541] leading-tight">{club.name}</h3>
+                      <p className="text-xs text-[#e95f0c] font-bold uppercase tracking-wider mt-0.5">{club.campaign}</p>
+                    </div>
+                  </div>
+
+                  {/* Campaign description */}
+                  <p className="text-[#4a5568] text-sm leading-relaxed mb-6 border-l-2 border-[#e2dbd3] pl-3 group-hover:border-[#e95f0c]/50 transition-colors">
+                    {club.desc}
+                  </p>
+
+                  {/* Per-stat metrics */}
+                  <div className="grid grid-cols-3 gap-3">
+                    {club.stats.map((stat, si) => (
+                      <div key={si} className="text-center bg-[#f8f5f2] rounded-2xl p-3 group-hover:bg-[#072541]/5 transition-colors">
+                        <div className="font-display text-xl sm:text-2xl font-black text-[#e95f0c] tracking-tight leading-none mb-1">{stat.value}</div>
+                        <div className="text-[10px] font-bold text-[#072541]/60 uppercase tracking-wider leading-tight">{stat.label}</div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             ))}
@@ -353,20 +401,19 @@ export default function DurgaPuja({ onBookCall }) {
       </section>
 
       {/* Scrolling Client Marquee */}
-      <section className="py-12 bg-white border-y border-[#e2dbd3] overflow-hidden relative z-10">
-        <div className="max-w-7xl mx-auto px-6 mb-6 text-center">
-          <p className="text-xs uppercase font-extrabold text-[#072541]/60 tracking-widest">{`Featured Campaign Partners`}</p>
+      <section className="py-14 bg-white border-y border-[#e2dbd3] overflow-hidden relative z-10">
+        <div className="max-w-7xl mx-auto px-6 mb-8 text-center">
+          <p className="text-xs uppercase font-extrabold text-[#072541]/50 tracking-widest">{`Our Campaign Partners`}</p>
         </div>
-        <div className="relative w-full overflow-hidden flex flex-col justify-center">
-          {/* Loop marquee container */}
-          <div className="flex gap-20 items-center justify-start whitespace-nowrap animate-marquee py-2 select-none pointer-events-none">
-            {/* Duplicated list to prevent blank gaps */}
-            {[...MARQUEE_LOGOS, ...MARQUEE_LOGOS, ...MARQUEE_LOGOS].map((logo, idx) => (
+        <div className="relative w-full overflow-hidden">
+          {/* 4 copies so -25% CSS translate gives a perfect seamless loop */}
+          <div className="flex gap-20 items-center whitespace-nowrap animate-marquee py-2 select-none pointer-events-none">
+            {[...MARQUEE_LOGOS, ...MARQUEE_LOGOS, ...MARQUEE_LOGOS, ...MARQUEE_LOGOS].map((logo, idx) => (
               <img
                 key={idx}
                 src={logo}
-                alt="Puja Client Logo"
-                className="h-16 sm:h-20 w-auto object-contain filter grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300"
+                alt="Puja Partner Logo"
+                className="h-16 sm:h-20 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
               />
             ))}
           </div>
@@ -536,9 +583,9 @@ function MediaCard({ item }) {
       )}
 
       <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-3 sm:p-4 z-20">
-        <p className="text-white text-xs sm:text-sm font-display font-bold leading-tight drop-shadow-sm truncate">
+        {/* <p className="text-white text-xs sm:text-sm font-display font-bold leading-tight drop-shadow-sm truncate">
           {item.name}
-        </p>
+        </p> */}
       </div>
     </div>
   );

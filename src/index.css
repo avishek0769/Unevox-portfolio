@@ -151,13 +151,13 @@
 /* Infinite logo marquee animation: scroll right-to-left */
 @keyframes marquee {
   0% { transform: translateX(0); }
-  100% { transform: translateX(-33.3333%); }
+  100% { transform: translateX(-25%); }
 }
 
 .animate-marquee {
   display: flex;
   width: max-content;
-  animation: marquee 30s linear infinite;
+  animation: marquee 16s linear infinite;
 }
 
 .animate-marquee:hover {
