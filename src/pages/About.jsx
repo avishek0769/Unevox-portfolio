@@ -98,11 +98,11 @@ function StorySection() {
                     <div className="relative">
                         <div className="relative rounded-3xl overflow-hidden aspect-[4/3]">
                             <img
-                                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80"
+                                src="/assets/unevox-logo-big.png"
                                 alt="Unevox team at work"
                                 className="w-full h-full object-cover"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-[#072541]/60 to-transparent" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-[#00000020] to-transparent" />
                         </div>
                         {/* Floating stat card */}
                         <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-xl p-6 border border-[#e2dbd3]">
@@ -331,13 +331,13 @@ function CTASection({ onBookCall }) {
 export default function About({ onBookCall }) {
     return (
         <div>
-            <SEO 
+            <SEO
                 title="About Us"
                 description="Learn about the team behind Unevox, our core values, creative vision, and our journey as a premier sports-inspired digital marketing agency."
             />
             <HeroSection />
             <StorySection />
-            <TeamSection />
+            {/* <TeamSection /> */}
             <JourneySection />
             <CTASection onBookCall={onBookCall} />
         </div>
