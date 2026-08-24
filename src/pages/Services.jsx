@@ -10,7 +10,7 @@ const SERVICES_DATA = [
     id: 'cinematography',
     title: 'Cinematography',
     description: 'High-end cinematic productions, showreels, and commercial videos crafted to capture brand narratives and tell stories with maximum impact.',
-    image: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=80',
+    video: '/media/durga-puja/doc-2.mp4',
     deliverables: [
       'Cinematic Brand & Commercial Films',
       'Promotional Video & Reel Campaigns',
@@ -23,7 +23,7 @@ const SERVICES_DATA = [
     id: 'photography',
     title: 'Photography',
     description: 'Premium professional photography capturing defining moments with pixel-perfect precision, from high-octane sports action to hospitality food and venue styling.',
-    image: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=80',
+    image: '/media/sports/bss-3.jpg',
     deliverables: [
       'Action Sports & Live Match Photography',
       'Architectural & Venue Interior Shoots',
@@ -118,9 +118,11 @@ const PROCESS_STEPS = [
   { num: '06', title: 'Growth', desc: 'Monitoring performance parameters, optimizing campaigns, and expanding community reach.' }
 ];
 
-export default function Services() {
+// ─── SERVICE CARD ─────────────────────────────────────────────────────────────
+function ServiceCard({ service, idx }) {
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const isEven = idx % 2 === 0;
 
   const handleMouseEnter = () => {
     if (videoRef.current) {
@@ -137,6 +139,81 @@ export default function Services() {
     }
   };
 
+  return (
+    <div
+      id={service.id}
+      className="max-w-7xl mx-auto px-6 md:px-8 scroll-mt-24"
+    >
+      <div className={`grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center`}>
+        {/* Media wrapper */}
+        <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className={`lg:col-span-6 ${isEven ? 'lg:order-1' : 'lg:order-2'}`}>
+          <div className={`relative ${service.id == "photography" ? "lg:aspect-[3/4] h-[27rem] sm:h-[35rem]" : "aspect-[4/3] sm:aspect-[16/10] lg:aspect-[4/3]"} rounded-3xl overflow-hidden border border-[#e2dbd3] shadow-md bg-white group`}>
+            {/* Play button overlay — only shown for video cards */}
+            {service.video ? (
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-[10000]">
+                <div
+                  className={`w-14 h-14 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white transition-all duration-300 ${isPlaying
+                    ? 'opacity-0 scale-75'
+                    : 'opacity-100 scale-100 group-hover:scale-110 group-hover:bg-[#e95f0c] group-hover:border-[#e95f0c]'
+                    }`}
+                >
+                  <Play className="w-5 h-5 fill-current translate-x-0.5" />
+                </div>
+              </div>
+            ) : null}
+
+            {service.image ? (
+              <img
+                src={service.image}
+                alt={service.title}
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                loading="lazy"
+              />
+            ) : (
+              <video
+                ref={videoRef}
+                src={service.video}
+                loop
+                playsInline
+                className="w-full h-full object-cover"
+              />
+            )}
+          </div>
+        </div>
+
+        {/* Content wrapper */}
+        <div className={`lg:col-span-6 space-y-6 ${isEven ? 'lg:order-2' : 'lg:order-1'}`}>
+          <span className="text-[10px] font-display font-black uppercase tracking-widest text-[#e95f0c]">
+            Service {String(idx + 1).padStart(2, '0')}
+          </span>
+          <h2 className="font-display text-3xl sm:text-4xl font-black text-[#072541]">
+            {service.title}
+          </h2>
+          <p className="text-[#4a5568] text-base leading-relaxed">
+            {service.description}
+          </p>
+
+          <div className="border-t border-[#e2dbd3] pt-6">
+            <h4 className="font-display font-bold text-sm text-[#072541] uppercase tracking-wider mb-4">
+              Core Deliverables
+            </h4>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {service.deliverables.map((item, dIdx) => (
+                <li key={dIdx} className="flex items-start gap-2 text-sm text-[#4a5568]">
+                  <CheckCircle className="w-4 h-4 text-[#e95f0c] shrink-0 mt-0.5" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default function Services() {
+
   // Scroll to hash-anchor on page load or hash change
   useEffect(() => {
     const hash = window.location.hash;
@@ -151,9 +228,11 @@ export default function Services() {
     }
   }, []);
 
+  // Note: videoRef/isPlaying/handlers are now inside <ServiceCard> above.
+
   return (
     <div className="bg-[#f8f5f2] min-h-screen">
-      <SEO 
+      <SEO
         title="Our Services"
         description="Explore our creative services including digital marketing, cinematography, photography, branding, social media management, and custom content strategy."
       />
@@ -173,79 +252,9 @@ export default function Services() {
 
       {/* ── EDITORIAL SERVICES SECTIONS ── */}
       <section className="py-24 space-y-24">
-        {SERVICES_DATA.map((service, idx) => {
-          const isEven = idx % 2 === 0;
-          return (
-            <div
-              key={service.id}
-              id={service.id}
-              className="max-w-7xl mx-auto px-6 md:px-8 scroll-mt-24"
-            >
-              <div className={`grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center`}>
-                {/* Image wrapper */}
-                <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className={`lg:col-span-6 ${isEven ? 'lg:order-1' : 'lg:order-2'}`}>
-                  <div className="relative aspect-[4/3] sm:aspect-[16/10] lg:aspect-[4/3] rounded-3xl overflow-hidden border border-[#e2dbd3] shadow-md bg-white group">
-                    {/* Play button */}
-                    {service.video ? <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-[10000]">
-                      <div
-                        className={`w-14 h-14 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white transition-all duration-300 ${isPlaying
-                          ? 'opacity-0 scale-75'
-                          : 'opacity-100 scale-100 group-hover:scale-110 group-hover:bg-[#e95f0c] group-hover:border-[#e95f0c]'
-                          }`}
-                      >
-                        <Play className="w-5 h-5 fill-current translate-x-0.5" />
-                      </div>
-                    </div> : null}
-
-                    {service.image ?
-                      <img
-                        src={service.image}
-                        alt={service.title}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                        loading="lazy"
-                      />
-                      :
-                      <video
-                        ref={videoRef}
-                        src={service.video}
-                        loop
-                        playsInline
-                      />
-                    }
-                  </div>
-                </div>
-
-                {/* Content wrapper */}
-                <div className={`lg:col-span-6 space-y-6 ${isEven ? 'lg:order-2' : 'lg:order-1'}`}>
-                  <span className="text-[10px] font-display font-black uppercase tracking-widest text-[#e95f0c]">
-                    Service {String(idx + 1).padStart(2, '0')}
-                  </span>
-                  <h2 className="font-display text-3xl sm:text-4xl font-black text-[#072541]">
-                    {service.title}
-                  </h2>
-                  <p className="text-[#4a5568] text-base leading-relaxed">
-                    {service.description}
-                  </p>
-
-                  <div className="border-t border-[#e2dbd3] pt-6">
-                    <h4 className="font-display font-bold text-sm text-[#072541] uppercase tracking-wider mb-4">
-                      Core Deliverables
-                    </h4>
-                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                      {service.deliverables.map((item, dIdx) => (
-                        <li key={dIdx} className="flex items-start gap-2 text-sm text-[#4a5568]">
-                          <CheckCircle className="w-4 h-4 text-[#e95f0c] shrink-0 mt-0.5" />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          );
-        })}
+        {SERVICES_DATA.map((service, idx) => (
+          <ServiceCard key={service.id} service={service} idx={idx} />
+        ))}
       </section>
 
       {/* ── INDUSTRIES WE SERVE ── */}
