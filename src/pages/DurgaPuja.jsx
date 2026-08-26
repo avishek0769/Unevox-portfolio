@@ -80,32 +80,38 @@ const CLUB_RESULTS = [
 
 // ─── STATIC MEDIA CONTENT DEFINITIONS ───────────────────────────────────────
 const STATIC_DOCUMENTARIES = [
-  { id: 'doc-1', name: 'Behind the Art of Suruchi Sangha', type: 'video', url: '/media/durga-puja/doc-1.mp4', aspect: 'landscape' },
-  { id: 'doc-2', name: 'The Making of Kumartuli Clay', type: 'video', url: '/media/durga-puja/doc-2.mp4', aspect: 'landscape' },
-  { id: 'doc-2', name: 'The Making of Kumartuli Clay', type: 'video', url: '/media/durga-puja/doc-3.mp4', aspect: 'landscape' },
+  { id: 'doc-1', name: 'Behala Natun Dal', type: 'video', url: '/media/durga-puja/doc-1.mp4', aspect: 'landscape' },
+  { id: 'doc-2', name: 'Behala Natun Dal', type: 'video', url: '/media/durga-puja/doc-2.mp4', aspect: 'landscape' },
+  { id: 'doc-2', name: 'TMSS Behala', type: 'video', url: '/media/durga-puja/doc-3.mp4', aspect: 'landscape' },
 ];
 
 const STATIC_REELS = [
-  { id: 'reel-1', name: 'Vibrant Sindur Khela Reels', type: 'video', url: '/media/durga-puja/durga-5.mp4', aspect: 'portrait' },
-  { id: 'reel-2', name: 'Dhak Beats Live Showcase', type: 'video', url: '/media/cultural/classical-fest-2.mp4', aspect: 'portrait' },
-  { id: 'reel-3', name: 'Maha Aarti Festive Devotion', type: 'video', url: '/media/cultural/classical-fest-3.mp4', aspect: 'portrait' },
+  { id: 'reels-1', name: 'TMSS Behala', type: 'video', url: '/media/durga-puja/tmss-1.mp4', aspect: 'landscape' },
+  { id: 'reels-2', name: 'TMSS Behala', type: 'video', url: '/media/durga-puja/tmss-2.mp4', aspect: 'landscape' },
+  { id: 'reels-3', name: 'TMSS Behala', type: 'video', url: '/media/durga-puja/tmss-3.mp4', aspect: 'portrait' },
+  { id: 'reels-4', name: 'Suruchi Sangha', type: 'video', url: '/media/durga-puja/suruchi-1.mp4', aspect: 'portrait' },
+  { id: 'reels-5', name: 'Suruchi Sangha', type: 'video', url: '/media/durga-puja/suruchi-3.mp4', aspect: 'portrait' },
+  { id: 'reels-6', name: 'Suruchi Sangha', type: 'video', url: '/media/durga-puja/suruchi-4.mp4', aspect: 'portrait' },
+  { id: 'reels-7', name: 'Behala Club', type: 'video', url: '/media/durga-puja/behala-club-2.mp4', aspect: 'portrait' },
+  { id: 'reels-8', name: 'Behala Club', type: 'video', url: '/media/durga-puja/behala-club-3.mp4', aspect: 'portrait' },
+  { id: 'reels-9', name: 'Behala Club', type: 'video', url: '/media/durga-puja/behala-club-4.mp4', aspect: 'landscape' },
+  { id: 'reels-10', name: 'Forum For Durgotsav', type: 'video', url: '/media/durga-puja/forum-1.mp4', aspect: 'portrait' },
+  { id: 'reels-11', name: 'Forum For Durgotsav', type: 'video', url: '/media/durga-puja/forum-3.mp4', aspect: 'portrait' },
+  { id: 'reels-12', name: 'Forum For Durgotsav', type: 'video', url: '/media/durga-puja/forum-4.mp4', aspect: 'landscape' },
 ];
 
 const STATIC_PHOTOGRAPHY = [
-  { id: 'photo-1', name: 'Suruchi Sangha Divine Protima', type: 'photo', url: '/media/durga-puja/durga-1.jpg', aspect: 'wide' },
-  { id: 'photo-2', name: 'Architectural Details Behala Nutan Dal', type: 'photo', url: '/media/durga-puja/durga-2.jpg', aspect: 'tall' },
-  { id: 'photo-3', name: 'Pandal Lighting Glow at Night', type: 'photo', url: '/media/durga-puja/durga-3.jpg', aspect: 'landscape' },
+  // { id: 'photo-1', name: 'Suruchi Sangha Divine Protima', type: 'photo', url: '/media/durga-puja/durga-1.jpg', aspect: 'wide' },
 ];
 
 const STATIC_GRAPHICS = [
-  { id: 'graphic-1', name: 'Subho Nabami Greeting Creative', type: 'graphics', url: '/media/durga-puja/durga-4-g.jpg', aspect: 'portrait' },
-  { id: 'graphic-2', name: 'Ashtami Countdown Digital Art', type: 'graphics', url: 'https://images.unsplash.com/photo-1620121470810-64418f75d5b0?auto=format&fit=crop&w=600&q=80', aspect: 'landscape' },
-  { id: 'graphic-3', name: 'Puja Announcement Invitation', type: 'graphics', url: 'https://images.unsplash.com/photo-1561361062-856753540121?auto=format&fit=crop&w=600&q=80', aspect: 'landscape' },
 ];
 
 const STATIC_FILMS = [
-  { id: 'film-1', name: 'Utsav - The Soul of Kolkata', type: 'video', url: '/media/durga-puja/durga-5.mp4', aspect: 'portrait' },
-  { id: 'film-2', name: 'Pride of Behala Cultural Heritage', type: 'video', url: '/media/cultural/classical-fest-1.mp4', aspect: 'wide' },
+  { id: 'films-1', name: 'Suruchi Sangha', type: 'video', url: '/media/durga-puja/suruchi-2.mp4', aspect: 'landscape' },
+  { id: 'films-2', name: 'Behala Club', type: 'video', url: '/media/durga-puja/behala-club-1.mp4', aspect: 'landscape' },
+  { id: 'films-3', name: 'Forum For Durgotsav', type: 'video', url: '/media/durga-puja/forum-2.mp4', aspect: 'landscape' },
+  { id: 'films-4', name: 'Forum For Durgotsav', type: 'video', url: '/media/durga-puja/forum-5.mp4', aspect: 'landscape' },
 ];
 
 // ─── MULTI-MARQUEE CLIENT LOGOS ──────────────────────────────────────────────
@@ -165,17 +171,6 @@ export default function DurgaPuja({ onBookCall }) {
         canonicalUrl="https://unevox.com/durga-puja"
         structuredData={schemaData}
       />
-
-      {/* Decorative Bengali Motif accents */}
-      {/* <div className="absolute top-10 right-4 w-48 h-48 opacity-10 pointer-events-none select-none">
-        <img src="/assets/kans-flower.png" alt="Kans Flower Accent" className="w-full h-full object-contain" />
-      </div>
-      <div className="absolute top-[35%] left-4 w-40 h-40 opacity-15 pointer-events-none select-none">
-        <img src="/assets/durga-maa.png" alt="Durga Maa Accent" className="w-full h-full object-contain" />
-      </div>
-      <div className="absolute top-[65%] right-4 w-40 h-40 opacity-10 pointer-events-none select-none">
-        <img src="/assets/dhak.png" alt="Dhak Accent" className="w-full h-full object-contain" />
-      </div> */}
 
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center justify-center pt-24 pb-20 px-6 text-white">
@@ -508,8 +503,15 @@ function ContentSliderSection({ label, heading, description, items, onOpenLightb
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
         {items.map((item, idx) => (
-          <div key={item.id} className="snap-start" onClick={() => onOpenLightbox(items, idx)}>
+          <div
+            key={item.id}
+            className="snap-start flex flex-col gap-2 cursor-pointer"
+            onClick={() => onOpenLightbox(items, idx)}
+          >
             <MediaCard item={item} />
+            <p className="text-sm text-[#072541] font-display font-semibold truncate px-1 max-w-[13rem] sm:max-w-[17rem]">
+              {item.name}
+            </p>
           </div>
         ))}
       </div>
@@ -542,9 +544,9 @@ function MediaCard({ item }) {
       return 'w-[13rem] sm:w-[17rem] aspect-[3/4]';
     }
     if (item.aspect === 'landscape' || item.aspect === 'video') {
-      return 'w-[15rem] sm:w-[20rem] aspect-[16/10]';
+      return 'w-[15rem] sm:w-[23rem] aspect-[4/3]';
     }
-    return 'w-[15rem] sm:w-[23rem] aspect-[4/3]';
+    return 'w-[14rem] sm:w-[19rem] aspect-[1/1.2]';
   };
 
   return (
@@ -560,7 +562,6 @@ function MediaCard({ item }) {
             src={item.url}
             loop
             playsInline
-            muted
             className="absolute inset-0 w-full h-full object-cover duration-300"
           />
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-20">
@@ -582,11 +583,6 @@ function MediaCard({ item }) {
         />
       )}
 
-      <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-3 sm:p-4 z-20">
-        {/* <p className="text-white text-xs sm:text-sm font-display font-bold leading-tight drop-shadow-sm truncate">
-          {item.name}
-        </p> */}
-      </div>
     </div>
   );
 }
