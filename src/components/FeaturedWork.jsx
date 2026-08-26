@@ -266,7 +266,8 @@ function ProjectCard({ project, index }) {
 
 /* ─── Section ─── */
 export default function FeaturedWork() {
-  const [heroProject, ...restProjects] = projects;
+  const heroProject = projects.find((p) => p.featured);
+  const restProjects = projects.filter((p) => !p.featured);
 
   return (
     <section id="featured-work" className="py-20 sm:py-28 bg-[#f8f5f2]">
@@ -291,18 +292,20 @@ export default function FeaturedWork() {
           </div>
         </div>
 
-        {/* Hero card */}
-        <div className="mb-5 sm:mb-6">
-          <HeroCard project={heroProject} />
-        </div>
+        {/* Hero card (Only if a featured project exists) */}
+        {heroProject && (
+          <div className="mb-5 sm:mb-6">
+            <HeroCard project={heroProject} />
+          </div>
+        )}
 
-        {/* 3-column grid for remaining 3 cards */}
+        {/* Grid for regular cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6">
           {restProjects.map((project, idx) => (
             <ProjectCard
               key={project.id}
               project={project}
-              index={idx + 2}
+              index={heroProject ? idx + 2 : idx + 1}
             />
           ))}
         </div>
