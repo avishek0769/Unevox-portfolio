@@ -6,24 +6,28 @@ import { Link } from 'react-router-dom';
 // ─── STATIC DATA FOR CLUBS ───────────────────────────────────────────────────
 const CLUBS = [
   {
+    id: "club-1",
     name: 'Suruchi Sangha',
     logo: '/client_logos/Suruchi_Sangha-logo.png',
     work: 'Comprehensive digital campaign management, cinematic theme storytelling reels, real-time social handle coverage, and sponsor spotlight highlights.',
     testimonial: 'Unevox transformed our digital presence. Their cinematic reels captured the true art and soul of our theme, making our pandal go viral across Bengal.',
   },
   {
+    id: "club-2",
     name: 'Behala Nutan Dal',
     logo: '/client_logos/behala_nutan_dal-logo.png',
     work: 'In-depth craft documentary, architectural lighting showcase reels, and countdown creative design.',
     testimonial: 'The theme documentary created by Unevox was exceptional. They beautifully highlighted the tireless efforts of our artists and craftsmen.',
   },
   {
-    name: 'Suruchi Sangha',
-    logo: '/client_logos/Suruchi_Sangha-logo.png',
+    id: "club-3",
+    name: 'Tarun Matri Sevak Samity',
+    logo: '/client_logos/tarun_matri_sevak_samity-logo.png',
     work: 'Comprehensive digital campaign management, cinematic theme storytelling reels, real-time social handle coverage, and sponsor spotlight highlights.',
     testimonial: 'Unevox transformed our digital presence. Their cinematic reels captured the true art and soul of our theme, making our pandal go viral across Bengal.',
   },
   {
+    id: "club-4",
     name: 'Behala Nutan Dal',
     logo: '/client_logos/behala_nutan_dal-logo.png',
     work: 'In-depth craft documentary, architectural lighting showcase reels, and countdown creative design.',
@@ -46,7 +50,7 @@ const CLUB_RESULTS = [
   {
     name: 'Suruchi Sangha',
     logo: '/client_logos/Suruchi_Sangha-logo.png',
-    campaign: 'Cinematic Narrative Campaign',
+    // campaign: 'Cinematic Narrative Campaign',
     desc: 'Complete digital strategy & theme storytelling launch. The thematic teaser went viral across social media channels, drawing unprecedented footfall.',
     stats: [
       { value: '2.4M+', label: 'Total Views' },
@@ -57,7 +61,7 @@ const CLUB_RESULTS = [
   {
     name: 'Behala Nutan Dal',
     logo: '/client_logos/behala_nutan_dal-logo.png',
-    campaign: 'Art & Craft Documentary Series',
+    // campaign: 'Art & Craft Documentary Series',
     desc: 'An in-depth, artistic video feature profiling the sculptors and pandal planners. Widely shared by design and heritage forums.',
     stats: [
       { value: '1800+', label: 'Facebook Followers in a month' },
@@ -65,24 +69,24 @@ const CLUB_RESULTS = [
       { value: '600K+', label: 'Profile Visits' },
     ]
   },
-  // {
-  //   name: 'Behala SS Sporting Club',
-  //   logo: '/client_logos/behala_ss_sporting_club-logo.png',
-  //   campaign: 'Real-Time Festive Recap',
-  //   desc: 'Daily 60-second high-energy recaps of peak crowd interactions, VIP visitor experiences, and interactive audience contests.',
-  //   stats: [
-  //     { value: '1.6M+', label: 'Impressions' },
-  //     { value: '+210%', label: 'Follower Growth' },
-  //     { value: '150K+', label: 'Interactions' },
-  //   ]
-  // }
+  {
+    name: 'Tarun Matri Sevak Samity',
+    logo: '/client_logos/tarun_matri_sevak_samity-logo.png',
+    // campaign: 'Real-Time Festive Recap',
+    desc: 'Daily 60-second high-energy recaps of peak crowd interactions, VIP visitor experiences, and interactive audience contests.',
+    stats: [
+      { value: '1.6M+', label: 'Impressions' },
+      { value: '+210%', label: 'Follower Growth' },
+      { value: '150K+', label: 'Interactions' },
+    ]
+  }
 ];
 
 // ─── STATIC MEDIA CONTENT DEFINITIONS ───────────────────────────────────────
 const STATIC_DOCUMENTARIES = [
   { id: 'doc-1', name: 'Behala Natun Dal', type: 'video', url: '/media/durga-puja/doc-1.mp4', aspect: 'landscape' },
   { id: 'doc-2', name: 'Behala Natun Dal', type: 'video', url: '/media/durga-puja/doc-2.mp4', aspect: 'landscape' },
-  { id: 'doc-2', name: 'TMSS Behala', type: 'video', url: '/media/durga-puja/doc-3.mp4', aspect: 'landscape' },
+  { id: 'doc-3', name: 'TMSS Behala', type: 'video', url: '/media/durga-puja/doc-3.mp4', aspect: 'landscape' },
 ];
 
 const STATIC_REELS = [
@@ -118,8 +122,9 @@ const STATIC_FILMS = [
 const MARQUEE_LOGOS = [
   '/client_logos/Suruchi_Sangha-logo.png',
   '/client_logos/behala_nutan_dal-logo.png',
-  '/client_logos/behala_ss_sporting_club-logo.png',
   '/client_logos/tarun_matri_sevak_samity-logo.png',
+  '/client_logos/behala-club-logo.png',
+  '/client_logos/forum-logo.png',
 ];
 
 export default function DurgaPuja({ onBookCall }) {
@@ -229,7 +234,7 @@ export default function DurgaPuja({ onBookCall }) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
           {CLUBS.map((club) => (
             <div
-              key={club.name}
+              key={club.id}
               className="relative p-6 sm:p-8 rounded-3xl bg-white border border-[#e2dbd3] hover:border-[#e95f0c] transition-all duration-300 hover:shadow-xl group flex flex-col justify-between"
             >
               <div className="absolute top-6 right-8 opacity-20 group-hover:opacity-40 transition-opacity">
@@ -396,13 +401,26 @@ export default function DurgaPuja({ onBookCall }) {
       </section>
 
       {/* Scrolling Client Marquee */}
-      <section className="py-14 bg-white border-y border-[#e2dbd3] overflow-hidden relative z-10">
+      <section className="py-14 bg-white border-y border-[#e2dbd3] relative z-10">
         <div className="max-w-7xl mx-auto px-6 mb-8 text-center">
-          <p className="text-xs uppercase font-extrabold text-[#072541]/50 tracking-widest">{`Our Campaign Partners`}</p>
+          <p className="text-sm uppercase font-extrabold text-[#072541]/50 tracking-widest">{`Our Campaign Partners`}</p>
         </div>
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex flex-wrap gap-14 sm:gap-12 md:gap-36 items-center justify-center py-2">
+            {MARQUEE_LOGOS.map((logo, idx) => (
+              <img
+                key={idx}
+                src={logo}
+                alt="Puja Partner Logo"
+                className="h-16 sm:h-24 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Commented out scrolling marquee loop
         <div className="relative w-full overflow-hidden">
-          {/* 4 copies so -25% CSS translate gives a perfect seamless loop */}
-          <div className="flex gap-20 items-center whitespace-nowrap animate-marquee py-2 select-none pointer-events-none">
+          <div className="flex gap-20 items-center whitespace-nowrap  py-2 select-none pointer-events-none">
             {[...MARQUEE_LOGOS, ...MARQUEE_LOGOS, ...MARQUEE_LOGOS, ...MARQUEE_LOGOS].map((logo, idx) => (
               <img
                 key={idx}
@@ -413,6 +431,7 @@ export default function DurgaPuja({ onBookCall }) {
             ))}
           </div>
         </div>
+        */}
       </section>
 
       {/* Final CTA */}
