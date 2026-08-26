@@ -80,9 +80,9 @@ const CLUB_RESULTS = [
 
 // ─── STATIC MEDIA CONTENT DEFINITIONS ───────────────────────────────────────
 const STATIC_DOCUMENTARIES = [
-  { id: 'doc-1', name: 'Behind the Art of Suruchi Sangha', type: 'video', url: '/media/durga-puja/doc-1.mp4', aspect: 'square' },
-  { id: 'doc-2', name: 'The Making of Kumartuli Clay', type: 'video', url: '/media/durga-puja/doc-2.mp4', aspect: 'square' },
-  { id: 'doc-2', name: 'The Making of Kumartuli Clay', type: 'video', url: '/media/durga-puja/doc-3.mp4', aspect: 'square' },
+  { id: 'doc-1', name: 'Behind the Art of Suruchi Sangha', type: 'video', url: '/media/durga-puja/doc-1.mp4', aspect: 'landscape' },
+  { id: 'doc-2', name: 'The Making of Kumartuli Clay', type: 'video', url: '/media/durga-puja/doc-2.mp4', aspect: 'landscape' },
+  { id: 'doc-2', name: 'The Making of Kumartuli Clay', type: 'video', url: '/media/durga-puja/doc-3.mp4', aspect: 'landscape' },
 ];
 
 const STATIC_REELS = [
@@ -99,8 +99,8 @@ const STATIC_PHOTOGRAPHY = [
 
 const STATIC_GRAPHICS = [
   { id: 'graphic-1', name: 'Subho Nabami Greeting Creative', type: 'graphics', url: '/media/durga-puja/durga-4-g.jpg', aspect: 'portrait' },
-  { id: 'graphic-2', name: 'Ashtami Countdown Digital Art', type: 'graphics', url: 'https://images.unsplash.com/photo-1620121470810-64418f75d5b0?auto=format&fit=crop&w=600&q=80', aspect: 'square' },
-  { id: 'graphic-3', name: 'Puja Announcement Invitation', type: 'graphics', url: 'https://images.unsplash.com/photo-1561361062-856753540121?auto=format&fit=crop&w=600&q=80', aspect: 'square' },
+  { id: 'graphic-2', name: 'Ashtami Countdown Digital Art', type: 'graphics', url: 'https://images.unsplash.com/photo-1620121470810-64418f75d5b0?auto=format&fit=crop&w=600&q=80', aspect: 'landscape' },
+  { id: 'graphic-3', name: 'Puja Announcement Invitation', type: 'graphics', url: 'https://images.unsplash.com/photo-1561361062-856753540121?auto=format&fit=crop&w=600&q=80', aspect: 'landscape' },
 ];
 
 const STATIC_FILMS = [

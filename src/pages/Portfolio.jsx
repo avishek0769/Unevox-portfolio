@@ -36,7 +36,7 @@ function deriveType(url) {
 }
 
 // ─── ALL MEDIA ────────────────────────────────────────────────────────────────
-// aspect: 'portrait'(9:16) | 'landscape'(16:9) | 'square'(1:1) | 'wide'(4:3) | 'tall'(3:4)
+// aspect: 'portrait'(9:16) | 'landscape'(16:9) | 'landscape'(1:1) | 'wide'(4:3) | 'tall'(3:4)
 const ALL_MEDIA = [
   // ── SPORTS ──
   { id: 'sp-1', categoryId: 'sports', url: '/media/sports/n24-1.jpg', aspect: 'tall' },
@@ -365,7 +365,7 @@ export default function Portfolio() {
             id: item.id,
             categoryId: item.category,
             url: item.url,
-            aspect: item.aspect || 'square',
+            aspect: item.aspect || 'landscape',
             type: item.type === 'video' ? 'video' : deriveType(item.url),
           }));
         if (sanityItems.length > 0) {
@@ -425,7 +425,7 @@ export default function Portfolio() {
 
   return (
     <div className="bg-[#f8f5f2] min-h-screen">
-      <SEO 
+      <SEO
         title={`${activeCatName} Portfolio`}
         description={`Explore our creative works, videography, photography, and campaign graphics for ${activeCatName} category.`}
       />
