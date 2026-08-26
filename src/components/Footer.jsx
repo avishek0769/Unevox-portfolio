@@ -36,7 +36,6 @@ const quickLinks = [
   { name: 'Achievements', path: '/achievements' },
   { name: 'Durga Puja', path: '/durga-puja' },
   { name: 'Blogs', path: '/blogs' },
-  { name: 'Contact', path: '/contact' },
 ];
 
 const serviceLinks = [
