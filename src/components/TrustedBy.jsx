@@ -46,22 +46,19 @@ export default function TrustedBy() {
                 onTouchEnd={() => setActiveLogo(null)}
                 onTouchCancel={() => setActiveLogo(null)}
                 className={`w-[calc(50%-12px)] sm:w-[calc(33.33%-16px)] md:w-[calc(25%-18px)] lg:w-[calc(16.66%-20px)] flex flex-col items-center justify-center gap-3 p-4 rounded-2xl border bg-[#f8f5f2] transition-all duration-250 group ${isActive
-                    ? 'border-[#e95f0c] shadow-md'
-                    : 'border-[#e2dbd3] hover:border-[#e95f0c] hover:shadow-md'
+                  ? 'border-[#e95f0c] shadow-md'
+                  : 'border-[#e2dbd3] hover:border-[#e95f0c] hover:shadow-md'
                   }`}
               >
                 <img
                   src={logo.file}
                   alt={logo.name}
-                  className={`h-14 w-full object-contain transition-all duration-300 ${isActive
-                      ? 'grayscale-0'
-                      : 'grayscale group-hover:grayscale-0'
-                    }`}
+                  className={`h-14 w-full object-contain `}
                   loading="lazy"
                 />
                 <span className={`text-center text-sm font-semibold transition-colors leading-tight line-clamp-2 ${isActive
-                    ? 'text-[#e95f0c]'
-                    : 'text-[#4a5568] group-hover:text-[#e95f0c]'
+                  ? 'text-[#e95f0c]'
+                  : 'text-[#4a5568] group-hover:text-[#e95f0c]'
                   }`}>
                   {logo.name}
                 </span>

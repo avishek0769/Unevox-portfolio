@@ -3,17 +3,17 @@ import { Link } from 'react-router-dom';
 import { ArrowUpRight, ExternalLink } from 'lucide-react';
 
 const projects = [
-  {
-    id: 'durand-baghpat',
-    league: 'Durand Cup',
-    team: 'Baghpat FC',
-    // description: "Captured match highlights, behind-the-scenes moments, and social media content throughout Asia's oldest football tournament — fuelling Baghpat FC's digital presence.",
-    image: 'https://images.unsplash.com/photo-1766525133589-e3b4b090c04b?q=80&w=1170&auto=format&fit=crop',
-    leagueLogo: '/client_logos/Durand_Cup.svg.webp',
-    accentColor: '#e95f0c',
-    slug: '/portfolio?cat=sports',
-    featured: true,
-  },
+  // {
+  //   id: 'durand-baghpat',
+  //   league: 'Durand Cup',
+  //   team: 'Baghpat FC',
+  //   // description: "Captured match highlights, behind-the-scenes moments, and social media content throughout Asia's oldest football tournament — fuelling Baghpat FC's digital presence.",
+  //   image: 'https://images.unsplash.com/photo-1766525133589-e3b4b090c04b?q=80&w=1170&auto=format&fit=crop',
+  //   leagueLogo: '/client_logos/Durand_Cup.svg.webp',
+  //   accentColor: '#e95f0c',
+  //   slug: '/portfolio?cat=sports',
+  //   featured: true,
+  // },
   {
     id: 'cfl-behala-ss',
     league: 'Bengal Super League',

@@ -221,7 +221,7 @@ export default function DurgaPuja({ onBookCall }) {
       </section>
 
       {/* Clubs Testimonials Section */}
-      <section id="clubs" className="py-20 px-6 max-w-7xl mx-auto relative z-10">
+      {/* <section id="clubs" className="py-20 px-6 max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16">
           <h2 className="font-display text-3xl sm:text-5xl font-black text-[#072541] mb-4">
             {`KOLKATA'S PROUD PUJA CLUBS`}
@@ -266,7 +266,7 @@ export default function DurgaPuja({ onBookCall }) {
             </div>
           ))}
         </div>
-      </section>
+      </section> */}
 
       {/* Info / Why Section */}
       <section className="py-20 bg-[#072541] text-white relative">
