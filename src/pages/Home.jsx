@@ -45,7 +45,7 @@ export default function Home({ onBookCall }) {
       <PortfolioPreview />
       <ServicesPreview />
       <AboutPreview />
-      <Testimonials />
+      {/* <Testimonials /> */}
       <LatestBlogs />
       <ContactCTA onBookCall={onBookCall} />
     </div>
