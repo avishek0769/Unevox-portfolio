@@ -35,8 +35,7 @@ function ReelCard({ reel }) {
     >
       {/* Video Container */}
       <div
-        className={`relative w-full rounded-3xl overflow-hidden border border-[#e2dbd3] bg-black group-hover:border-[#e95f0c] group-hover:shadow-2xl transition-all duration-300 ${isPortrait ? 'aspect-[3/4]' : 'aspect-[4/3]'
-          }`}
+        className={`relative w-full rounded-3xl overflow-hidden border border-[#e2dbd3] bg-black group-hover:border-[#e95f0c] group-hover:shadow-2xl transition-all duration-300 ${isPortrait ? 'aspect-[3/4]' : 'aspect-[4/3]'}`}
       >
         {/* Video element */}
         <video
