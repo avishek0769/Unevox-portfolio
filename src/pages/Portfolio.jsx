@@ -12,7 +12,7 @@ const CATEGORIES = [
   { id: 'cultural', name: 'Cultural' },
   { id: 'durga-puja', name: 'Durga Puja' },
   { id: 'industries', name: 'Industries' },
-  { id: 'education', name: 'Education' },
+  // { id: 'education', name: 'Education' },
   { id: 'cafe-food', name: 'Cafe & Food' },
   { id: 'banquets', name: 'Banquets' },
 ];
@@ -36,9 +36,28 @@ function deriveType(url) {
 }
 
 // ─── ALL MEDIA ────────────────────────────────────────────────────────────────
-// aspect: 'portrait'(9:16) | 'landscape'(16:9) | 'landscape'(1:1) | 'wide'(4:3) | 'tall'(3:4)
+// aspect: 'portrait'(9:16) | 'landscape'(16:9) | 'wide'(4:3) | 'tall'(3:4) | default/square(1:1)
 const ALL_MEDIA = [
   // ── SPORTS ──
+  { id: 'sp-13', categoryId: 'sports', url: '/media/sports/bsl-north-24-1.mp4', aspect: 'portrait' },
+  { id: 'sp-14', categoryId: 'sports', url: '/media/sports/bsl-north-24-2.mp4', aspect: 'tall' },
+  { id: 'sp-15', categoryId: 'sports', url: '/media/sports/bsl-north-24-3.mp4', aspect: 'portrait' },
+  { id: 'sp-16', categoryId: 'sports', url: '/media/sports/bsl-north-24-4.mp4', aspect: 'portrait' },
+  { id: 'sp-17', categoryId: 'sports', url: '/media/sports/cfl-bss-1.mp4', aspect: 'portrait' },
+  { id: 'sp-18', categoryId: 'sports', url: '/media/sports/cfl-bss-2.mp4', aspect: 'portrait' },
+  { id: 'sp-19', categoryId: 'sports', url: '/media/sports/cfl-bss-3.mp4', aspect: 'portrait' },
+  { id: 'sp-20', categoryId: 'sports', url: '/media/sports/cfl-bss-4.mp4', aspect: 'portrait' },
+  { id: 'sp-21', categoryId: 'sports', url: '/media/sports/fc_banaras-1.mp4', aspect: 'wide' },
+  { id: 'sp-31', categoryId: 'sports', url: '/media/sports/fc-banaras-2.mp4', aspect: 'portrait' },
+  { id: 'sp-22', categoryId: 'sports', url: '/media/sports/dpdl-1-g.jpg', aspect: 'tall' },
+  { id: 'sp-23', categoryId: 'sports', url: '/media/sports/dpdl-1.jpg', aspect: 'tall' },
+  { id: 'sp-24', categoryId: 'sports', url: '/media/sports/dpdl-1.mp4', aspect: 'portrait' },
+  { id: 'sp-25', categoryId: 'sports', url: '/media/sports/dpdl-2-g.jpg', aspect: 'tall' },
+  { id: 'sp-26', categoryId: 'sports', url: '/media/sports/dpdl-2.jpg', aspect: 'tall' },
+  { id: 'sp-27', categoryId: 'sports', url: '/media/sports/dpdl-2.mp4', aspect: 'portrait' },
+  { id: 'sp-28', categoryId: 'sports', url: '/media/sports/dpdl-3-g.jpg', aspect: 'tall' },
+  { id: 'sp-29', categoryId: 'sports', url: '/media/sports/dpdl-3.jpg', aspect: 'tall' },
+  { id: 'sp-30', categoryId: 'sports', url: '/media/sports/dpdl-4-g.jpg', aspect: 'tall' },
   { id: 'sp-1', categoryId: 'sports', url: '/media/sports/n24-1.jpg', aspect: 'tall' },
   { id: 'sp-2', categoryId: 'sports', url: '/media/sports/n24-2.jpg', aspect: 'tall' },
   { id: 'sp-3', categoryId: 'sports', url: '/media/sports/n24-3.jpg', aspect: 'tall' },
@@ -51,21 +70,12 @@ const ALL_MEDIA = [
   { id: 'sp-10', categoryId: 'sports', url: '/media/sports/cfl-suruchi-2-g.jpg', aspect: 'tall' },
   { id: 'sp-11', categoryId: 'sports', url: '/media/sports/cfl-suruchi-3-g.jpg', aspect: 'tall' },
   { id: 'sp-12', categoryId: 'sports', url: '/media/sports/cfl-suruchi-4-g.jpg', aspect: 'tall' },
-  { id: 'sp-13', categoryId: 'sports', url: '/media/sports/bsl-north-24-1.mp4', aspect: 'tall' },
-  { id: 'sp-14', categoryId: 'sports', url: '/media/sports/bsl-north-24-2.mp4', aspect: 'tall' },
-  { id: 'sp-15', categoryId: 'sports', url: '/media/sports/bsl-north-24-3.mp4', aspect: 'tall' },
-  { id: 'sp-16', categoryId: 'sports', url: '/media/sports/bsl-north-24-4.mp4', aspect: 'portrait' },
-  { id: 'sp-17', categoryId: 'sports', url: '/media/sports/cfl-bss-1.mp4', aspect: 'tall' },
-  { id: 'sp-18', categoryId: 'sports', url: '/media/sports/cfl-bss-2.mp4', aspect: 'tall' },
-  { id: 'sp-19', categoryId: 'sports', url: '/media/sports/cfl-bss-3.mp4', aspect: 'portrait' },
-  { id: 'sp-20', categoryId: 'sports', url: '/media/sports/cfl-bss-4.mp4', aspect: 'portrait' },
-  { id: 'sp-21', categoryId: 'sports', url: '/media/sports/fc_banaras-1.mp4', aspect: 'wide' },
 
   // ── CULTURAL ──
-  { id: 'cu-1', categoryId: 'cultural', url: '/media/cultural/classical-fest-1.mp4', aspect: 'wide' },
+  { id: 'cu-1', categoryId: 'cultural', url: '/media/cultural/classical-fest-1.mp4', aspect: 'landscape' },
   { id: 'cu-2', categoryId: 'cultural', url: '/media/cultural/classical-fest-2.mp4', aspect: 'portrait' },
   { id: 'cu-3', categoryId: 'cultural', url: '/media/cultural/classical-fest-3.mp4', aspect: 'portrait' },
-  { id: 'cu-4', categoryId: 'cultural', url: '/media/cultural/classical-fest-4.mp4', aspect: 'wide' },
+  { id: 'cu-4', categoryId: 'cultural', url: '/media/cultural/classical-fest-4.mp4', aspect: 'landscape' },
   { id: 'cu-5', categoryId: 'cultural', url: '/media/cultural/theatre-fest-1.mp4', aspect: 'portrait' },
   { id: 'cu-6', categoryId: 'cultural', url: '/media/cultural/theatre-fest-2.mp4', aspect: 'portrait' },
   { id: 'cu-7', categoryId: 'cultural', url: '/media/cultural/theatre-fest-3.mp4', aspect: 'landscape' },
@@ -73,7 +83,7 @@ const ALL_MEDIA = [
   { id: 'cu-9', categoryId: 'cultural', url: '/media/cultural/bachonik-1.mp4', aspect: 'landscape' },
   { id: 'cu-10', categoryId: 'cultural', url: '/media/cultural/bachonik-2.mp4', aspect: 'portrait' },
   { id: 'cu-11', categoryId: 'cultural', url: '/media/cultural/bachonik-3.mp4', aspect: 'portrait' },
-  { id: 'cu-12', categoryId: 'cultural', url: '/media/cultural/bachonik-4.mp4', aspect: 'tall' },
+  { id: 'cu-12', categoryId: 'cultural', url: '/media/cultural/bachonik-4.mp4', aspect: 'portrait' },
   { id: 'cu-13', categoryId: 'cultural', url: '/media/cultural/Godhuli-1.mp4', aspect: 'portrait' },
   { id: 'cu-14', categoryId: 'cultural', url: '/media/cultural/Godhuli-2.mp4', aspect: 'portrait' },
   { id: 'cu-15', categoryId: 'cultural', url: '/media/cultural/Godhuli-3.mp4', aspect: 'portrait' },
@@ -82,29 +92,66 @@ const ALL_MEDIA = [
   { id: 'cu-18', categoryId: 'cultural', url: '/media/cultural/Godhuli-3-g.jpg', aspect: 'tall' },
 
   // ── DURGA PUJA ──
-  { id: 'dp-1', categoryId: 'durga-puja', url: '/media/durga-puja/durga-1.jpg', aspect: 'wide' },
-  { id: 'dp-2', categoryId: 'durga-puja', url: '/media/durga-puja/durga-2.jpg', aspect: 'tall' },
-  { id: 'dp-3', categoryId: 'durga-puja', url: '/media/durga-puja/durga-3.jpg', aspect: 'landscape' },
-  { id: 'dp-4', categoryId: 'durga-puja', url: '/media/durga-puja/durga-4-g.jpg', aspect: 'portrait' },
-  { id: 'dp-5', categoryId: 'durga-puja', url: '/media/durga-puja/durga-5.mp4', aspect: 'portrait' },
+  { id: 'dp-1', categoryId: 'durga-puja', url: '/media/durga-puja/behala-club-1.mp4', aspect: 'landscape' },
+  { id: 'dp-2', categoryId: 'durga-puja', url: '/media/durga-puja/behala-club-2.mp4', aspect: 'portrait' },
+  { id: 'dp-3', categoryId: 'durga-puja', url: '/media/durga-puja/behala-club-3.mp4', aspect: 'portrait' },
+  { id: 'dp-4', categoryId: 'durga-puja', url: '/media/durga-puja/behala-club-4.mp4', aspect: 'landscape' },
+  { id: 'dp-5', categoryId: 'durga-puja', url: '/media/durga-puja/doc-1.mp4', aspect: 'landscape' },
+  { id: 'dp-6', categoryId: 'durga-puja', url: '/media/durga-puja/doc-2.mp4', aspect: 'landscape' },
+  { id: 'dp-7', categoryId: 'durga-puja', url: '/media/durga-puja/doc-3.mp4', aspect: 'landscape' },
+  { id: 'dp-8', categoryId: 'durga-puja', url: '/media/durga-puja/forum-1.mp4', aspect: 'portrait' },
+  { id: 'dp-9', categoryId: 'durga-puja', url: '/media/durga-puja/forum-2.mp4', aspect: 'landscape' },
+  { id: 'dp-10', categoryId: 'durga-puja', url: '/media/durga-puja/forum-3.mp4', aspect: 'portrait' },
+  { id: 'dp-11', categoryId: 'durga-puja', url: '/media/durga-puja/forum-4.mp4', aspect: 'landscape' },
+  { id: 'dp-12', categoryId: 'durga-puja', url: '/media/durga-puja/forum-5.mp4', aspect: 'landscape' },
+  { id: 'dp-13', categoryId: 'durga-puja', url: '/media/durga-puja/suruchi-1.mp4', aspect: 'portrait' },
+  { id: 'dp-14', categoryId: 'durga-puja', url: '/media/durga-puja/suruchi-2.mp4', aspect: 'landscape' },
+  { id: 'dp-15', categoryId: 'durga-puja', url: '/media/durga-puja/suruchi-3.mp4', aspect: 'portrait' },
+  { id: 'dp-16', categoryId: 'durga-puja', url: '/media/durga-puja/suruchi-4.mp4', aspect: 'portrait' },
+  { id: 'dp-17', categoryId: 'durga-puja', url: '/media/durga-puja/tmss-1.mp4', aspect: 'landscape' },
+  { id: 'dp-18', categoryId: 'durga-puja', url: '/media/durga-puja/tmss-2.mp4', aspect: 'landscape' },
+  { id: 'dp-19', categoryId: 'durga-puja', url: '/media/durga-puja/tmss-3.mp4', aspect: 'portrait' },
 
   // ── INDUSTRIES ──
-  { id: 'in-1', categoryId: 'industries', url: '/media/industries/industries-1.jpg', aspect: 'wide' },
-  { id: 'in-2', categoryId: 'industries', url: '/media/industries/industries-2-g.jpg', aspect: 'portrait' },
-  { id: 'in-3', categoryId: 'industries', url: '/media/industries/industries-3.mp4', aspect: 'portrait' },
-
-  // ── EDUCATION ──
-  { id: 'ed-1', categoryId: 'education', url: '/media/education/education-1.jpg', aspect: 'wide' },
-  { id: 'ed-2', categoryId: 'education', url: '/media/education/education-2-g.jpg', aspect: 'portrait' },
+  { id: 'in-1', categoryId: 'industries', url: '/media/industries/creative-1.mp4', aspect: 'portrait' },
+  { id: 'in-2', categoryId: 'industries', url: '/media/industries/creative-2.mp4', aspect: 'portrait' },
+  { id: 'in-3', categoryId: 'industries', url: '/media/industries/creative-3.mp4', aspect: 'portrait' },
+  { id: 'in-4', categoryId: 'industries', url: '/media/industries/creative-4.mp4', aspect: 'portrait' },
+  { id: 'in-5', categoryId: 'industries', url: '/media/industries/creative-1-g.jpg', aspect: 'square' },
+  { id: 'in-6', categoryId: 'industries', url: '/media/industries/creative-2-g.jpg', aspect: 'square' },
+  { id: 'in-7', categoryId: 'industries', url: '/media/industries/creative-3-g.jpg', aspect: 'square' },
+  { id: 'in-8', categoryId: 'industries', url: '/media/industries/creative-4-g.jpg', aspect: 'square' },
+  { id: 'in-9', categoryId: 'industries', url: '/media/industries/ripley-1-g.jpg', aspect: 'square' },
+  { id: 'in-10', categoryId: 'industries', url: '/media/industries/ripley-2-g.jpg', aspect: 'square' },
 
   // ── CAFE & FOOD ──
-  { id: 'cf-1', categoryId: 'cafe-food', url: '/media/cafe-food/cafe-1.jpg', aspect: 'wide' },
-  { id: 'cf-2', categoryId: 'cafe-food', url: '/media/cafe-food/cafe-2-g.jpg', aspect: 'portrait' },
-  { id: 'cf-3', categoryId: 'cafe-food', url: '/media/cafe-food/cafe-3.mp4', aspect: 'portrait' },
+  { id: 'cf-1', categoryId: 'cafe-food', url: '/media/cafe-food/lakshmisree-1.mp4', aspect: 'landscape' },
+  { id: 'cf-2', categoryId: 'cafe-food', url: '/media/cafe-food/lakshmisree-2.mp4', aspect: 'landscape' },
+  { id: 'cf-3', categoryId: 'cafe-food', url: '/media/cafe-food/lakshmisree-3.mp4', aspect: 'portrait' },
+  { id: 'cf-4', categoryId: 'cafe-food', url: '/media/cafe-food/lakshmisree-4.mp4', aspect: 'portrait' },
+  { id: 'cf-5', categoryId: 'cafe-food', url: '/media/cafe-food/maharaja-1.mp4', aspect: 'portrait' },
+  { id: 'cf-6', categoryId: 'cafe-food', url: '/media/cafe-food/maharaja-2.mp4', aspect: 'portrait' },
+  { id: 'cf-7', categoryId: 'cafe-food', url: '/media/cafe-food/maharaja-3.mp4', aspect: 'portrait' },
+  { id: 'cf-8', categoryId: 'cafe-food', url: '/media/cafe-food/maharaja-4.mp4', aspect: 'portrait' },
+  { id: 'cf-9', categoryId: 'cafe-food', url: '/media/cafe-food/maharaja-5.mp4', aspect: 'landscape' },
+  { id: 'cf-10', categoryId: 'cafe-food', url: '/media/cafe-food/maharaja-6.mp4', aspect: 'landscape' },
+  { id: 'cf-11', categoryId: 'cafe-food', url: '/media/cafe-food/maharaja-7.mp4', aspect: 'portrait' },
+  { id: 'cf-12', categoryId: 'cafe-food', url: '/media/cafe-food/shoreline-1.mp4', aspect: 'portrait' },
+  { id: 'cf-13', categoryId: 'cafe-food', url: '/media/cafe-food/shoreline-2.mp4', aspect: 'portrait' },
+  { id: 'cf-14', categoryId: 'cafe-food', url: '/media/cafe-food/shoreline-3.mp4', aspect: 'portrait' },
+  { id: 'cf-15', categoryId: 'cafe-food', url: '/media/cafe-food/shoreline-4.mp4', aspect: 'portrait' },
 
   // ── BANQUETS ──
-  { id: 'bq-1', categoryId: 'banquets', url: '/media/banquets/banquet-1.jpg', aspect: 'landscape' },
-  { id: 'bq-2', categoryId: 'banquets', url: '/media/banquets/banquet-2-g.jpg', aspect: 'portrait' },
+  { id: 'bq-1', categoryId: 'banquets', url: '/media/banquets/rainbow-1.mp4', aspect: 'portrait' },
+  { id: 'bq-2', categoryId: 'banquets', url: '/media/banquets/rainbow-2.mp4', aspect: 'portrait' },
+  { id: 'bq-3', categoryId: 'banquets', url: '/media/banquets/rainbow-3.mp4', aspect: 'portrait' },
+  { id: 'bq-4', categoryId: 'banquets', url: '/media/banquets/rainbow-4.mp4', aspect: 'portrait' },
+  { id: 'bq-5', categoryId: 'banquets', url: '/media/banquets/rainbow-5.mp4', aspect: 'portrait' },
+  { id: 'bq-6', categoryId: 'banquets', url: '/media/banquets/rainbow-6.mp4', aspect: 'portrait' },
+  { id: 'bq-7', categoryId: 'banquets', url: '/media/banquets/rainbow-7.mp4', aspect: 'portrait' },
+  { id: 'bq-8', categoryId: 'banquets', url: '/media/banquets/rainbow-8.mp4', aspect: 'portrait' },
+  { id: 'bq-9', categoryId: 'banquets', url: '/media/banquets/rainbow-9.mp4', aspect: 'portrait' },
+  { id: 'bq-10', categoryId: 'banquets', url: '/media/banquets/rainbow-10.mp4', aspect: 'portrait' },
 ].map((item) => ({ ...item, type: deriveType(item.url) }));
 
 const PAGE_SIZE = 18;
@@ -386,6 +433,7 @@ export default function Portfolio() {
   }, [setSearchParams]);
 
   const filtered = allMedia.filter((m) => {
+    if (m.categoryId === 'education') return false;
     const catMatch = activeCat === 'all' || m.categoryId === activeCat;
     const typeMatch = activeType === 'all' || m.type === activeType;
     return catMatch && typeMatch;
@@ -446,16 +494,24 @@ export default function Portfolio() {
 
       {/* ── FILTERS (sticky) ── */}
       <div className="sticky top-[64px] z-40 bg-[#f8f5f2]/95 backdrop-blur-sm border-b border-[#e2dbd3]">
-        <div className="max-w-7xl mx-auto px-6 md:px-8">
+        <div className="max-w-7xl mx-auto px-6 md:px-8 flex flex-col md:flex-row gap-4 md:gap-14 items-start md:items-center overflow-scroll">
 
           {/* Campaign category row */}
           <div className="pt-3 pb-1">
             <p className="text-[10px] font-display font-black uppercase tracking-widest text-[#e95f0c] mb-1.5">
               Campaign
             </p>
-            <div className="flex items-center gap-2 overflow-x-auto pb-2" style={{ scrollbarWidth: 'none' }}>
+
+            <div
+              className="flex items-center gap-2 overflow-x-auto pb-2"
+              style={{ scrollbarWidth: 'none' }}
+            >
               {CATEGORIES.map((c) => (
-                <Pill key={c.id} active={activeCat === c.id} onClick={() => handleSetCat(c.id)}>
+                <Pill
+                  key={c.id}
+                  active={activeCat === c.id}
+                  onClick={() => handleSetCat(c.id)}
+                >
                   {c.name}
                 </Pill>
               ))}
@@ -463,18 +519,24 @@ export default function Portfolio() {
           </div>
 
           {/* Media type row */}
-          <div className="pb-3">
-            <p className="text-[10px] font-display font-black uppercase tracking-widest text-[#072541]/40 mb-1.5">
+          <div>
+            <p className="text-[10px] font-display font-black uppercase tracking-widest text-[#e95f0c] mb-1.5">
               Media Type
             </p>
+
             <div className="flex items-center gap-2">
               {MEDIA_TYPES.map((t) => (
-                <Pill key={t.id} active={activeType === t.id} onClick={() => setActiveType(t.id)}>
+                <Pill
+                  key={t.id}
+                  active={activeType === t.id}
+                  onClick={() => setActiveType(t.id)}
+                >
                   {t.label}
                 </Pill>
               ))}
             </div>
           </div>
+
         </div>
       </div>
 

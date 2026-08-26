@@ -94,15 +94,6 @@ const otherCategories = [
       { id: 'cf-16', order: 16, name: 'Lakshmisree Caterer', type: 'video', url: '/media/cafe-food/lakshmisree-4.mp4', aspect: 'portrait' },
     ],
   },
-  // {
-  //   id: 'education',
-  //   categoryName: 'Education',
-  //   description: 'Promotional content, online course graphics, and student spotlight documentaries for leading learning networks.',
-  //   works: [
-  //     { id: 'edu-1', order: 1, name: 'Upgrad Kolkata', type: 'image', url: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80', aspect: 'portrait' },
-  //     { id: 'edu-2', order: 2, name: 'Upgrad Kolkata', type: 'image', url: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80', aspect: 'landscape' },
-  //   ],
-  // },
   {
     id: 'banquets',
     categoryName: 'Banquets',
