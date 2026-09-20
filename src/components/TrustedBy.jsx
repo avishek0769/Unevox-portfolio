@@ -68,6 +68,12 @@ export default function TrustedBy() {
               </div>
             );
           })}
+          {/* "& many more" element */}
+          <div className="w-[calc(50%-12px)] sm:w-[calc(33.33%-16px)] md:w-[calc(25%-18px)] lg:w-[calc(16.66%-20px)] flex flex-col items-center justify-center gap-3 p-4 rounded-2xl border border-dashed border-[#b8b3ad] bg-transparent text-[#4a5568]">
+            <span className="text-center text-sm font-semibold leading-tight">
+              &amp; many more...
+            </span>
+          </div>
         </div>
       </div>
     </section>

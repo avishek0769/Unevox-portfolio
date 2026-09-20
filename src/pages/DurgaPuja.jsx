@@ -121,7 +121,7 @@ const STATIC_FILMS = [
 // ─── MULTI-MARQUEE CLIENT LOGOS ──────────────────────────────────────────────
 const MARQUEE_LOGOS = [
   '/client_logos/Suruchi_Sangha-logo.png',
-  '/client_logos/behala_nutan_dal-logo.png',
+  '/client_logos/behala_nutan_dal.png',
   '/client_logos/tarun_matri_sevak_samity-logo.png',
   '/client_logos/behala-club-logo.png',
   '/client_logos/forum-logo.png',

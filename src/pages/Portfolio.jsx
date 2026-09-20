@@ -196,7 +196,6 @@ function VideoCard({ item, onClick }) {
         src={item.url}
         loop
         playsInline
-        muted
         className="absolute inset-0 w-full h-full object-cover"
       />
       {!playing && (
