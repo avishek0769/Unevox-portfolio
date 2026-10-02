@@ -9,13 +9,12 @@ const logos = [
   { file: '/client_logos/Calcutta_Football_League.svg', name: 'Calcutta Football League' },
   { file: '/client_logos/Suruchi_Sangha-logo.png', name: 'Suruchi Sangha' },
   { file: '/client_logos/behala_ss_sporting_club-logo.png', name: 'Behala SS Sporting Club' },
-  { file: '/client_logos/behala_cup.jpeg', name: 'Behala Cup' }, //
   { file: '/client_logos/behala_classical_festival.png', name: 'Behala Classical Festival' },
-  { file: '/client_logos/behala-theatre.jpeg', name: 'Behala Theatre Festival' },
+  { file: '/client_logos/behala-theatre.png', name: 'Behala Theatre Festival' },
   { file: '/client_logos/behala_nutan_dal.png', name: 'Behala Nutan Dal' }, //
   { file: '/client_logos/newton-sarbojonin.png', name: 'Newton Sarbojonin' },
-  // Fair weather
-  { file: '/client_logos/rainbow_house-logo.png', name: 'Rainbow House Banquet' },
+  { file: '/client_logos/fair-weather.png', name: 'Fair Weather' },
+  { file: '/client_logos/rainbow_house.png', name: 'Rainbow House Banquet' },
   { file: '/client_logos/playport.png', name: 'Playport and Reflection' },
   { file: '/client_logos/shoreline.png', name: 'Shoreline' },
   // Krysalis
