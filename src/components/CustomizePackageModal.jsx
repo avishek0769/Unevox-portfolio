@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { X, Sparkles, Send, CheckCircle, AlertCircle } from 'lucide-react';
+import { APP_SCRIPT_HOST } from '../../constants';
 
 export default function CustomizePackageModal({ isOpen, onClose }) {
   if (!isOpen) return null;
@@ -9,6 +10,7 @@ export default function CustomizePackageModal({ isOpen, onClose }) {
     company: '',
     phone: '',
     email: '',
+    location: '',
     industry: [],
     service: [],
     requirements: '',
@@ -82,7 +84,7 @@ export default function CustomizePackageModal({ isOpen, onClose }) {
       };
 
       await fetch(
-        'https://script.google.com/macros/s/AKfycbw00qiqQIiympVbhhBjTxtxvqvV6-Ef6WyKO9Xh4G6lzpcGyHOLf2blwHtemaFZaMVQ6g/exec',
+        APP_SCRIPT_HOST,
         {
           method: 'POST',
           body: JSON.stringify(payload),
@@ -94,6 +96,7 @@ export default function CustomizePackageModal({ isOpen, onClose }) {
         company: '',
         phone: '',
         email: '',
+        location: '',
         industry: [],
         service: [],
         requirements: '',
@@ -250,6 +253,22 @@ export default function CustomizePackageModal({ isOpen, onClose }) {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="e.g. rahul@example.com"
+                      className="w-full px-4 py-3 rounded-xl border border-slate-border bg-slate-dark text-black-100 placeholder-text-muted focus:outline-none focus:border-volt transition-colors"
+                    />
+                  </div>
+
+                  {/* Location */}
+                  <div>
+                    <label className="block text-xs font-semibold uppercase tracking-wider text-text-secondary mb-2">
+                      Location <span className="text-volt">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      name="location"
+                      required
+                      value={formData.location}
+                      onChange={handleChange}
+                      placeholder="e.g. Kolkata, India"
                       className="w-full px-4 py-3 rounded-xl border border-slate-border bg-slate-dark text-black-100 placeholder-text-muted focus:outline-none focus:border-volt transition-colors"
                     />
                   </div>
