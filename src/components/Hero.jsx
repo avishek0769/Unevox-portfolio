@@ -1,39 +1,9 @@
-import React from 'react';
-import { Calendar, ArrowRight } from 'lucide-react';
-
-/* ── Image carousel (commented out, kept for reference) ─────────────────────
-const slides = [
-  {
-    url: 'https://images.unsplash.com/photo-1626248801379-51a0748a5f96?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    alt: 'Football stadium aerial',
-  },
-  {
-    url: 'https://images.unsplash.com/photo-1766525133589-e3b4b090c04b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    alt: 'Cricket stadium lights',
-  },
-  {
-    url: 'https://images.unsplash.com/photo-1777529565155-049acfe14129?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    alt: 'Stadium overhead view',
-  },
-  {
-    url: 'https://images.unsplash.com/photo-1766525133589-e3b4b090c04b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    alt: 'Neon sports turf',
-  },
-];
-─────────────────────────────────────────────────────────────────────────── */
+import React, { useState } from 'react';
+import { Calendar, Package, ArrowRight } from 'lucide-react';
+import CustomizePackageModal from './CustomizePackageModal';
 
 export default function Hero({ onBookCall }) {
-  /* ── Carousel state (commented out along with slides) ───────────────────────
-  const [current, setCurrent] = useState(0);
-
-  // Auto-advance every 5 s
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % slides.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, []);
-  ─────────────────────────────────────────────────────────────────────────── */
+  const [isCustomizeOpen, setIsCustomizeOpen] = useState(false);
 
   const handleScrollToWork = () => {
     document.getElementById('featured-work')?.scrollIntoView({ behavior: 'smooth' });
@@ -60,7 +30,7 @@ export default function Hero({ onBookCall }) {
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 w-full pt-20 pb-20">
         <div className="max-w-3xl space-y-8">
           {/* Headline */}
-          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.05]">
+          <h1 className="font-display text-[2.6rem] sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.05]">
             Where brands{' '}
             <span className="text-[#e95f0c]">breathe</span>, and every pixel{' '}
             <span className="underline decoration-[#e95f0c] decoration-4 underline-offset-4">
@@ -77,13 +47,20 @@ export default function Hero({ onBookCall }) {
           </p>
 
           {/* CTAs */}
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 flex-wrap">
             <button
               onClick={onBookCall}
               className="btn-primary px-8 py-4 text-base flex items-center gap-2 shadow-lg shadow-[#e95f0c]/30 cursor-pointer"
             >
               <Calendar className="w-5 h-5" />
               Book Free Call
+            </button>
+            <button
+              onClick={() => setIsCustomizeOpen(true)}
+              className="btn-primary px-8 py-4 text-base flex items-center gap-2 shadow-lg shadow-[#e95f0c]/30 cursor-pointer"
+            >
+              <Package className="w-5 h-5" />
+              Customize Package
             </button>
             <button
               onClick={handleScrollToWork}
@@ -96,23 +73,11 @@ export default function Hero({ onBookCall }) {
         </div>
       </div>
 
-      {/* ── Carousel dot indicators (commented out) ─────────────────────────
-      <div className="absolute bottom-10 right-8 z-10 flex items-center gap-2">
-        {slides.map((_, idx) => (
-          <button
-            key={idx}
-            onClick={() => setCurrent(idx)}
-            className={`rounded-full transition-all duration-300 cursor-pointer ${
-              idx === current
-                ? 'w-6 h-2 bg-[#e95f0c]'
-                : 'w-2 h-2 bg-white/40 hover:bg-white/70'
-            }`}
-            aria-label={`Go to slide ${idx + 1}`}
-          />
-        ))}
-      </div>
-      ─────────────────────────────────────────────────────────────────────── */}
-
+      {/* Customize Package Modal */}
+      <CustomizePackageModal
+        isOpen={isCustomizeOpen}
+        onClose={() => setIsCustomizeOpen(false)}
+      />
     </section>
   );
 }
