@@ -11,7 +11,9 @@ const logos = [
   { file: '/client_logos/behala_ss_sporting_club-logo.png', name: 'Behala SS Sporting Club' },
   { file: '/client_logos/behala_classical_festival.png', name: 'Behala Classical Festival' },
   { file: '/client_logos/behala-theatre.png', name: 'Behala Theatre Festival' },
-  { file: '/client_logos/behala_nutan_dal.png', name: 'Behala Nutan Dal' }, //
+  { file: '/client_logos/behala-club-logo.png', name: 'Behala Club Sarbojanin Durgotsav' },
+  { file: '/client_logos/forum-logo.png', name: 'Forum For Durgotsab' },
+  { file: '/client_logos/behala_nutan_dal.png', name: 'Behala Nutan Dal' },
   { file: '/client_logos/newton-sarbojonin.png', name: 'Newton Sarbojonin' },
   { file: '/client_logos/fair-weather.png', name: 'Fair Weather' },
   { file: '/client_logos/rainbow_house.png', name: 'Rainbow House Banquet' },
