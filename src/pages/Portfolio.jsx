@@ -60,15 +60,15 @@ const ALL_MEDIA = [
   { id: 'sp-30', categoryId: 'sports', url: '/media/sports/dpdl-4-g.jpg', aspect: 'tall' },
   { id: 'sp-31', categoryId: 'sports', url: '/media/sports/dpdl-5-g.jpg', aspect: 'tall' },
   { id: 'sp-32', categoryId: 'sports', url: '/media/sports/dpdl-6-g.jpg', aspect: 'tall' },
-  { id: 'sp-32', categoryId: 'sports', url: '/media/sports/dpdl-7-g.jpg', aspect: 'tall' },
-  { id: 'sp-32', categoryId: 'sports', url: '/media/sports/dpdl-8-g.jpg', aspect: 'tall' },
-  { id: 'sp-32', categoryId: 'sports', url: '/media/sports/dpdl-9-g.jpg', aspect: 'tall' },
-  { id: 'sp-32', categoryId: 'sports', url: '/media/sports/dpdl-10-g.jpg', aspect: 'tall' },
+  { id: 'sp-33', categoryId: 'sports', url: '/media/sports/dpdl-7-g.jpg', aspect: 'tall' },
+  { id: 'sp-34', categoryId: 'sports', url: '/media/sports/dpdl-8-g.jpg', aspect: 'tall' },
+  { id: 'sp-35', categoryId: 'sports', url: '/media/sports/dpdl-9-g.jpg', aspect: 'tall' },
+  { id: 'sp-36', categoryId: 'sports', url: '/media/sports/dpdl-10-g.jpg', aspect: 'tall' },
   { id: 'sp-37', categoryId: 'sports', url: '/media/sports/fc-banaras-1-g.jpg', aspect: 'tall' },
-  { id: 'sp-37', categoryId: 'sports', url: '/media/sports/fc-banaras-2-g.jpg', aspect: 'tall' },
-  { id: 'sp-37', categoryId: 'sports', url: '/media/sports/fc-banaras-3-g.jpg', aspect: 'tall' },
-  { id: 'sp-37', categoryId: 'sports', url: '/media/sports/fc-banaras-4-g.jpg', aspect: 'tall' },
-  { id: 'sp-37', categoryId: 'sports', url: '/media/sports/fc-banaras-5-g.jpg', aspect: 'tall' },
+  { id: 'sp-38', categoryId: 'sports', url: '/media/sports/fc-banaras-2-g.jpg', aspect: 'tall' },
+  { id: 'sp-39', categoryId: 'sports', url: '/media/sports/fc-banaras-3-g.jpg', aspect: 'tall' },
+  { id: 'sp-40', categoryId: 'sports', url: '/media/sports/fc-banaras-4-g.jpg', aspect: 'tall' },
+  { id: 'sp-41', categoryId: 'sports', url: '/media/sports/fc-banaras-5-g.jpg', aspect: 'tall' },
   { id: 'sp-1', categoryId: 'sports', url: '/media/sports/n24-1.jpg', aspect: 'tall' },
   { id: 'sp-2', categoryId: 'sports', url: '/media/sports/n24-2.jpg', aspect: 'tall' },
   { id: 'sp-3', categoryId: 'sports', url: '/media/sports/n24-3.jpg', aspect: 'tall' },
@@ -165,9 +165,27 @@ const ALL_MEDIA = [
   { id: 'bq-10', categoryId: 'banquets', url: '/media/banquets/rainbow-10.mp4', aspect: 'portrait' },
 ].map((item) => ({ ...item, type: deriveType(item.url) }));
 
-const PAGE_SIZE = 18;
+// ─── CARD WIDTH/ASPECT HELPERS ────────────────────────────────────────────────
+function getCardWidthClass(aspect) {
+  switch (aspect) {
+    case 'portrait': return 'w-64 sm:w-72';
+    case 'landscape': return 'w-80 sm:w-[28rem]';
+    case 'wide': return 'w-80 sm:w-96';
+    case 'tall': return 'w-64 sm:w-72';
+    default: return 'w-72 sm:w-80';
+  }
+}
 
-// ─── ASPECT → CSS ─────────────────────────────────────────────────────────────
+function getAspectClass(aspect) {
+  switch (aspect) {
+    case 'portrait': return 'aspect-[9/16]';
+    case 'landscape': return 'aspect-[16/9]';
+    case 'wide': return 'aspect-[4/3]';
+    case 'tall': return 'aspect-[3/4]';
+    default: return 'aspect-square';
+  }
+}
+
 function getAspectStyle(aspect) {
   switch (aspect) {
     case 'portrait': return { aspectRatio: '9 / 16' };
@@ -184,7 +202,9 @@ function VideoCard({ item, onClick }) {
   const [playing, setPlaying] = useState(false);
 
   const handleEnter = () => {
-    videoRef.current?.play().then(() => setPlaying(true)).catch(() => { });
+    if (videoRef.current) {
+      videoRef.current.play().then(() => setPlaying(true)).catch(() => { });
+    }
   };
   const handleLeave = () => {
     if (videoRef.current) {
@@ -194,28 +214,37 @@ function VideoCard({ item, onClick }) {
     }
   };
 
+  const widthClass = getCardWidthClass(item.aspect);
+  const aspectClass = getAspectClass(item.aspect);
+
   return (
     <div
-      className="relative overflow-hidden rounded-2xl bg-black cursor-pointer group hover:shadow-2xl transition-shadow duration-300"
-      style={getAspectStyle(item.aspect)}
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
       onClick={() => onClick(item)}
+      className={`flex flex-col shrink-0 group cursor-pointer ${widthClass}`}
     >
-      <video
-        ref={videoRef}
-        src={item.url}
-        loop
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover"
-      />
-      {!playing && (
+      <div
+        className={`relative w-full rounded-3xl overflow-hidden border border-[#e2dbd3] bg-black group-hover:border-[#e95f0c] group-hover:shadow-2xl transition-all duration-300 ${aspectClass}`}
+      >
+        <video
+          ref={videoRef}
+          src={item.url}
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover opacity-85 group-hover:opacity-100 transition-opacity duration-300"
+        />
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="w-12 h-12 rounded-full bg-black/40 backdrop-blur-sm border border-white/30 flex items-center justify-center">
-            <Play className="w-5 h-5 fill-white text-white translate-x-0.5" />
+          <div
+            className={`w-14 h-14 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white transition-all duration-300 ${playing
+              ? 'opacity-0 scale-75'
+              : 'opacity-100 scale-100 group-hover:scale-110 group-hover:bg-[#e95f0c] group-hover:border-[#e95f0c]'
+              }`}
+          >
+            <Play className="w-5 h-5 fill-current translate-x-0.5" />
           </div>
         </div>
-      )}
+      </div>
     </div>
   );
 }
@@ -223,18 +252,24 @@ function VideoCard({ item, onClick }) {
 // ─── PHOTO / GRAPHICS CARD ────────────────────────────────────────────────────
 function PhotoCard({ item, onClick }) {
   const altText = item.alt || `${item.type === 'graphics' ? 'Creative graphic' : 'Portfolio photo'} – ${item.categoryId || 'work'}`;
+  const widthClass = getCardWidthClass(item.aspect);
+  const aspectClass = getAspectClass(item.aspect);
+
   return (
     <div
-      className="relative overflow-hidden rounded-2xl bg-[#072541] cursor-pointer group hover:shadow-2xl transition-all duration-300"
-      style={getAspectStyle(item.aspect)}
       onClick={() => onClick(item)}
+      className={`flex flex-col shrink-0 group cursor-pointer ${widthClass}`}
     >
-      <img
-        src={item.url}
-        alt={altText}
-        className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-        loading="lazy"
-      />
+      <div
+        className={`relative w-full rounded-3xl overflow-hidden border border-[#e2dbd3] bg-[#072541] group-hover:border-[#e95f0c] group-hover:shadow-2xl transition-all duration-300 ${aspectClass}`}
+      >
+        <img
+          src={item.url}
+          alt={altText}
+          className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          loading="lazy"
+        />
+      </div>
     </div>
   );
 }
@@ -334,46 +369,6 @@ function Lightbox({ items, index, onClose, onPrev, onNext }) {
   );
 }
 
-// ─── MASONRY ITEM ─────────────────────────────────────────────────────────────
-function MasonryItem({ children, item }) {
-  const itemRef = useRef(null);
-  const [spans, setSpans] = useState(0);
-
-  const calculateSpans = useCallback(() => {
-    if (itemRef.current) {
-      const height = itemRef.current.firstElementChild?.offsetHeight || itemRef.current.offsetHeight;
-      const rowHeight = 10;
-      const gap = 16;
-      const numSpans = Math.ceil((height + gap) / (rowHeight + gap));
-      setSpans(numSpans);
-    }
-  }, []);
-
-  useEffect(() => {
-    calculateSpans();
-    const id = requestAnimationFrame(calculateSpans);
-    const timeoutId = setTimeout(calculateSpans, 150);
-    window.addEventListener('resize', calculateSpans);
-    return () => {
-      cancelAnimationFrame(id);
-      clearTimeout(timeoutId);
-      window.removeEventListener('resize', calculateSpans);
-    };
-  }, [calculateSpans, item]);
-
-  const isWide = item.aspect === 'wide' || item.aspect === 'landscape';
-
-  return (
-    <div
-      ref={itemRef}
-      className={isWide ? "sm:col-span-2 col-span-1" : "col-span-1"}
-      style={{ gridRowEnd: spans ? `span ${spans}` : 'auto' }}
-    >
-      <div onLoad={calculateSpans}>{children}</div>
-    </div>
-  );
-}
-
 // ─── FILTER PILL ─────────────────────────────────────────────────────────────
 function Pill({ active, onClick, children }) {
   return (
@@ -401,9 +396,8 @@ export default function Portfolio() {
 
   const [activeCat, setActiveCat] = useState(validCat);
   const [activeType, setActiveType] = useState('all');
-  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   const [lightboxIndex, setLightboxIndex] = useState(null);
-  const sentinelRef = useRef(null);
+  const scrollRef = useRef(null);
 
   // allMedia = static items merged with any Sanity items
   const [allMedia, setAllMedia] = useState(ALL_MEDIA);
@@ -449,9 +443,6 @@ export default function Portfolio() {
     return catMatch && typeMatch;
   });
 
-  const visible = filtered.slice(0, visibleCount);
-  const hasMore = visibleCount < filtered.length;
-
   const openLightbox = useCallback((item) => {
     setLightboxIndex(filtered.findIndex((m) => m.id === item.id));
   }, [filtered]);
@@ -460,24 +451,13 @@ export default function Portfolio() {
   const prevItem = useCallback(() => setLightboxIndex((i) => Math.max(0, i - 1)), []);
   const nextItem = useCallback(() => setLightboxIndex((i) => Math.min(filtered.length - 1, i + 1)), [filtered.length]);
 
-  // Reset page when filters change
-  useEffect(() => { setVisibleCount(PAGE_SIZE); }, [activeCat, activeType]);
-
-  // Infinite scroll — load next batch when sentinel enters viewport
-  useEffect(() => {
-    const sentinel = sentinelRef.current;
-    if (!sentinel) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting && visibleCount < filtered.length) {
-          setVisibleCount((c) => c + PAGE_SIZE);
-        }
-      },
-      { rootMargin: '200px' }
-    );
-    observer.observe(sentinel);
-    return () => observer.disconnect();
-  }, [visibleCount, filtered.length]);
+  const scroll = (direction) => {
+    if (scrollRef.current) {
+      const { scrollLeft, clientWidth } = scrollRef.current;
+      const offset = direction === 'left' ? -clientWidth * 0.75 : clientWidth * 0.75;
+      scrollRef.current.scrollTo({ left: scrollLeft + offset, behavior: 'smooth' });
+    }
+  };
 
   const activeCatName = CATEGORIES.find((c) => c.id === activeCat)?.name ?? 'All';
 
@@ -550,43 +530,59 @@ export default function Portfolio() {
         </div>
       </div>
 
-      {/* ── GALLERY ── */}
+      {/* ── SLIDER SHOWCASE ── */}
       <div className="max-w-7xl mx-auto px-6 md:px-8 py-12">
 
-        {/* Heading */}
-        <div className="mb-8">
-          <h2 className="font-display text-3xl sm:text-4xl font-black text-[#072541]">
-            {activeCat === 'all' ? 'All Campaigns' : activeCatName}
-            {activeType !== 'all' && (
-              <span className="ml-3 text-[#e95f0c]">— {MEDIA_TYPES.find((t) => t.id === activeType)?.label}</span>
-            )}
-          </h2>
-          <p className="text-[#9ca3af] text-sm mt-1">
-            {filtered.length} item{filtered.length !== 1 ? 's' : ''} found
-          </p>
+        {/* Heading & Slider Controls */}
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+          <div>
+            <h2 className="font-display text-3xl sm:text-4xl font-black text-[#072541]">
+              {activeCat === 'all' ? 'All Campaigns' : activeCatName}
+              {activeType !== 'all' && (
+                <span className="ml-3 text-[#e95f0c]">— {MEDIA_TYPES.find((t) => t.id === activeType)?.label}</span>
+              )}
+            </h2>
+            <p className="text-[#9ca3af] text-sm mt-1">
+              {filtered.length} item{filtered.length !== 1 ? 's' : ''} found • Hover to play videos, click to view full media
+            </p>
+          </div>
+
+          {/* Scroll navigation arrows */}
+          {filtered.length > 0 && (
+            <div className="flex items-center gap-2 shrink-0">
+              <button
+                onClick={() => scroll('left')}
+                className="w-10 h-10 rounded-full border border-[#e2dbd3] bg-white hover:bg-[#e95f0c] hover:border-[#e95f0c] hover:text-white flex items-center justify-center transition-all duration-200 cursor-pointer text-[#072541]"
+                aria-label="Scroll left"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+              <button
+                onClick={() => scroll('right')}
+                className="w-10 h-10 rounded-full border border-[#e2dbd3] bg-white hover:bg-[#e95f0c] hover:border-[#e95f0c] hover:text-white flex items-center justify-center transition-all duration-200 cursor-pointer text-[#072541]"
+                aria-label="Scroll right"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            </div>
+          )}
         </div>
 
-        {visible.length === 0 ? (
+        {filtered.length === 0 ? (
           <div className="py-32 text-center text-[#9ca3af] font-display font-bold text-lg">
             No media for this selection yet.
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 grid-flow-row-dense auto-rows-[10px]">
-            {visible.map((item) => (
-              <MasonryItem key={item.id} item={item}>
+          <div
+            ref={scrollRef}
+            className="flex items-center gap-6 overflow-x-auto pb-8 pt-2 scroll-smooth scrollbar-none snap-x snap-mandatory"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
+            {filtered.map((item) => (
+              <div key={item.id} className="snap-start shrink-0">
                 <MediaCard item={item} onClick={openLightbox} />
-              </MasonryItem>
+              </div>
             ))}
-          </div>
-        )}
-
-        {/* Infinite scroll sentinel */}
-        <div ref={sentinelRef} className="h-px w-full mt-8" aria-hidden="true" />
-
-        {/* Loading spinner shown while more items exist */}
-        {hasMore && (
-          <div className="flex justify-center py-8 pointer-events-none">
-            <div className="w-7 h-7 rounded-full border-[3px] border-[#072541]/20 border-t-[#e95f0c] animate-spin" />
           </div>
         )}
       </div>
