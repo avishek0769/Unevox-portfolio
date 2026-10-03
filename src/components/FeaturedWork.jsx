@@ -3,22 +3,26 @@ import { Link } from 'react-router-dom';
 import { ArrowUpRight, ExternalLink } from 'lucide-react';
 
 const projects = [
-  // {
-  //   id: 'durand-baghpat',
-  //   league: 'Durand Cup',
-  //   team: 'Baghpat FC',
-  //   // description: "Captured match highlights, behind-the-scenes moments, and social media content throughout Asia's oldest football tournament — fuelling Baghpat FC's digital presence.",
-  //   image: 'https://images.unsplash.com/photo-1766525133589-e3b4b090c04b?q=80&w=1170&auto=format&fit=crop',
-  //   leagueLogo: '/client_logos/Durand_Cup.svg.webp',
-  //   accentColor: '#e95f0c',
-  //   slug: '/portfolio?cat=sports',
-  //   featured: true,
-  // },
+  {
+    id: 'durand-baghpat',
+    league: 'Durand Cup',
+    team: 'Baghpat FC',
+    images: [
+        '/media/sports/fc-banaras-2-g.jpg',
+        '/media/sports/fc-banaras-1-g.jpg',
+        '/media/sports/fc-banaras-3-g.jpg',
+        '/media/sports/fc-banaras-4-g.jpg',
+        '/media/sports/fc-banaras-5-g.jpg',
+    ],
+    leagueLogo: '/client_logos/Durand_Cup.svg.webp',
+    accentColor: '#e95f0c',
+    slug: '/portfolio?cat=sports',
+    // featured: true,
+  },
   {
     id: 'cfl-behala-ss',
     league: 'Bengal Super League',
     team: 'North 24 Parganas',
-    // description: 'End-to-end media coverage for North 24 Parganas across the Bengal Super League — from pre-season promos to post-match rundowns.',
     image: '/media/sports/n24-1.jpg',
     images: [
       '/media/sports/n24-1.jpg',
@@ -28,6 +32,38 @@ const projects = [
     ],
     leagueLogo: '/client_logos/Calcutta_Football_League.svg',
     accentColor: '#059669',
+    slug: '/portfolio?cat=sports',
+  },
+  {
+    id: 'bsl-north24',
+    league: 'Calcutta Football League',
+    team: 'Behala SS',
+    image: '/media/sports/bss-2.jpg',
+    images: [
+      '/media/sports/bss-2.jpg',
+      '/media/sports/bss-1.jpg',
+      '/media/sports/bss-3.jpg',
+      '/media/sports/bss-4.jpg'
+    ],
+    leagueLogo: '/client_logos/north_24_parganas_logo.png',
+    accentColor: '#dc2626',
+    slug: '/portfolio?cat=sports',
+  },
+  {
+    id: 'dpdl',
+    league: 'Double Pass Development League',
+    team: '',
+    image: '/media/sports/dpdl-g-1.jpg',
+    images: [
+      '/media/sports/dpdl-5-g.jpg',
+      '/media/sports/dpdl-6-g.jpg',
+      '/media/sports/dpdl-7-g.jpg',
+      '/media/sports/dpdl-8-g.jpg',
+      '/media/sports/dpdl-9-g.jpg',
+      '/media/sports/dpdl-10-g.jpg',
+    ],
+    leagueLogo: '/client_logos/dpdl-acer.png',
+    accentColor: '#7c3aed',
     slug: '/portfolio?cat=sports',
   },
   {
@@ -44,22 +80,6 @@ const projects = [
     ],
     leagueLogo: '/client_logos/Calcutta_Football_League.svg',
     accentColor: '#7c3aed',
-    slug: '/portfolio?cat=sports',
-  },
-  {
-    id: 'bsl-north24',
-    league: 'Calcutta Football League',
-    team: 'Behala SS',
-    // description: 'Match-day graphics, live coverage, and highlight reels that drove Behala SS Sporting Club\'s social media growth throughout the CFL season.',
-    image: '/media/sports/bss-2.jpg',
-    images: [
-      '/media/sports/bss-2.jpg',
-      '/media/sports/bss-1.jpg',
-      '/media/sports/bss-3.jpg',
-      '/media/sports/bss-4.jpg'
-    ],
-    leagueLogo: '/client_logos/north_24_parganas_logo.png',
-    accentColor: '#dc2626',
     slug: '/portfolio?cat=sports',
   },
 ];
@@ -192,7 +212,7 @@ function ProjectCard({ project, index }) {
       )}
 
       {/* Base gradient */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#072541]/80 via-[#072541]/20 to-transparent z-10" />
+      <div className="absolute inset-x-0 bottom-0 top-1/2 bg-gradient-to-t from-[#072541]/70 via-[#072541]/10 to-transparent z-10" />
 
       {/* Accent overlay on hover */}
       {/* <div
